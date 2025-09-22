@@ -1,0 +1,83 @@
+# Visual Studio 2015/2017/2019/2022 user specific files
+.vs/
+*.user
+*.userosscache
+*.sln.docstates
+
+# Visual Studio Code
+.vscode/
+
+# Unreal Engine 4/5
+Binaries/
+DerivedDataCache/
+Intermediate/
+Saved/
+Build/
+*.tmp
+*.log
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+*.swp
+*.swo
+*~
+
+# Unreal Engine specific
+*.uproject.DotSettings
+*.uproject.DotSettings.user
+*.uproject.DotSettings.user.DotSettings
+
+# Crash logs
+CrashReportClient/
+
+# Autosave files
+*.autosave
+
+# Package files
+*.upk
+*.udk
+
+# Blueprint cache
+*.uasset.DotSettings
+
+# Shader cache
+ShaderCache/
+
+# Local configuration files
+Config/DefaultInput.ini
+Config/DefaultGame.ini
+Config/DefaultEngine.ini
+Config/DefaultEditor.ini
+
+# Local user settings
+Saved/Config/
+Saved/Logs/
+Saved/Screenshots/
+Saved/Autosaves/
