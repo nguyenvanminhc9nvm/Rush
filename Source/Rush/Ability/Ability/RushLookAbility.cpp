@@ -35,7 +35,7 @@ void URushLookAbility::ActivateAbility(const FGameplayAbilitySpecHandle Handle, 
 	{
 		RushCharacter->RushInputComponent->BindNativeActions(
 			GameMode->UIConfig,
-			RushGameplayTag::InputTag_Move,
+			RushGameplayTag::InputTag_Look,
 			ETriggerEvent::Triggered,
 			this,
 			&URushLookAbility::Input_Look);
@@ -56,7 +56,7 @@ void URushLookAbility::Input_Look(const FInputActionValue& Value)
 		return;
 	}
 	
-
+	UE_LOG(LogTemp, Warning, TEXT("Look input: %s"), *LookInput.ToString());
 	// Calculate the new rotation based on the input
 	const float YawDelta = LookInput.X;
 	const float PitchDelta = LookInput.Y;
