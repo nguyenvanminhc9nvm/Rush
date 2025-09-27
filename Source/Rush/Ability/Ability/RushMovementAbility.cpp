@@ -3,7 +3,7 @@
 #include "EnhancedInputComponent.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "Rush/Character/RushCharacter.h"
-#include "Rush/GameMode/RushGameMode.h"
+#include "Rush/Core/GameMode/RushGameMode.h"
 #include "Rush/Input/RushInputComponent.h"
 #include "Rush/Tags/RushGameplayTag.h"
 

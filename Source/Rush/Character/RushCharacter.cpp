@@ -3,7 +3,6 @@
 
 #include "RushCharacter.h"
 
-#include "Rush/GameMode/RushGameMode.h"
 #include "Rush/Input/RushInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "RushAbilitySystemComponent.h"
@@ -11,6 +10,7 @@
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "Rush/Core/GameMode/RushGameMode.h"
 
 
 ARushCharacter::ARushCharacter(const FObjectInitializer& ObjectInitializer): Super(
