@@ -36,3 +36,30 @@ struct FRushFragmentWeaponIronSight: public FTableRowBase
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	FDataTableRowHandle RowHandleSettingScope;
 };
+
+USTRUCT(BlueprintType)
+struct FRushFragmentWeaponLaser: public FTableRowBase
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	bool bOffWhileAiming;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	bool bOffWhileRunning;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	bool bOffWhileLowered;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	FVector RelativeLocation;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	USoundBase* ToggleSoundCue;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	bool bFlashlight;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	bool bLaserSight;
+};
