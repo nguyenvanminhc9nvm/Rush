@@ -1,0 +1,17 @@
+#pragma once
+
+#include "CoreMinimal.h"
+#include "Enum/EScopeName.h"
+#include "Kismet/BlueprintFunctionLibrary.h"
+#include "Struct/FScopeSettingsEntry.h"
+#include "ScopeSettingsLibrary.generated.h"
+
+UCLASS()
+class RUSH_API UScopeSettingsLibrary : public UBlueprintFunctionLibrary
+{
+    GENERATED_BODY()
+
+public:
+    UFUNCTION(BlueprintPure, Category="Scope Settings")
+    static FScopeSettingsEntry GetScopeSettingsByName(EScopeName ScopeName);
+};
