@@ -1,6 +1,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Enum/EFragmentLaserName.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "WeaponFragmentLaserBPLibrary.generated.h"
 
@@ -11,5 +12,5 @@ class RUSH_API UWeaponFragmentLaserBPLibrary : public UBlueprintFunctionLibrary
 
 public:
     UFUNCTION(BlueprintPure, Category="Weapon Fragment")
-    static TSubclassOf<AActor> GetWeaponFragmentLaserByName(const FString& FragmentName);
+    static TSubclassOf<AActor> GetWeaponFragmentLaserByName(EFragmentLaserName FragmentName);
 };

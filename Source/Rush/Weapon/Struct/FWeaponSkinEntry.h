@@ -14,7 +14,7 @@ struct RUSH_API FWeaponSkinEntry
     GENERATED_BODY()
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Weapon Skin")
-    FString Name;
+    TEnumAsByte<EWeaponSkinName> Name;
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Weapon Skin")
     TMap<FString, UMaterialInterface*> MaterialMapBody;

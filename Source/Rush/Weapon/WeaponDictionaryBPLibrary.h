@@ -1,6 +1,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Enum/EWeaponName.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "WeaponDictionaryBPLibrary.generated.h"
 
@@ -11,5 +12,5 @@ class RUSH_API UWeaponDictionaryBPLibrary : public UBlueprintFunctionLibrary
 
 public:
     UFUNCTION(BlueprintPure, Category="Weapon")
-    static TSubclassOf<AActor> GetWeaponByName(const FString& WeaponName);
+    static TSubclassOf<AActor> GetWeaponByName(EWeaponName WeaponName);
 };

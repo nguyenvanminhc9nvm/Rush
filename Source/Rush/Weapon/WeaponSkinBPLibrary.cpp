@@ -5,7 +5,7 @@
 #include "Engine/Engine.h"
 #include "Struct/FWeaponSkinEntry.h"
 
-static TMap<FString, FWeaponSkinEntry> GWeaponSkinMap;
+static TMap<EWeaponSkinName, FWeaponSkinEntry> GWeaponSkinMap;
 
 static void InitWeaponSkinMap()
 {
@@ -13,7 +13,7 @@ static void InitWeaponSkinMap()
 
     // Default Assault Rifle 01
     FWeaponSkinEntry DefaultAR01;
-    DefaultAR01.Name = "Default-Assault-Rifle-01";
+    DefaultAR01.Name = EWeaponSkinName::DefaultAssaultRifle01;
     
     // Material Map Body
     DefaultAR01.MaterialMapBody.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Camo/MI_WEP_Camo_001.MI_WEP_Camo_001")));
@@ -63,17 +63,17 @@ static void InitWeaponSkinMap()
     // Material Map Grip
     DefaultAR01.MaterialMapGrip.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Camo/MI_WEP_Camo_001.MI_WEP_Camo_001")));
 
-    GWeaponSkinMap.Add("Default-Assault-Rifle-01", DefaultAR01);
-
 	// get Flastlightsetting bp library
-	DefaultAR01.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Normal);
-    DefaultAR01.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Normal);
+	DefaultAR01.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+    DefaultAR01.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Normal);
+
+    GWeaponSkinMap.Add(EWeaponSkinName::DefaultAssaultRifle01, DefaultAR01);
 
     /// ---------------------------------------------------------------------------------------------------- ////
 
     // Default Assault Rifle 02
     FWeaponSkinEntry DefaultAR02;
-    DefaultAR02.Name = "Default-Assault-Rifle-02";
+    DefaultAR02.Name = EWeaponSkinName::DefaultAssaultRifle02;
     
     // Material Map Body
     DefaultAR02.MaterialMapBody.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Camo/MI_WEP_Camo_008.MI_WEP_Camo_008")));
@@ -123,16 +123,16 @@ static void InitWeaponSkinMap()
     // Material Map Grip
     DefaultAR02.MaterialMapGrip.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Camo/MI_WEP_Camo_008.MI_WEP_Camo_008")));
 
-    GWeaponSkinMap.Add("Default-Assault-Rifle-02", DefaultAR02);
+    DefaultAR02.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+    DefaultAR02.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Normal);
 
-    DefaultAR02.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Normal);
-    DefaultAR02.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Normal);
+    GWeaponSkinMap.Add(EWeaponSkinName::DefaultAssaultRifle02, DefaultAR02);
 
     /// ---------------------------------------------------------------------------------------------------- ////
 
     // Default Assault Rifle 03
     FWeaponSkinEntry DefaultAR03;
-    DefaultAR03.Name = "Default-Assault-Rifle-03";
+    DefaultAR03.Name = EWeaponSkinName::DefaultAssaultRifle03;
     
     // Material Map Body
     DefaultAR03.MaterialMapBody.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Camo/MI_WEP_Camo_027.MI_WEP_Camo_027")));
@@ -182,16 +182,16 @@ static void InitWeaponSkinMap()
     // Material Map Grip
     DefaultAR03.MaterialMapGrip.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Camo/MI_WEP_Camo_027.MI_WEP_Camo_027")));
 
-    GWeaponSkinMap.Add("Default-Assault-Rifle-03", DefaultAR03);
+    DefaultAR03.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+    DefaultAR03.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Normal);
 
-    DefaultAR03.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Normal);
-    DefaultAR03.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Normal);
+    GWeaponSkinMap.Add(EWeaponSkinName::DefaultAssaultRifle03, DefaultAR03);
 
     /// ---------------------------------------------------------------------------------------------------- ////
 
     // Default Handgun 01
     FWeaponSkinEntry DefaultHandgun01;
-    DefaultHandgun01.Name = "Default-Handgun-01";
+    DefaultHandgun01.Name = EWeaponSkinName::DefaultHandgun01;
     
     // Material Map Body
     DefaultHandgun01.MaterialMapBody.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Gradient/MI_WEP_Gradient_009.MI_WEP_Gradient_009")));
@@ -241,16 +241,16 @@ static void InitWeaponSkinMap()
     // Material Map Grip
     DefaultHandgun01.MaterialMapGrip.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Gradient/MI_WEP_Gradient_009.MI_WEP_Gradient_009")));
 
-    GWeaponSkinMap.Add("Default-Handgun-01", DefaultHandgun01);
+    DefaultHandgun01.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+    DefaultHandgun01.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Normal);
 
-    DefaultHandgun01.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Normal);
-    DefaultHandgun01.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Normal);
+    GWeaponSkinMap.Add(EWeaponSkinName::DefaultHandgun01, DefaultHandgun01);
 
     /// ---------------------------------------------------------------------------------------------------- ////
 
     // Default Handgun 02
     FWeaponSkinEntry DefaultHandgun02;
-    DefaultHandgun02.Name = "Default-Handgun-02";
+    DefaultHandgun02.Name = EWeaponSkinName::DefaultHandgun02;
     
     // Material Map Body
     DefaultHandgun02.MaterialMapBody.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/CarbonFibre/MI_WEP_CarbonFibre_007.MI_WEP_CarbonFibre_007")));
@@ -300,16 +300,16 @@ static void InitWeaponSkinMap()
     // Material Map Grip
     DefaultHandgun02.MaterialMapGrip.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/CarbonFibre/MI_WEP_CarbonFibre_007.MI_WEP_CarbonFibre_007")));
 
-    GWeaponSkinMap.Add("Default-Handgun-02", DefaultHandgun02);
+    DefaultHandgun02.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+    DefaultHandgun02.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Normal);
 
-    DefaultHandgun02.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Normal);
-    DefaultHandgun02.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Normal);
+    GWeaponSkinMap.Add(EWeaponSkinName::DefaultHandgun02, DefaultHandgun02);
 
     /// ---------------------------------------------------------------------------------------------------- ////
 
     // Default Handgun 03
     FWeaponSkinEntry DefaultHandgun03;
-    DefaultHandgun03.Name = "Default-Handgun-03";
+    DefaultHandgun03.Name = EWeaponSkinName::DefaultHandgun03;
     
     // Material Map Body
     DefaultHandgun03.MaterialMapBody.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/BrushedSteel/MI_WEP_Steel_Brushed_013.MI_WEP_Steel_Brushed_013")));
@@ -359,16 +359,16 @@ static void InitWeaponSkinMap()
     // Material Map Grip
     DefaultHandgun03.MaterialMapGrip.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/BrushedSteel/MI_WEP_Steel_Brushed_013.MI_WEP_Steel_Brushed_013")));
 
-    GWeaponSkinMap.Add("Default-Handgun-03", DefaultHandgun03);
+    DefaultHandgun03.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+    DefaultHandgun03.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Normal);
 
-    DefaultHandgun03.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Normal);
-    DefaultHandgun03.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Normal);
+    GWeaponSkinMap.Add(EWeaponSkinName::DefaultHandgun03, DefaultHandgun03);
 
     /// ---------------------------------------------------------------------------------------------------- ////
 
     // Default Handgun 04
     FWeaponSkinEntry DefaultHandgun04;
-    DefaultHandgun04.Name = "Default-Handgun-04";
+    DefaultHandgun04.Name = EWeaponSkinName::DefaultHandgun04;
     
     // Material Map Body
     DefaultHandgun04.MaterialMapBody.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Camo/MI_WEP_Camo_006.MI_WEP_Camo_006")));
@@ -418,16 +418,16 @@ static void InitWeaponSkinMap()
     // Material Map Grip
     DefaultHandgun04.MaterialMapGrip.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Camo/MI_WEP_Camo_006.MI_WEP_Camo_006")));
 
-    GWeaponSkinMap.Add("Default-Handgun-04", DefaultHandgun04);
+    DefaultHandgun04.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+    DefaultHandgun04.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Normal);
 
-    DefaultHandgun04.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Normal);
-    DefaultHandgun04.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Normal);
+    GWeaponSkinMap.Add(EWeaponSkinName::DefaultHandgun04, DefaultHandgun04);
 
     /// ---------------------------------------------------------------------------------------------------- ////
 
     // Default Launcher Grenade 01
     FWeaponSkinEntry DefaultLauncherGrenade01;
-    DefaultLauncherGrenade01.Name = "Default-Launcher-Grenade-01";
+    DefaultLauncherGrenade01.Name = EWeaponSkinName::DefaultLauncherGrenade01;
     
     // Material Map Body
     DefaultLauncherGrenade01.MaterialMapBody.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Skulls/MI_WEP_Skulls_010.MI_WEP_Skulls_010")));
@@ -477,16 +477,16 @@ static void InitWeaponSkinMap()
     // Material Map Grip
     DefaultLauncherGrenade01.MaterialMapGrip.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Skulls/MI_WEP_Skulls_010.MI_WEP_Skulls_010")));
 
-    GWeaponSkinMap.Add("Default-Launcher-Grenade-01", DefaultLauncherGrenade01);
+    DefaultLauncherGrenade01.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+    DefaultLauncherGrenade01.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Normal);
 
-    DefaultLauncherGrenade01.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Normal);
-    DefaultLauncherGrenade01.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Normal);
+    GWeaponSkinMap.Add(EWeaponSkinName::DefaultLauncherGrenade01, DefaultLauncherGrenade01);
 
     /// ---------------------------------------------------------------------------------------------------- ////
 
     // Default Launcher Rocket 01
     FWeaponSkinEntry DefaultLauncherRocket01;
-    DefaultLauncherRocket01.Name = "Default-Launcher-Rocket-01";
+    DefaultLauncherRocket01.Name = EWeaponSkinName::DefaultLauncherRocket01;
     
     // Material Map Body
     DefaultLauncherRocket01.MaterialMapBody.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Camo/MI_WEP_Camo_010.MI_WEP_Camo_010")));
@@ -536,16 +536,16 @@ static void InitWeaponSkinMap()
     // Material Map Grip
     DefaultLauncherRocket01.MaterialMapGrip.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Camo/MI_WEP_Camo_010.MI_WEP_Camo_010")));
 
-    GWeaponSkinMap.Add("Default-Launcher-Rocket-01", DefaultLauncherRocket01);
+    DefaultLauncherRocket01.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+    DefaultLauncherRocket01.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Normal);
 
-    DefaultLauncherRocket01.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Normal);
-    DefaultLauncherRocket01.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Normal);
+    GWeaponSkinMap.Add(EWeaponSkinName::DefaultLauncherRocket01, DefaultLauncherRocket01);
 
     /// ---------------------------------------------------------------------------------------------------- ////
 
     // Default SMG 01
     FWeaponSkinEntry DefaultSMG01;
-    DefaultSMG01.Name = "Default-SMG-01";
+    DefaultSMG01.Name = EWeaponSkinName::DefaultSMG01;
     
     // Material Map Body
     DefaultSMG01.MaterialMapBody.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Swirly/MI_WEP_Swirly_002.MI_WEP_Swirly_002")));
@@ -595,16 +595,16 @@ static void InitWeaponSkinMap()
     // Material Map Grip
     DefaultSMG01.MaterialMapGrip.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Swirly/MI_WEP_Swirly_002.MI_WEP_Swirly_002")));
 
-    GWeaponSkinMap.Add("Default-SMG-01", DefaultSMG01);
+    DefaultSMG01.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+    DefaultSMG01.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Normal);
 
-    DefaultSMG01.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Normal);
-    DefaultSMG01.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Normal);
+    GWeaponSkinMap.Add(EWeaponSkinName::DefaultSMG01, DefaultSMG01);
 
     /// ---------------------------------------------------------------------------------------------------- ////
 
     // Default SMG 02
     FWeaponSkinEntry DefaultSMG02;
-    DefaultSMG02.Name = "Default-SMG-02";
+    DefaultSMG02.Name = EWeaponSkinName::DefaultSMG02;
     
     // Material Map Body
     DefaultSMG02.MaterialMapBody.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Camo/MI_WEP_Camo_004.MI_WEP_Camo_004")));
@@ -654,16 +654,16 @@ static void InitWeaponSkinMap()
     // Material Map Grip
     DefaultSMG02.MaterialMapGrip.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Camo/MI_WEP_Camo_004.MI_WEP_Camo_004")));
 
-    GWeaponSkinMap.Add("Default-SMG-02", DefaultSMG02);
+    DefaultSMG02.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+    DefaultSMG02.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Normal);
 
-    DefaultSMG02.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Normal);
-    DefaultSMG02.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Normal);
+    GWeaponSkinMap.Add(EWeaponSkinName::DefaultSMG02, DefaultSMG02);
 
     /// ---------------------------------------------------------------------------------------------------- ////
 
     // Default SMG 03
     FWeaponSkinEntry DefaultSMG03;
-    DefaultSMG03.Name = "Default-SMG-03";
+    DefaultSMG03.Name = EWeaponSkinName::DefaultSMG03;
     
     // Material Map Body
     DefaultSMG03.MaterialMapBody.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Camo/MI_WEP_Camo_016.MI_WEP_Camo_016")));
@@ -713,16 +713,16 @@ static void InitWeaponSkinMap()
     // Material Map Grip
     DefaultSMG03.MaterialMapGrip.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Camo/MI_WEP_Camo_016.MI_WEP_Camo_016")));
 
-    GWeaponSkinMap.Add("Default-SMG-03", DefaultSMG03);
+    DefaultSMG03.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+    DefaultSMG03.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Normal);
 
-    DefaultSMG03.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Normal);
-    DefaultSMG03.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Normal);
+    GWeaponSkinMap.Add(EWeaponSkinName::DefaultSMG03, DefaultSMG03);
 
     /// ---------------------------------------------------------------------------------------------------- ////
 
     // Default SMG 04
     FWeaponSkinEntry DefaultSMG04;
-    DefaultSMG04.Name = "Default-SMG-04";
+    DefaultSMG04.Name = EWeaponSkinName::DefaultSMG04;
     
     // Material Map Body
     DefaultSMG04.MaterialMapBody.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Gradient/MI_WEP_Gradient_016.MI_WEP_Gradient_016")));
@@ -772,16 +772,16 @@ static void InitWeaponSkinMap()
     // Material Map Grip
     DefaultSMG04.MaterialMapGrip.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Gradient/MI_WEP_Gradient_016.MI_WEP_Gradient_016")));
 
-    GWeaponSkinMap.Add("Default-SMG-04", DefaultSMG04);
+    DefaultSMG04.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+    DefaultSMG04.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Normal);
 
-    DefaultSMG04.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Normal);
-    DefaultSMG04.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Normal);
+    GWeaponSkinMap.Add(EWeaponSkinName::DefaultSMG04, DefaultSMG04);
 
     /// ---------------------------------------------------------------------------------------------------- ////
 
     // Default Sniper 02
     FWeaponSkinEntry DefaultSniper02;
-    DefaultSniper02.Name = "Default-Sniper-02";
+    DefaultSniper02.Name = EWeaponSkinName::DefaultSniper02;
     
     // Material Map Body
     DefaultSniper02.MaterialMapBody.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Striped/MI_WEP_Striped_023.MI_WEP_Striped_023")));
@@ -831,16 +831,16 @@ static void InitWeaponSkinMap()
     // Material Map Grip
     DefaultSniper02.MaterialMapGrip.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Striped/MI_WEP_Striped_023.MI_WEP_Striped_023")));
 
-    GWeaponSkinMap.Add("Default-Sniper-02", DefaultSniper02);
+    DefaultSniper02.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+    DefaultSniper02.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Normal);
 
-    DefaultSniper02.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Normal);
-    DefaultSniper02.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Normal);
+    GWeaponSkinMap.Add(EWeaponSkinName::DefaultSniper02, DefaultSniper02);
 
     /// ---------------------------------------------------------------------------------------------------- ////
 
     // Default Sniper 03
     FWeaponSkinEntry DefaultSniper03;
-    DefaultSniper03.Name = "Default-Sniper-03";
+    DefaultSniper03.Name = EWeaponSkinName::DefaultSniper03;
     
     // Material Map Body
     DefaultSniper03.MaterialMapBody.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Striped/MI_WEP_Striped_007.MI_WEP_Striped_007")));
@@ -890,16 +890,16 @@ static void InitWeaponSkinMap()
     // Material Map Grip
     DefaultSniper03.MaterialMapGrip.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Striped/MI_WEP_Striped_007.MI_WEP_Striped_007")));
 
-    GWeaponSkinMap.Add("Default-Sniper-03", DefaultSniper03);
+    DefaultSniper03.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+    DefaultSniper03.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Normal);
 
-    DefaultSniper03.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Normal);
-    DefaultSniper03.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Normal);
+    GWeaponSkinMap.Add(EWeaponSkinName::DefaultSniper03, DefaultSniper03);
 
     /// ---------------------------------------------------------------------------------------------------- ////
 
     // Custom Elite
     FWeaponSkinEntry CustomElite;
-    CustomElite.Name = "Custom-Elite";
+    CustomElite.Name = EWeaponSkinName::CustomElite;
     
     // Material Map Body
     CustomElite.MaterialMapBody.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Camo/MI_WEP_Camo_009.MI_WEP_Camo_009")));
@@ -949,16 +949,16 @@ static void InitWeaponSkinMap()
     // Material Map Grip
     CustomElite.MaterialMapGrip.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Camo/MI_WEP_Camo_009.MI_WEP_Camo_009")));
 
-    GWeaponSkinMap.Add("Custom-Elite", CustomElite);
+    CustomElite.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+    CustomElite.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Normal);
 
-    CustomElite.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Normal);
-    CustomElite.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Normal);
+    GWeaponSkinMap.Add(EWeaponSkinName::CustomElite, CustomElite);
 
     /// ---------------------------------------------------------------------------------------------------- ////
 
     // Custom Forest
     FWeaponSkinEntry CustomForest;
-    CustomForest.Name = "Custom-Forest";
+    CustomForest.Name = EWeaponSkinName::CustomForest;
     
     // Material Map Body
     CustomForest.MaterialMapBody.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Camo/MI_WEP_Camo_027.MI_WEP_Camo_027")));
@@ -1008,16 +1008,16 @@ static void InitWeaponSkinMap()
     // Material Map Grip
     CustomForest.MaterialMapGrip.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Camo/MI_WEP_Camo_027.MI_WEP_Camo_027")));
 
-    GWeaponSkinMap.Add("Custom-Forest", CustomForest);
+    CustomForest.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+    CustomForest.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Normal);
 
-    CustomForest.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Normal);
-    CustomForest.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Normal);
+    GWeaponSkinMap.Add(EWeaponSkinName::CustomForest, CustomForest);
 
     /// ---------------------------------------------------------------------------------------------------- ////
 
     // Custom SciFi
     FWeaponSkinEntry CustomSciFi;
-    CustomSciFi.Name = "Custom-SciFi";
+    CustomSciFi.Name = EWeaponSkinName::CustomSciFi;
     
     // Material Map Body
     CustomSciFi.MaterialMapBody.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Basic/MI_WEP_Basic_008.MI_WEP_Basic_008")));
@@ -1067,16 +1067,16 @@ static void InitWeaponSkinMap()
     // Material Map Grip
     CustomSciFi.MaterialMapGrip.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Basic/MI_WEP_Basic_039.MI_WEP_Basic_039")));
 
-    GWeaponSkinMap.Add("Custom-SciFi", CustomSciFi);
+    CustomSciFi.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+    CustomSciFi.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Normal);
 
-    CustomSciFi.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Normal);
-    CustomSciFi.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Normal);
+    GWeaponSkinMap.Add(EWeaponSkinName::CustomSciFi, CustomSciFi);
 
     /// ---------------------------------------------------------------------------------------------------- ////
 
     // Custom AntiTank
     FWeaponSkinEntry CustomAntiTank;
-    CustomAntiTank.Name = "Custom-AntiTank";
+    CustomAntiTank.Name = EWeaponSkinName::CustomAntiTank;
     
     // Material Map Body
     CustomAntiTank.MaterialMapBody.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/CarbonFibre/MI_WEP_CarbonFibre_001.MI_WEP_CarbonFibre_001")));
@@ -1126,16 +1126,16 @@ static void InitWeaponSkinMap()
     // Material Map Grip
     CustomAntiTank.MaterialMapGrip.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Camo/MI_WEP_Camo_006.MI_WEP_Camo_006")));
 
-    GWeaponSkinMap.Add("Custom-AntiTank", CustomAntiTank);
+    CustomAntiTank.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+    CustomAntiTank.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Normal);
 
-    CustomAntiTank.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Normal);
-    CustomAntiTank.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Normal);
+    GWeaponSkinMap.Add(EWeaponSkinName::CustomAntiTank, CustomAntiTank);
 
     /// ---------------------------------------------------------------------------------------------------- ////
 
     // Custom Neon
     FWeaponSkinEntry CustomNeon;
-    CustomNeon.Name = "Custom-Neon";
+    CustomNeon.Name = EWeaponSkinName::CustomNeon;
     
     // Material Map Body
     CustomNeon.MaterialMapBody.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Gradient/MI_WEP_Gradient_002.MI_WEP_Gradient_002")));
@@ -1185,16 +1185,17 @@ static void InitWeaponSkinMap()
     // Material Map Grip
     CustomNeon.MaterialMapGrip.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Camo/MI_WEP_Camo_017.MI_WEP_Camo_017")));
 
-    GWeaponSkinMap.Add("Custom-Neon", CustomNeon);
 
-    CustomNeon.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Neon);
-    CustomNeon.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Neon);
+    CustomNeon.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Neon);
+    CustomNeon.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Neon);
+
+	GWeaponSkinMap.Add(EWeaponSkinName::CustomNeon, CustomNeon);
 
     /// ---------------------------------------------------------------------------------------------------- ////
 
     // Custom Neon Special
     FWeaponSkinEntry CustomNeonSpecial;
-    CustomNeonSpecial.Name = "Custom-Neon-Special";
+    CustomNeonSpecial.Name = EWeaponSkinName::CustomNeonSpecial;
     
     // Material Map Body
     CustomNeonSpecial.MaterialMapBody.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Gradient/MI_WEP_Gradient_002.MI_WEP_Gradient_002")));
@@ -1244,16 +1245,17 @@ static void InitWeaponSkinMap()
     // Material Map Grip
     CustomNeonSpecial.MaterialMapGrip.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Camo/MI_WEP_Camo_017.MI_WEP_Camo_017")));
 
-    GWeaponSkinMap.Add("Custom-Neon-Special", CustomNeonSpecial);
 
-    CustomNeonSpecial.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Neon);
-    CustomNeonSpecial.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Neon);
+    CustomNeonSpecial.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Neon);
+    CustomNeonSpecial.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Neon);
+
+	GWeaponSkinMap.Add(EWeaponSkinName::CustomNeonSpecial, CustomNeonSpecial);
 
     /// ---------------------------------------------------------------------------------------------------- ////
 
     // Custom Stealth
     FWeaponSkinEntry CustomStealth;
-    CustomStealth.Name = "Custom-Stealth";
+    CustomStealth.Name = EWeaponSkinName::CustomStealth;
     
     // Material Map Body
     CustomStealth.MaterialMapBody.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Basic/MI_WEP_Basic_003.MI_WEP_Basic_003")));
@@ -1303,16 +1305,17 @@ static void InitWeaponSkinMap()
     // Material Map Grip
     CustomStealth.MaterialMapGrip.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Basic/MI_WEP_Basic_004.MI_WEP_Basic_004")));
 
-    GWeaponSkinMap.Add("Custom-Stealth", CustomStealth);
 
-    CustomStealth.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Normal);
-    CustomStealth.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Normal);
+    CustomStealth.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+    CustomStealth.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Normal);
+
+	GWeaponSkinMap.Add(EWeaponSkinName::CustomStealth, CustomStealth);
 
     /// ---------------------------------------------------------------------------------------------------- ////
 
     // Custom Venomous
     FWeaponSkinEntry CustomVenomous;
-    CustomVenomous.Name = "Custom-Venomous";
+    CustomVenomous.Name = EWeaponSkinName::CustomVenomous;
     
     // Material Map Body
     CustomVenomous.MaterialMapBody.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Camo/MI_WEP_Camo_014.MI_WEP_Camo_014")));
@@ -1362,16 +1365,17 @@ static void InitWeaponSkinMap()
     // Material Map Grip
     CustomVenomous.MaterialMapGrip.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Camo/MI_WEP_Camo_014.MI_WEP_Camo_014")));
 
-    GWeaponSkinMap.Add("Custom-Venomous", CustomVenomous);
 
-    CustomVenomous.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Normal);
-    CustomVenomous.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Venomous);
+    CustomVenomous.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+    CustomVenomous.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Venomous);
+
+	GWeaponSkinMap.Add(EWeaponSkinName::CustomVenomous, CustomVenomous);
 
     /// ---------------------------------------------------------------------------------------------------- ////
 
     // Custom Homing
     FWeaponSkinEntry CustomHoming;
-    CustomHoming.Name = "Custom-Homing";
+    CustomHoming.Name = EWeaponSkinName::CustomHoming;
     
     // Material Map Body
     CustomHoming.MaterialMapBody.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Camo/MI_WEP_Camo_013.MI_WEP_Camo_013")));
@@ -1421,16 +1425,17 @@ static void InitWeaponSkinMap()
     // Material Map Grip
     CustomHoming.MaterialMapGrip.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Camo/MI_WEP_Camo_013.MI_WEP_Camo_013")));
 
-    GWeaponSkinMap.Add("Custom-Homing", CustomHoming);
 
-    CustomHoming.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Normal);
-    CustomHoming.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Normal);
+    CustomHoming.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+    CustomHoming.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Normal);
+
+	GWeaponSkinMap.Add(EWeaponSkinName::CustomHoming, CustomHoming);
 
     /// ---------------------------------------------------------------------------------------------------- ////
 
     // Custom Tech
     FWeaponSkinEntry CustomTech;
-    CustomTech.Name = "Custom-Tech";
+    CustomTech.Name = EWeaponSkinName::CustomTech;
     
     // Material Map Body
     CustomTech.MaterialMapBody.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Camo/MI_WEP_Camo_010.MI_WEP_Camo_010")));
@@ -1480,16 +1485,17 @@ static void InitWeaponSkinMap()
     // Material Map Grip
     CustomTech.MaterialMapGrip.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Camo/MI_WEP_Camo_010.MI_WEP_Camo_010")));
 
-    GWeaponSkinMap.Add("Custom-Tech", CustomTech);
 
-    CustomTech.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Normal);
-    CustomTech.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Normal);
+    CustomTech.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+    CustomTech.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Normal);
+
+	GWeaponSkinMap.Add(EWeaponSkinName::CustomTech, CustomTech);
 
     /// ---------------------------------------------------------------------------------------------------- ////
 
     // Custom Citrus
     FWeaponSkinEntry CustomCitrus;
-    CustomCitrus.Name = "Custom-Citrus";
+    CustomCitrus.Name = EWeaponSkinName::CustomCitrus;
     
     // Material Map Body
     CustomCitrus.MaterialMapBody.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Striped/MI_WEP_Striped_005.MI_WEP_Striped_005")));
@@ -1539,16 +1545,17 @@ static void InitWeaponSkinMap()
     // Material Map Grip
     CustomCitrus.MaterialMapGrip.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Striped/MI_WEP_Striped_005.MI_WEP_Striped_005")));
 
-    GWeaponSkinMap.Add("Custom-Citrus", CustomCitrus);
 
-    CustomCitrus.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Normal);
-    CustomCitrus.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Yellow);
+    CustomCitrus.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+    CustomCitrus.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Yellow);
+
+	GWeaponSkinMap.Add(EWeaponSkinName::CustomCitrus, CustomCitrus);
 
     /// ---------------------------------------------------------------------------------------------------- ////
 
     // Custom Tactical
     FWeaponSkinEntry CustomTactical;
-    CustomTactical.Name = "Custom-Tactical";
+    CustomTactical.Name = EWeaponSkinName::CustomTactical;
     
     // Material Map Body
     CustomTactical.MaterialMapBody.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Camo/MI_WEP_Camo_024.MI_WEP_Camo_024")));
@@ -1598,16 +1605,17 @@ static void InitWeaponSkinMap()
     // Material Map Grip
     CustomTactical.MaterialMapGrip.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Camo/MI_WEP_Camo_024.MI_WEP_Camo_024")));
 
-    GWeaponSkinMap.Add("Custom-Tactical", CustomTactical);
 
-    CustomTactical.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Tactical);
-    CustomTactical.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Tactical);
+    CustomTactical.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Tactical);
+    CustomTactical.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Tactical);
+
+	GWeaponSkinMap.Add(EWeaponSkinName::CustomTactical, CustomTactical);
 
     /// ---------------------------------------------------------------------------------------------------- ////
 
     // Custom Evil
     FWeaponSkinEntry CustomEvil;
-    CustomEvil.Name = "Custom-Evil";
+    CustomEvil.Name = EWeaponSkinName::CustomEvil;
     
     // Material Map Body
     CustomEvil.MaterialMapBody.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Camo/MI_WEP_Camo_010.MI_WEP_Camo_010")));
@@ -1656,17 +1664,17 @@ static void InitWeaponSkinMap()
 
     // Material Map Grip
     CustomEvil.MaterialMapGrip.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Camo/MI_WEP_Camo_010.MI_WEP_Camo_010")));
+	
+    CustomEvil.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+    CustomEvil.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Evil);
 
-    GWeaponSkinMap.Add("Custom-Evil", CustomEvil);
-
-    CustomEvil.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Normal);
-    CustomEvil.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Evil);
+	GWeaponSkinMap.Add(EWeaponSkinName::CustomEvil, CustomEvil);
 
     /// ---------------------------------------------------------------------------------------------------- ////
 
     // Custom Modern
     FWeaponSkinEntry CustomModern;
-    CustomModern.Name = "Custom-Modern";
+    CustomModern.Name = EWeaponSkinName::CustomModern;
     
     // Material Map Body
     CustomModern.MaterialMapBody.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Camo/MI_WEP_Camo_006.MI_WEP_Camo_006")));
@@ -1716,16 +1724,17 @@ static void InitWeaponSkinMap()
     // Material Map Grip
     CustomModern.MaterialMapGrip.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Camo/MI_WEP_Camo_006.MI_WEP_Camo_006")));
 
-    GWeaponSkinMap.Add("Custom-Modern", CustomModern);
 
-    CustomModern.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Normal);
-    CustomModern.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Normal);
+    CustomModern.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+    CustomModern.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Normal);
+	
+	GWeaponSkinMap.Add(EWeaponSkinName::CustomModern, CustomModern);
 
     /// ---------------------------------------------------------------------------------------------------- ////
 
     // Custom Armored
     FWeaponSkinEntry CustomArmored;
-    CustomArmored.Name = "Custom-Armored";
+    CustomArmored.Name = EWeaponSkinName::CustomArmored;
     
     // Material Map Body
     CustomArmored.MaterialMapBody.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/BrushedSteel/MI_WEP_Steel_Brushed_001.MI_WEP_Steel_Brushed_001")));
@@ -1775,16 +1784,17 @@ static void InitWeaponSkinMap()
     // Material Map Grip
     CustomArmored.MaterialMapGrip.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/BrushedSteel/MI_WEP_Steel_Brushed_001.MI_WEP_Steel_Brushed_001")));
 
-    GWeaponSkinMap.Add("Custom-Armored", CustomArmored);
 
-    CustomArmored.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Normal);
-    CustomArmored.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Normal);
+    CustomArmored.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+    CustomArmored.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Normal);
+
+    GWeaponSkinMap.Add(EWeaponSkinName::CustomArmored, CustomArmored);
 
     /// ---------------------------------------------------------------------------------------------------- ////
 
     // Custom Hitman
     FWeaponSkinEntry CustomHitman;
-    CustomHitman.Name = "Custom-Hitman";
+    CustomHitman.Name = EWeaponSkinName::CustomHitman;
     
     // Material Map Body
     CustomHitman.MaterialMapBody.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Camo/Digital/MI_WEP_Camo_Digital_010.MI_WEP_Camo_Digital_010")));
@@ -1834,16 +1844,17 @@ static void InitWeaponSkinMap()
     // Material Map Grip
     CustomHitman.MaterialMapGrip.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Camo/Digital/MI_WEP_Camo_Digital_010.MI_WEP_Camo_Digital_010")));
 
-    GWeaponSkinMap.Add("Custom-Hitman", CustomHitman);
 
-    CustomHitman.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Normal);
-    CustomHitman.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Normal);
+    CustomHitman.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+    CustomHitman.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Normal);
+
+	GWeaponSkinMap.Add(EWeaponSkinName::CustomHitman, CustomHitman);
 
     /// ---------------------------------------------------------------------------------------------------- ////
 
     // Custom Breach
     FWeaponSkinEntry CustomBreach;
-    CustomBreach.Name = "Custom-Breach";
+    CustomBreach.Name = EWeaponSkinName::CustomBreach;
     
     // Material Map Body
     CustomBreach.MaterialMapBody.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Camo/MI_WEP_Camo_003.MI_WEP_Camo_003")));
@@ -1893,16 +1904,17 @@ static void InitWeaponSkinMap()
     // Material Map Grip
     CustomBreach.MaterialMapGrip.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Camo/MI_WEP_Camo_003.MI_WEP_Camo_003")));
 
-    GWeaponSkinMap.Add("Custom-Breach", CustomBreach);
 
-    CustomBreach.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Normal);
-    CustomBreach.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Normal);
+    CustomBreach.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+    CustomBreach.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Normal);
+
+	GWeaponSkinMap.Add(EWeaponSkinName::CustomBreach, CustomBreach);
 
     /// ---------------------------------------------------------------------------------------------------- ////
 
     // Custom Lava
     FWeaponSkinEntry CustomLava;
-    CustomLava.Name = "Custom-Lava";
+    CustomLava.Name = EWeaponSkinName::CustomLava;
     
     // Material Map Body
     CustomLava.MaterialMapBody.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Camo/MI_WEP_Camo_013.MI_WEP_Camo_013")));
@@ -1950,16 +1962,17 @@ static void InitWeaponSkinMap()
     // Material Map Grip
     CustomLava.MaterialMapGrip.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/Camo/MI_WEP_Camo_013.MI_WEP_Camo_013")));
 
-    GWeaponSkinMap.Add("Custom-Lava", CustomLava);
 
-    CustomLava.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Normal);
-    CustomLava.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Normal);
+    CustomLava.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+    CustomLava.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Normal);
+
+	GWeaponSkinMap.Add(EWeaponSkinName::CustomLava, CustomLava);
 
     /// ---------------------------------------------------------------------------------------------------- ////
 
     // Worst Brass Ever
     FWeaponSkinEntry WorstBrassEver;
-    WorstBrassEver.Name = "Worst-Brass-Ever";
+    WorstBrassEver.Name = EWeaponSkinName::WorstBrassEver;
     
     // Material Map Body
     WorstBrassEver.MaterialMapBody.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/BrushedSteel/MI_WEP_Steel_Brushed_002.MI_WEP_Steel_Brushed_002")));
@@ -2009,16 +2022,17 @@ static void InitWeaponSkinMap()
     // Material Map Grip
     WorstBrassEver.MaterialMapGrip.Add("Body", LoadObject<UMaterialInterface>(nullptr, TEXT("/Game/Assets/Weapon/_Common/Skins/Materials/BrushedSteel/MI_WEP_Steel_Brushed_002.MI_WEP_Steel_Brushed_002")));
 
-    GWeaponSkinMap.Add("Worst-Brass-Ever", WorstBrassEver);
 
-    WorstBrassEver.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Normal);
-    WorstBrassEver.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Normal);
+    WorstBrassEver.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+    WorstBrassEver.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Normal);
+
+	GWeaponSkinMap.Add(EWeaponSkinName::WorstBrassEver, WorstBrassEver);
 
     /// ---------------------------------------------------------------------------------------------------- ////
 
     // Invisible
     FWeaponSkinEntry Invisible;
-    Invisible.Name = "Invisible";
+    Invisible.Name = EWeaponSkinName::Invisible;
     
     // Material Map Body
     Invisible.MaterialMapBody.Add("Body", nullptr);
@@ -2063,10 +2077,12 @@ static void InitWeaponSkinMap()
     // Material Map Grip
     Invisible.MaterialMapGrip.Add("Body", nullptr);
 
-    GWeaponSkinMap.Add("Invisible", Invisible);
 
-    Invisible.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Normal);
-    Invisible.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Normal);
+    Invisible.RowHandleFlashlightSetting = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+    Invisible.RowHandleLaserSightSetting = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Normal);
+
+	GWeaponSkinMap.Add(EWeaponSkinName::Invisible, Invisible);
+
 
     /// ---------------------------------------------------------------------------------------------------- ////
 }
@@ -2074,89 +2090,9 @@ static void InitWeaponSkinMap()
 FWeaponSkinEntry UWeaponSkinBPLibrary::GetWeaponSkinByName(EWeaponSkinName WeaponName)
 {
     InitWeaponSkinMap();
-    FString SkinName = WeaponNameToString(WeaponName);
-    if (FWeaponSkinEntry* Found = GWeaponSkinMap.Find(SkinName))
-    {
-        return *Found;
-    }
-    return FWeaponSkinEntry(); // Return empty struct if not found
-}
-
-FString UWeaponSkinBPLibrary::WeaponNameToString(EWeaponSkinName WeaponName)
-{
-    switch (WeaponName)
-    {
-        case EWeaponSkinName::DefaultAssaultRifle01:
-            return "Default-Assault-Rifle-01";
-        case EWeaponSkinName::DefaultAssaultRifle02:
-            return "Default-Assault-Rifle-02";
-        case EWeaponSkinName::DefaultAssaultRifle03:
-            return "Default-Assault-Rifle-03";
-        case EWeaponSkinName::DefaultHandgun01:
-            return "Default-Handgun-01";
-        case EWeaponSkinName::DefaultHandgun02:
-            return "Default-Handgun-02";
-        case EWeaponSkinName::DefaultHandgun03:
-            return "Default-Handgun-03";
-        case EWeaponSkinName::DefaultHandgun04:
-            return "Default-Handgun-04";
-        case EWeaponSkinName::DefaultLauncherGrenade01:
-            return "Default-Launcher-Grenade-01";
-        case EWeaponSkinName::DefaultLauncherRocket01:
-            return "Default-Launcher-Rocket-01";
-        case EWeaponSkinName::DefaultSMG01:
-            return "Default-SMG-01";
-        case EWeaponSkinName::DefaultSMG02:
-            return "Default-SMG-02";
-        case EWeaponSkinName::DefaultSMG03:
-            return "Default-SMG-03";
-        case EWeaponSkinName::DefaultSMG04:
-            return "Default-SMG-04";
-        case EWeaponSkinName::DefaultSniper02:
-            return "Default-Sniper-02";
-        case EWeaponSkinName::DefaultSniper03:
-            return "Default-Sniper-03";
-        case EWeaponSkinName::CustomElite:
-            return "Custom-Elite";
-        case EWeaponSkinName::CustomForest:
-            return "Custom-Forest";
-        case EWeaponSkinName::CustomSciFi:
-            return "Custom-SciFi";
-        case EWeaponSkinName::CustomAntiTank:
-            return "Custom-AntiTank";
-        case EWeaponSkinName::CustomNeon:
-            return "Custom-Neon";
-        case EWeaponSkinName::CustomNeonSpecial:
-            return "Custom-Neon-Special";
-        case EWeaponSkinName::CustomStealth:
-            return "Custom-Stealth";
-        case EWeaponSkinName::CustomVenomous:
-            return "Custom-Venomous";
-        case EWeaponSkinName::CustomHoming:
-            return "Custom-Homing";
-        case EWeaponSkinName::CustomTech:
-            return "Custom-Tech";
-        case EWeaponSkinName::CustomCitrus:
-            return "Custom-Citrus";
-        case EWeaponSkinName::CustomTactical:
-            return "Custom-Tactical";
-        case EWeaponSkinName::CustomEvil:
-            return "Custom-Evil";
-        case EWeaponSkinName::CustomModern:
-            return "Custom-Modern";
-        case EWeaponSkinName::CustomArmored:
-            return "Custom-Armored";
-        case EWeaponSkinName::CustomHitman:
-            return "Custom-Hitman";
-        case EWeaponSkinName::CustomBreach:
-            return "Custom-Breach";
-        case EWeaponSkinName::CustomLava:
-            return "Custom-Lava";
-        case EWeaponSkinName::WorstBrassEver:
-            return "Worst-Brass-Ever";
-        case EWeaponSkinName::Invisible:
-            return "Invisible";
-        default:
-            return "";
-    }
+	if (GWeaponSkinMap.Contains(WeaponName))
+	{
+		return GWeaponSkinMap[WeaponName];
+	}
+	return FWeaponSkinEntry();
 }

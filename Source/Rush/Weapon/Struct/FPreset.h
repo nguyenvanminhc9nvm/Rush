@@ -3,7 +3,11 @@
 #include "CoreMinimal.h"
 #include "FPreset.generated.h"
 
-enum class EWeaponSkinName : uint8;
+enum EGripName : uint8;
+enum EMuzzleName : uint8;
+enum EFragmentLaserName : uint8;
+enum EScopeName : uint8;
+enum EWeaponSkinName : uint8;
 
 USTRUCT(BlueprintType)
 struct FWeaponPreset
@@ -11,17 +15,17 @@ struct FWeaponPreset
 	GENERATED_BODY()
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-	EWeaponSkinName RowHandleSkins;
+	TEnumAsByte<EWeaponSkinName> RowHandleSkins;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-	FName RowHandleMeshScope;
+	TEnumAsByte<EScopeName> RowHandleMeshScope;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
-	FName RowHandleMeshLaser;
+	TEnumAsByte<EFragmentLaserName> RowHandleMeshLaser;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
-	FName RowHandleMeshMuzzle;
+	TEnumAsByte<EMuzzleName> RowHandleMeshMuzzle;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
-	FName RowHandleMeshGrip;
+	TEnumAsByte<EGripName> RowHandleMeshGrip;
 };

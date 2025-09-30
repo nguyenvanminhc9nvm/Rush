@@ -1,25 +1,25 @@
 #include "WeaponFragmentLaserBPLibrary.h"
 #include "Engine/Engine.h"
 
-static TMap<FString, TSubclassOf<AActor>> GWeaponFragmentLaserMap;
+static TMap<EFragmentLaserName, TSubclassOf<AActor>> GWeaponFragmentLaserMap;
 
 static void InitWeaponFragmentLaserMap()
 {
     if (GWeaponFragmentLaserMap.Num() > 0) return;
 
     // Hidden - None (no actor class)
-    GWeaponFragmentLaserMap.Add("Hidden", nullptr);
+    GWeaponFragmentLaserMap.Add(EFragmentLaserName::Laser_Hidden, nullptr);
 
     // Flashlight
     if (TSubclassOf<AActor> Flashlight = LoadClass<AActor>(nullptr, TEXT("/Game/Blueprint/Weapon/Flash/BP_LPSP_WEP_Flashlight.BP_LPSP_WEP_Flashlight_C"))) 
-        GWeaponFragmentLaserMap.Add("Flashlight", Flashlight);
+        GWeaponFragmentLaserMap.Add(EFragmentLaserName::Flashlight, Flashlight);
 
     // Lasersight
     if (TSubclassOf<AActor> Lasersight = LoadClass<AActor>(nullptr, TEXT("/Game/Blueprint/Weapon/Laser/BP_LPSP_WEP_Lasersight.BP_LPSP_WEP_Lasersight_C"))) 
-        GWeaponFragmentLaserMap.Add("Lasersight", Lasersight);
+        GWeaponFragmentLaserMap.Add(EFragmentLaserName::LaserSight, Lasersight);
 }
 
-TSubclassOf<AActor> UWeaponFragmentLaserBPLibrary::GetWeaponFragmentLaserByName(const FString& FragmentName)
+TSubclassOf<AActor> UWeaponFragmentLaserBPLibrary::GetWeaponFragmentLaserByName(EFragmentLaserName FragmentName)
 {
     InitWeaponFragmentLaserMap();
     if (TSubclassOf<AActor>* Found = GWeaponFragmentLaserMap.Find(FragmentName))

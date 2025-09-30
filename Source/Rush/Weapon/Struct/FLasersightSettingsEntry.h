@@ -2,9 +2,8 @@
 
 #include "CoreMinimal.h"
 #include "Engine/Engine.h"
+#include "Rush/Weapon/Enum/ELasersightSettingsName.h"
 #include "FLasersightSettingsEntry.generated.h"
-
-enum class ELasersightSettingsName;
 
 USTRUCT(BlueprintType)
 struct RUSH_API FLasersightSettingsEntry
@@ -12,7 +11,7 @@ struct RUSH_API FLasersightSettingsEntry
     GENERATED_BODY()
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Lasersight Settings")
-    ELasersightSettingsName Name;
+    TEnumAsByte<ELasersightSettingsName> Name;
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Lasersight Settings")
     float LasersightBeamThickness;

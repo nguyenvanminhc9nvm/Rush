@@ -2,10 +2,8 @@
 
 #include "CoreMinimal.h"
 #include "Engine/Engine.h"
+#include "Rush/Weapon/Enum/EFlashlightSettingsName.h"
 #include "FFlashlightSettingsEntry.generated.h"
-
-
-enum class EFlashlightSettingsName;
 
 USTRUCT(BlueprintType)
 struct RUSH_API FFlashlightSettingsEntry
@@ -13,7 +11,7 @@ struct RUSH_API FFlashlightSettingsEntry
     GENERATED_BODY()
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Flashlight Settings")
-    EFlashlightSettingsName Name;
+	TEnumAsByte<EFlashlightSettingsName> Name;
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Flashlight Settings")
     float Intensity;
