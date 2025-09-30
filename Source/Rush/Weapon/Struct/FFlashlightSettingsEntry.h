@@ -31,3 +31,4 @@ struct RUSH_API FFlashlightSettingsEntry
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Flashlight Settings")
     TSoftObjectPtr<UMaterialInterface> LightFunctionMaterial;
 };
+

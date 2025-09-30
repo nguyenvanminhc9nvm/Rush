@@ -14,3 +14,4 @@ public:
     UFUNCTION(BlueprintPure, Category="Weapon Fragment")
     static TSubclassOf<AActor> GetWeaponFragmentLaserByName(EFragmentLaserName FragmentName);
 };
+

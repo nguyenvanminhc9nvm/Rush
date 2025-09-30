@@ -50,3 +50,4 @@ FFlashlightSettingsEntry UFlashlightSettingsBPLibrary::GetFlashlightSettingsByNa
     }
     return FFlashlightSettingsEntry();
 }
+

@@ -37,5 +37,5 @@ public:
 
 	// Weapon name
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Weapon Info")
-	EWeaponName WeaponName;
+	TEnumAsByte<EWeaponName> WeaponName;
 };

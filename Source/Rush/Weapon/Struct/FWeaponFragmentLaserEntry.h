@@ -14,3 +14,4 @@ struct RUSH_API FWeaponFragmentLaserEntry
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Weapon Fragment")
     TSubclassOf<AActor> FragmentActor;   // BlueprintGeneratedClass sẽ load thành TSubclassOf<AActor>
 };
+

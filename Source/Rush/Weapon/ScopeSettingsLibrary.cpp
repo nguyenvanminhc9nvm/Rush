@@ -1,5 +1,7 @@
 #include "ScopeSettingsLibrary.h"
 #include "Engine/Engine.h"
+#include "Engine/TextureRenderTarget2D.h"
+#include "Materials/MaterialInterface.h"
 
 static TMap<EScopeName, FScopeSettingsEntry> GScopeSettingsMap;
 

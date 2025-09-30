@@ -1,5 +1,7 @@
 #include "Handgun01MuzzleSettingsLibrary.h"
 #include "Engine/Engine.h"
+#include "Particles/ParticleSystem.h"
+#include "Sound/SoundCue.h"
 
 static TMap<EMuzzleName, FMuzzleSettingsEntry> GHandgun01MuzzleSettingsMap;
 
@@ -23,7 +25,7 @@ static void InitHandgun01MuzzleSettingsMap()
 
     // Silencer-01
     FMuzzleSettingsEntry Silencer01Entry;
-    Silencer01Entry.Name = EMuzzleName::Silencer01;
+    Silencer01Entry.Name = EMuzzleName::Muzzle_Silencer01;
     Silencer01Entry.FireParticles = LoadObject<UParticleSystem>(nullptr, TEXT("/Game/Blueprint/Effects/Particles/PS_Muzzle_Flash_Silencer.PS_Muzzle_Flash_Silencer"));
     Silencer01Entry.FireSoundCue = LoadObject<USoundCue>(nullptr, TEXT("/Game/Assets/Audio/Cues/Weapons/SC_WEP_Handgun_01_Fire_Suppressed_01.SC_WEP_Handgun_01_Fire_Suppressed_01"));
     Silencer01Entry.bOverheatEnabled = true;
@@ -33,11 +35,11 @@ static void InitHandgun01MuzzleSettingsMap()
     Silencer01Entry.FlashLightDuration = 0.05f;
     Silencer01Entry.FlashLightRelativeLocation = FVector::ZeroVector;
     
-    GHandgun01MuzzleSettingsMap.Add(EMuzzleName::Silencer01, Silencer01Entry);
+    GHandgun01MuzzleSettingsMap.Add(EMuzzleName::Muzzle_Silencer01, Silencer01Entry);
 
     // Silencer-02
     FMuzzleSettingsEntry Silencer02Entry;
-    Silencer02Entry.Name = EMuzzleName::Silencer02;
+    Silencer02Entry.Name = EMuzzleName::Muzzle_Silencer02;
     Silencer02Entry.FireParticles = LoadObject<UParticleSystem>(nullptr, TEXT("/Game/Blueprint/Effects/Particles/PS_Muzzle_Flash_Silencer.PS_Muzzle_Flash_Silencer"));
     Silencer02Entry.FireSoundCue = LoadObject<USoundCue>(nullptr, TEXT("/Game/Assets/Audio/Cues/Weapons/SC_WEP_Handgun_01_Fire_Suppressed_02.SC_WEP_Handgun_01_Fire_Suppressed_02"));
     Silencer02Entry.bOverheatEnabled = true;
@@ -47,11 +49,11 @@ static void InitHandgun01MuzzleSettingsMap()
     Silencer02Entry.FlashLightDuration = 0.05f;
     Silencer02Entry.FlashLightRelativeLocation = FVector::ZeroVector;
     
-    GHandgun01MuzzleSettingsMap.Add(EMuzzleName::Silencer02, Silencer02Entry);
+    GHandgun01MuzzleSettingsMap.Add(EMuzzleName::Muzzle_Silencer02, Silencer02Entry);
 
     // Silencer-03
     FMuzzleSettingsEntry Silencer03Entry;
-    Silencer03Entry.Name = EMuzzleName::Silencer03;
+    Silencer03Entry.Name = EMuzzleName::Muzzle_Silencer03;
     Silencer03Entry.FireParticles = LoadObject<UParticleSystem>(nullptr, TEXT("/Game/Blueprint/Effects/Particles/PS_Muzzle_Flash_Silencer.PS_Muzzle_Flash_Silencer"));
     Silencer03Entry.FireSoundCue = LoadObject<USoundCue>(nullptr, TEXT("/Game/Assets/Audio/Cues/Weapons/SC_WEP_Handgun_01_Fire_Suppressed_03.SC_WEP_Handgun_01_Fire_Suppressed_03"));
     Silencer03Entry.bOverheatEnabled = true;
@@ -61,7 +63,7 @@ static void InitHandgun01MuzzleSettingsMap()
     Silencer03Entry.FlashLightDuration = 0.05f;
     Silencer03Entry.FlashLightRelativeLocation = FVector::ZeroVector;
     
-    GHandgun01MuzzleSettingsMap.Add(EMuzzleName::Silencer03, Silencer03Entry);
+    GHandgun01MuzzleSettingsMap.Add(EMuzzleName::Muzzle_Silencer03, Silencer03Entry);
 }
 
 FMuzzleSettingsEntry UHandgun01MuzzleSettingsLibrary::GetHandgun01MuzzleSettingsByName(EMuzzleName MuzzleName)

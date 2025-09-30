@@ -1,0 +1,17 @@
+#pragma once
+
+#include "CoreMinimal.h"
+#include "Enum/EGripName.h"
+#include "Kismet/BlueprintFunctionLibrary.h"
+#include "Struct/FGripSettingsEntry.h"
+#include "SMG02GripSettingsLibrary.generated.h"
+
+UCLASS()
+class RUSH_API USMG02GripSettingsLibrary : public UBlueprintFunctionLibrary
+{
+    GENERATED_BODY()
+
+public:
+    UFUNCTION(BlueprintPure, Category="SMG02 Grip Settings")
+    static FGripSettingsEntry GetSMG02GripSettingsByName(EGripName GripName);
+};

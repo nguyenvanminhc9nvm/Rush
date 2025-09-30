@@ -1,5 +1,6 @@
 #include "Handgun03GripSettingsLibrary.h"
 #include "Engine/Engine.h"
+#include "Animation/AnimSequence.h"
 
 static TMap<EGripName, FGripSettingsEntry> GHandgun03GripSettingsMap;
 

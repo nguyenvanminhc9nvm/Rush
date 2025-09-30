@@ -6,7 +6,7 @@
 UENUM(BlueprintType)
 enum EFragmentLaserName: uint8
 {
-	Laser_Hidden UMETA(DisplayName = "Hidden"),
-	Flashlight UMETA(DisplayName = "Flashlight"),
-	LaserSight UMETA(DisplayName = "Lasersight")
+	Fragment_Laser_Hidden UMETA(DisplayName = "Hidden"),
+	Fragment_Flashlight UMETA(DisplayName = "Flashlight"),
+	Fragment_LaserSight UMETA(DisplayName = "Lasersight")
 };

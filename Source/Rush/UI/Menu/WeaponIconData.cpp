@@ -11,5 +11,4 @@ UWeaponIconData::UWeaponIconData()
 	ScopeImage = nullptr;
 	GripImage = nullptr;
 	WeaponName = EWeaponName::Assault_Rifle_01;
-	ButtonText = TEXT("Select");
 }

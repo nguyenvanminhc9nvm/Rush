@@ -14,3 +14,4 @@ public:
     UFUNCTION(BlueprintPure, Category="Weapon")
     static TSubclassOf<AActor> GetWeaponByName(EWeaponName WeaponName);
 };
+

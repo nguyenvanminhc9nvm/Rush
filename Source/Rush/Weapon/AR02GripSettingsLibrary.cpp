@@ -1,5 +1,6 @@
 #include "AR02GripSettingsLibrary.h"
 #include "Engine/Engine.h"
+#include "Animation/AnimSequence.h"
 
 static TMap<EGripName, FGripSettingsEntry> GAR02GripSettingsMap;
 

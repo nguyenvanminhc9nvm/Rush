@@ -15,3 +15,4 @@ public:
     UFUNCTION(BlueprintPure, Category="Flashlight Settings")
     static FFlashlightSettingsEntry GetFlashlightSettingsByName(EFlashlightSettingsName SettingsName);
 };
+

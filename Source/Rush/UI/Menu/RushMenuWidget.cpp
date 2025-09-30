@@ -17,7 +17,7 @@ void URushMenuWidget::NativeConstruct()
 	// Initialize default weapon preset with any values you want
 	DefaultWeaponPreset.RowHandleSkins = EWeaponSkinName::DefaultAssaultRifle01;
 	DefaultWeaponPreset.RowHandleMeshScope = EScopeName::Scope01;
-	DefaultWeaponPreset.RowHandleMeshLaser = EFragmentLaserName::LaserSight;
-	DefaultWeaponPreset.RowHandleMeshMuzzle = EMuzzleName::Silencer01;
+	DefaultWeaponPreset.RowHandleMeshLaser = EFragmentLaserName::Fragment_LaserSight;
+	DefaultWeaponPreset.RowHandleMeshMuzzle = EMuzzleName::Muzzle_Silencer01;
 	DefaultWeaponPreset.RowHandleMeshGrip = EGripName::Grip01;
 }

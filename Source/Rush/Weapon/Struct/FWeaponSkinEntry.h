@@ -7,9 +7,10 @@
 
 struct FFlashlightSettingsEntry;
 struct FLasersightSettingsEntry;
+enum EWeaponSkinName : uint8;
 
 USTRUCT(BlueprintType)
-struct RUSH_API FWeaponSkinEntry
+struct FWeaponSkinEntry
 {
     GENERATED_BODY()
 

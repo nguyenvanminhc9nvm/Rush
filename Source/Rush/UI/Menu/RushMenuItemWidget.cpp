@@ -63,7 +63,7 @@ void URushMenuItemWidget::NativeOnListItemObjectSet(UObject* ListItemObject)
 
 		if (ButtonText)
 		{
-			ButtonText->SetText(FText::FromString(WeaponData->WeaponName));
+			ButtonText->SetText(FText::FromString(UEnum::GetValueAsString(WeaponData->WeaponName)));
 		}
 	}
 }
