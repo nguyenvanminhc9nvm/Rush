@@ -10,10 +10,10 @@ struct RUSH_API FCharacterMontageSettings
     GENERATED_BODY()
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Animation Montages")
-    UAnimMontage* SequenceBaseFirstPerson = nullptr;
+    UAnimMontage* MontageBaseFirstPerson = nullptr;
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Animation Montages")
-    UAnimMontage* SequenceBaseThirdPerson = nullptr;
+    UAnimMontage* MontageBaseThirdPerson = nullptr;
 
     FCharacterMontageSettings()
     {

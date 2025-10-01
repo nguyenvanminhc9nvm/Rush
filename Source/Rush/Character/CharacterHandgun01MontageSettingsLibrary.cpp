@@ -13,11 +13,11 @@ static void InitCharacterHandgun01MontageSettingsMap()
         FCharacterMontageSettings Settings;
         if (FirstPersonPath != TEXT("None"))
         {
-            Settings.SequenceBaseFirstPerson = LoadObject<UAnimMontage>(nullptr, *FirstPersonPath);
+            Settings.MontageBaseFirstPerson = LoadObject<UAnimMontage>(nullptr, *FirstPersonPath);
         }
         if (ThirdPersonPath != TEXT("None"))
         {
-            Settings.SequenceBaseThirdPerson = LoadObject<UAnimMontage>(nullptr, *ThirdPersonPath);
+            Settings.MontageBaseThirdPerson = LoadObject<UAnimMontage>(nullptr, *ThirdPersonPath);
         }
         return Settings;
     };

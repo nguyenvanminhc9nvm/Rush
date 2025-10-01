@@ -1,7 +1,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Struct/FGameAbility.h"
+#include "FGameAbility.h"
 #include "FAbilities.generated.h"
 
 USTRUCT(BlueprintType)
