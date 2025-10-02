@@ -8,6 +8,9 @@ struct RUSH_API FWeaponAnimationSettings
 {
     GENERATED_BODY()
 
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    TEnumAsByte<EWeaponName> Name;
+
     // Running Blend Settings
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Running Blend")
     float BlendIn = 0.4f;

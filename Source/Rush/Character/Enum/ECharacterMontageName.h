@@ -6,10 +6,15 @@
 UENUM(BlueprintType)
 enum ECharacterMontageName : uint8
 {
+	Jump                    UMETA(DisplayName = "Jump"),
 	Fire                    UMETA(DisplayName = "Fire"),
 	Fire_Empty              UMETA(DisplayName = "Fire-Empty"),
 	Reload                  UMETA(DisplayName = "Reload"),
 	Reload_Empty            UMETA(DisplayName = "Reload-Empty"),
+	Reload_Bolt             UMETA(DisplayName = "Reload-Bolt"),
+	Reload_Open             UMETA(DisplayName = "Reload-Open"),
+	Reload_Insert           UMETA(DisplayName = "Reload-Insert"),
+	Reload_Close            UMETA(DisplayName = "Reload-Close"),
 	Inspect                 UMETA(DisplayName = "Inspect"),
 	Inspect_Smooth          UMETA(DisplayName = "Inspect-Smooth"),
 	Holster                 UMETA(DisplayName = "Holster"),
