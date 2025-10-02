@@ -1,7 +1,6 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Engine/SoundCue.h"
 #include "../Character/Enum/ECharacterMontageName.h"
 #include "FWeaponSound.generated.h"
 
@@ -17,5 +16,5 @@ struct RUSH_API FWeaponSound
     float Delay = 0.0f;
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Weapon Sound")
-    TSoftObjectPtr<USoundCue> SoundCue;
+    TSoftObjectPtr<class USoundCue> SoundCue;
 };

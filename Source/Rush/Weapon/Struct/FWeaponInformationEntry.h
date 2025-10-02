@@ -6,12 +6,12 @@
 #include "FMuzzleSettingsEntry.h"
 #include "FScopeSettingsEntry.h"
 #include "FWeaponAnimationSettings.h"
+#include "EWeaponName.h"
 #include "FWeaponInformationEntry.generated.h"
 
 struct FGripSettingsEntry;
 struct FLaserSettingsEntry;
 struct FScopeSettingsEntry;
-enum EWeaponInformationName : uint8;
 
 USTRUCT(BlueprintType)
 struct FWeaponInformationEntry
@@ -19,22 +19,22 @@ struct FWeaponInformationEntry
 	GENERATED_BODY()
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TEnumAsByte<EWeaponInformationName> Name;
+	TEnumAsByte<EWeaponName> Name;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TSubclassOf<UUserWidget> WidgetClassCrosshair;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	EScopeName RowHandleScopeSettings;
+	TEnumAsByte<EScopeName> RowHandleScopeSettings;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	EFragmentLaserName RowHandleLaserSettings;
+	TEnumAsByte<EFragmentLaserName> RowHandleLaserSettings;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	EMuzzleName RowHandleMuzzleSettings;
+	TEnumAsByte<EMuzzleName> RowHandleMuzzleSettings;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	EGripName RowHandleGripSettings;
+	TEnumAsByte<EGripName> RowHandleGripSettings;
 
 	
 };

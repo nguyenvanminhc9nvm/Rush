@@ -1,9 +1,9 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Weapon/Enum/EWeaponMontageName.h"
+#include "Enum/EWeaponMontageName.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
-#include "Weapon/Struct/FWeaponMontageSettings.h"
+#include "Struct/FWeaponMontageSettings.h"
 #include "SMG03MontageSettingsLibrary.generated.h"
 
 UCLASS()
