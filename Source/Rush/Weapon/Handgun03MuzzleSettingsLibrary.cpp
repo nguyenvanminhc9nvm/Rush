@@ -75,3 +75,11 @@ FMuzzleSettingsEntry UHandgun03MuzzleSettingsLibrary::GetHandgun03MuzzleSettings
     }
     return FMuzzleSettingsEntry();
 }
+
+TArray<FMuzzleSettingsEntry> UHandgun03MuzzleSettingsLibrary::GetAllHandgun03MuzzleSettings()
+{
+    InitHandgun03MuzzleSettingsMap();
+    TArray<FMuzzleSettingsEntry> AllSettings;
+    GHandgun03MuzzleSettingsMap.GenerateValueArray(AllSettings);
+    return AllSettings;
+}

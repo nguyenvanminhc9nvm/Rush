@@ -27,112 +27,112 @@ static void InitCharacterSniper01MontageSettingsMap()
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Snipers/AM_FP_PCH_Sniper_Fire.AM_FP_PCH_Sniper_Fire'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Snipers/AM_TP_CH_Sniper_01_Fire.AM_TP_CH_Sniper_01_Fire'")
     );
-    GCharacterSniper01MontageSettingsMap.Add(ECharacterMontageName::Fire, FireSettings);
+    GCharacterSniper01MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Fire, FireSettings);
 
     // Fire-Empty
     FCharacterMontageSettings FireEmptySettings = CreateMontageSettings(
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Common/AM_FP_PCH_Fire_Empty.AM_FP_PCH_Fire_Empty'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Common/AM_FP_PCH_Fire_Empty.AM_FP_PCH_Fire_Empty'")
     );
-    GCharacterSniper01MontageSettingsMap.Add(ECharacterMontageName::Fire_Empty, FireEmptySettings);
+    GCharacterSniper01MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Fire_Empty, FireEmptySettings);
 
     // Reload-Bolt
     FCharacterMontageSettings ReloadBoltSettings = CreateMontageSettings(
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Snipers/AM_FP_PCH_Sniper_01_Reload_Bolt.AM_FP_PCH_Sniper_01_Reload_Bolt'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Snipers/AM_TP_CH_Sniper_01_Reload_Bolt.AM_TP_CH_Sniper_01_Reload_Bolt'")
     );
-    GCharacterSniper01MontageSettingsMap.Add(ECharacterMontageName::Reload_Bolt, ReloadBoltSettings);
+    GCharacterSniper01MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Reload_Bolt, ReloadBoltSettings);
 
     // Reload-Open
     FCharacterMontageSettings ReloadOpenSettings = CreateMontageSettings(
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Snipers/AM_FP_PCH_Sniper_01_Reload_Open.AM_FP_PCH_Sniper_01_Reload_Open'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Snipers/AM_TP_CH_Sniper_01_Reload_Open.AM_TP_CH_Sniper_01_Reload_Open'")
     );
-    GCharacterSniper01MontageSettingsMap.Add(ECharacterMontageName::Reload_Open, ReloadOpenSettings);
+    GCharacterSniper01MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Reload_Open, ReloadOpenSettings);
 
     // Reload-Insert
     FCharacterMontageSettings ReloadInsertSettings = CreateMontageSettings(
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Snipers/AM_FP_PCH_Sniper_01_Reload_Insert.AM_FP_PCH_Sniper_01_Reload_Insert'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Snipers/AM_TP_CH_Sniper_01_Reload_Insert.AM_TP_CH_Sniper_01_Reload_Insert'")
     );
-    GCharacterSniper01MontageSettingsMap.Add(ECharacterMontageName::Reload_Insert, ReloadInsertSettings);
+    GCharacterSniper01MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Reload_Insert, ReloadInsertSettings);
 
     // Reload-Close
     FCharacterMontageSettings ReloadCloseSettings = CreateMontageSettings(
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Snipers/AM_FP_PCH_Sniper_01_Reload_Close.AM_FP_PCH_Sniper_01_Reload_Close'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Snipers/AM_TP_CH_Sniper_01_Reload_Close.AM_TP_CH_Sniper_01_Reload_Close'")
     );
-    GCharacterSniper01MontageSettingsMap.Add(ECharacterMontageName::Reload_Close, ReloadCloseSettings);
+    GCharacterSniper01MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Reload_Close, ReloadCloseSettings);
 
     // Inspect
     FCharacterMontageSettings InspectSettings = CreateMontageSettings(
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Snipers/AM_FP_PCH_Sniper_01_Inspect.AM_FP_PCH_Sniper_01_Inspect'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Snipers/AM_TP_CH_Sniper_01_Inspect.AM_TP_CH_Sniper_01_Inspect'")
     );
-    GCharacterSniper01MontageSettingsMap.Add(ECharacterMontageName::Inspect, InspectSettings);
+    GCharacterSniper01MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Inspect, InspectSettings);
 
     // Inspect-Smooth
     FCharacterMontageSettings InspectSmoothSettings = CreateMontageSettings(
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Snipers/AM_FP_PCH_Sniper_01_Inspect.AM_FP_PCH_Sniper_01_Inspect'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Snipers/AM_TP_CH_Sniper_01_Inspect.AM_TP_CH_Sniper_01_Inspect'")
     );
-    GCharacterSniper01MontageSettingsMap.Add(ECharacterMontageName::Inspect_Smooth, InspectSmoothSettings);
+    GCharacterSniper01MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Inspect_Smooth, InspectSmoothSettings);
 
     // Holster
     FCharacterMontageSettings HolsterSettings = CreateMontageSettings(
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Snipers/AM_FP_PCH_Sniper_01_Holster.AM_FP_PCH_Sniper_01_Holster'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Snipers/AM_TP_CH_Sniper_01_Holster.AM_TP_CH_Sniper_01_Holster'")
     );
-    GCharacterSniper01MontageSettingsMap.Add(ECharacterMontageName::Holster, HolsterSettings);
+    GCharacterSniper01MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Holster, HolsterSettings);
 
     // Holster-Smooth
     FCharacterMontageSettings HolsterSmoothSettings = CreateMontageSettings(
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Snipers/AM_FP_PCH_Sniper_01_Holster_Smooth.AM_FP_PCH_Sniper_01_Holster_Smooth'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Snipers/AM_TP_CH_Sniper_01_Holster.AM_TP_CH_Sniper_01_Holster'")
     );
-    GCharacterSniper01MontageSettingsMap.Add(ECharacterMontageName::Holster_Smooth, HolsterSmoothSettings);
+    GCharacterSniper01MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Holster_Smooth, HolsterSmoothSettings);
 
     // Unholster
     FCharacterMontageSettings UnholsterSettings = CreateMontageSettings(
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Snipers/AM_FP_PCH_Sniper_01_Unholster.AM_FP_PCH_Sniper_01_Unholster'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Snipers/AM_TP_CH_Sniper_01_Unholster.AM_TP_CH_Sniper_01_Unholster'")
     );
-    GCharacterSniper01MontageSettingsMap.Add(ECharacterMontageName::Unholster, UnholsterSettings);
+    GCharacterSniper01MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Unholster, UnholsterSettings);
 
     // Unholster-Smooth
     FCharacterMontageSettings UnholsterSmoothSettings = CreateMontageSettings(
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Snipers/AM_FP_PCH_Sniper_01_Unholster_Smooth.AM_FP_PCH_Sniper_01_Unholster_Smooth'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Snipers/AM_TP_CH_Sniper_01_Unholster.AM_TP_CH_Sniper_01_Unholster'")
     );
-    GCharacterSniper01MontageSettingsMap.Add(ECharacterMontageName::Unholster_Smooth, UnholsterSmoothSettings);
+    GCharacterSniper01MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Unholster_Smooth, UnholsterSmoothSettings);
 
     // Throw-Grenade
     FCharacterMontageSettings ThrowGrenadeSettings = CreateMontageSettings(
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Common/AM_FP_PCH_Grenade_Throw.AM_FP_PCH_Grenade_Throw'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Common/AM_TP_CH_Grenade_Throw.AM_TP_CH_Grenade_Throw'")
     );
-    GCharacterSniper01MontageSettingsMap.Add(ECharacterMontageName::Throw_Grenade, ThrowGrenadeSettings);
+    GCharacterSniper01MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Throw_Grenade, ThrowGrenadeSettings);
 
     // Throw-Grenade-Additive
     FCharacterMontageSettings ThrowGrenadeAdditiveSettings = CreateMontageSettings(
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Common/AM_FP_PCH_Grenade_Throw_Additive.AM_FP_PCH_Grenade_Throw_Additive'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Common/AM_TP_CH_Grenade_Throw_Additive.AM_TP_CH_Grenade_Throw_Additive'")
     );
-    GCharacterSniper01MontageSettingsMap.Add(ECharacterMontageName::Throw_Grenade_Additive, ThrowGrenadeAdditiveSettings);
+    GCharacterSniper01MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Throw_Grenade_Additive, ThrowGrenadeAdditiveSettings);
 
     // Knife-Attack
     FCharacterMontageSettings KnifeAttackSettings = CreateMontageSettings(
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Common/AM_FP_PCH_Knife_Attack_01.AM_FP_PCH_Knife_Attack_01'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Common/AM_TP_CH_Knife_Attack.AM_TP_CH_Knife_Attack'")
     );
-    GCharacterSniper01MontageSettingsMap.Add(ECharacterMontageName::Knife_Attack, KnifeAttackSettings);
+    GCharacterSniper01MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Knife_Attack, KnifeAttackSettings);
 
     // Knife-Attack-Additive
     FCharacterMontageSettings KnifeAttackAdditiveSettings = CreateMontageSettings(
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Common/AM_FP_PCH_Knife_Attack_01_Additive.AM_FP_PCH_Knife_Attack_01_Additive'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Common/AM_TP_CH_Knife_Attack_Additive.AM_TP_CH_Knife_Attack_Additive'")
     );
-    GCharacterSniper01MontageSettingsMap.Add(ECharacterMontageName::Knife_Attack_Additive, KnifeAttackAdditiveSettings);
+    GCharacterSniper01MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Knife_Attack_Additive, KnifeAttackAdditiveSettings);
 }
 
 FCharacterMontageSettings UCharacterSniper01MontageSettingsLibrary::GetCharacterSniper01MontageSettingsByName(ECharacterMontageName MontageName)
@@ -143,4 +143,12 @@ FCharacterMontageSettings UCharacterSniper01MontageSettingsLibrary::GetCharacter
         return GCharacterSniper01MontageSettingsMap[MontageName];
     }
     return FCharacterMontageSettings(); // Return default settings if not found
+}
+
+TArray<FCharacterMontageSettings> UCharacterSniper01MontageSettingsLibrary::GetAllCharacterSniper01MontageSettings()
+{
+    InitCharacterSniper01MontageSettingsMap();
+    TArray<FCharacterMontageSettings> AllSettings;
+    GCharacterSniper01MontageSettingsMap.GenerateValueArray(AllSettings);
+    return AllSettings;
 }

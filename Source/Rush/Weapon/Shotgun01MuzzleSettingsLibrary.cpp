@@ -75,3 +75,11 @@ FMuzzleSettingsEntry UShotgun01MuzzleSettingsLibrary::GetShotgun01MuzzleSettings
     }
     return FMuzzleSettingsEntry();
 }
+
+TArray<FMuzzleSettingsEntry> UShotgun01MuzzleSettingsLibrary::GetAllShotgun01MuzzleSettings()
+{
+    InitShotgun01MuzzleSettingsMap();
+    TArray<FMuzzleSettingsEntry> AllSettings;
+    GShotgun01MuzzleSettingsMap.GenerateValueArray(AllSettings);
+    return AllSettings;
+}

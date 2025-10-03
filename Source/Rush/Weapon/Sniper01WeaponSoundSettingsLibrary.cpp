@@ -23,83 +23,83 @@ static void InitSniper01WeaponSoundMap()
 
     // Jump
     FWeaponSound JumpSound = CreateWeaponSound(
-        ECharacterMontageName::Jump,
+        ECharacterMontageName::Character_Montage_Jump,
         0.0f,
         TEXT("/Script/Engine.SoundCue'/Game/Assets/Audio/Cues/SC_CH_Jump_Start.SC_CH_Jump_Start'")
     );
-    GSniper01WeaponSoundMap.Add(ECharacterMontageName::Jump, JumpSound);
+    GSniper01WeaponSoundMap.Add(ECharacterMontageName::Character_Montage_Jump, JumpSound);
 
     // Reload-Bolt
     FWeaponSound ReloadBoltSound = CreateWeaponSound(
-        ECharacterMontageName::Reload_Bolt,
+        ECharacterMontageName::Character_Montage_Reload_Bolt,
         0.0f,
         TEXT("/Script/Engine.SoundCue'/Game/Assets/Audio/Cues/Weapons/SC_WEP_Sniper_01_Reload_Open.SC_WEP_Sniper_01_Reload_Open'")
     );
-    GSniper01WeaponSoundMap.Add(ECharacterMontageName::Reload_Bolt, ReloadBoltSound);
+    GSniper01WeaponSoundMap.Add(ECharacterMontageName::Character_Montage_Reload_Bolt, ReloadBoltSound);
 
     // Reload-Open
     FWeaponSound ReloadOpenSound = CreateWeaponSound(
-        ECharacterMontageName::Reload_Open,
+        ECharacterMontageName::Character_Montage_Reload_Open,
         0.0f,
         TEXT("/Script/Engine.SoundCue'/Game/Assets/Audio/Cues/Weapons/SC_WEP_Sniper_01_Reload_Open.SC_WEP_Sniper_01_Reload_Open'")
     );
-    GSniper01WeaponSoundMap.Add(ECharacterMontageName::Reload_Open, ReloadOpenSound);
+    GSniper01WeaponSoundMap.Add(ECharacterMontageName::Character_Montage_Reload_Open, ReloadOpenSound);
 
     // Reload-Insert
     FWeaponSound ReloadInsertSound = CreateWeaponSound(
-        ECharacterMontageName::Reload_Insert,
+        ECharacterMontageName::Character_Montage_Reload_Insert,
         0.0f,
         TEXT("/Script/Engine.SoundCue'/Game/Assets/Audio/Cues/Weapons/SC_WEP_Sniper_01_Reload_Insert.SC_WEP_Sniper_01_Reload_Insert'")
     );
-    GSniper01WeaponSoundMap.Add(ECharacterMontageName::Reload_Insert, ReloadInsertSound);
+    GSniper01WeaponSoundMap.Add(ECharacterMontageName::Character_Montage_Reload_Insert, ReloadInsertSound);
 
     // Reload-Close
     FWeaponSound ReloadCloseSound = CreateWeaponSound(
-        ECharacterMontageName::Reload_Close,
+        ECharacterMontageName::Character_Montage_Reload_Close,
         0.0f,
         TEXT("/Script/Engine.SoundCue'/Game/Assets/Audio/Cues/Weapons/SC_WEP_Sniper_01_Reload_Close.SC_WEP_Sniper_01_Reload_Close'")
     );
-    GSniper01WeaponSoundMap.Add(ECharacterMontageName::Reload_Close, ReloadCloseSound);
+    GSniper01WeaponSoundMap.Add(ECharacterMontageName::Character_Montage_Reload_Close, ReloadCloseSound);
 
     // Inspect
     FWeaponSound InspectSound = CreateWeaponSound(
-        ECharacterMontageName::Inspect,
+        ECharacterMontageName::Character_Montage_Inspect,
         0.0f,
         TEXT("None")
     );
-    GSniper01WeaponSoundMap.Add(ECharacterMontageName::Inspect, InspectSound);
+    GSniper01WeaponSoundMap.Add(ECharacterMontageName::Character_Montage_Inspect, InspectSound);
 
     // Holster
     FWeaponSound HolsterSound = CreateWeaponSound(
-        ECharacterMontageName::Holster,
+        ECharacterMontageName::Character_Montage_Holster,
         0.0f,
         TEXT("/Script/Engine.SoundCue'/Game/Assets/Audio/Cues/Weapons/SC_WEP_Holster.SC_WEP_Holster'")
     );
-    GSniper01WeaponSoundMap.Add(ECharacterMontageName::Holster, HolsterSound);
+    GSniper01WeaponSoundMap.Add(ECharacterMontageName::Character_Montage_Holster, HolsterSound);
 
     // Holster-Smooth
     FWeaponSound HolsterSmoothSound = CreateWeaponSound(
-        ECharacterMontageName::Holster_Smooth,
+        ECharacterMontageName::Character_Montage_Holster_Smooth,
         0.0f,
         TEXT("/Script/Engine.SoundCue'/Game/Assets/Audio/Cues/Weapons/SC_WEP_Holster.SC_WEP_Holster'")
     );
-    GSniper01WeaponSoundMap.Add(ECharacterMontageName::Holster_Smooth, HolsterSmoothSound);
+    GSniper01WeaponSoundMap.Add(ECharacterMontageName::Character_Montage_Holster_Smooth, HolsterSmoothSound);
 
     // Unholster
     FWeaponSound UnholsterSound = CreateWeaponSound(
-        ECharacterMontageName::Unholster,
+        ECharacterMontageName::Character_Montage_Unholster,
         0.0f,
         TEXT("/Script/Engine.SoundCue'/Game/Assets/Audio/Cues/Weapons/SC_WEP_Unholster.SC_WEP_Unholster'")
     );
-    GSniper01WeaponSoundMap.Add(ECharacterMontageName::Unholster, UnholsterSound);
+    GSniper01WeaponSoundMap.Add(ECharacterMontageName::Character_Montage_Unholster, UnholsterSound);
 
     // Unholster-Smooth
     FWeaponSound UnholsterSmoothSound = CreateWeaponSound(
-        ECharacterMontageName::Unholster_Smooth,
+        ECharacterMontageName::Character_Montage_Unholster_Smooth,
         0.0f,
         TEXT("/Script/Engine.SoundCue'/Game/Assets/Audio/Cues/Weapons/SC_WEP_Unholster.SC_WEP_Unholster'")
     );
-    GSniper01WeaponSoundMap.Add(ECharacterMontageName::Unholster_Smooth, UnholsterSmoothSound);
+    GSniper01WeaponSoundMap.Add(ECharacterMontageName::Character_Montage_Unholster_Smooth, UnholsterSmoothSound);
 }
 
 FWeaponSound USniper01WeaponSoundSettingsLibrary::GetWeaponSoundByName(ECharacterMontageName SoundName)
@@ -117,4 +117,12 @@ FWeaponSound USniper01WeaponSoundSettingsLibrary::GetWeaponSoundByName(ECharacte
     EmptySound.Delay = 0.0f;
     EmptySound.SoundCue = nullptr;
     return EmptySound;
+}
+
+TArray<FWeaponSound> USniper01WeaponSoundSettingsLibrary::GetAllSniper01WeaponSounds()
+{
+    InitSniper01WeaponSoundMap();
+    TArray<FWeaponSound> AllSounds;
+    GSniper01WeaponSoundMap.GenerateValueArray(AllSounds);
+    return AllSounds;
 }

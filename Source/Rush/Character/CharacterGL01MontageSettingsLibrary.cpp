@@ -27,98 +27,98 @@ static void InitCharacterGL01MontageSettingsMap()
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Launchers/AM_FP_PCH_GL_01_Fire.AM_FP_PCH_GL_01_Fire'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Launchers/AM_TP_CH_GL_01_Fire.AM_TP_CH_GL_01_Fire'")
     );
-    GCharacterGL01MontageSettingsMap.Add(ECharacterMontageName::Fire, FireSettings);
+    GCharacterGL01MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Fire, FireSettings);
 
     // Fire-Empty
     FCharacterMontageSettings FireEmptySettings = CreateMontageSettings(
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Common/AM_FP_PCH_Fire_Empty.AM_FP_PCH_Fire_Empty'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Common/AM_FP_PCH_Fire_Empty.AM_FP_PCH_Fire_Empty'")
     );
-    GCharacterGL01MontageSettingsMap.Add(ECharacterMontageName::Fire_Empty, FireEmptySettings);
+    GCharacterGL01MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Fire_Empty, FireEmptySettings);
 
     // Reload
     FCharacterMontageSettings ReloadSettings = CreateMontageSettings(
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Launchers/AM_FP_PCH_GL_01_Reload.AM_FP_PCH_GL_01_Reload'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Launchers/AM_TP_CH_GL_01_Reload.AM_TP_CH_GL_01_Reload'")
     );
-    GCharacterGL01MontageSettingsMap.Add(ECharacterMontageName::Reload, ReloadSettings);
+    GCharacterGL01MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Reload, ReloadSettings);
 
     // Reload-Empty
     FCharacterMontageSettings ReloadEmptySettings = CreateMontageSettings(
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Launchers/AM_FP_PCH_GL_01_Reload.AM_FP_PCH_GL_01_Reload'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Launchers/AM_TP_CH_GL_01_Reload.AM_TP_CH_GL_01_Reload'")
     );
-    GCharacterGL01MontageSettingsMap.Add(ECharacterMontageName::Reload_Empty, ReloadEmptySettings);
+    GCharacterGL01MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Reload_Empty, ReloadEmptySettings);
 
     // Inspect
     FCharacterMontageSettings InspectSettings = CreateMontageSettings(
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Launchers/AM_FP_PCH_GL_01_Inspect.AM_FP_PCH_GL_01_Inspect'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Launchers/AM_TP_CH_GL_01_Inspect.AM_TP_CH_GL_01_Inspect'")
     );
-    GCharacterGL01MontageSettingsMap.Add(ECharacterMontageName::Inspect, InspectSettings);
+    GCharacterGL01MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Inspect, InspectSettings);
 
     // Inspect-Smooth
     FCharacterMontageSettings InspectSmoothSettings = CreateMontageSettings(
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Launchers/AM_FP_PCH_GL_01_Inspect.AM_FP_PCH_GL_01_Inspect'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Launchers/AM_TP_CH_GL_01_Inspect.AM_TP_CH_GL_01_Inspect'")
     );
-    GCharacterGL01MontageSettingsMap.Add(ECharacterMontageName::Inspect_Smooth, InspectSmoothSettings);
+    GCharacterGL01MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Inspect_Smooth, InspectSmoothSettings);
 
     // Holster
     FCharacterMontageSettings HolsterSettings = CreateMontageSettings(
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Launchers/AM_FP_PCH_GL_01_Holster.AM_FP_PCH_GL_01_Holster'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Launchers/AM_TP_CH_GL_01_Holster.AM_TP_CH_GL_01_Holster'")
     );
-    GCharacterGL01MontageSettingsMap.Add(ECharacterMontageName::Holster, HolsterSettings);
+    GCharacterGL01MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Holster, HolsterSettings);
 
     // Holster-Smooth
     FCharacterMontageSettings HolsterSmoothSettings = CreateMontageSettings(
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Launchers/AM_FP_PCH_GL_01_Holster_Smooth.AM_FP_PCH_GL_01_Holster_Smooth'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Launchers/AM_TP_CH_GL_01_Holster.AM_TP_CH_GL_01_Holster'")
     );
-    GCharacterGL01MontageSettingsMap.Add(ECharacterMontageName::Holster_Smooth, HolsterSmoothSettings);
+    GCharacterGL01MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Holster_Smooth, HolsterSmoothSettings);
 
     // Unholster
     FCharacterMontageSettings UnholsterSettings = CreateMontageSettings(
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Launchers/AM_FP_PCH_GL_01_Unholster.AM_FP_PCH_GL_01_Unholster'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Launchers/AM_TP_CH_GL_01_Unholster.AM_TP_CH_GL_01_Unholster'")
     );
-    GCharacterGL01MontageSettingsMap.Add(ECharacterMontageName::Unholster, UnholsterSettings);
+    GCharacterGL01MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Unholster, UnholsterSettings);
 
     // Unholster-Smooth
     FCharacterMontageSettings UnholsterSmoothSettings = CreateMontageSettings(
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Launchers/AM_FP_PCH_GL_01_Unholster_Smooth.AM_FP_PCH_GL_01_Unholster_Smooth'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Launchers/AM_TP_CH_GL_01_Unholster.AM_TP_CH_GL_01_Unholster'")
     );
-    GCharacterGL01MontageSettingsMap.Add(ECharacterMontageName::Unholster_Smooth, UnholsterSmoothSettings);
+    GCharacterGL01MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Unholster_Smooth, UnholsterSmoothSettings);
 
     // Throw-Grenade
     FCharacterMontageSettings ThrowGrenadeSettings = CreateMontageSettings(
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Common/AM_FP_PCH_Grenade_Throw.AM_FP_PCH_Grenade_Throw'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Common/AM_TP_CH_Grenade_Throw.AM_TP_CH_Grenade_Throw'")
     );
-    GCharacterGL01MontageSettingsMap.Add(ECharacterMontageName::Throw_Grenade, ThrowGrenadeSettings);
+    GCharacterGL01MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Throw_Grenade, ThrowGrenadeSettings);
 
     // Throw-Grenade-Additive
     FCharacterMontageSettings ThrowGrenadeAdditiveSettings = CreateMontageSettings(
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Common/AM_FP_PCH_Grenade_Throw_Additive.AM_FP_PCH_Grenade_Throw_Additive'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Common/AM_TP_CH_Grenade_Throw_Additive.AM_TP_CH_Grenade_Throw_Additive'")
     );
-    GCharacterGL01MontageSettingsMap.Add(ECharacterMontageName::Throw_Grenade_Additive, ThrowGrenadeAdditiveSettings);
+    GCharacterGL01MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Throw_Grenade_Additive, ThrowGrenadeAdditiveSettings);
 
     // Knife-Attack
     FCharacterMontageSettings KnifeAttackSettings = CreateMontageSettings(
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Common/AM_FP_PCH_Knife_Attack_01.AM_FP_PCH_Knife_Attack_01'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Common/AM_TP_CH_Knife_Attack.AM_TP_CH_Knife_Attack'")
     );
-    GCharacterGL01MontageSettingsMap.Add(ECharacterMontageName::Knife_Attack, KnifeAttackSettings);
+    GCharacterGL01MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Knife_Attack, KnifeAttackSettings);
 
     // Knife-Attack-Additive
     FCharacterMontageSettings KnifeAttackAdditiveSettings = CreateMontageSettings(
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Common/AM_FP_PCH_Knife_Attack_01_Additive.AM_FP_PCH_Knife_Attack_01_Additive'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Character/Montage/Common/AM_TP_CH_Knife_Attack_Additive.AM_TP_CH_Knife_Attack_Additive'")
     );
-    GCharacterGL01MontageSettingsMap.Add(ECharacterMontageName::Knife_Attack_Additive, KnifeAttackAdditiveSettings);
+    GCharacterGL01MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Knife_Attack_Additive, KnifeAttackAdditiveSettings);
 }
 
 FCharacterMontageSettings UCharacterGL01MontageSettingsLibrary::GetCharacterGL01MontageSettingsByName(ECharacterMontageName MontageName)
@@ -129,4 +129,12 @@ FCharacterMontageSettings UCharacterGL01MontageSettingsLibrary::GetCharacterGL01
         return GCharacterGL01MontageSettingsMap[MontageName];
     }
     return FCharacterMontageSettings(); // Return default settings if not found
+}
+
+TArray<FCharacterMontageSettings> UCharacterGL01MontageSettingsLibrary::GetAllCharacterGL01MontageSettings()
+{
+    InitCharacterGL01MontageSettingsMap();
+    TArray<FCharacterMontageSettings> AllSettings;
+    GCharacterGL01MontageSettingsMap.GenerateValueArray(AllSettings);
+    return AllSettings;
 }

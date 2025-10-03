@@ -14,4 +14,7 @@ class RUSH_API URL01WeaponSoundSettingsLibrary : public UBlueprintFunctionLibrar
 public:
     UFUNCTION(BlueprintPure, Category="RL01 Weapon Sound Settings")
     static FWeaponSound GetWeaponSoundByName(ECharacterMontageName SoundName);
+
+    UFUNCTION(BlueprintCallable, Category="RL01 Weapon Sound Settings")
+    static TArray<FWeaponSound> GetAllRL01WeaponSounds();
 };

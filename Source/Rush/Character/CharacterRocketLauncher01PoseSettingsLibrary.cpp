@@ -95,3 +95,11 @@ FCharacterPoseSettings UCharacterRocketLauncher01PoseSettingsLibrary::GetCharact
     }
     return FCharacterPoseSettings(); // Return default settings if not found
 }
+
+TArray<FCharacterPoseSettings> UCharacterRocketLauncher01PoseSettingsLibrary::GetAllCharacterRocketLauncher01PoseSettings()
+{
+    InitCharacterRocketLauncher01PoseSettingsMap();
+    TArray<FCharacterPoseSettings> AllSettings;
+    GCharacterRocketLauncher01PoseSettingsMap.GenerateValueArray(AllSettings);
+    return AllSettings;
+}

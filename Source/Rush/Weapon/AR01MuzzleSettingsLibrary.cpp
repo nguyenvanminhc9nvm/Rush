@@ -75,3 +75,11 @@ FMuzzleSettingsEntry UAR01MuzzleSettingsLibrary::GetMuzzleSettingsByName(EMuzzle
     }
     return FMuzzleSettingsEntry();
 }
+
+TArray<FMuzzleSettingsEntry> UAR01MuzzleSettingsLibrary::GetAllMuzzleSettings()
+{
+    InitMuzzleSettingsMap();
+    TArray<FMuzzleSettingsEntry> AllSettings;
+    GMuzzleSettingsMap.GenerateValueArray(AllSettings);
+    return AllSettings;
+}

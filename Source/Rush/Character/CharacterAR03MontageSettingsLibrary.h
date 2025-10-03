@@ -15,4 +15,7 @@ public:
     UFUNCTION(BlueprintPure, Category="Character AR03 Montage Settings")
     static FCharacterMontageSettings GetCharacterAR03MontageSettingsByName(ECharacterMontageName MontageName);
 
+    UFUNCTION(BlueprintCallable, Category="Character AR03 Montage Settings")
+    static TArray<FCharacterMontageSettings> GetAllCharacterAR03MontageSettings();
+
 };

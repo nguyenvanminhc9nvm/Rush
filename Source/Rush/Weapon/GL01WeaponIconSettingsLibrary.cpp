@@ -147,3 +147,11 @@ FWeaponIcon UGL01WeaponIconSettingsLibrary::GetWeaponIconByName(EWeaponIconName 
     }
     return FWeaponIcon(); // Return default icon if not found
 }
+
+TArray<FWeaponIcon> UGL01WeaponIconSettingsLibrary::GetAllGL01WeaponIcons()
+{
+    InitGL01WeaponIconMap();
+    TArray<FWeaponIcon> AllIcons;
+    GGL01WeaponIconMap.GenerateValueArray(AllIcons);
+    return AllIcons;
+}

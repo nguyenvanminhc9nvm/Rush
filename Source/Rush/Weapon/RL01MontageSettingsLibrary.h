@@ -15,4 +15,7 @@ public:
     UFUNCTION(BlueprintPure, Category="RL 01 Montage Settings")
     static FWeaponMontageSettings GetRL01MontageSettingsByName(EWeaponMontageName MontageName);
 
+    UFUNCTION(BlueprintCallable, Category="RL 01 Montage Settings")
+    static TArray<FWeaponMontageSettings> GetAllRL01MontageSettings();
+
 };

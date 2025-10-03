@@ -72,3 +72,11 @@ FGripSettingsEntry USniper01GripSettingsLibrary::GetSniper01GripSettingsByName(E
     }
     return FGripSettingsEntry();
 }
+
+TArray<FGripSettingsEntry> USniper01GripSettingsLibrary::GetAllSniper01GripSettings()
+{
+    InitSniper01GripSettingsMap();
+    TArray<FGripSettingsEntry> AllSettings;
+    GSniper01GripSettingsMap.GenerateValueArray(AllSettings);
+    return AllSettings;
+}

@@ -14,4 +14,7 @@ class RUSH_API UHandgun02MuzzleSettingsLibrary : public UBlueprintFunctionLibrar
 public:
     UFUNCTION(BlueprintPure, Category="Handgun02 Muzzle Settings")
     static FMuzzleSettingsEntry GetHandgun02MuzzleSettingsByName(EMuzzleName MuzzleName);
+
+    UFUNCTION(BlueprintCallable, Category="Handgun02 Muzzle Settings")
+    static TArray<FMuzzleSettingsEntry> GetAllHandgun02MuzzleSettings();
 };

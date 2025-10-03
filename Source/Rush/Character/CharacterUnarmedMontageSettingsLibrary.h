@@ -1,9 +1,9 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Character/Enum/ECharacterMontageName.h"
+#include "Enum/ECharacterMontageName.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
-#include "Character/Struct/FCharacterMontageSettings.h"
+#include "Struct/FCharacterMontageSettings.h"
 #include "CharacterUnarmedMontageSettingsLibrary.generated.h"
 
 UCLASS()

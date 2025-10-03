@@ -3,6 +3,8 @@
 #include "CoreMinimal.h"
 #include "FGripEntry.generated.h"
 
+enum EGripName : uint8;
+
 USTRUCT(BlueprintType)
 struct RUSH_API FGripEntry
 {

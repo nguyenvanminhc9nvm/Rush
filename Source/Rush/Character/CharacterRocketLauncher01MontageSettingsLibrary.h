@@ -15,4 +15,7 @@ public:
     UFUNCTION(BlueprintPure, Category="Character Rocket Launcher 01 Montage Settings")
     static FCharacterMontageSettings GetCharacterRocketLauncher01MontageSettingsByName(ECharacterMontageName MontageName);
 
+    UFUNCTION(BlueprintCallable, Category="Character Rocket Launcher 01 Montage Settings")
+    static TArray<FCharacterMontageSettings> GetAllCharacterRocketLauncher01MontageSettings();
+
 };

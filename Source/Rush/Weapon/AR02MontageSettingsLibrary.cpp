@@ -27,49 +27,49 @@ static void InitAR02MontageSettingsMap()
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Weapon/ARs/Animation/Montage/AM_WEP_AR_02_Fire.AM_WEP_AR_02_Fire'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Weapon/ARs/Animation/Montage/AM_WEP_AR_02_Fire.AM_WEP_AR_02_Fire'")
     );
-    GAR02MontageSettingsMap.Add(EWeaponMontageName::Fire, FireSettings);
+    GAR02MontageSettingsMap.Add(EWeaponMontageName::Weapon_Fire, FireSettings);
 
     // Fire-Empty
     FWeaponMontageSettings FireEmptySettings = CreateMontageSettings(
         TEXT("None"),
         TEXT("None")
     );
-    GAR02MontageSettingsMap.Add(EWeaponMontageName::Fire_Empty, FireEmptySettings);
+    GAR02MontageSettingsMap.Add(EWeaponMontageName::Weapon_Fire_Empty, FireEmptySettings);
 
     // Reload
     FWeaponMontageSettings ReloadSettings = CreateMontageSettings(
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Weapon/ARs/Animation/Montage/AM_FP_WEP_AR_02_Reload.AM_FP_WEP_AR_02_Reload'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Weapon/ARs/Animation/Montage/AM_TP_WEP_AR_02_Reload.AM_TP_WEP_AR_02_Reload'")
     );
-    GAR02MontageSettingsMap.Add(EWeaponMontageName::Reload, ReloadSettings);
+    GAR02MontageSettingsMap.Add(EWeaponMontageName::Weapon_Reload, ReloadSettings);
 
     // Reload-Empty
     FWeaponMontageSettings ReloadEmptySettings = CreateMontageSettings(
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Weapon/ARs/Animation/Montage/AM_FP_WEP_AR_02_Reload_Empty.AM_FP_WEP_AR_02_Reload_Empty'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Weapon/ARs/Animation/Montage/AM_TP_WEP_AR_02_Reload_Empty.AM_TP_WEP_AR_02_Reload_Empty'")
     );
-    GAR02MontageSettingsMap.Add(EWeaponMontageName::Reload_Empty, ReloadEmptySettings);
+    GAR02MontageSettingsMap.Add(EWeaponMontageName::Weapon_Reload_Empty, ReloadEmptySettings);
 
     // Inspect
     FWeaponMontageSettings InspectSettings = CreateMontageSettings(
         TEXT("None"),
         TEXT("None")
     );
-    GAR02MontageSettingsMap.Add(EWeaponMontageName::Inspect, InspectSettings);
+    GAR02MontageSettingsMap.Add(EWeaponMontageName::Weapon_Inspect, InspectSettings);
 
     // Holster
     FWeaponMontageSettings HolsterSettings = CreateMontageSettings(
         TEXT("None"),
         TEXT("None")
     );
-    GAR02MontageSettingsMap.Add(EWeaponMontageName::Holster, HolsterSettings);
+    GAR02MontageSettingsMap.Add(EWeaponMontageName::Weapon_Holster, HolsterSettings);
 
     // Unholster
     FWeaponMontageSettings UnholsterSettings = CreateMontageSettings(
         TEXT("None"),
         TEXT("None")
     );
-    GAR02MontageSettingsMap.Add(EWeaponMontageName::Unholster, UnholsterSettings);
+    GAR02MontageSettingsMap.Add(EWeaponMontageName::Weapon_Unholster, UnholsterSettings);
 }
 
 FWeaponMontageSettings UAR02MontageSettingsLibrary::GetAR02MontageSettingsByName(EWeaponMontageName MontageName)
@@ -80,4 +80,12 @@ FWeaponMontageSettings UAR02MontageSettingsLibrary::GetAR02MontageSettingsByName
         return GAR02MontageSettingsMap[MontageName];
     }
     return FWeaponMontageSettings(); // Return default settings if not found
+}
+
+TArray<FWeaponMontageSettings> UAR02MontageSettingsLibrary::GetAllAR02MontageSettings()
+{
+    InitAR02MontageSettingsMap();
+    TArray<FWeaponMontageSettings> AllSettings;
+    GAR02MontageSettingsMap.GenerateValueArray(AllSettings);
+    return AllSettings;
 }

@@ -64,3 +64,11 @@ FGripSettingsEntry UAR03GripSettingsLibrary::GetAR03GripSettingsByName(EGripName
     }
     return FGripSettingsEntry();
 }
+
+TArray<FGripSettingsEntry> UAR03GripSettingsLibrary::GetAllAR03GripSettings()
+{
+    InitAR03GripSettingsMap();
+    TArray<FGripSettingsEntry> AllSettings;
+    GAR03GripSettingsMap.GenerateValueArray(AllSettings);
+    return AllSettings;
+}

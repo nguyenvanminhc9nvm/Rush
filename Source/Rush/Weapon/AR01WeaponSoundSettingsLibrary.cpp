@@ -23,67 +23,67 @@ static void InitAR01WeaponSoundMap()
 
     // Jump
     FWeaponSound JumpSound = CreateWeaponSound(
-        ECharacterMontageName::Jump,
+        ECharacterMontageName::Character_Montage_Jump,
         0.0f,
         TEXT("/Script/Engine.SoundCue'/Game/Assets/Audio/Cues/SC_CH_Jump_Start.SC_CH_Jump_Start'")
     );
-    GAR01WeaponSoundMap.Add(ECharacterMontageName::Jump, JumpSound);
+    GAR01WeaponSoundMap.Add(ECharacterMontageName::Character_Montage_Jump, JumpSound);
 
     // Reload
     FWeaponSound ReloadSound = CreateWeaponSound(
-        ECharacterMontageName::Reload,
+        ECharacterMontageName::Character_Montage_Reload,
         0.0f,
         TEXT("/Script/Engine.SoundCue'/Game/Assets/Audio/Cues/Weapons/SC_WEP_AR_01_Reload.SC_WEP_AR_01_Reload'")
     );
-    GAR01WeaponSoundMap.Add(ECharacterMontageName::Reload, ReloadSound);
+    GAR01WeaponSoundMap.Add(ECharacterMontageName::Character_Montage_Reload, ReloadSound);
 
     // Reload-Empty
     FWeaponSound ReloadEmptySound = CreateWeaponSound(
-        ECharacterMontageName::Reload_Empty,
+        ECharacterMontageName::Character_Montage_Reload_Empty,
         0.0f,
         TEXT("/Script/Engine.SoundCue'/Game/Assets/Audio/Cues/Weapons/SC_WEP_AR_01_Reload_Empty.SC_WEP_AR_01_Reload_Empty'")
     );
-    GAR01WeaponSoundMap.Add(ECharacterMontageName::Reload_Empty, ReloadEmptySound);
+    GAR01WeaponSoundMap.Add(ECharacterMontageName::Character_Montage_Reload_Empty, ReloadEmptySound);
 
     // Inspect
     FWeaponSound InspectSound = CreateWeaponSound(
-        ECharacterMontageName::Inspect,
+        ECharacterMontageName::Character_Montage_Inspect,
         0.0f,
         TEXT("None")
     );
-    GAR01WeaponSoundMap.Add(ECharacterMontageName::Inspect, InspectSound);
+    GAR01WeaponSoundMap.Add(ECharacterMontageName::Character_Montage_Inspect, InspectSound);
 
     // Holster
     FWeaponSound HolsterSound = CreateWeaponSound(
-        ECharacterMontageName::Holster,
+        ECharacterMontageName::Character_Montage_Holster,
         0.0f,
         TEXT("/Script/Engine.SoundCue'/Game/Assets/Audio/Cues/Weapons/SC_WEP_Holster.SC_WEP_Holster'")
     );
-    GAR01WeaponSoundMap.Add(ECharacterMontageName::Holster, HolsterSound);
+    GAR01WeaponSoundMap.Add(ECharacterMontageName::Character_Montage_Holster, HolsterSound);
 
     // Holster-Smooth
     FWeaponSound HolsterSmoothSound = CreateWeaponSound(
-        ECharacterMontageName::Holster_Smooth,
+        ECharacterMontageName::Character_Montage_Holster_Smooth,
         0.0f,
         TEXT("/Script/Engine.SoundCue'/Game/Assets/Audio/Cues/Weapons/SC_WEP_Holster.SC_WEP_Holster'")
     );
-    GAR01WeaponSoundMap.Add(ECharacterMontageName::Holster_Smooth, HolsterSmoothSound);
+    GAR01WeaponSoundMap.Add(ECharacterMontageName::Character_Montage_Holster_Smooth, HolsterSmoothSound);
 
     // Unholster
     FWeaponSound UnholsterSound = CreateWeaponSound(
-        ECharacterMontageName::Unholster,
+        ECharacterMontageName::Character_Montage_Unholster,
         0.0f,
         TEXT("/Script/Engine.SoundCue'/Game/Assets/Audio/Cues/Weapons/SC_WEP_Unholster.SC_WEP_Unholster'")
     );
-    GAR01WeaponSoundMap.Add(ECharacterMontageName::Unholster, UnholsterSound);
+    GAR01WeaponSoundMap.Add(ECharacterMontageName::Character_Montage_Unholster, UnholsterSound);
 
     // Unholster-Smooth
     FWeaponSound UnholsterSmoothSound = CreateWeaponSound(
-        ECharacterMontageName::Unholster_Smooth,
+        ECharacterMontageName::Character_Montage_Unholster_Smooth,
         0.0f,
         TEXT("/Script/Engine.SoundCue'/Game/Assets/Audio/Cues/Weapons/SC_WEP_Unholster.SC_WEP_Unholster'")
     );
-    GAR01WeaponSoundMap.Add(ECharacterMontageName::Unholster_Smooth, UnholsterSmoothSound);
+    GAR01WeaponSoundMap.Add(ECharacterMontageName::Character_Montage_Unholster_Smooth, UnholsterSmoothSound);
 }
 
 FWeaponSound UAR01WeaponSoundSettingsLibrary::GetWeaponSoundByName(ECharacterMontageName SoundName)
@@ -101,4 +101,12 @@ FWeaponSound UAR01WeaponSoundSettingsLibrary::GetWeaponSoundByName(ECharacterMon
     EmptySound.Delay = 0.0f;
     EmptySound.SoundCue = nullptr;
     return EmptySound;
+}
+
+TArray<FWeaponSound> UAR01WeaponSoundSettingsLibrary::GetAllAR01WeaponSounds()
+{
+    InitAR01WeaponSoundMap();
+    TArray<FWeaponSound> AllSounds;
+    GAR01WeaponSoundMap.GenerateValueArray(AllSounds);
+    return AllSounds;
 }

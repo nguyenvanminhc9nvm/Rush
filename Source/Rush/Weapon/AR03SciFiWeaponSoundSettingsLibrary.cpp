@@ -23,67 +23,67 @@ static void InitAR03SciFiWeaponSoundMap()
 
     // Jump
     FWeaponSound JumpSound = CreateWeaponSound(
-        ECharacterMontageName::Jump,
+        ECharacterMontageName::Character_Montage_Jump,
         0.0f,
         TEXT("/Script/Engine.SoundCue'/Game/Assets/Audio/Cues/SC_CH_Jump_Start_SciFi.SC_CH_Jump_Start_SciFi'")
     );
-    GAR03SciFiWeaponSoundMap.Add(ECharacterMontageName::Jump, JumpSound);
+    GAR03SciFiWeaponSoundMap.Add(ECharacterMontageName::Character_Montage_Jump, JumpSound);
 
     // Reload
     FWeaponSound ReloadSound = CreateWeaponSound(
-        ECharacterMontageName::Reload,
+        ECharacterMontageName::Character_Montage_Reload,
         0.0f,
         TEXT("/Script/Engine.SoundCue'/Game/Assets/Audio/Cues/Weapons/SC_WEP_AR_03_Reload.SC_WEP_AR_03_Reload'")
     );
-    GAR03SciFiWeaponSoundMap.Add(ECharacterMontageName::Reload, ReloadSound);
+    GAR03SciFiWeaponSoundMap.Add(ECharacterMontageName::Character_Montage_Reload, ReloadSound);
 
     // Reload-Empty
     FWeaponSound ReloadEmptySound = CreateWeaponSound(
-        ECharacterMontageName::Reload_Empty,
+        ECharacterMontageName::Character_Montage_Reload_Empty,
         0.0f,
         TEXT("/Script/Engine.SoundCue'/Game/Assets/Audio/Cues/Weapons/SC_WEP_AR_03_Reload_Empty.SC_WEP_AR_03_Reload_Empty'")
     );
-    GAR03SciFiWeaponSoundMap.Add(ECharacterMontageName::Reload_Empty, ReloadEmptySound);
+    GAR03SciFiWeaponSoundMap.Add(ECharacterMontageName::Character_Montage_Reload_Empty, ReloadEmptySound);
 
     // Inspect
     FWeaponSound InspectSound = CreateWeaponSound(
-        ECharacterMontageName::Inspect,
+        ECharacterMontageName::Character_Montage_Inspect,
         0.0f,
         TEXT("None")
     );
-    GAR03SciFiWeaponSoundMap.Add(ECharacterMontageName::Inspect, InspectSound);
+    GAR03SciFiWeaponSoundMap.Add(ECharacterMontageName::Character_Montage_Inspect, InspectSound);
 
     // Holster
     FWeaponSound HolsterSound = CreateWeaponSound(
-        ECharacterMontageName::Holster,
+        ECharacterMontageName::Character_Montage_Holster,
         0.0f,
         TEXT("/Script/Engine.SoundCue'/Game/Assets/Audio/Cues/Weapons/SC_WEP_Holster.SC_WEP_Holster'")
     );
-    GAR03SciFiWeaponSoundMap.Add(ECharacterMontageName::Holster, HolsterSound);
+    GAR03SciFiWeaponSoundMap.Add(ECharacterMontageName::Character_Montage_Holster, HolsterSound);
 
     // Holster-Smooth
     FWeaponSound HolsterSmoothSound = CreateWeaponSound(
-        ECharacterMontageName::Holster_Smooth,
+        ECharacterMontageName::Character_Montage_Holster_Smooth,
         0.0f,
         TEXT("/Script/Engine.SoundCue'/Game/Assets/Audio/Cues/Weapons/SC_WEP_Holster.SC_WEP_Holster'")
     );
-    GAR03SciFiWeaponSoundMap.Add(ECharacterMontageName::Holster_Smooth, HolsterSmoothSound);
+    GAR03SciFiWeaponSoundMap.Add(ECharacterMontageName::Character_Montage_Holster_Smooth, HolsterSmoothSound);
 
     // Unholster
     FWeaponSound UnholsterSound = CreateWeaponSound(
-        ECharacterMontageName::Unholster,
+        ECharacterMontageName::Character_Montage_Unholster,
         0.0f,
         TEXT("/Script/Engine.SoundCue'/Game/Assets/Audio/Cues/Weapons/SC_WEP_Unholster.SC_WEP_Unholster'")
     );
-    GAR03SciFiWeaponSoundMap.Add(ECharacterMontageName::Unholster, UnholsterSound);
+    GAR03SciFiWeaponSoundMap.Add(ECharacterMontageName::Character_Montage_Unholster, UnholsterSound);
 
     // Unholster-Smooth
     FWeaponSound UnholsterSmoothSound = CreateWeaponSound(
-        ECharacterMontageName::Unholster_Smooth,
+        ECharacterMontageName::Character_Montage_Unholster_Smooth,
         0.0f,
         TEXT("/Script/Engine.SoundCue'/Game/Assets/Audio/Cues/Weapons/SC_WEP_Unholster.SC_WEP_Unholster'")
     );
-    GAR03SciFiWeaponSoundMap.Add(ECharacterMontageName::Unholster_Smooth, UnholsterSmoothSound);
+    GAR03SciFiWeaponSoundMap.Add(ECharacterMontageName::Character_Montage_Unholster_Smooth, UnholsterSmoothSound);
 }
 
 FWeaponSound UAR03SciFiWeaponSoundSettingsLibrary::GetWeaponSoundByName(ECharacterMontageName SoundName)

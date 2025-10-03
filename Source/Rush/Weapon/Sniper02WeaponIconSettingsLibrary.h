@@ -14,4 +14,7 @@ class RUSH_API USniper02WeaponIconSettingsLibrary : public UBlueprintFunctionLib
 public:
     UFUNCTION(BlueprintPure, Category="Sniper02 Weapon Icon Settings")
     static FWeaponIcon GetWeaponIconByName(EWeaponIconName IconName);
+
+    UFUNCTION(BlueprintCallable, Category="Sniper02 Weapon Icon Settings")
+    static TArray<FWeaponIcon> GetAllSniper02WeaponIcons();
 };

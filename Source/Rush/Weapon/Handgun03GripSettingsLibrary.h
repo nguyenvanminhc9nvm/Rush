@@ -14,4 +14,7 @@ class RUSH_API UHandgun03GripSettingsLibrary : public UBlueprintFunctionLibrary
 public:
     UFUNCTION(BlueprintPure, Category="Handgun03 Grip Settings")
     static FGripSettingsEntry GetHandgun03GripSettingsByName(EGripName GripName);
+
+    UFUNCTION(BlueprintCallable, Category="Handgun03 Grip Settings")
+    static TArray<FGripSettingsEntry> GetAllHandgun03GripSettings();
 };

@@ -14,4 +14,7 @@ class RUSH_API USMG05MuzzleSettingsLibrary : public UBlueprintFunctionLibrary
 public:
     UFUNCTION(BlueprintPure, Category="SMG05 Muzzle Settings")
     static FMuzzleSettingsEntry GetSMG05MuzzleSettingsByName(EMuzzleName MuzzleName);
+
+    UFUNCTION(BlueprintCallable, Category="SMG05 Muzzle Settings")
+    static TArray<FMuzzleSettingsEntry> GetAllSMG05MuzzleSettings();
 };

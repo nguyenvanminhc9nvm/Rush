@@ -213,3 +213,11 @@ FScopeSettingsEntry UScopeSettingsLibrary::GetScopeSettingsByName(EScopeName Sco
     }
     return FScopeSettingsEntry();
 }
+
+TArray<FScopeSettingsEntry> UScopeSettingsLibrary::GetAllScopeSettings()
+{
+    InitScopeSettingsMap();
+    TArray<FScopeSettingsEntry> AllSettings;
+    GScopeSettingsMap.GenerateValueArray(AllSettings);
+    return AllSettings;
+}

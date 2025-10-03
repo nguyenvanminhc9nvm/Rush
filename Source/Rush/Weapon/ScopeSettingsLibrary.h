@@ -14,4 +14,7 @@ class RUSH_API UScopeSettingsLibrary : public UBlueprintFunctionLibrary
 public:
     UFUNCTION(BlueprintPure, Category="Scope Settings")
     static FScopeSettingsEntry GetScopeSettingsByName(EScopeName ScopeName);
+
+    UFUNCTION(BlueprintCallable, Category="Scope Settings")
+    static TArray<FScopeSettingsEntry> GetAllScopeSettings();
 };

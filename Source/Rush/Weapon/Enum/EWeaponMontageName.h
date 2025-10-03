@@ -6,11 +6,11 @@
 UENUM(BlueprintType)
 enum EWeaponMontageName : uint8
 {
-    Fire                    UMETA(DisplayName = "Fire"),
-    Fire_Empty              UMETA(DisplayName = "Fire-Empty"),
-    Reload                  UMETA(DisplayName = "Reload"),
-    Reload_Empty            UMETA(DisplayName = "Reload-Empty"),
-    Inspect                 UMETA(DisplayName = "Inspect"),
-    Holster                 UMETA(DisplayName = "Holster"),
-    Unholster               UMETA(DisplayName = "Unholster")
+    Weapon_Fire                    UMETA(DisplayName = "Fire"),
+    Weapon_Fire_Empty              UMETA(DisplayName = "Fire-Empty"),
+    Weapon_Reload                  UMETA(DisplayName = "Reload"),
+    Weapon_Reload_Empty            UMETA(DisplayName = "Reload-Empty"),
+    Weapon_Inspect                 UMETA(DisplayName = "Inspect"),
+    Weapon_Holster                 UMETA(DisplayName = "Holster"),
+    Weapon_Unholster               UMETA(DisplayName = "Unholster")
 };

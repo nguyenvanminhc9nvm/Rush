@@ -11,6 +11,8 @@
 #include "WeaponIconData.h"
 #include "RushMenuItemWidget.generated.h"
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnMenuItemClickedDelegate);
+
 UCLASS(BlueprintType)
 class RUSH_API URushMenuItemWidget: public UUserWidget, public IUserObjectListEntry
 {
@@ -22,22 +24,34 @@ public:
 	// IUserObjectListEntry interface
 	virtual void NativeOnListItemObjectSet(UObject* ListItemObject) override;
 
+public:
+	UFUNCTION(BlueprintCallable, Category="Weapon")
+	void SetListItemObject(UObject* ListItemObject);
+
+	FOnMenuItemClickedDelegate OnMenuItemClickedDelegate;
+
+	UFUNCTION()
+	void OnButtonClicked();
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Weapon List")
+	bool IsFromMain = false;
+	
 protected:
 	virtual void NativeConstruct() override;
 
 	// UI Components
 	UPROPERTY(meta = (BindWidget))
 	class UCanvasPanel* CanvasPanel;
-
-	UPROPERTY(meta = (BindWidget))
-	class UButton* SelectButton;
-
+	
 	UPROPERTY(meta = (BindWidget))
 	class UVerticalBox* VerticalBox;
 
+	UPROPERTY(meta = (BindWidget))
+	class UButton* RootButton;
+
 	// Weapon component images
 	UPROPERTY(meta = (BindWidget))
-	class UImage* BaseImage;
+	class UImage* BodyImage;
 
 	UPROPERTY(meta = (BindWidget))
 	class UImage* MagazineImage;
@@ -61,11 +75,4 @@ protected:
 	UPROPERTY(BlueprintReadOnly, Category = "Weapon Data")
 	UWeaponIconData* CurrentWeaponData;
 
-	// Button click event
-	UFUNCTION()
-	void OnSelectButtonClicked();
-
-	// Blueprint events
-	UFUNCTION(BlueprintImplementableEvent, Category = "Weapon Menu")
-	void OnWeaponSelected(UWeaponIconData* WeaponData);
 };

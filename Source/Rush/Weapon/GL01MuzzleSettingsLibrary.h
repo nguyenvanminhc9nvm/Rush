@@ -14,4 +14,7 @@ class RUSH_API UGL01MuzzleSettingsLibrary : public UBlueprintFunctionLibrary
 public:
     UFUNCTION(BlueprintPure, Category="GL01 Muzzle Settings")
     static FMuzzleSettingsEntry GetGL01MuzzleSettingsByName(EMuzzleName MuzzleName);
+
+    UFUNCTION(BlueprintCallable, Category="GL01 Muzzle Settings")
+    static TArray<FMuzzleSettingsEntry> GetAllGL01MuzzleSettings();
 };

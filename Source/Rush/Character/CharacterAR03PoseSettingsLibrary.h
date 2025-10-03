@@ -15,4 +15,7 @@ public:
     UFUNCTION(BlueprintPure, Category="Character AR03 Pose Settings")
     static FCharacterPoseSettings GetCharacterAR03PoseSettingsByName(ECharacterPoseName PoseName);
 
+    UFUNCTION(BlueprintCallable, Category="Character AR03 Pose Settings")
+    static TArray<FCharacterPoseSettings> GetAllCharacterAR03PoseSettings();
+
 };

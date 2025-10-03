@@ -1,9 +1,9 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Character/Enum/ECharacterSequenceName.h"
+#include "Enum/ECharacterSequenceName.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
-#include "Character/Struct/FCharacterSequenceSettings.h"
+#include "Struct/FCharacterSequenceSettings.h"
 #include "CharacterSniper01SequenceSettingsLibrary.generated.h"
 
 UCLASS()

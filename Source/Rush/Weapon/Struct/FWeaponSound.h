@@ -1,8 +1,9 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "../Character/Enum/ECharacterMontageName.h"
 #include "FWeaponSound.generated.h"
+
+enum ECharacterMontageName : uint8;
 
 USTRUCT(BlueprintType)
 struct RUSH_API FWeaponSound

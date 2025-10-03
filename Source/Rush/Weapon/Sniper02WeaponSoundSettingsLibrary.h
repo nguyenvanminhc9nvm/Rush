@@ -14,4 +14,7 @@ class RUSH_API USniper02WeaponSoundSettingsLibrary : public UBlueprintFunctionLi
 public:
     UFUNCTION(BlueprintPure, Category="Sniper02 Weapon Sound Settings")
     static FWeaponSound GetWeaponSoundByName(ECharacterMontageName SoundName);
+
+    UFUNCTION(BlueprintCallable, Category="Sniper02 Weapon Sound Settings")
+    static TArray<FWeaponSound> GetAllSniper02WeaponSounds();
 };

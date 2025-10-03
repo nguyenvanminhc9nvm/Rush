@@ -15,4 +15,7 @@ public:
     UFUNCTION(BlueprintPure, Category="AR 01 Montage Settings")
     static FWeaponMontageSettings GetAR01MontageSettingsByName(EWeaponMontageName MontageName);
 
+    UFUNCTION(BlueprintPure, Category="AR 01 Montage Settings")
+    static TArray<FWeaponMontageSettings> GetAllAR01MontageSettings();
+
 };

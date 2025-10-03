@@ -14,4 +14,7 @@ class RUSH_API UHandgun04WeaponIconSettingsLibrary : public UBlueprintFunctionLi
 public:
     UFUNCTION(BlueprintPure, Category="Handgun04 Weapon Icon Settings")
     static FWeaponIcon GetWeaponIconByName(EWeaponIconName IconName);
+
+    UFUNCTION(BlueprintCallable, Category="Handgun04 Weapon Icon Settings")
+    static TArray<FWeaponIcon> GetAllHandgun04WeaponIcons();
 };

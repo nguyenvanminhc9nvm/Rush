@@ -1,9 +1,9 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Character/Enum/ECharacterMontageName.h"
+#include "Enum/ECharacterMontageName.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
-#include "Character/Struct/FCharacterMontageSettings.h"
+#include "Struct/FCharacterMontageSettings.h"
 #include "CharacterSniper03MontageSettingsLibrary.generated.h"
 
 UCLASS()
@@ -14,5 +14,8 @@ class RUSH_API UCharacterSniper03MontageSettingsLibrary : public UBlueprintFunct
 public:
     UFUNCTION(BlueprintPure, Category="Character Sniper 03 Montage Settings")
     static FCharacterMontageSettings GetCharacterSniper03MontageSettingsByName(ECharacterMontageName MontageName);
+
+    UFUNCTION(BlueprintCallable, Category="Character Sniper 03 Montage Settings")
+    static TArray<FCharacterMontageSettings> GetAllCharacterSniper03MontageSettings();
 
 };

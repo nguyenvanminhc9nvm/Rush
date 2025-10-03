@@ -141,3 +141,11 @@ FWeaponIcon USniper02WeaponIconSettingsLibrary::GetWeaponIconByName(EWeaponIconN
     }
     return FWeaponIcon(); // Return default icon if not found
 }
+
+TArray<FWeaponIcon> USniper02WeaponIconSettingsLibrary::GetAllSniper02WeaponIcons()
+{
+    InitSniper02WeaponIconMap();
+    TArray<FWeaponIcon> AllIcons;
+    GSniper02WeaponIconMap.GenerateValueArray(AllIcons);
+    return AllIcons;
+}

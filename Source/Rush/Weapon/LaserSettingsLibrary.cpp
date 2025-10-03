@@ -57,3 +57,11 @@ FLaserSettingsEntry ULaserSettingsLibrary::GetLaserSettingsByName(EFragmentLaser
     }
     return FLaserSettingsEntry();
 }
+
+TArray<FLaserSettingsEntry> ULaserSettingsLibrary::GetAllLaserSettings()
+{
+    InitLaserSettingsMap();
+    TArray<FLaserSettingsEntry> AllSettings;
+    GLaserSettingsMap.GenerateValueArray(AllSettings);
+    return AllSettings;
+}

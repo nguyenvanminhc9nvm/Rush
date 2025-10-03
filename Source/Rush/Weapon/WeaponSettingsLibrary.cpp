@@ -83,6 +83,7 @@ static void InitWeaponSettingsMap()
 
     // Assault Rifle 01
     FWeaponSettings AR01Settings;
+    AR01Settings.WeaponName = EWeaponName::Assault_Rifle_01;
     AR01Settings.bBoltAction = false;
     AR01Settings.bCycledReload = false;
     AR01Settings.bCanReloadFull = true;
@@ -110,16 +111,19 @@ static void InitWeaponSettingsMap()
 
     // Assault Rifle 02
     FWeaponSettings AR02Settings = AR01Settings;
+    AR02Settings.WeaponName = EWeaponName::Assault_Rifle_02;
     AR02Settings.FireRate = 650;
     GWeaponSettingsMap.Add(EWeaponName::Assault_Rifle_02, AR02Settings);
 
     // Assault Rifle 03
     FWeaponSettings AR03Settings = AR01Settings;
+    AR03Settings.WeaponName = EWeaponName::Assault_Rifle_03;
     AR03Settings.FireRate = 650;
     GWeaponSettingsMap.Add(EWeaponName::Assault_Rifle_03, AR03Settings);
 
     // Assault Rifle 03 SciFi
     FWeaponSettings AR03SciFiSettings = AR01Settings;
+    AR03SciFiSettings.WeaponName = EWeaponName::Assault_Rifle_03_SciFi;
     AR03SciFiSettings.FireRate = 900;
     AR03SciFiSettings.RecoilProperties.RecoilStatesViewmodel = CreateRecoilStates(
         TEXT("/Game/Blueprint/Data/Recoil/VC_WEP_Recoil_SMGs_Location.VC_WEP_Recoil_SMGs_Location"),
@@ -131,6 +135,7 @@ static void InitWeaponSettingsMap()
 
     // Handgun (Base)
     FWeaponSettings HandgunSettings;
+    HandgunSettings.WeaponName = EWeaponName::Handgun_01; // Base handgun name
     HandgunSettings.bBoltAction = false;
     HandgunSettings.bCycledReload = false;
     HandgunSettings.bCanReloadFull = true;
@@ -161,6 +166,7 @@ static void InitWeaponSettingsMap()
 
     // Handgun 03 Skulls (Automatic variant)
     FWeaponSettings Handgun03SkullsSettings = HandgunSettings;
+    Handgun03SkullsSettings.WeaponName = EWeaponName::Handgun_03_Skulls;
     Handgun03SkullsSettings.FireMode = EWeaponFireMode::Automatic;
     Handgun03SkullsSettings.FireRate = 470;
     Handgun03SkullsSettings.SpreadYaw = 5.0f;
@@ -170,6 +176,7 @@ static void InitWeaponSettingsMap()
 
     // Rocket Launcher 01
     FWeaponSettings RL01Settings;
+    RL01Settings.WeaponName = EWeaponName::Rocket_Launcher_01;
     RL01Settings.bBoltAction = false;
     RL01Settings.bCycledReload = false;
     RL01Settings.bCanReloadFull = false;
@@ -197,11 +204,13 @@ static void InitWeaponSettingsMap()
 
     // Grenade Launcher 01
     FWeaponSettings GL01Settings = RL01Settings;
+    GL01Settings.WeaponName = EWeaponName::Grenade_Launcher_01;
     GL01Settings.FireMode = EWeaponFireMode::Automatic;
     GWeaponSettingsMap.Add(EWeaponName::Grenade_Launcher_01, GL01Settings);
 
     // Shotgun 01
     FWeaponSettings Shotgun01Settings;
+    Shotgun01Settings.WeaponName = EWeaponName::Shotgun_01;
     Shotgun01Settings.bBoltAction = true;
     Shotgun01Settings.bCycledReload = true;
     Shotgun01Settings.bCanReloadFull = false;
@@ -229,6 +238,7 @@ static void InitWeaponSettingsMap()
 
     // SMG 01
     FWeaponSettings SMG01Settings;
+    SMG01Settings.WeaponName = EWeaponName::SMG_01;
     SMG01Settings.bBoltAction = false;
     SMG01Settings.bCycledReload = false;
     SMG01Settings.bCanReloadFull = true;
@@ -256,12 +266,14 @@ static void InitWeaponSettingsMap()
 
     // SMG 02
     FWeaponSettings SMG02Settings = SMG01Settings;
+    SMG02Settings.WeaponName = EWeaponName::SMG_02;
     SMG02Settings.FireRate = 800;
     SMG02Settings.SpreadPitch = 5.0f;
     GWeaponSettingsMap.Add(EWeaponName::SMG_02, SMG02Settings);
 
     // SMG 03 (Burst Hold)
     FWeaponSettings SMG03Settings = SMG01Settings;
+    SMG03Settings.WeaponName = EWeaponName::SMG_03;
     SMG03Settings.FireMode = EWeaponFireMode::BurstHold;
     SMG03Settings.FireRate = 750;
     SMG03Settings.BurstCount = 3;
@@ -272,6 +284,7 @@ static void InitWeaponSettingsMap()
 
     // SMG 04
     FWeaponSettings SMG04Settings = SMG01Settings;
+    SMG04Settings.WeaponName = EWeaponName::SMG_04;
     SMG04Settings.FireRate = 680;
     SMG04Settings.SpreadPitch = 5.0f;
     SMG04Settings.RecoilProperties.RecoilStatesViewmodel.RecoilStateStanding.RotationMultiplier = 0.65f;
@@ -279,6 +292,7 @@ static void InitWeaponSettingsMap()
 
     // SMG 05
     FWeaponSettings SMG05Settings = SMG01Settings;
+    SMG05Settings.WeaponName = EWeaponName::SMG_05;
     SMG05Settings.FireRate = 700;
     SMG05Settings.SpreadPitch = 5.0f;
     SMG05Settings.RecoilProperties.RecoilStatesViewmodel.RecoilStateAiming.LocationMultiplier = 0.3f;
@@ -286,6 +300,7 @@ static void InitWeaponSettingsMap()
 
     // Sniper 01
     FWeaponSettings Sniper01Settings;
+    Sniper01Settings.WeaponName = EWeaponName::Sniper_01;
     Sniper01Settings.bBoltAction = true;
     Sniper01Settings.bCycledReload = true;
     Sniper01Settings.bCanReloadFull = false;
@@ -313,6 +328,7 @@ static void InitWeaponSettingsMap()
 
     // Sniper 02
     FWeaponSettings Sniper02Settings = Sniper01Settings;
+    Sniper02Settings.WeaponName = EWeaponName::Sniper_02;
     Sniper02Settings.bBoltAction = false;
     Sniper02Settings.bCycledReload = false;
     Sniper02Settings.bCanReloadFull = true;
@@ -321,10 +337,12 @@ static void InitWeaponSettingsMap()
 
     // Sniper 03
     FWeaponSettings Sniper03Settings = Sniper02Settings;
+    Sniper03Settings.WeaponName = EWeaponName::Sniper_03;
     GWeaponSettingsMap.Add(EWeaponName::Sniper_03, Sniper03Settings);
 
     // Sniper 03 Heavy (Automatic)
     FWeaponSettings Sniper03HeavySettings = Sniper03Settings;
+    Sniper03HeavySettings.WeaponName = EWeaponName::Sniper_03_Heavy;
     Sniper03HeavySettings.FireMode = EWeaponFireMode::Automatic;
     Sniper03HeavySettings.FireRate = 375;
     Sniper03HeavySettings.RecoilProperties.RecoilStatesViewmodel.RecoilStateStanding.LocationMultiplier = 0.3f;
@@ -334,52 +352,161 @@ static void InitWeaponSettingsMap()
 
     // Add all variant weapons with base weapon settings
     // Assault Rifle variants
-    GWeaponSettingsMap.Add(EWeaponName::Assault_Rifle_01_Evil, AR01Settings);
-    GWeaponSettingsMap.Add(EWeaponName::Assault_Rifle_01_Tactical, AR01Settings);
-    GWeaponSettingsMap.Add(EWeaponName::Assault_Rifle_01_Elite, AR01Settings);
-    GWeaponSettingsMap.Add(EWeaponName::Assault_Rifle_02_01, AR02Settings);
-    GWeaponSettingsMap.Add(EWeaponName::Assault_Rifle_02_Elite, AR02Settings);
-    GWeaponSettingsMap.Add(EWeaponName::Assault_Rifle_02_Evil, AR02Settings);
-    GWeaponSettingsMap.Add(EWeaponName::Assault_Rifle_02_Forest, AR02Settings);
-    GWeaponSettingsMap.Add(EWeaponName::Assault_Rifle_02_Skulls, AR02Settings);
-    GWeaponSettingsMap.Add(EWeaponName::Assault_Rifle_03_Elite, AR03Settings);
-    GWeaponSettingsMap.Add(EWeaponName::Assault_Rifle_03_Tactical, AR03Settings);
+    FWeaponSettings AR01EvilSettings = AR01Settings;
+    AR01EvilSettings.WeaponName = EWeaponName::Assault_Rifle_01_Evil;
+    GWeaponSettingsMap.Add(EWeaponName::Assault_Rifle_01_Evil, AR01EvilSettings);
+    
+    FWeaponSettings AR01TacticalSettings = AR01Settings;
+    AR01TacticalSettings.WeaponName = EWeaponName::Assault_Rifle_01_Tactical;
+    GWeaponSettingsMap.Add(EWeaponName::Assault_Rifle_01_Tactical, AR01TacticalSettings);
+    
+    FWeaponSettings AR01EliteSettings = AR01Settings;
+    AR01EliteSettings.WeaponName = EWeaponName::Assault_Rifle_01_Elite;
+    GWeaponSettingsMap.Add(EWeaponName::Assault_Rifle_01_Elite, AR01EliteSettings);
+    
+    FWeaponSettings AR0201Settings = AR02Settings;
+    AR0201Settings.WeaponName = EWeaponName::Assault_Rifle_02_01;
+    GWeaponSettingsMap.Add(EWeaponName::Assault_Rifle_02_01, AR0201Settings);
+    
+    FWeaponSettings AR02EliteSettings = AR02Settings;
+    AR02EliteSettings.WeaponName = EWeaponName::Assault_Rifle_02_Elite;
+    GWeaponSettingsMap.Add(EWeaponName::Assault_Rifle_02_Elite, AR02EliteSettings);
+    
+    FWeaponSettings AR02EvilSettings = AR02Settings;
+    AR02EvilSettings.WeaponName = EWeaponName::Assault_Rifle_02_Evil;
+    GWeaponSettingsMap.Add(EWeaponName::Assault_Rifle_02_Evil, AR02EvilSettings);
+    
+    FWeaponSettings AR02ForestSettings = AR02Settings;
+    AR02ForestSettings.WeaponName = EWeaponName::Assault_Rifle_02_Forest;
+    GWeaponSettingsMap.Add(EWeaponName::Assault_Rifle_02_Forest, AR02ForestSettings);
+    
+    FWeaponSettings AR02SkullsSettings = AR02Settings;
+    AR02SkullsSettings.WeaponName = EWeaponName::Assault_Rifle_02_Skulls;
+    GWeaponSettingsMap.Add(EWeaponName::Assault_Rifle_02_Skulls, AR02SkullsSettings);
+    
+    FWeaponSettings AR03EliteSettings = AR03Settings;
+    AR03EliteSettings.WeaponName = EWeaponName::Assault_Rifle_03_Elite;
+    GWeaponSettingsMap.Add(EWeaponName::Assault_Rifle_03_Elite, AR03EliteSettings);
+    
+    FWeaponSettings AR03TacticalSettings = AR03Settings;
+    AR03TacticalSettings.WeaponName = EWeaponName::Assault_Rifle_03_Tactical;
+    GWeaponSettingsMap.Add(EWeaponName::Assault_Rifle_03_Tactical, AR03TacticalSettings);
 
     // Handgun variants
-    GWeaponSettingsMap.Add(EWeaponName::Handgun_01_Neon, HandgunSettings);
-    GWeaponSettingsMap.Add(EWeaponName::Handgun_01_Tactical, HandgunSettings);
-    GWeaponSettingsMap.Add(EWeaponName::Handgun_02_Stealth, HandgunSettings);
-    GWeaponSettingsMap.Add(EWeaponName::Handgun_02_Tactical, HandgunSettings);
-    GWeaponSettingsMap.Add(EWeaponName::Handgun_03_Tactical, HandgunSettings);
-    GWeaponSettingsMap.Add(EWeaponName::Handgun_04_Tactical, HandgunSettings);
-    GWeaponSettingsMap.Add(EWeaponName::Handgun_04_Venomous, HandgunSettings);
+    FWeaponSettings Handgun01NeonSettings = HandgunSettings;
+    Handgun01NeonSettings.WeaponName = EWeaponName::Handgun_01_Neon;
+    GWeaponSettingsMap.Add(EWeaponName::Handgun_01_Neon, Handgun01NeonSettings);
+    
+    FWeaponSettings Handgun01TacticalSettings = HandgunSettings;
+    Handgun01TacticalSettings.WeaponName = EWeaponName::Handgun_01_Tactical;
+    GWeaponSettingsMap.Add(EWeaponName::Handgun_01_Tactical, Handgun01TacticalSettings);
+    
+    FWeaponSettings Handgun02StealthSettings = HandgunSettings;
+    Handgun02StealthSettings.WeaponName = EWeaponName::Handgun_02_Stealth;
+    GWeaponSettingsMap.Add(EWeaponName::Handgun_02_Stealth, Handgun02StealthSettings);
+    
+    FWeaponSettings Handgun02TacticalSettings = HandgunSettings;
+    Handgun02TacticalSettings.WeaponName = EWeaponName::Handgun_02_Tactical;
+    GWeaponSettingsMap.Add(EWeaponName::Handgun_02_Tactical, Handgun02TacticalSettings);
+    
+    FWeaponSettings Handgun03TacticalSettings = HandgunSettings;
+    Handgun03TacticalSettings.WeaponName = EWeaponName::Handgun_03_Tactical;
+    GWeaponSettingsMap.Add(EWeaponName::Handgun_03_Tactical, Handgun03TacticalSettings);
+    
+    FWeaponSettings Handgun04TacticalSettings = HandgunSettings;
+    Handgun04TacticalSettings.WeaponName = EWeaponName::Handgun_04_Tactical;
+    GWeaponSettingsMap.Add(EWeaponName::Handgun_04_Tactical, Handgun04TacticalSettings);
+    
+    FWeaponSettings Handgun04VenomousSettings = HandgunSettings;
+    Handgun04VenomousSettings.WeaponName = EWeaponName::Handgun_04_Venomous;
+    GWeaponSettingsMap.Add(EWeaponName::Handgun_04_Venomous, Handgun04VenomousSettings);
 
     // SMG variants
-    GWeaponSettingsMap.Add(EWeaponName::SMG_01_Citrus, SMG01Settings);
-    GWeaponSettingsMap.Add(EWeaponName::SMG_01_Tactical, SMG01Settings);
-    GWeaponSettingsMap.Add(EWeaponName::SMG_02_Citrus, SMG02Settings);
-    GWeaponSettingsMap.Add(EWeaponName::SMG_02_Tactical, SMG02Settings);
-    GWeaponSettingsMap.Add(EWeaponName::SMG_03_Tactical, SMG03Settings);
-    GWeaponSettingsMap.Add(EWeaponName::SMG_03_Evil, SMG03Settings);
-    GWeaponSettingsMap.Add(EWeaponName::SMG_04_Tactical, SMG04Settings);
-    GWeaponSettingsMap.Add(EWeaponName::SMG_04_Modern, SMG04Settings);
-    GWeaponSettingsMap.Add(EWeaponName::SMG_05_Armored, SMG05Settings);
-    GWeaponSettingsMap.Add(EWeaponName::SMG_05_Tactical, SMG05Settings);
+    FWeaponSettings SMG01CitrusSettings = SMG01Settings;
+    SMG01CitrusSettings.WeaponName = EWeaponName::SMG_01_Citrus;
+    GWeaponSettingsMap.Add(EWeaponName::SMG_01_Citrus, SMG01CitrusSettings);
+    
+    FWeaponSettings SMG01TacticalSettings = SMG01Settings;
+    SMG01TacticalSettings.WeaponName = EWeaponName::SMG_01_Tactical;
+    GWeaponSettingsMap.Add(EWeaponName::SMG_01_Tactical, SMG01TacticalSettings);
+    
+    FWeaponSettings SMG02CitrusSettings = SMG02Settings;
+    SMG02CitrusSettings.WeaponName = EWeaponName::SMG_02_Citrus;
+    GWeaponSettingsMap.Add(EWeaponName::SMG_02_Citrus, SMG02CitrusSettings);
+    
+    FWeaponSettings SMG02TacticalSettings = SMG02Settings;
+    SMG02TacticalSettings.WeaponName = EWeaponName::SMG_02_Tactical;
+    GWeaponSettingsMap.Add(EWeaponName::SMG_02_Tactical, SMG02TacticalSettings);
+    
+    FWeaponSettings SMG03TacticalSettings = SMG03Settings;
+    SMG03TacticalSettings.WeaponName = EWeaponName::SMG_03_Tactical;
+    GWeaponSettingsMap.Add(EWeaponName::SMG_03_Tactical, SMG03TacticalSettings);
+    
+    FWeaponSettings SMG03EvilSettings = SMG03Settings;
+    SMG03EvilSettings.WeaponName = EWeaponName::SMG_03_Evil;
+    GWeaponSettingsMap.Add(EWeaponName::SMG_03_Evil, SMG03EvilSettings);
+    
+    FWeaponSettings SMG04TacticalSettings = SMG04Settings;
+    SMG04TacticalSettings.WeaponName = EWeaponName::SMG_04_Tactical;
+    GWeaponSettingsMap.Add(EWeaponName::SMG_04_Tactical, SMG04TacticalSettings);
+    
+    FWeaponSettings SMG04ModernSettings = SMG04Settings;
+    SMG04ModernSettings.WeaponName = EWeaponName::SMG_04_Modern;
+    GWeaponSettingsMap.Add(EWeaponName::SMG_04_Modern, SMG04ModernSettings);
+    
+    FWeaponSettings SMG05ArmoredSettings = SMG05Settings;
+    SMG05ArmoredSettings.WeaponName = EWeaponName::SMG_05_Armored;
+    GWeaponSettingsMap.Add(EWeaponName::SMG_05_Armored, SMG05ArmoredSettings);
+    
+    FWeaponSettings SMG05TacticalSettings = SMG05Settings;
+    SMG05TacticalSettings.WeaponName = EWeaponName::SMG_05_Tactical;
+    GWeaponSettingsMap.Add(EWeaponName::SMG_05_Tactical, SMG05TacticalSettings);
 
     // Sniper variants
-    GWeaponSettingsMap.Add(EWeaponName::Sniper_01_Hitman, Sniper01Settings);
-    GWeaponSettingsMap.Add(EWeaponName::Sniper_01_Tactical, Sniper01Settings);
-    GWeaponSettingsMap.Add(EWeaponName::Sniper_02_Breach, Sniper02Settings);
-    GWeaponSettingsMap.Add(EWeaponName::Sniper_02_Tactical, Sniper02Settings);
-    GWeaponSettingsMap.Add(EWeaponName::Sniper_03_Tactical, Sniper03Settings);
+    FWeaponSettings Sniper01HitmanSettings = Sniper01Settings;
+    Sniper01HitmanSettings.WeaponName = EWeaponName::Sniper_01_Hitman;
+    GWeaponSettingsMap.Add(EWeaponName::Sniper_01_Hitman, Sniper01HitmanSettings);
+    
+    FWeaponSettings Sniper01TacticalSettings = Sniper01Settings;
+    Sniper01TacticalSettings.WeaponName = EWeaponName::Sniper_01_Tactical;
+    GWeaponSettingsMap.Add(EWeaponName::Sniper_01_Tactical, Sniper01TacticalSettings);
+    
+    FWeaponSettings Sniper02BreachSettings = Sniper02Settings;
+    Sniper02BreachSettings.WeaponName = EWeaponName::Sniper_02_Breach;
+    GWeaponSettingsMap.Add(EWeaponName::Sniper_02_Breach, Sniper02BreachSettings);
+    
+    FWeaponSettings Sniper02TacticalSettings = Sniper02Settings;
+    Sniper02TacticalSettings.WeaponName = EWeaponName::Sniper_02_Tactical;
+    GWeaponSettingsMap.Add(EWeaponName::Sniper_02_Tactical, Sniper02TacticalSettings);
+    
+    FWeaponSettings Sniper03TacticalSettings = Sniper03Settings;
+    Sniper03TacticalSettings.WeaponName = EWeaponName::Sniper_03_Tactical;
+    GWeaponSettingsMap.Add(EWeaponName::Sniper_03_Tactical, Sniper03TacticalSettings);
 
     // Other weapon variants
-    GWeaponSettingsMap.Add(EWeaponName::Shotgun_01_Tactical, Shotgun01Settings);
-    GWeaponSettingsMap.Add(EWeaponName::Shotgun_01_Tech, Shotgun01Settings);
-    GWeaponSettingsMap.Add(EWeaponName::Rocket_Launcher_01_Homing, RL01Settings);
-    GWeaponSettingsMap.Add(EWeaponName::Grenade_Launcher_01_AntiTank, GL01Settings);
-    GWeaponSettingsMap.Add(EWeaponName::Grenade_Launcher_01_Citrus, GL01Settings);
-    GWeaponSettingsMap.Add(EWeaponName::Grenade_Launcher_01_Tactical, GL01Settings);
+    FWeaponSettings Shotgun01TacticalSettings = Shotgun01Settings;
+    Shotgun01TacticalSettings.WeaponName = EWeaponName::Shotgun_01_Tactical;
+    GWeaponSettingsMap.Add(EWeaponName::Shotgun_01_Tactical, Shotgun01TacticalSettings);
+    
+    FWeaponSettings Shotgun01TechSettings = Shotgun01Settings;
+    Shotgun01TechSettings.WeaponName = EWeaponName::Shotgun_01_Tech;
+    GWeaponSettingsMap.Add(EWeaponName::Shotgun_01_Tech, Shotgun01TechSettings);
+    
+    FWeaponSettings RL01HomingSettings = RL01Settings;
+    RL01HomingSettings.WeaponName = EWeaponName::Rocket_Launcher_01_Homing;
+    GWeaponSettingsMap.Add(EWeaponName::Rocket_Launcher_01_Homing, RL01HomingSettings);
+    
+    FWeaponSettings GL01AntiTankSettings = GL01Settings;
+    GL01AntiTankSettings.WeaponName = EWeaponName::Grenade_Launcher_01_AntiTank;
+    GWeaponSettingsMap.Add(EWeaponName::Grenade_Launcher_01_AntiTank, GL01AntiTankSettings);
+    
+    FWeaponSettings GL01CitrusSettings = GL01Settings;
+    GL01CitrusSettings.WeaponName = EWeaponName::Grenade_Launcher_01_Citrus;
+    GWeaponSettingsMap.Add(EWeaponName::Grenade_Launcher_01_Citrus, GL01CitrusSettings);
+    
+    FWeaponSettings GL01TacticalSettings = GL01Settings;
+    GL01TacticalSettings.WeaponName = EWeaponName::Grenade_Launcher_01_Tactical;
+    GWeaponSettingsMap.Add(EWeaponName::Grenade_Launcher_01_Tactical, GL01TacticalSettings);
 }
 
 FWeaponSettings UWeaponSettingsLibrary::GetWeaponSettingsByName(EWeaponName WeaponName)

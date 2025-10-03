@@ -4,6 +4,8 @@
 #include "Curves/CurveVector.h"
 #include "FWeaponSettings.generated.h"
 
+enum EWeaponName : uint8;
+
 UENUM(BlueprintType)
 enum class EWeaponFireMode : uint8
 {
@@ -100,6 +102,9 @@ USTRUCT(BlueprintType)
 struct RUSH_API FWeaponSettings
 {
     GENERATED_BODY()
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Weapon Properties")
+    TEnumAsByte<EWeaponName> WeaponName;
 
     // Basic Weapon Properties
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Basic Properties")

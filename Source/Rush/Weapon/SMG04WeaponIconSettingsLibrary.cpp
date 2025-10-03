@@ -141,3 +141,11 @@ FWeaponIcon USMG04WeaponIconSettingsLibrary::GetWeaponIconByName(EWeaponIconName
     }
     return FWeaponIcon(); // Return default icon if not found
 }
+
+TArray<FWeaponIcon> USMG04WeaponIconSettingsLibrary::GetAllSMG04WeaponIcons()
+{
+    InitSMG04WeaponIconMap();
+    TArray<FWeaponIcon> AllIcons;
+    GSMG04WeaponIconMap.GenerateValueArray(AllIcons);
+    return AllIcons;
+}

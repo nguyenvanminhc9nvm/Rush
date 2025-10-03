@@ -15,4 +15,7 @@ public:
     UFUNCTION(BlueprintPure, Category="SMG 05 Montage Settings")
     static FWeaponMontageSettings GetSMG05MontageSettingsByName(EWeaponMontageName MontageName);
 
+    UFUNCTION(BlueprintCallable, Category="SMG 05 Montage Settings")
+    static TArray<FWeaponMontageSettings> GetAllSMG05MontageSettings();
+
 };

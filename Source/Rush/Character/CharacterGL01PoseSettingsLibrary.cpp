@@ -95,3 +95,11 @@ FCharacterPoseSettings UCharacterGL01PoseSettingsLibrary::GetCharacterGL01PoseSe
     }
     return FCharacterPoseSettings(); // Return default settings if not found
 }
+
+TArray<FCharacterPoseSettings> UCharacterGL01PoseSettingsLibrary::GetAllCharacterGL01PoseSettings()
+{
+    InitCharacterGL01PoseSettingsMap();
+    TArray<FCharacterPoseSettings> AllSettings;
+    GCharacterGL01PoseSettingsMap.GenerateValueArray(AllSettings);
+    return AllSettings;
+}

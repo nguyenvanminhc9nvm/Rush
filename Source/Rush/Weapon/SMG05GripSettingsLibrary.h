@@ -14,4 +14,7 @@ class RUSH_API USMG05GripSettingsLibrary : public UBlueprintFunctionLibrary
 public:
     UFUNCTION(BlueprintPure, Category="SMG05 Grip Settings")
     static FGripSettingsEntry GetSMG05GripSettingsByName(EGripName GripName);
+
+    UFUNCTION(BlueprintCallable, Category="SMG05 Grip Settings")
+    static TArray<FGripSettingsEntry> GetAllSMG05GripSettings();
 };

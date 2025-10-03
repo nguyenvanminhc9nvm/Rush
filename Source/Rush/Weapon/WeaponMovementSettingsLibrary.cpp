@@ -19,7 +19,7 @@ static void InitWeaponMovementMap()
 
     // Assault Rifle Movement
     FWeaponMovementSettings AssaultRifleMovement;
-    AssaultRifleMovement.Name = TEXT("Assault-Rifle");
+    AssaultRifleMovement.Name = EWeaponMovementName::Assault_Rifle_Movement;
     AssaultRifleMovement.SpeedWalk = CreateWeaponSpeed(440.0f, 150.0f, 440.0f);
     AssaultRifleMovement.SpeedAim = CreateWeaponSpeed(350.0f, 100.0f, 350.0f);
     AssaultRifleMovement.SpeedRun = CreateWeaponSpeed(700.0f, 200.0f, 700.0f);
@@ -34,7 +34,7 @@ static void InitWeaponMovementMap()
 
     // Assault Rifle Jetpack Movement
     FWeaponMovementSettings AssaultRifleJetpackMovement;
-    AssaultRifleJetpackMovement.Name = TEXT("Assault-Rifle-Jetpack");
+    AssaultRifleJetpackMovement.Name = EWeaponMovementName::Assault_Rifle_Jetpack_Movement;
     AssaultRifleJetpackMovement.SpeedWalk = CreateWeaponSpeed(460.0f, 150.0f, 440.0f);
     AssaultRifleJetpackMovement.SpeedAim = CreateWeaponSpeed(402.5f, 100.0f, 350.0f);
     AssaultRifleJetpackMovement.SpeedRun = CreateWeaponSpeed(805.0f, 200.0f, 700.0f);
@@ -49,7 +49,7 @@ static void InitWeaponMovementMap()
 
     // Handgun Movement
     FWeaponMovementSettings HandgunMovement;
-    HandgunMovement.Name = TEXT("Handgun");
+    HandgunMovement.Name = EWeaponMovementName::Handgun_Movement;
     HandgunMovement.SpeedWalk = CreateWeaponSpeed(460.0f, 150.0f, 440.0f);
     HandgunMovement.SpeedAim = CreateWeaponSpeed(402.5f, 100.0f, 350.0f);
     HandgunMovement.SpeedRun = CreateWeaponSpeed(805.0f, 200.0f, 700.0f);
@@ -64,7 +64,7 @@ static void InitWeaponMovementMap()
 
     // Launcher Movement
     FWeaponMovementSettings LauncherMovement;
-    LauncherMovement.Name = TEXT("Launcher");
+    LauncherMovement.Name = EWeaponMovementName::Launcher_Movement;
     LauncherMovement.SpeedWalk = CreateWeaponSpeed(440.0f, 150.0f, 440.0f);
     LauncherMovement.SpeedAim = CreateWeaponSpeed(350.0f, 100.0f, 350.0f);
     LauncherMovement.SpeedRun = CreateWeaponSpeed(700.0f, 200.0f, 700.0f);
@@ -79,7 +79,7 @@ static void InitWeaponMovementMap()
 
     // Launcher Heavy Movement
     FWeaponMovementSettings LauncherHeavyMovement;
-    LauncherHeavyMovement.Name = TEXT("Launcher-Heavy");
+    LauncherHeavyMovement.Name = EWeaponMovementName::Launcher_Heavy_Movement;
     LauncherHeavyMovement.SpeedWalk = CreateWeaponSpeed(360.0f, 150.0f, 440.0f);
     LauncherHeavyMovement.SpeedAim = CreateWeaponSpeed(315.0f, 100.0f, 350.0f);
     LauncherHeavyMovement.SpeedRun = CreateWeaponSpeed(630.0f, 200.0f, 700.0f);
@@ -94,7 +94,7 @@ static void InitWeaponMovementMap()
 
     // Shotgun Movement
     FWeaponMovementSettings ShotgunMovement;
-    ShotgunMovement.Name = TEXT("Shotgun");
+    ShotgunMovement.Name = EWeaponMovementName::Shotgun_Movement;
     ShotgunMovement.SpeedWalk = CreateWeaponSpeed(440.0f, 150.0f, 440.0f);
     ShotgunMovement.SpeedAim = CreateWeaponSpeed(350.0f, 100.0f, 350.0f);
     ShotgunMovement.SpeedRun = CreateWeaponSpeed(700.0f, 200.0f, 700.0f);
@@ -109,7 +109,7 @@ static void InitWeaponMovementMap()
 
     // SMG Movement
     FWeaponMovementSettings SMGMovement;
-    SMGMovement.Name = TEXT("SMG");
+    SMGMovement.Name = EWeaponMovementName::SMG_Movement;
     SMGMovement.SpeedWalk = CreateWeaponSpeed(440.0f, 150.0f, 440.0f);
     SMGMovement.SpeedAim = CreateWeaponSpeed(385.0f, 100.0f, 350.0f);
     SMGMovement.SpeedRun = CreateWeaponSpeed(770.0f, 200.0f, 700.0f);
@@ -124,7 +124,7 @@ static void InitWeaponMovementMap()
 
     // Sniper Movement
     FWeaponMovementSettings SniperMovement;
-    SniperMovement.Name = TEXT("Sniper");
+    SniperMovement.Name = EWeaponMovementName::Sniper_Movement;
     SniperMovement.SpeedWalk = CreateWeaponSpeed(440.0f, 150.0f, 440.0f);
     SniperMovement.SpeedAim = CreateWeaponSpeed(350.0f, 100.0f, 350.0f);
     SniperMovement.SpeedRun = CreateWeaponSpeed(700.0f, 200.0f, 700.0f);
@@ -139,7 +139,7 @@ static void InitWeaponMovementMap()
 
     // Sniper Heavy Movement
     FWeaponMovementSettings SniperHeavyMovement;
-    SniperHeavyMovement.Name = TEXT("Sniper-Heavy");
+    SniperHeavyMovement.Name = EWeaponMovementName::Sniper_Heavy_Movement;
     SniperHeavyMovement.SpeedWalk = CreateWeaponSpeed(360.0f, 150.0f, 440.0f);
     SniperHeavyMovement.SpeedAim = CreateWeaponSpeed(315.0f, 100.0f, 350.0f);
     SniperHeavyMovement.SpeedRun = CreateWeaponSpeed(630.0f, 200.0f, 700.0f);

@@ -4,6 +4,7 @@
 #include "Components/VerticalBox.h"
 #include "Components/TextBlock.h"
 #include "Components/Image.h"
+#include "Rush/Weapon/Enum/EWeaponIconName.h"
 
 URushMenuItemWidget::URushMenuItemWidget(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
@@ -14,11 +15,11 @@ URushMenuItemWidget::URushMenuItemWidget(const FObjectInitializer& ObjectInitial
 void URushMenuItemWidget::NativeConstruct()
 {
 	Super::NativeConstruct();
-
-	// Bind button click event
-	if (SelectButton)
+	
+	// Bind button click event if this widget is used as main detail view
+	if (RootButton && IsFromMain)
 	{
-		SelectButton->OnClicked.AddDynamic(this, &URushMenuItemWidget::OnSelectButtonClicked);
+		RootButton->OnClicked.AddDynamic(this, &URushMenuItemWidget::OnButtonClicked);
 	}
 }
 
@@ -29,50 +30,45 @@ void URushMenuItemWidget::NativeOnListItemObjectSet(UObject* ListItemObject)
 	if (WeaponData)
 	{
 		CurrentWeaponData = WeaponData;
-
-		// Update UI with weapon data
-		if (BaseImage && WeaponData->BaseImage)
+		
+		for (const auto& Icon : CurrentWeaponData->WeaponInfoEntry.WeaponIconSettings)
 		{
-			BaseImage->SetBrushFromTexture(WeaponData->BaseImage);
-		}
-
-		if (MagazineImage && WeaponData->MagazineImage)
-		{
-			MagazineImage->SetBrushFromTexture(WeaponData->MagazineImage);
-		}
-
-		if (IronsightsImage && WeaponData->IronsightsImage)
-		{
-			IronsightsImage->SetBrushFromTexture(WeaponData->IronsightsImage);
-		}
-
-		if (MuzzleImage && WeaponData->MuzzleImage)
-		{
-			MuzzleImage->SetBrushFromTexture(WeaponData->MuzzleImage);
-		}
-
-		if (ScopeImage && WeaponData->ScopeImage)
-		{
-			ScopeImage->SetBrushFromTexture(WeaponData->ScopeImage);
-		}
-
-		if (GripImage && WeaponData->GripImage)
-		{
-			GripImage->SetBrushFromTexture(WeaponData->GripImage);
-		}
-
-		if (ButtonText)
-		{
-			ButtonText->SetText(FText::FromString(UEnum::GetValueAsString(WeaponData->WeaponName)));
+			if (Icon.Name == EWeaponIconName::Body && BodyImage)
+			{
+				BodyImage->SetBrushFromTexture(Icon.Texture.LoadSynchronous());
+			}
+			if (Icon.Name == EWeaponIconName::Magazine && MagazineImage)
+			{
+				MagazineImage->SetBrushFromTexture(Icon.Texture.LoadSynchronous());
+			}
+			if (Icon.Name == EWeaponIconName::Scope_Default && IronsightsImage)
+			{
+				IronsightsImage->SetBrushFromTexture(Icon.Texture.LoadSynchronous());
+			}
+			if (Icon.Name == EWeaponIconName::Scope_01 && ScopeImage)
+			{
+				ScopeImage->SetBrushFromTexture(Icon.Texture.LoadSynchronous());
+			}
+			if (Icon.Name == EWeaponIconName::Silencer_01 && MuzzleImage)
+			{
+				MuzzleImage->SetBrushFromTexture(Icon.Texture.LoadSynchronous());
+			}
+			if (Icon.Name == EWeaponIconName::Grip_01 && GripImage)
+			{
+				GripImage->SetBrushFromTexture(Icon.Texture.LoadSynchronous());
+			}
+			// set text weapon enum by get umeta
+			ButtonText->SetText(FText::FromString(UEnum::GetValueAsString(CurrentWeaponData->WeaponInfoEntry.Name)));
 		}
 	}
 }
 
-void URushMenuItemWidget::OnSelectButtonClicked()
+void URushMenuItemWidget::SetListItemObject(UObject* ListItemObject)
 {
-	if (CurrentWeaponData)
-	{
-		// Call Blueprint event
-		OnWeaponSelected(CurrentWeaponData);
-	}
+	NativeOnListItemObjectSet(ListItemObject);
+}
+
+void URushMenuItemWidget::OnButtonClicked()
+{
+	OnMenuItemClickedDelegate.Broadcast();
 }

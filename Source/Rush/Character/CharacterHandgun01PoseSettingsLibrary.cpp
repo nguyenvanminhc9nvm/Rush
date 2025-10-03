@@ -95,3 +95,11 @@ FCharacterPoseSettings UCharacterHandgun01PoseSettingsLibrary::GetCharacterHandg
     }
     return FCharacterPoseSettings(); // Return default settings if not found
 }
+
+TArray<FCharacterPoseSettings> UCharacterHandgun01PoseSettingsLibrary::GetAllCharacterHandgun01PoseSettings()
+{
+    InitCharacterHandgun01PoseSettingsMap();
+    TArray<FCharacterPoseSettings> AllSettings;
+    GCharacterHandgun01PoseSettingsMap.GenerateValueArray(AllSettings);
+    return AllSettings;
+}

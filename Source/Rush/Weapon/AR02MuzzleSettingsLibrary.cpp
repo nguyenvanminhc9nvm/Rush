@@ -75,3 +75,11 @@ FMuzzleSettingsEntry UAR02MuzzleSettingsLibrary::GetAR02MuzzleSettingsByName(EMu
     }
     return FMuzzleSettingsEntry();
 }
+
+TArray<FMuzzleSettingsEntry> UAR02MuzzleSettingsLibrary::GetAllAR02MuzzleSettings()
+{
+    InitAR02MuzzleSettingsMap();
+    TArray<FMuzzleSettingsEntry> AllSettings;
+    GAR02MuzzleSettingsMap.GenerateValueArray(AllSettings);
+    return AllSettings;
+}

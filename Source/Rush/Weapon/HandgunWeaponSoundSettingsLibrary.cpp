@@ -23,67 +23,67 @@ static void InitHandgunWeaponSoundMap()
 
     // Jump
     FWeaponSound JumpSound = CreateWeaponSound(
-        ECharacterMontageName::Jump,
+        ECharacterMontageName::Character_Montage_Jump,
         0.0f,
         TEXT("/Script/Engine.SoundCue'/Game/Assets/Audio/Cues/SC_CH_Jump_Start.SC_CH_Jump_Start'")
     );
-    GHandgunWeaponSoundMap.Add(ECharacterMontageName::Jump, JumpSound);
+    GHandgunWeaponSoundMap.Add(ECharacterMontageName::Character_Montage_Jump, JumpSound);
 
     // Reload
     FWeaponSound ReloadSound = CreateWeaponSound(
-        ECharacterMontageName::Reload,
+        ECharacterMontageName::Character_Montage_Reload,
         0.0f,
         TEXT("/Script/Engine.SoundCue'/Game/Assets/Audio/Cues/SC_Handgun_Reload.SC_Handgun_Reload'")
     );
-    GHandgunWeaponSoundMap.Add(ECharacterMontageName::Reload, ReloadSound);
+    GHandgunWeaponSoundMap.Add(ECharacterMontageName::Character_Montage_Reload, ReloadSound);
 
     // Reload-Empty
     FWeaponSound ReloadEmptySound = CreateWeaponSound(
-        ECharacterMontageName::Reload_Empty,
+        ECharacterMontageName::Character_Montage_Reload_Empty,
         0.0f,
         TEXT("/Script/Engine.SoundCue'/Game/Assets/Audio/Cues/SC_Handgun_Reload_Empty.SC_Handgun_Reload_Empty'")
     );
-    GHandgunWeaponSoundMap.Add(ECharacterMontageName::Reload_Empty, ReloadEmptySound);
+    GHandgunWeaponSoundMap.Add(ECharacterMontageName::Character_Montage_Reload_Empty, ReloadEmptySound);
 
     // Inspect
     FWeaponSound InspectSound = CreateWeaponSound(
-        ECharacterMontageName::Inspect,
+        ECharacterMontageName::Character_Montage_Inspect,
         0.0f,
         TEXT("None")
     );
-    GHandgunWeaponSoundMap.Add(ECharacterMontageName::Inspect, InspectSound);
+    GHandgunWeaponSoundMap.Add(ECharacterMontageName::Character_Montage_Inspect, InspectSound);
 
     // Holster
     FWeaponSound HolsterSound = CreateWeaponSound(
-        ECharacterMontageName::Holster,
+        ECharacterMontageName::Character_Montage_Holster,
         0.0f,
         TEXT("/Script/Engine.SoundCue'/Game/Assets/Audio/Cues/Weapons/SC_WEP_Holster.SC_WEP_Holster'")
     );
-    GHandgunWeaponSoundMap.Add(ECharacterMontageName::Holster, HolsterSound);
+    GHandgunWeaponSoundMap.Add(ECharacterMontageName::Character_Montage_Holster, HolsterSound);
 
     // Holster-Smooth
     FWeaponSound HolsterSmoothSound = CreateWeaponSound(
-        ECharacterMontageName::Holster_Smooth,
+        ECharacterMontageName::Character_Montage_Holster_Smooth,
         0.0f,
         TEXT("/Script/Engine.SoundCue'/Game/Assets/Audio/Cues/Weapons/SC_WEP_Holster.SC_WEP_Holster'")
     );
-    GHandgunWeaponSoundMap.Add(ECharacterMontageName::Holster_Smooth, HolsterSmoothSound);
+    GHandgunWeaponSoundMap.Add(ECharacterMontageName::Character_Montage_Holster_Smooth, HolsterSmoothSound);
 
     // Unholster
     FWeaponSound UnholsterSound = CreateWeaponSound(
-        ECharacterMontageName::Unholster,
+        ECharacterMontageName::Character_Montage_Unholster,
         0.0f,
         TEXT("/Script/Engine.SoundCue'/Game/Assets/Audio/Cues/Weapons/SC_WEP_Unholster.SC_WEP_Unholster'")
     );
-    GHandgunWeaponSoundMap.Add(ECharacterMontageName::Unholster, UnholsterSound);
+    GHandgunWeaponSoundMap.Add(ECharacterMontageName::Character_Montage_Unholster, UnholsterSound);
 
     // Unholster-Smooth
     FWeaponSound UnholsterSmoothSound = CreateWeaponSound(
-        ECharacterMontageName::Unholster_Smooth,
+        ECharacterMontageName::Character_Montage_Unholster_Smooth,
         0.0f,
         TEXT("/Script/Engine.SoundCue'/Game/Assets/Audio/Cues/Weapons/SC_WEP_Unholster.SC_WEP_Unholster'")
     );
-    GHandgunWeaponSoundMap.Add(ECharacterMontageName::Unholster_Smooth, UnholsterSmoothSound);
+    GHandgunWeaponSoundMap.Add(ECharacterMontageName::Character_Montage_Unholster_Smooth, UnholsterSmoothSound);
 }
 
 FWeaponSound UHandgunWeaponSoundSettingsLibrary::GetWeaponSoundByName(ECharacterMontageName SoundName)
@@ -101,4 +101,12 @@ FWeaponSound UHandgunWeaponSoundSettingsLibrary::GetWeaponSoundByName(ECharacter
     EmptySound.Delay = 0.0f;
     EmptySound.SoundCue = nullptr;
     return EmptySound;
+}
+
+TArray<FWeaponSound> UHandgunWeaponSoundSettingsLibrary::GetAllHandgunWeaponSounds()
+{
+    InitHandgunWeaponSoundMap();
+    TArray<FWeaponSound> AllSounds;
+    GHandgunWeaponSoundMap.GenerateValueArray(AllSounds);
+    return AllSounds;
 }

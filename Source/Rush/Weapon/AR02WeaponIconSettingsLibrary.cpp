@@ -141,3 +141,11 @@ FWeaponIcon UAR02WeaponIconSettingsLibrary::GetWeaponIconByName(EWeaponIconName 
     }
     return FWeaponIcon(); // Return default icon if not found
 }
+
+TArray<FWeaponIcon> UAR02WeaponIconSettingsLibrary::GetAllAR02WeaponIcons()
+{
+    InitAR02WeaponIconMap();
+    TArray<FWeaponIcon> AllIcons;
+    GAR02WeaponIconMap.GenerateValueArray(AllIcons);
+    return AllIcons;
+}

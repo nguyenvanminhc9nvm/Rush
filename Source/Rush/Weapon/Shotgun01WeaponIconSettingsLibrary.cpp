@@ -141,3 +141,11 @@ FWeaponIcon UShotgun01WeaponIconSettingsLibrary::GetWeaponIconByName(EWeaponIcon
     }
     return FWeaponIcon(); // Return default icon if not found
 }
+
+TArray<FWeaponIcon> UShotgun01WeaponIconSettingsLibrary::GetAllShotgun01WeaponIcons()
+{
+    InitShotgun01WeaponIconMap();
+    TArray<FWeaponIcon> AllIcons;
+    GShotgun01WeaponIconMap.GenerateValueArray(AllIcons);
+    return AllIcons;
+}

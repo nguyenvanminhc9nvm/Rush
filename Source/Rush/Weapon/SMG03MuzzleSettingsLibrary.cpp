@@ -75,3 +75,11 @@ FMuzzleSettingsEntry USMG03MuzzleSettingsLibrary::GetSMG03MuzzleSettingsByName(E
     }
     return FMuzzleSettingsEntry();
 }
+
+TArray<FMuzzleSettingsEntry> USMG03MuzzleSettingsLibrary::GetAllSMG03MuzzleSettings()
+{
+    InitSMG03MuzzleSettingsMap();
+    TArray<FMuzzleSettingsEntry> AllSettings;
+    GSMG03MuzzleSettingsMap.GenerateValueArray(AllSettings);
+    return AllSettings;
+}

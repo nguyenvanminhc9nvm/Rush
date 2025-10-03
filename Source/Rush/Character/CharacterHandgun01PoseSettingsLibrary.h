@@ -15,4 +15,7 @@ public:
     UFUNCTION(BlueprintPure, Category="Character Handgun01 Pose Settings")
     static FCharacterPoseSettings GetCharacterHandgun01PoseSettingsByName(ECharacterPoseName PoseName);
 
+    UFUNCTION(BlueprintCallable, Category="Character Handgun01 Pose Settings")
+    static TArray<FCharacterPoseSettings> GetAllCharacterHandgun01PoseSettings();
+
 };

@@ -27,49 +27,49 @@ static void InitHandgun03MontageSettingsMap()
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Weapon/Handguns/Animation/Montage/AM_FP_WEP_Handgun_03_Fire.AM_FP_WEP_Handgun_03_Fire'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Weapon/Handguns/Animation/Montage/AM_TP_WEP_Handgun_03_Fire.AM_TP_WEP_Handgun_03_Fire'")
     );
-    GHandgun03MontageSettingsMap.Add(EWeaponMontageName::Fire, FireSettings);
+    GHandgun03MontageSettingsMap.Add(EWeaponMontageName::Weapon_Fire, FireSettings);
 
     // Fire-Empty
     FWeaponMontageSettings FireEmptySettings = CreateMontageSettings(
         TEXT("None"),
         TEXT("None")
     );
-    GHandgun03MontageSettingsMap.Add(EWeaponMontageName::Fire_Empty, FireEmptySettings);
+    GHandgun03MontageSettingsMap.Add(EWeaponMontageName::Weapon_Fire_Empty, FireEmptySettings);
 
     // Reload
     FWeaponMontageSettings ReloadSettings = CreateMontageSettings(
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Weapon/Handguns/Animation/Montage/AM_FP_WEP_Handgun_03_Reload.AM_FP_WEP_Handgun_03_Reload'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Weapon/Handguns/Animation/Montage/AM_TP_WEP_Handgun_03_Reload.AM_TP_WEP_Handgun_03_Reload'")
     );
-    GHandgun03MontageSettingsMap.Add(EWeaponMontageName::Reload, ReloadSettings);
+    GHandgun03MontageSettingsMap.Add(EWeaponMontageName::Weapon_Reload, ReloadSettings);
 
     // Reload-Empty
     FWeaponMontageSettings ReloadEmptySettings = CreateMontageSettings(
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Weapon/Handguns/Animation/Montage/AM_FP_WEP_Handgun_03_Reload_Empty.AM_FP_WEP_Handgun_03_Reload_Empty'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Weapon/Handguns/Animation/Montage/AM_TP_WEP_Handgun_03_Reload_Empty.AM_TP_WEP_Handgun_03_Reload_Empty'")
     );
-    GHandgun03MontageSettingsMap.Add(EWeaponMontageName::Reload_Empty, ReloadEmptySettings);
+    GHandgun03MontageSettingsMap.Add(EWeaponMontageName::Weapon_Reload_Empty, ReloadEmptySettings);
 
     // Inspect
     FWeaponMontageSettings InspectSettings = CreateMontageSettings(
         TEXT("None"),
         TEXT("None")
     );
-    GHandgun03MontageSettingsMap.Add(EWeaponMontageName::Inspect, InspectSettings);
+    GHandgun03MontageSettingsMap.Add(EWeaponMontageName::Weapon_Inspect, InspectSettings);
 
     // Holster
     FWeaponMontageSettings HolsterSettings = CreateMontageSettings(
         TEXT("None"),
         TEXT("None")
     );
-    GHandgun03MontageSettingsMap.Add(EWeaponMontageName::Holster, HolsterSettings);
+    GHandgun03MontageSettingsMap.Add(EWeaponMontageName::Weapon_Holster, HolsterSettings);
 
     // Unholster
     FWeaponMontageSettings UnholsterSettings = CreateMontageSettings(
         TEXT("None"),
         TEXT("None")
     );
-    GHandgun03MontageSettingsMap.Add(EWeaponMontageName::Unholster, UnholsterSettings);
+    GHandgun03MontageSettingsMap.Add(EWeaponMontageName::Weapon_Unholster, UnholsterSettings);
 }
 
 FWeaponMontageSettings UHandgun03MontageSettingsLibrary::GetHandgun03MontageSettingsByName(EWeaponMontageName MontageName)
@@ -80,4 +80,12 @@ FWeaponMontageSettings UHandgun03MontageSettingsLibrary::GetHandgun03MontageSett
         return GHandgun03MontageSettingsMap[MontageName];
     }
     return FWeaponMontageSettings(); // Return default settings if not found
+}
+
+TArray<FWeaponMontageSettings> UHandgun03MontageSettingsLibrary::GetAllHandgun03MontageSettings()
+{
+    InitHandgun03MontageSettingsMap();
+    TArray<FWeaponMontageSettings> AllSettings;
+    GHandgun03MontageSettingsMap.GenerateValueArray(AllSettings);
+    return AllSettings;
 }

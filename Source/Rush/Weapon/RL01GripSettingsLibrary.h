@@ -14,4 +14,7 @@ class RUSH_API URL01GripSettingsLibrary : public UBlueprintFunctionLibrary
 public:
     UFUNCTION(BlueprintPure, Category="RL01 Grip Settings")
     static FGripSettingsEntry GetRL01GripSettingsByName(EGripName GripName);
+
+    UFUNCTION(BlueprintCallable, Category="RL01 Grip Settings")
+    static TArray<FGripSettingsEntry> GetAllRL01GripSettings();
 };

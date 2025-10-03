@@ -14,4 +14,7 @@ class RUSH_API UAR01MuzzleSettingsLibrary : public UBlueprintFunctionLibrary
 public:
     UFUNCTION(BlueprintPure, Category="Muzzle Settings")
     static FMuzzleSettingsEntry GetMuzzleSettingsByName(EMuzzleName MuzzleName);
+
+    UFUNCTION(BlueprintCallable, Category="Muzzle Settings")
+    static TArray<FMuzzleSettingsEntry> GetAllMuzzleSettings();
 };

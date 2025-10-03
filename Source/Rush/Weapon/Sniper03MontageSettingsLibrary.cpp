@@ -27,49 +27,49 @@ static void InitSniper03MontageSettingsMap()
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Weapon/Snipers/Animation/Montage/AM_FP_WEP_Sniper_03_Fire.AM_FP_WEP_Sniper_03_Fire'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Weapon/Snipers/Animation/Montage/AM_TP_WEP_Sniper_03_Fire.AM_TP_WEP_Sniper_03_Fire'")
     );
-    GSniper03MontageSettingsMap.Add(EWeaponMontageName::Fire, FireSettings);
+    GSniper03MontageSettingsMap.Add(EWeaponMontageName::Weapon_Fire, FireSettings);
 
     // Fire-Empty
     FWeaponMontageSettings FireEmptySettings = CreateMontageSettings(
         TEXT("None"),
         TEXT("None")
     );
-    GSniper03MontageSettingsMap.Add(EWeaponMontageName::Fire_Empty, FireEmptySettings);
+    GSniper03MontageSettingsMap.Add(EWeaponMontageName::Weapon_Fire_Empty, FireEmptySettings);
 
     // Reload
     FWeaponMontageSettings ReloadSettings = CreateMontageSettings(
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Weapon/Snipers/Animation/Montage/AM_FP_WEP_Sniper_03_Reload.AM_FP_WEP_Sniper_03_Reload'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Weapon/Snipers/Animation/Montage/AM_TP_WEP_Sniper_03_Reload.AM_TP_WEP_Sniper_03_Reload'")
     );
-    GSniper03MontageSettingsMap.Add(EWeaponMontageName::Reload, ReloadSettings);
+    GSniper03MontageSettingsMap.Add(EWeaponMontageName::Weapon_Reload, ReloadSettings);
 
     // Reload-Empty
     FWeaponMontageSettings ReloadEmptySettings = CreateMontageSettings(
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Weapon/Snipers/Animation/Montage/AM_FP_WEP_Sniper_03_Reload_Empty.AM_FP_WEP_Sniper_03_Reload_Empty'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Weapon/Snipers/Animation/Montage/AM_TP_WEP_Sniper_03_Reload_Empty.AM_TP_WEP_Sniper_03_Reload_Empty'")
     );
-    GSniper03MontageSettingsMap.Add(EWeaponMontageName::Reload_Empty, ReloadEmptySettings);
+    GSniper03MontageSettingsMap.Add(EWeaponMontageName::Weapon_Reload_Empty, ReloadEmptySettings);
 
     // Inspect
     FWeaponMontageSettings InspectSettings = CreateMontageSettings(
         TEXT("None"),
         TEXT("None")
     );
-    GSniper03MontageSettingsMap.Add(EWeaponMontageName::Inspect, InspectSettings);
+    GSniper03MontageSettingsMap.Add(EWeaponMontageName::Weapon_Inspect, InspectSettings);
 
     // Holster
     FWeaponMontageSettings HolsterSettings = CreateMontageSettings(
         TEXT("None"),
         TEXT("None")
     );
-    GSniper03MontageSettingsMap.Add(EWeaponMontageName::Holster, HolsterSettings);
+    GSniper03MontageSettingsMap.Add(EWeaponMontageName::Weapon_Holster, HolsterSettings);
 
     // Unholster
     FWeaponMontageSettings UnholsterSettings = CreateMontageSettings(
         TEXT("None"),
         TEXT("None")
     );
-    GSniper03MontageSettingsMap.Add(EWeaponMontageName::Unholster, UnholsterSettings);
+    GSniper03MontageSettingsMap.Add(EWeaponMontageName::Weapon_Unholster, UnholsterSettings);
 }
 
 FWeaponMontageSettings USniper03MontageSettingsLibrary::GetSniper03MontageSettingsByName(EWeaponMontageName MontageName)
@@ -80,4 +80,12 @@ FWeaponMontageSettings USniper03MontageSettingsLibrary::GetSniper03MontageSettin
         return GSniper03MontageSettingsMap[MontageName];
     }
     return FWeaponMontageSettings(); // Return default settings if not found
+}
+
+TArray<FWeaponMontageSettings> USniper03MontageSettingsLibrary::GetAllSniper03MontageSettings()
+{
+    InitSniper03MontageSettingsMap();
+    TArray<FWeaponMontageSettings> AllSettings;
+    GSniper03MontageSettingsMap.GenerateValueArray(AllSettings);
+    return AllSettings;
 }

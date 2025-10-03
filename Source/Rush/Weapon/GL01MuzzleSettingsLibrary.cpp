@@ -75,3 +75,11 @@ FMuzzleSettingsEntry UGL01MuzzleSettingsLibrary::GetGL01MuzzleSettingsByName(EMu
     }
     return FMuzzleSettingsEntry();
 }
+
+TArray<FMuzzleSettingsEntry> UGL01MuzzleSettingsLibrary::GetAllGL01MuzzleSettings()
+{
+    InitGL01MuzzleSettingsMap();
+    TArray<FMuzzleSettingsEntry> AllSettings;
+    GGL01MuzzleSettingsMap.GenerateValueArray(AllSettings);
+    return AllSettings;
+}

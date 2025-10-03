@@ -13,11 +13,11 @@ static void InitCharacterSniper03PoseSettingsMap()
         FCharacterPoseSettings Settings;
         if (FirstPersonPath != TEXT("None"))
         {
-            Settings.PoseBaseFirstPerson = LoadObject<UAnimSequence>(nullptr, *FirstPersonPath);
+            Settings.SequenceBaseFirstPerson = LoadObject<UAnimSequence>(nullptr, *FirstPersonPath);
         }
         if (ThirdPersonPath != TEXT("None"))
         {
-            Settings.PoseBaseThirdPerson = LoadObject<UAnimSequence>(nullptr, *ThirdPersonPath);
+            Settings.SequenceBaseThirdPerson = LoadObject<UAnimSequence>(nullptr, *ThirdPersonPath);
         }
         return Settings;
     };
@@ -94,4 +94,12 @@ FCharacterPoseSettings UCharacterSniper03PoseSettingsLibrary::GetCharacterSniper
         return GCharacterSniper03PoseSettingsMap[PoseName];
     }
     return FCharacterPoseSettings(); // Return default settings if not found
+}
+
+TArray<FCharacterPoseSettings> UCharacterSniper03PoseSettingsLibrary::GetAllCharacterSniper03PoseSettings()
+{
+    InitCharacterSniper03PoseSettingsMap();
+    TArray<FCharacterPoseSettings> AllSettings;
+    GCharacterSniper03PoseSettingsMap.GenerateValueArray(AllSettings);
+    return AllSettings;
 }

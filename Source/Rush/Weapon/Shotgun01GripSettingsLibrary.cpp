@@ -72,3 +72,11 @@ FGripSettingsEntry UShotgun01GripSettingsLibrary::GetShotgun01GripSettingsByName
     }
     return FGripSettingsEntry();
 }
+
+TArray<FGripSettingsEntry> UShotgun01GripSettingsLibrary::GetAllShotgun01GripSettings()
+{
+    InitShotgun01GripSettingsMap();
+    TArray<FGripSettingsEntry> AllSettings;
+    GShotgun01GripSettingsMap.GenerateValueArray(AllSettings);
+    return AllSettings;
+}

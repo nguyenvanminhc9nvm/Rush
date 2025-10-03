@@ -75,3 +75,11 @@ FMuzzleSettingsEntry UAR03MuzzleSettingsLibrary::GetAR03MuzzleSettingsByName(EMu
     }
     return FMuzzleSettingsEntry();
 }
+
+TArray<FMuzzleSettingsEntry> UAR03MuzzleSettingsLibrary::GetAllAR03MuzzleSettings()
+{
+    InitAR03MuzzleSettingsMap();
+    TArray<FMuzzleSettingsEntry> AllSettings;
+    GAR03MuzzleSettingsMap.GenerateValueArray(AllSettings);
+    return AllSettings;
+}

@@ -141,3 +141,11 @@ FWeaponIcon UHandgun03WeaponIconSettingsLibrary::GetWeaponIconByName(EWeaponIcon
     }
     return FWeaponIcon(); // Return default icon if not found
 }
+
+TArray<FWeaponIcon> UHandgun03WeaponIconSettingsLibrary::GetAllHandgun03WeaponIcons()
+{
+    InitHandgun03WeaponIconMap();
+    TArray<FWeaponIcon> AllIcons;
+    GHandgun03WeaponIconMap.GenerateValueArray(AllIcons);
+    return AllIcons;
+}

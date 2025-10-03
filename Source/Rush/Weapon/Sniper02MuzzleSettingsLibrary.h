@@ -14,4 +14,7 @@ class RUSH_API USniper02MuzzleSettingsLibrary : public UBlueprintFunctionLibrary
 public:
     UFUNCTION(BlueprintPure, Category="Sniper02 Muzzle Settings")
     static FMuzzleSettingsEntry GetSniper02MuzzleSettingsByName(EMuzzleName MuzzleName);
+
+    UFUNCTION(BlueprintCallable, Category="Sniper02 Muzzle Settings")
+    static TArray<FMuzzleSettingsEntry> GetAllSniper02MuzzleSettings();
 };

@@ -1,9 +1,9 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Weapon/Enum/EWeaponMontageName.h"
+#include "Enum/EWeaponMontageName.h"
+#include "Struct/FWeaponMontageSettings.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
-#include "Weapon/Struct/FWeaponMontageSettings.h"
 #include "Sniper03MontageSettingsLibrary.generated.h"
 
 UCLASS()
@@ -14,5 +14,8 @@ class RUSH_API USniper03MontageSettingsLibrary : public UBlueprintFunctionLibrar
 public:
     UFUNCTION(BlueprintPure, Category="Sniper 03 Montage Settings")
     static FWeaponMontageSettings GetSniper03MontageSettingsByName(EWeaponMontageName MontageName);
+
+    UFUNCTION(BlueprintCallable, Category="Sniper 03 Montage Settings")
+    static TArray<FWeaponMontageSettings> GetAllSniper03MontageSettings();
 
 };

@@ -27,49 +27,49 @@ static void InitSMG02MontageSettingsMap()
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Weapon/SMGs/Animation/Montage/AM_FP_WEP_SMG_02_Fire.AM_FP_WEP_SMG_02_Fire'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Weapon/SMGs/Animation/Montage/AM_TP_WEP_SMG_02_Fire.AM_TP_WEP_SMG_02_Fire'")
     );
-    GSMG02MontageSettingsMap.Add(EWeaponMontageName::Fire, FireSettings);
+    GSMG02MontageSettingsMap.Add(EWeaponMontageName::Weapon_Fire, FireSettings);
 
     // Fire-Empty
     FWeaponMontageSettings FireEmptySettings = CreateMontageSettings(
         TEXT("None"),
         TEXT("None")
     );
-    GSMG02MontageSettingsMap.Add(EWeaponMontageName::Fire_Empty, FireEmptySettings);
+    GSMG02MontageSettingsMap.Add(EWeaponMontageName::Weapon_Fire_Empty, FireEmptySettings);
 
     // Reload
     FWeaponMontageSettings ReloadSettings = CreateMontageSettings(
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Weapon/SMGs/Animation/Montage/AM_FP_WEP_SMG_02_Reload.AM_FP_WEP_SMG_02_Reload'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Weapon/SMGs/Animation/Montage/AM_TP_WEP_SMG_02_Reload.AM_TP_WEP_SMG_02_Reload'")
     );
-    GSMG02MontageSettingsMap.Add(EWeaponMontageName::Reload, ReloadSettings);
+    GSMG02MontageSettingsMap.Add(EWeaponMontageName::Weapon_Reload, ReloadSettings);
 
     // Reload-Empty
     FWeaponMontageSettings ReloadEmptySettings = CreateMontageSettings(
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Weapon/SMGs/Animation/Montage/AM_FP_WEP_SMG_02_Reload_Empty.AM_FP_WEP_SMG_02_Reload_Empty'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Weapon/SMGs/Animation/Montage/AM_TP_WEP_SMG_02_Reload_Empty.AM_TP_WEP_SMG_02_Reload_Empty'")
     );
-    GSMG02MontageSettingsMap.Add(EWeaponMontageName::Reload_Empty, ReloadEmptySettings);
+    GSMG02MontageSettingsMap.Add(EWeaponMontageName::Weapon_Reload_Empty, ReloadEmptySettings);
 
     // Inspect
     FWeaponMontageSettings InspectSettings = CreateMontageSettings(
         TEXT("None"),
         TEXT("None")
     );
-    GSMG02MontageSettingsMap.Add(EWeaponMontageName::Inspect, InspectSettings);
+    GSMG02MontageSettingsMap.Add(EWeaponMontageName::Weapon_Inspect, InspectSettings);
 
     // Holster
     FWeaponMontageSettings HolsterSettings = CreateMontageSettings(
         TEXT("None"),
         TEXT("None")
     );
-    GSMG02MontageSettingsMap.Add(EWeaponMontageName::Holster, HolsterSettings);
+    GSMG02MontageSettingsMap.Add(EWeaponMontageName::Weapon_Holster, HolsterSettings);
 
     // Unholster
     FWeaponMontageSettings UnholsterSettings = CreateMontageSettings(
         TEXT("None"),
         TEXT("None")
     );
-    GSMG02MontageSettingsMap.Add(EWeaponMontageName::Unholster, UnholsterSettings);
+    GSMG02MontageSettingsMap.Add(EWeaponMontageName::Weapon_Unholster, UnholsterSettings);
 }
 
 FWeaponMontageSettings USMG02MontageSettingsLibrary::GetSMG02MontageSettingsByName(EWeaponMontageName MontageName)
@@ -80,4 +80,12 @@ FWeaponMontageSettings USMG02MontageSettingsLibrary::GetSMG02MontageSettingsByNa
         return GSMG02MontageSettingsMap[MontageName];
     }
     return FWeaponMontageSettings(); // Return default settings if not found
+}
+
+TArray<FWeaponMontageSettings> USMG02MontageSettingsLibrary::GetAllSMG02MontageSettings()
+{
+    InitSMG02MontageSettingsMap();
+    TArray<FWeaponMontageSettings> AllSettings;
+    GSMG02MontageSettingsMap.GenerateValueArray(AllSettings);
+    return AllSettings;
 }

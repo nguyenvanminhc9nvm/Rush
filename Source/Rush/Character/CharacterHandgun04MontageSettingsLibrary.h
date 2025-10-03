@@ -15,4 +15,7 @@ public:
     UFUNCTION(BlueprintPure, Category="Character Handgun04 Montage Settings")
     static FCharacterMontageSettings GetCharacterHandgun04MontageSettingsByName(ECharacterMontageName MontageName);
 
+    UFUNCTION(BlueprintCallable, Category="Character Handgun04 Montage Settings")
+    static TArray<FCharacterMontageSettings> GetAllCharacterHandgun04MontageSettings();
+
 };

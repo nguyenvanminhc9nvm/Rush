@@ -75,3 +75,11 @@ FMuzzleSettingsEntry USniper02MuzzleSettingsLibrary::GetSniper02MuzzleSettingsBy
     }
     return FMuzzleSettingsEntry();
 }
+
+TArray<FMuzzleSettingsEntry> USniper02MuzzleSettingsLibrary::GetAllSniper02MuzzleSettings()
+{
+    InitSniper02MuzzleSettingsMap();
+    TArray<FMuzzleSettingsEntry> AllSettings;
+    GSniper02MuzzleSettingsMap.GenerateValueArray(AllSettings);
+    return AllSettings;
+}

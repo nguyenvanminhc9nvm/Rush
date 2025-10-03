@@ -95,3 +95,11 @@ FCharacterPoseSettings UCharacterSMG03PoseSettingsLibrary::GetCharacterSMG03Pose
     }
     return FCharacterPoseSettings(); // Return default settings if not found
 }
+
+TArray<FCharacterPoseSettings> UCharacterSMG03PoseSettingsLibrary::GetAllCharacterSMG03PoseSettings()
+{
+    InitCharacterSMG03PoseSettingsMap();
+    TArray<FCharacterPoseSettings> AllSettings;
+    GCharacterSMG03PoseSettingsMap.GenerateValueArray(AllSettings);
+    return AllSettings;
+}

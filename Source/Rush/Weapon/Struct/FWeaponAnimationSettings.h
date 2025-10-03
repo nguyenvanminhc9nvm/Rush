@@ -3,6 +3,8 @@
 #include "CoreMinimal.h"
 #include "FWeaponAnimationSettings.generated.h"
 
+enum EWeaponName : uint8;
+
 USTRUCT(BlueprintType)
 struct RUSH_API FWeaponAnimationSettings
 {

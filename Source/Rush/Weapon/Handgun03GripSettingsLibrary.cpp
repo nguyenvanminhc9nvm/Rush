@@ -64,3 +64,11 @@ FGripSettingsEntry UHandgun03GripSettingsLibrary::GetHandgun03GripSettingsByName
     }
     return FGripSettingsEntry();
 }
+
+TArray<FGripSettingsEntry> UHandgun03GripSettingsLibrary::GetAllHandgun03GripSettings()
+{
+    InitHandgun03GripSettingsMap();
+    TArray<FGripSettingsEntry> AllSettings;
+    GHandgun03GripSettingsMap.GenerateValueArray(AllSettings);
+    return AllSettings;
+}

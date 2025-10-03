@@ -3,6 +3,8 @@
 #include "CoreMinimal.h"
 #include "FMuzzleEntry.generated.h"
 
+enum EMuzzleName : uint8;
+
 USTRUCT(BlueprintType)
 struct RUSH_API FMuzzleEntry
 {

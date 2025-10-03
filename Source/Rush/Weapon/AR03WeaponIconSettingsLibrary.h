@@ -14,4 +14,7 @@ class RUSH_API UAR03WeaponIconSettingsLibrary : public UBlueprintFunctionLibrary
 public:
     UFUNCTION(BlueprintPure, Category="AR03 Weapon Icon Settings")
     static FWeaponIcon GetWeaponIconByName(EWeaponIconName IconName);
+
+    UFUNCTION(BlueprintCallable, Category="AR03 Weapon Icon Settings")
+    static TArray<FWeaponIcon> GetAllAR03WeaponIcons();
 };

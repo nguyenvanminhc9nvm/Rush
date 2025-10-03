@@ -1,5 +1,6 @@
 #include "CharacterSniper01BlendspaceSettingsLibrary.h"
 #include "Engine/Engine.h"
+#include "Enum/ECharacterBlendspaceName.h"
 
 static TMap<ECharacterBlendspaceName, FCharacterBlendspaceSettings> GCharacterSniper01BlendspaceSettingsMap;
 

@@ -72,3 +72,11 @@ FGripSettingsEntry UGL01GripSettingsLibrary::GetGL01GripSettingsByName(EGripName
     }
     return FGripSettingsEntry();
 }
+
+TArray<FGripSettingsEntry> UGL01GripSettingsLibrary::GetAllGL01GripSettings()
+{
+    InitGL01GripSettingsMap();
+    TArray<FGripSettingsEntry> AllSettings;
+    GGL01GripSettingsMap.GenerateValueArray(AllSettings);
+    return AllSettings;
+}

@@ -14,4 +14,7 @@ class RUSH_API ULaserSettingsLibrary : public UBlueprintFunctionLibrary
 public:
     UFUNCTION(BlueprintPure, Category="Laser Settings")
     static FLaserSettingsEntry GetLaserSettingsByName(EFragmentLaserName LaserName);
+
+    UFUNCTION(BlueprintCallable, Category="Laser Settings")
+    static TArray<FLaserSettingsEntry> GetAllLaserSettings();
 };

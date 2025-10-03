@@ -72,3 +72,11 @@ FGripSettingsEntry USMG03GripSettingsLibrary::GetSMG03GripSettingsByName(EGripNa
     }
     return FGripSettingsEntry();
 }
+
+TArray<FGripSettingsEntry> USMG03GripSettingsLibrary::GetAllSMG03GripSettings()
+{
+    InitSMG03GripSettingsMap();
+    TArray<FGripSettingsEntry> AllSettings;
+    GSMG03GripSettingsMap.GenerateValueArray(AllSettings);
+    return AllSettings;
+}
