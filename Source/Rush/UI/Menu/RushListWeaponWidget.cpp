@@ -5,10 +5,6 @@
 #include "RushMenuWidget.h"
 #include "Components/Button.h"
 
-URushListWeaponWidget::URushListWeaponWidget()
-{
-	
-}
 
 void URushListWeaponWidget::NativeConstruct()
 {

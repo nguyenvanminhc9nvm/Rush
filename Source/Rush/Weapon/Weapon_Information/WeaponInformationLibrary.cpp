@@ -1,5 +1,6 @@
 #include "WeaponInformationLibrary.h"
 
+#include "Blueprint/UserWidget.h"
 #include "Rush/Ability/AbilitiesSettingsLibrary.h"
 #include "Rush/Ability/Enum/EAbilityName.h"
 #include "Rush/Character/CharacterAR01MontageSettingsLibrary.h"

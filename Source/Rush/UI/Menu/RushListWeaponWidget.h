@@ -14,9 +14,6 @@ class RUSH_API URushListWeaponWidget : public UUserWidget
 {
 	GENERATED_BODY()
 
-public:
-	URushListWeaponWidget();
-
 protected:
 	virtual void NativeConstruct() override;
 

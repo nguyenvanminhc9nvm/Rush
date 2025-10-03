@@ -7,14 +7,10 @@
 #include "Components/WidgetSwitcher.h"
 #include "Rush/Weapon/Enum/EWeaponName.h"
 
-URushMenuWidget::URushMenuWidget(const FObjectInitializer& ObjectInitializer): Super(ObjectInitializer)
-{
-	SelectedWeaponData = nullptr;
-}
 
-void URushMenuWidget::OnWeaponSelected(UWeaponIconData* SelectedWeaponData)
+void URushMenuWidget::OnWeaponSelected(UWeaponIconData* InSelectedWeaponData)
 {
-	this->SelectedWeaponData = SelectedWeaponData;
+	this->SelectedWeaponData = InSelectedWeaponData;
 	if (MenuWidgetSwitcher && WeaponDetailWidget)
 	{
 		MenuWidgetSwitcher->SetActiveWidget(WeaponDetailWidget);

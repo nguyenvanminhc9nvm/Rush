@@ -13,10 +13,8 @@ class RUSH_API URushMenuWidget : public UUserWidget
 	GENERATED_BODY()
 
 public:
-	URushMenuWidget(const FObjectInitializer& ObjectInitializer);
-	
 	UFUNCTION()
-	void OnWeaponSelected(UWeaponIconData* SelectedWeaponData);
+	void OnWeaponSelected(UWeaponIconData* InSelectedWeaponData);
 
 	UFUNCTION()
 	void OnItemMenuClicked();

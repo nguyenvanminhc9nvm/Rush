@@ -4,13 +4,15 @@
 #include "FWeaponSpeed.h"
 #include "FWeaponMovementSettings.generated.h"
 
+enum EWeaponMovementName: uint8;
+
 USTRUCT(BlueprintType)
 struct RUSH_API FWeaponMovementSettings
 {
     GENERATED_BODY()
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Weapon Movement")
-    FString Name;
+    TEnumAsByte<EWeaponMovementName> Name;
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Weapon Movement")
     FWeaponSpeed SpeedWalk;

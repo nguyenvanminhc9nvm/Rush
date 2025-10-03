@@ -15,8 +15,6 @@ class RUSH_API UWeaponIconData : public UObject
 	GENERATED_BODY()
 
 public:
-	UWeaponIconData();
-
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Weapon Icon Data")
 	FWeaponInformationEntry WeaponInfoEntry;
 };
