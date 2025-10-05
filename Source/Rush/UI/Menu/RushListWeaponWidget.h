@@ -21,7 +21,7 @@ protected:
 	TArray<UWeaponIconData*> WeaponIconDataArray;
 
 	UPROPERTY(meta = (BindWidget))
-	class UListView* WeaponListView;
+	class UTileView* WeaponListView;
 
 	UPROPERTY(meta=(BindWidget))
 	class UButton* CloseButton;

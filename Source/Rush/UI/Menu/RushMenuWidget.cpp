@@ -2,6 +2,7 @@
 
 #include "RushListWeaponWidget.h"
 #include "RushMenuItemWidget.h"
+#include "RushWeaponSelectedWidget.h"
 #include "Rush/Weapon/Weapon_Information/WeaponInformationLibrary.h"
 #include "WeaponIconData.h"
 #include "Components/WidgetSwitcher.h"
@@ -11,16 +12,19 @@
 void URushMenuWidget::OnWeaponSelected(UWeaponIconData* InSelectedWeaponData)
 {
 	this->SelectedWeaponData = InSelectedWeaponData;
-	if (MenuWidgetSwitcher && WeaponDetailWidget)
+	if (MenuWidgetSwitcher)
 	{
-		MenuWidgetSwitcher->SetActiveWidget(WeaponDetailWidget);
-		WeaponDetailWidget->SetListItemObject(SelectedWeaponData);
+		MenuWidgetSwitcher->SetActiveWidget(WeaponSelectedWidget);
+		if (WeaponSelectedWidget->WeaponDetailWidget)
+		{
+			WeaponSelectedWidget->SetListItemObject(SelectedWeaponData);
+		} 
 	}
 }
 
 void URushMenuWidget::OnItemMenuClicked()
 {
-	if (MenuWidgetSwitcher && WeaponDetailWidget)
+	if (MenuWidgetSwitcher)
 	{
 		MenuWidgetSwitcher->SetActiveWidget(WeaponListWidget);
 	}
@@ -36,9 +40,9 @@ void URushMenuWidget::NativeConstruct()
 	{
 		WeaponListWidget->OnWeaponSelectedDelegate.AddDynamic(this, &URushMenuWidget::OnWeaponSelected);
 	}
-	if (WeaponDetailWidget)
+
+	if (WeaponSelectedWidget)
 	{
-		WeaponDetailWidget->IsFromMain = true;
-		WeaponDetailWidget->OnMenuItemClickedDelegate.AddDynamic(this, &URushMenuWidget::OnItemMenuClicked);
+		WeaponSelectedWidget->OnMenuItemClickedDelegate.AddDynamic(this, &URushMenuWidget::OnItemMenuClicked);
 	}
 }

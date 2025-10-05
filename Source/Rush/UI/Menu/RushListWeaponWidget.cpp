@@ -4,6 +4,8 @@
 #include "Rush/Weapon/Weapon_Information/WeaponInformationLibrary.h"
 #include "RushMenuWidget.h"
 #include "Components/Button.h"
+#include "Components/TileView.h"
+#include "Rush/Tags/LogUtils.h"
 
 
 void URushListWeaponWidget::NativeConstruct()
@@ -13,7 +15,8 @@ void URushListWeaponWidget::NativeConstruct()
 	// Initialize weapon data
 	TArray<FWeaponInformationEntry> WeaponInformation = UWeaponInformationLibrary::GetAllWeaponInformationEntries();
 	WeaponIconDataArray.Empty();
-	
+
+	ULogUtils::Log(FString::Printf(TEXT("Found %d weapon information entries."), WeaponInformation.Num()), ELogLevel::Info, TEXT("RushListWeaponWidget"), true);
 	for (const auto& Info : WeaponInformation)
 	{
 		UWeaponIconData* NewData = NewObject<UWeaponIconData>(this);
@@ -44,6 +47,7 @@ void URushListWeaponWidget::NativeConstruct()
 
 void URushListWeaponWidget::OnWeaponItemClicked(UObject* ClickedItem)
 {
+	ULogUtils::Log("Weapon item clicked.", ELogLevel::Info, TEXT("RushListWeaponWidget"), true);
 	if (ClickedItem)
 	{
 		if (Cast<UWeaponIconData>(ClickedItem))

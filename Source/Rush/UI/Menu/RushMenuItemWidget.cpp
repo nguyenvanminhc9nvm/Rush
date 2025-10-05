@@ -16,11 +16,6 @@ void URushMenuItemWidget::NativeConstruct()
 {
 	Super::NativeConstruct();
 	
-	// Bind button click event if this widget is used as main detail view
-	if (RootButton && IsFromMain)
-	{
-		RootButton->OnClicked.AddDynamic(this, &URushMenuItemWidget::OnButtonClicked);
-	}
 }
 
 void URushMenuItemWidget::NativeOnListItemObjectSet(UObject* ListItemObject)
@@ -66,9 +61,4 @@ void URushMenuItemWidget::NativeOnListItemObjectSet(UObject* ListItemObject)
 void URushMenuItemWidget::SetListItemObject(UObject* ListItemObject)
 {
 	NativeOnListItemObjectSet(ListItemObject);
-}
-
-void URushMenuItemWidget::OnButtonClicked()
-{
-	OnMenuItemClickedDelegate.Broadcast();
 }

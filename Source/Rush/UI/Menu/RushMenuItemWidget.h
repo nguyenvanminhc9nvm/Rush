@@ -11,8 +11,6 @@
 #include "WeaponIconData.h"
 #include "RushMenuItemWidget.generated.h"
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnMenuItemClickedDelegate);
-
 UCLASS(BlueprintType)
 class RUSH_API URushMenuItemWidget: public UUserWidget, public IUserObjectListEntry
 {
@@ -28,11 +26,6 @@ public:
 	UFUNCTION(BlueprintCallable, Category="Weapon")
 	void SetListItemObject(UObject* ListItemObject);
 
-	FOnMenuItemClickedDelegate OnMenuItemClickedDelegate;
-
-	UFUNCTION()
-	void OnButtonClicked();
-
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Weapon List")
 	bool IsFromMain = false;
 	
@@ -45,9 +38,6 @@ protected:
 	
 	UPROPERTY(meta = (BindWidget))
 	class UVerticalBox* VerticalBox;
-
-	UPROPERTY(meta = (BindWidget))
-	class UButton* RootButton;
 
 	// Weapon component images
 	UPROPERTY(meta = (BindWidget))

@@ -26,7 +26,7 @@ protected:
 
 	// Widget references
 	UPROPERTY(meta=(BindWidget))
-	class URushMenuItemWidget* WeaponDetailWidget;
+	class URushWeaponSelectedWidget* WeaponSelectedWidget;
 
 	UPROPERTY(meta=(BindWidget))
 	class URushListWeaponWidget* WeaponListWidget;
