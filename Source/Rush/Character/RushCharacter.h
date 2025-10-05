@@ -26,12 +26,6 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Rush|Movement")
 	URushAbilitySystemComponent* AbilitySystemComponent;
 
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Rush|Movement")
-	USpringArmComponent* CameraBoom;
-
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Rush|Movement")
-	UCameraComponent* FollowCamera;
-	
 	virtual UInputComponent* CreatePlayerInputComponent() override;
 
 	// Called to bind functionality to input
