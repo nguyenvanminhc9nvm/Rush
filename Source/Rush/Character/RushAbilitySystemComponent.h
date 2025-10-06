@@ -22,4 +22,8 @@ public:
 
 	void TryCancelAbilityByTags(const FNativeGameplayTag& GameplayTags) ;
 
+private:
+	void Input_Sprint(const struct FInputActionValue& Value);
+
+	void Input_SprintComplete(const struct FInputActionValue& Value);
 };

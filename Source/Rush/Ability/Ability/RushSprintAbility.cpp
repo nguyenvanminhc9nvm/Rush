@@ -1,5 +1,7 @@
 #include "RushSprintAbility.h"
 
+#include "Rush/Character/RushCharacter.h"
+#include "Rush/Character/RushCharacterMovementComponent.h"
 #include "Rush/Tags/RushGameplayTag.h"
 
 URushSprintAbility::URushSprintAbility()
@@ -11,4 +13,42 @@ URushSprintAbility::URushSprintAbility()
 	FGameplayTagContainer TagAccepts;
 	TagAccepts.AddTag(RushGameplayTag::Ability_Sprint);
 	SetAssetTags(TagAccepts);
+}
+
+void URushSprintAbility::ActivateAbility(const FGameplayAbilitySpecHandle Handle,
+	const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilityActivationInfo ActivationInfo,
+	const FGameplayEventData* TriggerEventData)
+{
+	Super::ActivateAbility(Handle, ActorInfo, ActivationInfo, TriggerEventData);
+
+	ARushCharacter* RushCharacter = Cast<ARushCharacter>(GetAvatarActorFromActorInfo());
+	if (!RushCharacter)
+	{
+		return;
+	}
+
+	URushCharacterMovementComponent* RushCharacterMovement = Cast<URushCharacterMovementComponent>(RushCharacter->GetCharacterMovement());
+	if (RushCharacterMovement)
+	{
+		RushCharacterMovement->MaxWalkSpeed = 600.0f; // Set sprint speed
+		RushCharacterMovement->bIsSprint = true;
+	}
+}
+
+void URushSprintAbility::EndAbility(const FGameplayAbilitySpecHandle Handle, const FGameplayAbilityActorInfo* ActorInfo,
+	const FGameplayAbilityActivationInfo ActivationInfo, bool bReplicateEndAbility, bool bWasCancelled)
+{
+	Super::EndAbility(Handle, ActorInfo, ActivationInfo, bReplicateEndAbility, bWasCancelled);
+	ARushCharacter* RushCharacter = Cast<ARushCharacter>(GetAvatarActorFromActorInfo());
+	if (!RushCharacter)
+	{
+		return;
+	}
+
+	URushCharacterMovementComponent* RushCharacterMovement = Cast<URushCharacterMovementComponent>(RushCharacter->GetCharacterMovement());
+	if (RushCharacterMovement)
+	{
+		RushCharacterMovement->MaxWalkSpeed = 400.0f; // Set sprint speed
+		RushCharacterMovement->bIsSprint = false;
+	}
 }

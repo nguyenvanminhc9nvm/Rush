@@ -3,6 +3,7 @@
 #include "RushCharacter.h"
 #include "Rush/Ability/Ability/RushLookAbility.h"
 #include "Rush/Ability/Ability/RushMovementAbility.h"
+#include "Rush/Input/RushInputComponent.h"
 #include "Rush/Tags/LogUtils.h"
 #include "Rush/Tags/RushGameplayTag.h"
 
@@ -16,8 +17,8 @@ void URushAbilitySystemComponent::BeginPlay()
 	Super::BeginPlay();
 	TryGiveCharacterAbility();
 	
-	ARushCharacter* EchoCharacter = Cast<ARushCharacter>(GetOwner());
-	if (!EchoCharacter)
+	ARushCharacter* RushCharacter = Cast<ARushCharacter>(GetOwner());
+	if (!RushCharacter)
 	{
 		return;
 	}
@@ -25,6 +26,18 @@ void URushAbilitySystemComponent::BeginPlay()
 
 	TryActivateAbilityByTags(RushGameplayTag::Ability_Movement);
 	TryActivateAbilityByTags(RushGameplayTag::Ability_Look);
+
+	if (RushCharacter->RushInputComponent)
+	{
+		if (RushCharacter->UIConfig)
+		{
+			RushCharacter->RushInputComponent->BindNativeActions(RushCharacter->UIConfig, RushGameplayTag::InputTag_Sprint,
+				ETriggerEvent::Started, this, &URushAbilitySystemComponent::Input_Sprint);
+
+			RushCharacter->RushInputComponent->BindNativeActions(RushCharacter->UIConfig, RushGameplayTag::InputTag_Sprint,
+				ETriggerEvent::Completed, this, &URushAbilitySystemComponent::Input_SprintComplete);
+		}
+	}
 	
 }
 void URushAbilitySystemComponent::TryGiveCharacterAbility()
@@ -64,4 +77,14 @@ void URushAbilitySystemComponent::TryCancelAbilityByTags(const FNativeGameplayTa
 	CancelTags.AddTag(GameplayTags);
 	
 	CancelAbilities(&CancelTags);
+}
+
+void URushAbilitySystemComponent::Input_Sprint(const struct FInputActionValue& Value)
+{
+	TryActivateAbilityByTags(RushGameplayTag::Ability_Sprint);
+}
+
+void URushAbilitySystemComponent::Input_SprintComplete(const struct FInputActionValue& Value)
+{
+	TryActivateAbilityByTags(RushGameplayTag::Ability_Sprint);
 }

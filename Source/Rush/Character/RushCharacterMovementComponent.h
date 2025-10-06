@@ -15,4 +15,7 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Rush Character Movement Component")
 	FVector2D Movement = FVector2D::ZeroVector;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Rush Character Movement Component")
+	bool bIsSprint = false;
 };
