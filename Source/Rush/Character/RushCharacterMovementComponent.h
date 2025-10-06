@@ -13,12 +13,6 @@ class RUSH_API URushCharacterMovementComponent : public UCharacterMovementCompon
 public:
 	URushCharacterMovementComponent(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Rush|Movement")
-	bool bWantsToSprint = false;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Rush|Movement")
-	bool bWantToAim = false;
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Rush|Movement")
-	FVector SprintSpeed = FVector(700.0f, 700.0f, 700.0f);
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Rush Character Movement Component")
+	FVector2D Movement = FVector2D::ZeroVector;
 };

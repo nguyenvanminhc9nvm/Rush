@@ -1,10 +1,11 @@
 ﻿#include "RushMovementAbility.h"
 
-#include "EnhancedInputComponent.h"
+#include "GameFramework/CharacterMovementComponent.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "Rush/Character/RushCharacter.h"
-#include "Rush/Core/GameMode/RushGameMode.h"
+#include "Rush/Character/RushCharacterMovementComponent.h"
 #include "Rush/Input/RushInputComponent.h"
+#include "Rush/Tags/LogUtils.h"
 #include "Rush/Tags/RushGameplayTag.h"
 
 URushMovementAbility::URushMovementAbility()
@@ -28,20 +29,19 @@ void URushMovementAbility::ActivateAbility(const FGameplayAbilitySpecHandle Hand
 	{
 		return;
 	}
-
-	ARushGameMode* GameMode = Cast<ARushGameMode>(GetWorld()->GetAuthGameMode());
-	if (!GameMode)
-	{
-		return;
-	}
+	
 	if (RushCharacter->RushInputComponent)
 	{
 		RushCharacter->RushInputComponent->BindNativeActions(
-			GameMode->UIConfig,
+			RushCharacter->UIConfig,
 			RushGameplayTag::InputTag_Move,
 			ETriggerEvent::Triggered,
 			this,
 			&URushMovementAbility::Input_Move);
+	}
+	else
+	{
+		RushCharacter->OnRushInputReady.AddDynamic(this, &URushMovementAbility::OnInputReady);
 	}
 }
 
@@ -62,4 +62,26 @@ void URushMovementAbility::Input_Move(const FInputActionValue& Value)
 
 	RushCharacter->AddMovementInput(ForwardVector, MovementInput.Y);
 	RushCharacter->AddMovementInput(RightVector, MovementInput.X);
+
+	if (RushCharacter->GetCharacterMovement())
+	{
+		Cast<URushCharacterMovementComponent>(RushCharacter->GetCharacterMovement())->Movement = MovementInput;
+	}
 }
+
+void URushMovementAbility::OnInputReady()
+{
+	ARushCharacter* RushCharacter = Cast<ARushCharacter>(GetAvatarActorFromActorInfo());
+	if (!RushCharacter)
+	{
+		return;
+	}
+
+	RushCharacter->RushInputComponent->BindNativeActions(
+		RushCharacter->UIConfig,
+		RushGameplayTag::InputTag_Move,
+		ETriggerEvent::Triggered,
+		this,
+		&URushMovementAbility::Input_Move);
+}
+

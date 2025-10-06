@@ -1,8 +1,8 @@
 ﻿#include "RushLookAbility.h"
 
 #include "Rush/Character/RushCharacter.h"
-#include "Rush/Core/GameMode/RushGameMode.h"
 #include "Rush/Input/RushInputComponent.h"
+#include "Rush/Tags/LogUtils.h"
 #include "Rush/Tags/RushGameplayTag.h"
 
 URushLookAbility::URushLookAbility()
@@ -26,19 +26,17 @@ void URushLookAbility::ActivateAbility(const FGameplayAbilitySpecHandle Handle, 
 		return;
 	}
 
-	ARushGameMode* GameMode = Cast<ARushGameMode>(GetWorld()->GetAuthGameMode());
-	if (!GameMode)
-	{
-		return;
-	}
 	if (RushCharacter->RushInputComponent)
 	{
 		RushCharacter->RushInputComponent->BindNativeActions(
-			GameMode->UIConfig,
+			RushCharacter->UIConfig,
 			RushGameplayTag::InputTag_Look,
 			ETriggerEvent::Triggered,
 			this,
 			&URushLookAbility::Input_Look);
+	} else
+	{
+		RushCharacter->OnRushInputReady.AddDynamic(this, &URushLookAbility::OnInputReady);
 	}
 }
 
@@ -56,7 +54,6 @@ void URushLookAbility::Input_Look(const FInputActionValue& Value)
 		return;
 	}
 	
-	UE_LOG(LogTemp, Warning, TEXT("Look input: %s"), *LookInput.ToString());
 	// Calculate the new rotation based on the input
 	const float YawDelta = LookInput.X;
 	const float PitchDelta = LookInput.Y;
@@ -64,4 +61,22 @@ void URushLookAbility::Input_Look(const FInputActionValue& Value)
 	// Apply the rotation
 	RushCharacter->AddControllerYawInput(YawDelta);
 	RushCharacter->AddControllerPitchInput(PitchDelta);
+}
+
+void URushLookAbility::OnInputReady()
+{
+	ARushCharacter* RushCharacter = Cast<ARushCharacter>(GetAvatarActorFromActorInfo());
+	if (!RushCharacter)
+	{
+		return;
+	}
+	if (RushCharacter->RushInputComponent)
+	{
+		RushCharacter->RushInputComponent->BindNativeActions(
+			RushCharacter->UIConfig,
+			RushGameplayTag::InputTag_Look,
+			ETriggerEvent::Triggered,
+			this,
+			&URushLookAbility::Input_Look);
+	}
 }

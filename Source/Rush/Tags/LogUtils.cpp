@@ -23,7 +23,7 @@ void ULogUtils::Log(const FString& Message, ELogLevel InLogLevel, const FString&
 	}
 	
 	// Print to screen if requested
-	if (bPrintToScreen && GEngine)
+	if (GEngine)
 	{
 		FColor DisplayColor = FColor::White;
 		switch (InLogLevel)
@@ -41,7 +41,7 @@ void ULogUtils::Log(const FString& Message, ELogLevel InLogLevel, const FString&
 				DisplayColor = FColor::Cyan;
 				break;
 		}
-		
-		GEngine->AddOnScreenDebugMessage(-1, ScreenDuration, DisplayColor, FormattedMessage);
+		FString FormattedMessageOnScreen = FString::Printf(TEXT("[%s] %s"), *Category, *Message);
+		GEngine->AddOnScreenDebugMessage(-1, ScreenDuration, DisplayColor, FormattedMessageOnScreen);
 	}
 }

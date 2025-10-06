@@ -16,4 +16,7 @@ public:
 	virtual void ActivateAbility(const FGameplayAbilitySpecHandle Handle, const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilityActivationInfo ActivationInfo, const FGameplayEventData* TriggerEventData) override;
 	
 	void Input_Move(const FInputActionValue& Value);
+
+	UFUNCTION()
+	void OnInputReady();
 };

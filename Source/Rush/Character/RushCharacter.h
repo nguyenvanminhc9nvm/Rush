@@ -4,12 +4,16 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "Rush/Input/RushInputAction.h"
 #include "RushCharacter.generated.h"
 
 class UCameraComponent;
 class USpringArmComponent;
 class URushAbilitySystemComponent;
 class URushInputComponent;
+
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnRushInputReady);
+
 
 UCLASS()
 class RUSH_API ARushCharacter : public ACharacter
@@ -19,7 +23,7 @@ class RUSH_API ARushCharacter : public ACharacter
 public:
 	// Sets default values for this character's properties
 	explicit ARushCharacter(const FObjectInitializer& ObjectInitializer);
-	
+
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Input Component")
 	URushInputComponent* RushInputComponent;
 
@@ -30,4 +34,13 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Rush|Components")
+	class UPhysicalAnimationComponent* PhysicalAnimationComponent;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "UIConfig")
+	TObjectPtr<URushInputConfig> UIConfig;
+
+	UPROPERTY(BlueprintAssignable)
+	FOnRushInputReady OnRushInputReady;
 };

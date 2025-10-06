@@ -10,7 +10,9 @@
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "PhysicsEngine/PhysicalAnimationComponent.h"
 #include "Rush/Core/GameMode/RushGameMode.h"
+#include "Rush/Tags/LogUtils.h"
 
 
 ARushCharacter::ARushCharacter(const FObjectInitializer& ObjectInitializer): Super(
@@ -21,7 +23,7 @@ ARushCharacter::ARushCharacter(const FObjectInitializer& ObjectInitializer): Sup
 	
 	AbilitySystemComponent = CreateDefaultSubobject<URushAbilitySystemComponent>(TEXT("AbilitySystemComponent"));
 
-
+	PhysicalAnimationComponent = CreateDefaultSubobject<UPhysicalAnimationComponent>(TEXT("PhysicalAnimationComponent"));
 }
 
 UInputComponent* ARushCharacter::CreatePlayerInputComponent()
@@ -32,6 +34,8 @@ UInputComponent* ARushCharacter::CreatePlayerInputComponent()
 	{
 		RushInputComponent->RegisterComponent();
 	}
+	ULogUtils::Log(TEXT("RushInputComponent: Name: ") + (RushInputComponent ? RushInputComponent->GetName() : TEXT("nullptr")), ELogLevel::Debug, TEXT("RushCharacter"), true, 5.f);
+	OnRushInputReady.Broadcast();
 	return RushInputComponent;
 }
 
@@ -44,12 +48,11 @@ void ARushCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInpu
 		if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<
 			UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
 		{
-			if (const ARushGameMode* GameMode = Cast<ARushGameMode>(GetWorld()->GetAuthGameMode()))
+			if (UIConfig)
 			{
-				if (const URushInputConfig* InputConfig = GameMode->UIConfig)
-				{
-					RushInputComponent->AddInputMappings(InputConfig, Subsystem);
-				}
+				ULogUtils::Log(TEXT("UIConfig: Found: ") + UIConfig->GetName(), ELogLevel::Debug, TEXT("RushCharacter"), true, 5.f);
+			
+				RushInputComponent->AddInputMappings(UIConfig, Subsystem);
 			}
 		}
 	}

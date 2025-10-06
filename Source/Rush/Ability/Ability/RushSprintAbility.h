@@ -1,23 +1,18 @@
-﻿#pragma once
+#pragma once
 
 #include "CoreMinimal.h"
 #include "Rush/Ability/RushGameplayAbility.h"
-#include "RushLookAbility.generated.h"
-
-struct FInputActionValue;
+#include "RushSprintAbility.generated.h"
 
 UCLASS(BlueprintType)
-class RUSH_API URushLookAbility : public URushGameplayAbility
+class RUSH_API URushSprintAbility : public URushGameplayAbility
 {
 	GENERATED_BODY()
 
 public:
-	URushLookAbility();
+	URushSprintAbility();
 
 	virtual void ActivateAbility(const FGameplayAbilitySpecHandle Handle, const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilityActivationInfo ActivationInfo, const FGameplayEventData* TriggerEventData) override;
 
-	void Input_Look(const FInputActionValue& Value);
-
-	UFUNCTION()
-	void OnInputReady();
+	void Input_Sprint(const bool Value);
 };
