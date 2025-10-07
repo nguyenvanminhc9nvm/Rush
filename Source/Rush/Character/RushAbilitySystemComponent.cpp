@@ -1,6 +1,8 @@
 #include "RushAbilitySystemComponent.h"
 
 #include "RushCharacter.h"
+#include "Rush/Ability/Ability/RushChangePOVAbility.h"
+#include "Rush/Ability/Ability/RushCrouchAbility.h"
 #include "Rush/Ability/Ability/RushLookAbility.h"
 #include "Rush/Ability/Ability/RushMovementAbility.h"
 #include "Rush/Ability/Ability/RushSprintAbility.h"
@@ -29,6 +31,8 @@ void URushAbilitySystemComponent::TryGiveCharacterAbility()
 	GiveAbility(FGameplayAbilitySpec(URushMovementAbility::StaticClass(), 1, 0));
 	GiveAbility(FGameplayAbilitySpec(URushLookAbility::StaticClass(), 1, 0));
 	GiveAbility(FGameplayAbilitySpec(URushSprintAbility::StaticClass(), 1, 0));
+	GiveAbility(FGameplayAbilitySpec(URushCrouchAbility::StaticClass(), 1, 0));
+	GiveAbility(FGameplayAbilitySpec(URushChangePOVAbility::StaticClass(), 1, 0));
 }
 
 void URushAbilitySystemComponent::TryActivateAbilityByIndex()
@@ -100,5 +104,29 @@ void URushAbilitySystemComponent::OnInputReady()
 
 		RushCharacter->RushInputComponent->BindNativeActions(RushCharacter->UIConfig, RushGameplayTag::InputTag_Sprint,
 			ETriggerEvent::Completed, this, &URushAbilitySystemComponent::Input_SprintComplete);
+
+		RushCharacter->RushInputComponent->BindNativeActions(RushCharacter->UIConfig, RushGameplayTag::InputTag_Crouch,
+			ETriggerEvent::Triggered, this, &URushAbilitySystemComponent::Input_Crouch);
+
+		RushCharacter->RushInputComponent->BindNativeActions(RushCharacter->UIConfig, RushGameplayTag::InputTag_Crouch,
+			ETriggerEvent::Completed, this, &URushAbilitySystemComponent::Input_CrouchComplete);
+
+		RushCharacter->RushInputComponent->BindNativeActions(RushCharacter->UIConfig, RushGameplayTag::InputTag_ChangeCamera,
+			ETriggerEvent::Completed, this, &URushAbilitySystemComponent::Input_ChangeCamera);
 	}
+}
+
+void URushAbilitySystemComponent::Input_Crouch(const struct FInputActionValue& Value)
+{
+	TryActivateAbilityByTags(RushGameplayTag::Ability_Crouch);
+}
+
+void URushAbilitySystemComponent::Input_CrouchComplete(const struct FInputActionValue& Value)
+{
+	TryCancelAbilityByTags(RushGameplayTag::Ability_Crouch);
+}
+
+void URushAbilitySystemComponent::Input_ChangeCamera(const struct FInputActionValue& Value)
+{
+	TryActivateAbilityByTags(RushGameplayTag::Ability_ChangeCamera);
 }

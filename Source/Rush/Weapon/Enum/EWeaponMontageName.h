@@ -14,3 +14,4 @@ enum EWeaponMontageName : uint8
     Weapon_Holster                 UMETA(DisplayName = "Holster"),
     Weapon_Unholster               UMETA(DisplayName = "Unholster")
 };
+

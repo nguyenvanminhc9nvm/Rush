@@ -19,3 +19,4 @@ struct RUSH_API FWeaponSound
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Weapon Sound")
     TSoftObjectPtr<class USoundCue> SoundCue;
 };
+

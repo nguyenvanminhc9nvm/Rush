@@ -46,4 +46,7 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent)
 	void ToggleWeaponLaser(bool bIsDiable);
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void TogglePerspectiveChange(bool bIsFirstPerson);
 };

@@ -31,4 +31,11 @@ private:
 
 	UFUNCTION()
 	void OnInputReady();
+
+private:
+	void Input_Crouch(const struct FInputActionValue& Value);
+
+	void Input_CrouchComplete(const struct FInputActionValue& Value);
+
+	void Input_ChangeCamera(const struct FInputActionValue& Value);
 };
