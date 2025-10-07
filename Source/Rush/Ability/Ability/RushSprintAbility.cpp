@@ -2,6 +2,7 @@
 
 #include "Rush/Character/RushCharacter.h"
 #include "Rush/Character/RushCharacterMovementComponent.h"
+#include "Rush/Tags/LogUtils.h"
 #include "Rush/Tags/RushGameplayTag.h"
 
 URushSprintAbility::URushSprintAbility()
@@ -27,10 +28,17 @@ void URushSprintAbility::ActivateAbility(const FGameplayAbilitySpecHandle Handle
 		return;
 	}
 
-	URushCharacterMovementComponent* RushCharacterMovement = Cast<URushCharacterMovementComponent>(RushCharacter->GetCharacterMovement());
-	if (RushCharacterMovement)
+	RushCharacter->ToggleWeaponLaser(false);
+	if (RushCharacter->IsCrouched())
 	{
+		RushCharacter->UnCrouch();
+	}
+
+	if (URushCharacterMovementComponent* RushCharacterMovement = Cast<URushCharacterMovementComponent>(RushCharacter->GetCharacterMovement()))
+	{
+		ULogUtils::Log(FString::Printf(TEXT("Activate Sprint Ability")), ELogLevel::Info);
 		RushCharacterMovement->MaxWalkSpeed = 600.0f; // Set sprint speed
+		RushCharacterMovement->MaxFlySpeed = 1000.0f;
 		RushCharacterMovement->bIsSprint = true;
 	}
 }
@@ -45,10 +53,13 @@ void URushSprintAbility::EndAbility(const FGameplayAbilitySpecHandle Handle, con
 		return;
 	}
 
-	URushCharacterMovementComponent* RushCharacterMovement = Cast<URushCharacterMovementComponent>(RushCharacter->GetCharacterMovement());
-	if (RushCharacterMovement)
+	if (URushCharacterMovementComponent* RushCharacterMovement = Cast<URushCharacterMovementComponent>(RushCharacter->GetCharacterMovement()))
 	{
+		ULogUtils::Log(FString::Printf(TEXT("End Sprint Ability")), ELogLevel::Warning);
 		RushCharacterMovement->MaxWalkSpeed = 400.0f; // Set sprint speed
+		RushCharacterMovement->MaxFlySpeed = 600.0f;
 		RushCharacterMovement->bIsSprint = false;
 	}
+
+	RushCharacter->ToggleWeaponLaser(true);
 }

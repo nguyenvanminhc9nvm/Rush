@@ -43,4 +43,7 @@ public:
 
 	UPROPERTY(BlueprintAssignable)
 	FOnRushInputReady OnRushInputReady;
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void ToggleWeaponLaser(bool bIsDiable);
 };
