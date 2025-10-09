@@ -14,6 +14,8 @@ URushChangePOVAbility::URushChangePOVAbility()
 	TagAccepts.AddTag(RushGameplayTag::Ability_ChangeCamera);
 	SetAssetTags(TagAccepts);
 	bRetriggerInstancedAbility = true;
+
+	bRetriggerInstancedAbility = true;
 }
 
 void URushChangePOVAbility::ActivateAbility(const FGameplayAbilitySpecHandle Handle,

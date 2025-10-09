@@ -8,6 +8,10 @@ namespace RushGameplayTag
 	UE_DEFINE_GAMEPLAY_TAG_COMMENT(InputTag_Crouch, "Input.Crouch", "Crouch input");
 	UE_DEFINE_GAMEPLAY_TAG_COMMENT(InputTag_ChangeCamera, "Input.ChangeCamera", "ChangeCamera input");
 	UE_DEFINE_GAMEPLAY_TAG_COMMENT(InputTag_Lowered, "Input.Lowered", "Lowered input");
+	UE_DEFINE_GAMEPLAY_TAG_COMMENT(InputTag_Holster, "Input.Holster", "Holster input");
+	UE_DEFINE_GAMEPLAY_TAG_COMMENT(InputTag_Jump, "Input.Jump", "Jump input");
+	UE_DEFINE_GAMEPLAY_TAG_COMMENT(InputTag_FreeLook, "Input.FreeLook", "FreeLook input");
+	UE_DEFINE_GAMEPLAY_TAG_COMMENT(InputTag_Lean, "Input.Lean", "Lean input");
 
 	UE_DEFINE_GAMEPLAY_TAG_COMMENT(Ability_Movement, "Ability.Movement", "Movement ability");
 	UE_DEFINE_GAMEPLAY_TAG_COMMENT(Ability_Look, "Ability.Look", "Look ability");
@@ -15,6 +19,10 @@ namespace RushGameplayTag
 	UE_DEFINE_GAMEPLAY_TAG_COMMENT(Ability_Crouch, "Ability.Crouch", "Crouch ability");
 	UE_DEFINE_GAMEPLAY_TAG_COMMENT(Ability_ChangeCamera, "Ability.ChangeCamera", "ChangeCamera ability");
 	UE_DEFINE_GAMEPLAY_TAG_COMMENT(Ability_Lowered, "Ability.Lowered", "Lowered ability");
+	UE_DEFINE_GAMEPLAY_TAG_COMMENT(Ability_Holster, "Ability.Holster", "Holster ability");
+	UE_DEFINE_GAMEPLAY_TAG_COMMENT(Ability_Jump, "Ability.Jump", "Jump ability");
+	UE_DEFINE_GAMEPLAY_TAG_COMMENT(Ability_FreeLook, "Ability.FreeLook", "FreeLook ability");
+	UE_DEFINE_GAMEPLAY_TAG_COMMENT(Ability_Lean, "Ability.Lean", "Lean ability");
 
 	// Character Abilities Tags
 	UE_DEFINE_GAMEPLAY_TAG_COMMENT(Character_Abilities_Allowed_Aim, "Character.Abilities.Allowed.Aim", "Character ability to aim");

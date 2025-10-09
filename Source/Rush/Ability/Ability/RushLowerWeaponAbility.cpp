@@ -13,6 +13,8 @@ URushLowerWeaponAbility::URushLowerWeaponAbility(const FObjectInitializer& Objec
 	FGameplayTagContainer TagAccepts;
 	TagAccepts.AddTag(RushGameplayTag::Ability_Lowered);
 	SetAssetTags(TagAccepts);
+
+	bRetriggerInstancedAbility = true;
 }
 
 void URushLowerWeaponAbility::ActivateAbility(const FGameplayAbilitySpecHandle Handle,

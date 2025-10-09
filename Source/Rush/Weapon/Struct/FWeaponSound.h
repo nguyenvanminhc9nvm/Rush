@@ -20,3 +20,4 @@ struct RUSH_API FWeaponSound
     TSoftObjectPtr<class USoundCue> SoundCue;
 };
 
+

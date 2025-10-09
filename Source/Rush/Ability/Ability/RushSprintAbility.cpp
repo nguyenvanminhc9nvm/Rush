@@ -14,6 +14,8 @@ URushSprintAbility::URushSprintAbility()
 	FGameplayTagContainer TagAccepts;
 	TagAccepts.AddTag(RushGameplayTag::Ability_Sprint);
 	SetAssetTags(TagAccepts);
+
+	bRetriggerInstancedAbility = true;
 }
 
 void URushSprintAbility::ActivateAbility(const FGameplayAbilitySpecHandle Handle,

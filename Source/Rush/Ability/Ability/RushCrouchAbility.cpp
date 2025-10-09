@@ -17,6 +17,8 @@ URushCrouchAbility::URushCrouchAbility()
 	FGameplayTagContainer TagAccepts;
 	TagAccepts.AddTag(RushGameplayTag::Ability_Crouch);
 	SetAssetTags(TagAccepts);
+
+	bRetriggerInstancedAbility = true;
 }
 
 

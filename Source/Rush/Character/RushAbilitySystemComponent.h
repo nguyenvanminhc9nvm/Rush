@@ -40,4 +40,10 @@ private:
 	void Input_ChangeCamera(const struct FInputActionValue& Value);
 	
 	void Input_Lowered(const struct FInputActionValue& Value);
+
+	void Input_Holster(const struct FInputActionValue& Value);
+
+	void Input_Jump(const struct FInputActionValue& Value);
+
+	void Input_FreeLook(const struct FInputActionValue& Value);
 };

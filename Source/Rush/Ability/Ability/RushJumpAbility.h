@@ -1,17 +1,16 @@
-#pragma once
+﻿#pragma once
 
 #include "CoreMinimal.h"
 #include "Rush/Ability/RushGameplayAbility.h"
-#include "RushHolsterAbility.generated.h"
+#include "RushJumpAbility.generated.h"
 
 UCLASS()
-class RUSH_API URushHolsterAbility : public URushGameplayAbility
+class RUSH_API URushJumpAbility : public URushGameplayAbility
 {
 	GENERATED_BODY()
 
 public:
-	URushHolsterAbility();
+	URushJumpAbility();
 
 	virtual void ActivateAbility(const FGameplayAbilitySpecHandle Handle, const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilityActivationInfo ActivationInfo, const FGameplayEventData* TriggerEventData) override;
-
 };

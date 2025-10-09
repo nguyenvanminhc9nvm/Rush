@@ -3,6 +3,9 @@
 #include "RushCharacter.h"
 #include "Rush/Ability/Ability/RushChangePOVAbility.h"
 #include "Rush/Ability/Ability/RushCrouchAbility.h"
+#include "Rush/Ability/Ability/RushFreeLookAbility.h"
+#include "Rush/Ability/Ability/RushHolsterAbility.h"
+#include "Rush/Ability/Ability/RushJumpAbility.h"
 #include "Rush/Ability/Ability/RushLookAbility.h"
 #include "Rush/Ability/Ability/RushLowerWeaponAbility.h"
 #include "Rush/Ability/Ability/RushMovementAbility.h"
@@ -35,6 +38,9 @@ void URushAbilitySystemComponent::TryGiveCharacterAbility()
 	GiveAbility(FGameplayAbilitySpec(URushCrouchAbility::StaticClass(), 1, 0));
 	GiveAbility(FGameplayAbilitySpec(URushChangePOVAbility::StaticClass(), 1, 0));
 	GiveAbility(FGameplayAbilitySpec(URushLowerWeaponAbility::StaticClass(), 1, 0));
+	GiveAbility(FGameplayAbilitySpec(URushHolsterAbility::StaticClass(), 1, 0));
+	GiveAbility(FGameplayAbilitySpec(URushJumpAbility::StaticClass(), 1, 0));
+	GiveAbility(FGameplayAbilitySpec(URushFreeLookAbility::StaticClass(), 1, 0));
 }
 
 void URushAbilitySystemComponent::TryActivateAbilityByIndex()
@@ -46,7 +52,6 @@ void URushAbilitySystemComponent::TryActivateAbilityByIndex()
 	{
 		return;
 	}
-	
 
 	TryActivateAbilityByTags(RushGameplayTag::Ability_Movement);
 	TryActivateAbilityByTags(RushGameplayTag::Ability_Look);
@@ -102,22 +107,31 @@ void URushAbilitySystemComponent::OnInputReady()
 	if (RushCharacter->UIConfig)
 	{
 		RushCharacter->RushInputComponent->BindNativeActions(RushCharacter->UIConfig, RushGameplayTag::InputTag_Sprint,
-			ETriggerEvent::Triggered, this, &URushAbilitySystemComponent::Input_Sprint);
+			ETriggerEvent::Started, this, &URushAbilitySystemComponent::Input_Sprint);
 
 		RushCharacter->RushInputComponent->BindNativeActions(RushCharacter->UIConfig, RushGameplayTag::InputTag_Sprint,
 			ETriggerEvent::Completed, this, &URushAbilitySystemComponent::Input_SprintComplete);
 
 		RushCharacter->RushInputComponent->BindNativeActions(RushCharacter->UIConfig, RushGameplayTag::InputTag_Crouch,
-			ETriggerEvent::Triggered, this, &URushAbilitySystemComponent::Input_Crouch);
+			ETriggerEvent::Started, this, &URushAbilitySystemComponent::Input_Crouch);
 
 		RushCharacter->RushInputComponent->BindNativeActions(RushCharacter->UIConfig, RushGameplayTag::InputTag_Crouch,
 			ETriggerEvent::Completed, this, &URushAbilitySystemComponent::Input_CrouchComplete);
 
 		RushCharacter->RushInputComponent->BindNativeActions(RushCharacter->UIConfig, RushGameplayTag::InputTag_ChangeCamera,
-			ETriggerEvent::Triggered, this, &URushAbilitySystemComponent::Input_ChangeCamera);
+			ETriggerEvent::Started, this, &URushAbilitySystemComponent::Input_ChangeCamera);
 
 		RushCharacter->RushInputComponent->BindNativeActions(RushCharacter->UIConfig, RushGameplayTag::InputTag_Lowered,
-			ETriggerEvent::Triggered, this, &URushAbilitySystemComponent::Input_Lowered);
+			ETriggerEvent::Started, this, &URushAbilitySystemComponent::Input_Lowered);
+
+		RushCharacter->RushInputComponent->BindNativeActions(RushCharacter->UIConfig, RushGameplayTag::InputTag_Holster,
+			ETriggerEvent::Started, this, &URushAbilitySystemComponent::Input_Holster);
+
+		RushCharacter->RushInputComponent->BindNativeActions(RushCharacter->UIConfig, RushGameplayTag::InputTag_Jump,
+			ETriggerEvent::Started, this, &URushAbilitySystemComponent::Input_Jump);
+
+		RushCharacter->RushInputComponent->BindNativeActions(RushCharacter->UIConfig, RushGameplayTag::InputTag_FreeLook,
+			ETriggerEvent::Started, this, &URushAbilitySystemComponent::Input_FreeLook);
 	}
 }
 
@@ -139,4 +153,19 @@ void URushAbilitySystemComponent::Input_ChangeCamera(const struct FInputActionVa
 void URushAbilitySystemComponent::Input_Lowered(const struct FInputActionValue& Value)
 {
 	TryActivateAbilityByTags(RushGameplayTag::Ability_Lowered);
+}
+
+void URushAbilitySystemComponent::Input_Holster(const struct FInputActionValue& Value)
+{
+	TryActivateAbilityByTags(RushGameplayTag::Ability_Holster);
+}
+
+void URushAbilitySystemComponent::Input_Jump(const struct FInputActionValue& Value)
+{
+	TryActivateAbilityByTags(RushGameplayTag::Ability_Jump);
+}
+
+void URushAbilitySystemComponent::Input_FreeLook(const struct FInputActionValue& Value)
+{
+	TryActivateAbilityByTags(RushGameplayTag::Ability_FreeLook);
 }

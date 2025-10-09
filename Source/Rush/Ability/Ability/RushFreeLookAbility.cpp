@@ -1,9 +1,9 @@
-#include "RushHolsterAbility.h"
+﻿#include "RushFreeLookAbility.h"
 
 #include "Rush/Character/RushCharacter.h"
 #include "Rush/Tags/RushGameplayTag.h"
 
-URushHolsterAbility::URushHolsterAbility()
+URushFreeLookAbility::URushFreeLookAbility()
 {
 	NetExecutionPolicy = EGameplayAbilityNetExecutionPolicy::LocalPredicted;
 	NetSecurityPolicy = EGameplayAbilityNetSecurityPolicy::ClientOrServer;
@@ -11,22 +11,19 @@ URushHolsterAbility::URushHolsterAbility()
 
 	// Set the ability tags
 	FGameplayTagContainer TagAccepts;
-	TagAccepts.AddTag(RushGameplayTag::Ability_Holster);
+	TagAccepts.AddTag(RushGameplayTag::Ability_FreeLook);
 	SetAssetTags(TagAccepts);
 
 	bRetriggerInstancedAbility = true;
 }
 
-void URushHolsterAbility::ActivateAbility(const FGameplayAbilitySpecHandle Handle,
+void URushFreeLookAbility::ActivateAbility(const FGameplayAbilitySpecHandle Handle,
 	const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilityActivationInfo ActivationInfo,
 	const FGameplayEventData* TriggerEventData)
 {
 	Super::ActivateAbility(Handle, ActorInfo, ActivationInfo, TriggerEventData);
-	ARushCharacter* RushCharacter = Cast<ARushCharacter>(GetAvatarActorFromActorInfo());
-	if (!RushCharacter)
+	if (ARushCharacter* RushCharacter = Cast<ARushCharacter>(GetAvatarActorFromActorInfo()))
 	{
-		return;
+		RushCharacter->ToggleFreeLook();
 	}
-
-	RushCharacter->ToggleHolster();
 }

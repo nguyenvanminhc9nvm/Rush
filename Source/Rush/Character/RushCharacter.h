@@ -50,6 +50,15 @@ public:
 	UFUNCTION(BlueprintImplementableEvent)
 	void TogglePerspectiveChange(bool bIsFirstPerson);
 
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Camera")
+	UFUNCTION(BlueprintImplementableEvent)
+	void ToggleHolster();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void ToggleFreeLook();
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	bool bIsLowerWeapon = false;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	bool bIsLearning = false;
 };
