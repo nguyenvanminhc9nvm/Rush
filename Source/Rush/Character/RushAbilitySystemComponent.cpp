@@ -4,6 +4,7 @@
 #include "Rush/Ability/Ability/RushChangePOVAbility.h"
 #include "Rush/Ability/Ability/RushCrouchAbility.h"
 #include "Rush/Ability/Ability/RushLookAbility.h"
+#include "Rush/Ability/Ability/RushLowerWeaponAbility.h"
 #include "Rush/Ability/Ability/RushMovementAbility.h"
 #include "Rush/Ability/Ability/RushSprintAbility.h"
 #include "Rush/Input/RushInputComponent.h"
@@ -33,6 +34,7 @@ void URushAbilitySystemComponent::TryGiveCharacterAbility()
 	GiveAbility(FGameplayAbilitySpec(URushSprintAbility::StaticClass(), 1, 0));
 	GiveAbility(FGameplayAbilitySpec(URushCrouchAbility::StaticClass(), 1, 0));
 	GiveAbility(FGameplayAbilitySpec(URushChangePOVAbility::StaticClass(), 1, 0));
+	GiveAbility(FGameplayAbilitySpec(URushLowerWeaponAbility::StaticClass(), 1, 0));
 }
 
 void URushAbilitySystemComponent::TryActivateAbilityByIndex()
@@ -112,7 +114,10 @@ void URushAbilitySystemComponent::OnInputReady()
 			ETriggerEvent::Completed, this, &URushAbilitySystemComponent::Input_CrouchComplete);
 
 		RushCharacter->RushInputComponent->BindNativeActions(RushCharacter->UIConfig, RushGameplayTag::InputTag_ChangeCamera,
-			ETriggerEvent::Completed, this, &URushAbilitySystemComponent::Input_ChangeCamera);
+			ETriggerEvent::Triggered, this, &URushAbilitySystemComponent::Input_ChangeCamera);
+
+		RushCharacter->RushInputComponent->BindNativeActions(RushCharacter->UIConfig, RushGameplayTag::InputTag_Lowered,
+			ETriggerEvent::Triggered, this, &URushAbilitySystemComponent::Input_Lowered);
 	}
 }
 
@@ -129,4 +134,9 @@ void URushAbilitySystemComponent::Input_CrouchComplete(const struct FInputAction
 void URushAbilitySystemComponent::Input_ChangeCamera(const struct FInputActionValue& Value)
 {
 	TryActivateAbilityByTags(RushGameplayTag::Ability_ChangeCamera);
+}
+
+void URushAbilitySystemComponent::Input_Lowered(const struct FInputActionValue& Value)
+{
+	TryActivateAbilityByTags(RushGameplayTag::Ability_Lowered);
 }

@@ -38,4 +38,6 @@ private:
 	void Input_CrouchComplete(const struct FInputActionValue& Value);
 
 	void Input_ChangeCamera(const struct FInputActionValue& Value);
+	
+	void Input_Lowered(const struct FInputActionValue& Value);
 };

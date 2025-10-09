@@ -7,12 +7,14 @@ namespace RushGameplayTag
 	UE_DEFINE_GAMEPLAY_TAG_COMMENT(InputTag_Sprint, "Input.Sprint", "Sprint input");
 	UE_DEFINE_GAMEPLAY_TAG_COMMENT(InputTag_Crouch, "Input.Crouch", "Crouch input");
 	UE_DEFINE_GAMEPLAY_TAG_COMMENT(InputTag_ChangeCamera, "Input.ChangeCamera", "ChangeCamera input");
+	UE_DEFINE_GAMEPLAY_TAG_COMMENT(InputTag_Lowered, "Input.Lowered", "Lowered input");
 
 	UE_DEFINE_GAMEPLAY_TAG_COMMENT(Ability_Movement, "Ability.Movement", "Movement ability");
 	UE_DEFINE_GAMEPLAY_TAG_COMMENT(Ability_Look, "Ability.Look", "Look ability");
 	UE_DEFINE_GAMEPLAY_TAG_COMMENT(Ability_Sprint, "Ability.Sprint", "Sprint ability");
 	UE_DEFINE_GAMEPLAY_TAG_COMMENT(Ability_Crouch, "Ability.Crouch", "Crouch ability");
 	UE_DEFINE_GAMEPLAY_TAG_COMMENT(Ability_ChangeCamera, "Ability.ChangeCamera", "ChangeCamera ability");
+	UE_DEFINE_GAMEPLAY_TAG_COMMENT(Ability_Lowered, "Ability.Lowered", "Lowered ability");
 
 	// Character Abilities Tags
 	UE_DEFINE_GAMEPLAY_TAG_COMMENT(Character_Abilities_Allowed_Aim, "Character.Abilities.Allowed.Aim", "Character ability to aim");

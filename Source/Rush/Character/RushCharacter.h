@@ -49,4 +49,7 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent)
 	void TogglePerspectiveChange(bool bIsFirstPerson);
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Camera")
+	bool bIsLowerWeapon = false;
 };
