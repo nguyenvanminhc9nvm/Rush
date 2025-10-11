@@ -6,21 +6,7 @@ void ULogUtils::Log(const FString& Message, ELogLevel InLogLevel, const FString&
 	FString FormattedMessage = FString::Printf(TEXT("-------------------------------------->[%s] %s<-----------------------------------"), *Category, *Message);
 	
 	// Log to console based on log level
-	switch (InLogLevel)
-	{
-		case ELogLevel::Info:
-			UE_LOG(LogTemp, Log, TEXT("%s"), *FormattedMessage);
-			break;
-		case ELogLevel::Warning:
-			UE_LOG(LogTemp, Warning, TEXT("%s"), *FormattedMessage);
-			break;
-		case ELogLevel::Error:
-			UE_LOG(LogTemp, Error, TEXT("%s"), *FormattedMessage);
-			break;
-		case ELogLevel::Debug:
-			UE_LOG(LogTemp, VeryVerbose, TEXT("%s"), *FormattedMessage);
-			break;
-	}
+	UE_LOG(LogTemp, Error, TEXT("%s"), *FormattedMessage);
 	
 	// Print to screen if requested
 	if (GEngine)

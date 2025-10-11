@@ -6,6 +6,7 @@
 #include "Rush/Ability/Ability/RushFreeLookAbility.h"
 #include "Rush/Ability/Ability/RushHolsterAbility.h"
 #include "Rush/Ability/Ability/RushJumpAbility.h"
+#include "Rush/Ability/Ability/RushLeanAbility.h"
 #include "Rush/Ability/Ability/RushLookAbility.h"
 #include "Rush/Ability/Ability/RushLowerWeaponAbility.h"
 #include "Rush/Ability/Ability/RushMovementAbility.h"
@@ -16,7 +17,7 @@
 
 URushAbilitySystemComponent::URushAbilitySystemComponent()
 {
-	PrimaryComponentTick.bCanEverTick = false;
+	PrimaryComponentTick.bCanEverTick = true;
 }
 
 void URushAbilitySystemComponent::BeginPlay()
@@ -41,6 +42,7 @@ void URushAbilitySystemComponent::TryGiveCharacterAbility()
 	GiveAbility(FGameplayAbilitySpec(URushHolsterAbility::StaticClass(), 1, 0));
 	GiveAbility(FGameplayAbilitySpec(URushJumpAbility::StaticClass(), 1, 0));
 	GiveAbility(FGameplayAbilitySpec(URushFreeLookAbility::StaticClass(), 1, 0));
+	GiveAbility(FGameplayAbilitySpec(URushLeanAbility::StaticClass(), 1, 0));
 }
 
 void URushAbilitySystemComponent::TryActivateAbilityByIndex()
@@ -55,6 +57,7 @@ void URushAbilitySystemComponent::TryActivateAbilityByIndex()
 
 	TryActivateAbilityByTags(RushGameplayTag::Ability_Movement);
 	TryActivateAbilityByTags(RushGameplayTag::Ability_Look);
+	TryActivateAbilityByTags(RushGameplayTag::Ability_Lean);
 
 	
 	RushCharacter->OnRushInputReady.AddDynamic(this, &URushAbilitySystemComponent::OnInputReady);
@@ -132,6 +135,8 @@ void URushAbilitySystemComponent::OnInputReady()
 
 		RushCharacter->RushInputComponent->BindNativeActions(RushCharacter->UIConfig, RushGameplayTag::InputTag_FreeLook,
 			ETriggerEvent::Started, this, &URushAbilitySystemComponent::Input_FreeLook);
+
+		
 	}
 }
 

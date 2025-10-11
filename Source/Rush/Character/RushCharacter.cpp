@@ -7,11 +7,8 @@
 #include "EnhancedInputSubsystems.h"
 #include "RushAbilitySystemComponent.h"
 #include "RushCharacterMovementComponent.h"
-#include "Camera/CameraComponent.h"
-#include "Components/CapsuleComponent.h"
-#include "GameFramework/SpringArmComponent.h"
+#include "Kismet/KismetMathLibrary.h"
 #include "PhysicsEngine/PhysicalAnimationComponent.h"
-#include "Rush/Core/GameMode/RushGameMode.h"
 #include "Rush/Tags/LogUtils.h"
 
 
@@ -22,6 +19,8 @@ ARushCharacter::ARushCharacter(const FObjectInitializer& ObjectInitializer): Sup
 	PrimaryActorTick.bCanEverTick = true;
 	
 	AbilitySystemComponent = CreateDefaultSubobject<URushAbilitySystemComponent>(TEXT("AbilitySystemComponent"));
+	AbilitySystemComponent->PrimaryComponentTick.bCanEverTick = true;
+	AbilitySystemComponent->SetComponentTickEnabled(true);
 
 	PhysicalAnimationComponent = CreateDefaultSubobject<UPhysicalAnimationComponent>(TEXT("PhysicalAnimationComponent"));
 }
@@ -57,3 +56,13 @@ void ARushCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInpu
 		}
 	}
 }
+
+FVector ARushCharacter::GetForwardRotation() const
+{
+	if (bCameraUnlocked)
+	{
+		return UKismetMathLibrary::GetForwardVector(ControlRotation);
+	}
+	return UKismetMathLibrary::GetForwardVector(CameraUnlockedStartRotation);
+}
+

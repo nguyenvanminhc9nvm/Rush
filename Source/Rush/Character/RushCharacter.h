@@ -59,6 +59,41 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	bool bIsLowerWeapon = false;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
-	bool bIsLearning = false;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Rush|Movement")
+	bool bForwardBlocked = false;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool bAiming = false;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FRotator ControlRotation = FRotator::ZeroRotator;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FRotator CameraUnlockedStartRotation = FRotator::ZeroRotator;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool bCameraUnlocked = false;
+
+	UFUNCTION(BlueprintCallable, BlueprintPure)
+	FVector GetForwardRotation() const;
+
+	UFUNCTION(BlueprintImplementableEvent)
+	bool IsFirstPersonView() const;
+
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Rush Anim Instance")
+	float LeaningAlphaSetter = 0.0f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Rush Anim Instance")
+	bool bIsLeaningSetter = false;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Rush Anim Instance")
+	bool bLeaningSwitchedSetter = false;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Rush Anim Instance")
+	FVector LeaningLocation = FVector::ZeroVector;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Rush Anim Instance")
+	FVector LeaningRotation = FVector::ZeroVector;
+
 };
