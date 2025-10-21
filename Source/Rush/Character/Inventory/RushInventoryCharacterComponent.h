@@ -34,37 +34,6 @@ class RUSH_API URushInventoryCharacterComponent : public UActorComponent
 public:
 	URushInventoryCharacterComponent(const FObjectInitializer& ObjectInitializer);
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Rush|Inventory")
-	USkeletalMeshComponent* FirstPersonMesh;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Rush|Inventory")
-	USkeletalMeshComponent* ThirdPersonMesh;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Rush|Inventory")
-	int EquippedIndexAtStart = 0;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Rush|Inventory")
-	TArray<FInventoryStartingItems> StartingItems;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Rush|Inventory")
-	int InventoryCapacity = 3;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Rush|Inventory")
-	bool bCanDropItems = true;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Rush|Inventory")
-	float DroppingForce = 700.0f;
-
-	UPROPERTY(EditAnywhere,	 BlueprintReadWrite, Category="Rush|Inventory")
-	float InitialUnholsterDelay = 0.5f;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Rush|Inventory")
-	bool bShowUnarmedArms = true;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Rush|Inventory")
-	bool bUseUnarmedStateAnimations = true;
-
-
 	// Function
 	UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
 	TArray<AActor*> GetInventory() const;
@@ -76,18 +45,97 @@ public:
 	bool HasSpace() const;
 
 	UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
+	void TryPickUpItem(AActor* Item);
+	
+	UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
+	int GetPreviousItemIndex() const;
+	
+	UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
+	int GetNextItemIndex() const;
+
+	UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
 	int GetEquippedIndex() const;
 
+	UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
+	void TryDropEquipped(bool bPlayDropAnimation);
+
+	UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
+	AActor* GetEquipped();
+	
 	UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
 	AActor* GetPawnOwner() const;
 
 	UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
 	EHolsterState GetHolsterState() const;
 
-	
+	UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
+	FName GetNameMontageHolster() const;
 
+	UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
+	FName GetNameMontageUnholster() const;
+
+	UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
+	USkeletalMesh* GetFirstPersonMesh() const;
+
+	UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
+	USkeletalMesh* GetThirdPersonMesh() const;
+
+	UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
+	void TryStartHolsterWeaponAbility();
+
+	UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
+	void StopAllOwnerMontages();
+
+	UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
+	void DropEquipped(bool bEquipNext);
+
+	UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
+	void TryEquipItemAdded(int Added);
+
+	UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
+	bool IsChangingItem() const;
+
+	UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
+	bool GetFullyHolstered() const;
+
+	UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
+	void AddItemToInventory(AActor* Item);
+
+	UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
+	void LocalEquipNextItem();
+
+	UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
+	void ThrowEquippedItem();
 
 private:
+	
+	UPROPERTY()
+	USkeletalMeshComponent* FirstPersonMesh;
+
+	UPROPERTY()
+	USkeletalMeshComponent* ThirdPersonMesh;
+
+	UPROPERTY()
+	int EquippedIndexAtStart = 0;
+	
+	UPROPERTY()
+	int InventoryCapacity = 3;
+
+	UPROPERTY()
+	bool bCanDropItems = true;
+
+	UPROPERTY()
+	float DroppingForce = 700.0f;
+
+	UPROPERTY()
+	float InitialUnholsterDelay = 0.5f;
+
+	UPROPERTY()
+	bool bShowUnarmedArms = true;
+
+	UPROPERTY()
+	bool bUseUnarmedStateAnimations = true;
+	
 	UPROPERTY()
 	TArray<AActor*> Inventory;
 
