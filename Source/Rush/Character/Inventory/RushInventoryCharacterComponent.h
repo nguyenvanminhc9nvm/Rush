@@ -33,79 +33,79 @@ class RUSH_API URushInventoryCharacterComponent : public UActorComponent
 
 public:
 	URushInventoryCharacterComponent(const FObjectInitializer& ObjectInitializer);
-
-	// Function
-	UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
-	TArray<AActor*> GetInventory() const;
-
-	UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
-	AActor* GetEquippedItem() const;
-
-	UFUNCTION(BlueprintCallable, BlueprintPure, Category="Rush|Inventory")
-	bool HasSpace() const;
-
-	UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
-	void TryPickUpItem(AActor* Item);
-	
-	UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
-	int GetPreviousItemIndex() const;
-	
-	UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
-	int GetNextItemIndex() const;
-
-	UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
-	int GetEquippedIndex() const;
-
-	UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
-	void TryDropEquipped(bool bPlayDropAnimation);
-
-	UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
-	AActor* GetEquipped();
-	
-	UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
-	AActor* GetPawnOwner() const;
-
-	UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
-	EHolsterState GetHolsterState() const;
-
-	UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
-	FName GetNameMontageHolster() const;
-
-	UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
-	FName GetNameMontageUnholster() const;
-
-	UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
-	USkeletalMesh* GetFirstPersonMesh() const;
-
-	UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
-	USkeletalMesh* GetThirdPersonMesh() const;
-
-	UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
-	void TryStartHolsterWeaponAbility();
-
-	UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
-	void StopAllOwnerMontages();
-
-	UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
-	void DropEquipped(bool bEquipNext);
-
-	UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
-	void TryEquipItemAdded(int Added);
-
-	UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
-	bool IsChangingItem() const;
-
-	UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
-	bool GetFullyHolstered() const;
-
-	UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
-	void AddItemToInventory(AActor* Item);
-
-	UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
-	void LocalEquipNextItem();
-
-	UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
-	void ThrowEquippedItem();
+	//
+	// // Function
+	// UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
+	// TArray<AActor*> GetInventory() const;
+	//
+	// UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
+	// AActor* GetEquippedItem() const;
+	//
+	// UFUNCTION(BlueprintCallable, BlueprintPure, Category="Rush|Inventory")
+	// bool HasSpace() const;
+	//
+	// UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
+	// void TryPickUpItem(AActor* Item);
+	//
+	// UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
+	// int GetPreviousItemIndex() const;
+	//
+	// UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
+	// int GetNextItemIndex() const;
+	//
+	// UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
+	// int GetEquippedIndex() const;
+	//
+	// UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
+	// void TryDropEquipped(bool bPlayDropAnimation);
+	//
+	// UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
+	// AActor* GetEquipped();
+	//
+	// UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
+	// AActor* GetPawnOwner() const;
+	//
+	// UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
+	// EHolsterState GetHolsterState() const;
+	//
+	// UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
+	// FName GetNameMontageHolster() const;
+	//
+	// UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
+	// FName GetNameMontageUnholster() const;
+	//
+	// UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
+	// USkeletalMesh* GetFirstPersonMesh() const;
+	//
+	// UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
+	// USkeletalMesh* GetThirdPersonMesh() const;
+	//
+	// UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
+	// void TryStartHolsterWeaponAbility();
+	//
+	// UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
+	// void StopAllOwnerMontages();
+	//
+	// UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
+	// void DropEquipped(bool bEquipNext);
+	//
+	// UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
+	// void TryEquipItemAdded(int Added);
+	//
+	// UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
+	// bool IsChangingItem() const;
+	//
+	// UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
+	// bool GetFullyHolstered() const;
+	//
+	// UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
+	// void AddItemToInventory(AActor* Item);
+	//
+	// UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
+	// void LocalEquipNextItem();
+	//
+	// UFUNCTION(BlueprintCallable, Category="Rush|Inventory")
+	// void ThrowEquippedItem();
 
 private:
 	
