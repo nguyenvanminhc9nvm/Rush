@@ -5,8 +5,11 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "Rush/Input/RushInputAction.h"
+#include "Rush/Weapon/Struct/FLaserSettingsEntry.h"
+#include "Rush/Weapon/Struct/FScopeSettingsEntry.h"
 #include "RushCharacter.generated.h"
 
+struct FScopeSettingsEntry;
 class UCameraComponent;
 class USpringArmComponent;
 class URushAbilitySystemComponent;
@@ -24,10 +27,10 @@ public:
 	// Sets default values for this character's properties
 	explicit ARushCharacter(const FObjectInitializer& ObjectInitializer);
 
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Input Component")
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
 	URushInputComponent* RushInputComponent;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Rush|Movement")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	URushAbilitySystemComponent* AbilitySystemComponent;
 
 	virtual UInputComponent* CreatePlayerInputComponent() override;
@@ -35,10 +38,10 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Rush|Components")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	class UPhysicalAnimationComponent* PhysicalAnimationComponent;
 
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "UIConfig")
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	TObjectPtr<URushInputConfig> UIConfig;
 
 	UPROPERTY(BlueprintAssignable)
@@ -59,7 +62,7 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	bool bIsLowerWeapon = false;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Rush|Movement")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool bForwardBlocked = false;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -81,19 +84,24 @@ public:
 	bool IsFirstPersonView() const;
 
 	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Rush Anim Instance")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float LeaningAlphaSetter = 0.0f;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Rush Anim Instance")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool bIsLeaningSetter = false;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Rush Anim Instance")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool bLeaningSwitchedSetter = false;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Rush Anim Instance")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FVector LeaningLocation = FVector::ZeroVector;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Rush Anim Instance")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FVector LeaningRotation = FVector::ZeroVector;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FScopeSettingsEntry WeaponScopeSettingsEntry;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FLaserSettingsEntry WeaponSettingLaserEntry;
 };

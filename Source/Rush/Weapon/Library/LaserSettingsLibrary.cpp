@@ -2,7 +2,7 @@
 #include "Engine/Engine.h"
 #include "Sound/SoundCue.h"
 
-static TMap<EFragmentLaserName, FLaserSettingsEntry> GLaserSettingsMap;
+static TMap<EWeaponIconName, FLaserSettingsEntry> GLaserSettingsMap;
 
 static void InitLaserSettingsMap()
 {
@@ -10,7 +10,7 @@ static void InitLaserSettingsMap()
 
     // Hidden
     FLaserSettingsEntry HiddenEntry;
-    HiddenEntry.Name = EFragmentLaserName::Fragment_Laser_Hidden;
+    HiddenEntry.Name = EWeaponIconName::NoneHidden;
     HiddenEntry.bOffWhileAiming = false;
     HiddenEntry.bOffWhileRunning = false;
     HiddenEntry.bOffWhileLowered = false;
@@ -19,11 +19,11 @@ static void InitLaserSettingsMap()
     HiddenEntry.bFlashlight = false;
     HiddenEntry.bLasersight = false;
     
-    GLaserSettingsMap.Add(EFragmentLaserName::Fragment_Laser_Hidden, HiddenEntry);
+    GLaserSettingsMap.Add(EWeaponIconName::NoneHidden, HiddenEntry);
 
     // Flashlight
     FLaserSettingsEntry FlashlightEntry;
-    FlashlightEntry.Name = EFragmentLaserName::Fragment_Flashlight;
+    FlashlightEntry.Name = EWeaponIconName::Flashlight;
     FlashlightEntry.bOffWhileAiming = false;
     FlashlightEntry.bOffWhileRunning = true;
     FlashlightEntry.bOffWhileLowered = true;
@@ -32,11 +32,11 @@ static void InitLaserSettingsMap()
     FlashlightEntry.bFlashlight = true;
     FlashlightEntry.bLasersight = false;
     
-    GLaserSettingsMap.Add(EFragmentLaserName::Fragment_Flashlight, FlashlightEntry);
+    GLaserSettingsMap.Add(EWeaponIconName::Flashlight, FlashlightEntry);
     
     // Lasersight
     FLaserSettingsEntry LasersightEntry;
-    LasersightEntry.Name = EFragmentLaserName::Fragment_LaserSight;
+    LasersightEntry.Name = EWeaponIconName::Lasersight;
     LasersightEntry.bOffWhileAiming = false;
     LasersightEntry.bOffWhileRunning = true;
     LasersightEntry.bOffWhileLowered = true;
@@ -45,10 +45,10 @@ static void InitLaserSettingsMap()
     LasersightEntry.bFlashlight = false;
     LasersightEntry.bLasersight = true;
     
-    GLaserSettingsMap.Add(EFragmentLaserName::Fragment_LaserSight, LasersightEntry);
+    GLaserSettingsMap.Add(EWeaponIconName::Lasersight, LasersightEntry);
 }
 
-FLaserSettingsEntry ULaserSettingsLibrary::GetLaserSettingsByName(EFragmentLaserName LaserName)
+FLaserSettingsEntry ULaserSettingsLibrary::GetLaserSettingsByName(EWeaponIconName LaserName)
 {
     InitLaserSettingsMap();
     if (GLaserSettingsMap.Contains(LaserName))

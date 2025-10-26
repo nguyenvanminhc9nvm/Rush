@@ -1,7 +1,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Rush/Weapon/Enum/EFragmentLaserName.h"
+
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "Rush/Weapon/Struct/FLaserSettingsEntry.h"
 #include "LaserSettingsLibrary.generated.h"
@@ -13,7 +13,7 @@ class RUSH_API ULaserSettingsLibrary : public UBlueprintFunctionLibrary
 
 public:
     UFUNCTION(BlueprintPure, Category="Laser Settings")
-    static FLaserSettingsEntry GetLaserSettingsByName(EFragmentLaserName LaserName);
+    static FLaserSettingsEntry GetLaserSettingsByName(EWeaponIconName LaserName);
 
     UFUNCTION(BlueprintCallable, Category="Laser Settings")
     static TArray<FLaserSettingsEntry> GetAllLaserSettings();

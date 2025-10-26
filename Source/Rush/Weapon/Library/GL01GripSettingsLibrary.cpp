@@ -1,8 +1,9 @@
 #include "GL01GripSettingsLibrary.h"
 #include "Engine/Engine.h"
 #include "Animation/AnimSequence.h"
+#include "Rush/Weapon/Enum/EWeaponIconName.h"
 
-static TMap<EGripName, FGripSettingsEntry> GGL01GripSettingsMap;
+static TMap<EWeaponIconName, FGripSettingsEntry> GGL01GripSettingsMap;
 
 static void InitGL01GripSettingsMap()
 {
@@ -10,7 +11,7 @@ static void InitGL01GripSettingsMap()
 
     // Grip-01
     FGripSettingsEntry Grip01Entry;
-    Grip01Entry.Name = EGripName::Grip01;
+    Grip01Entry.Name = EWeaponIconName::Grip_01;
     
     // Idle Poses
     Grip01Entry.IdlePoses.SequenceBaseFirstPerson = LoadObject<UAnimSequence>(nullptr, TEXT("/Game/Assets/Character/Animation/Launchers/A_FP_PCH_GL_01_Idle_Pose_Grip.A_FP_PCH_GL_01_Idle_Pose_Grip"));
@@ -24,11 +25,11 @@ static void InitGL01GripSettingsMap()
     Grip01Entry.HolsteredPoses.SequenceBaseFirstPerson = LoadObject<UAnimSequence>(nullptr, TEXT("/Game/Assets/Character/Animation/Launchers/A_FP_PCH_GL_01_Idle_Pose_Grip.A_FP_PCH_GL_01_Idle_Pose_Grip"));
     Grip01Entry.HolsteredPoses.SequenceBaseThirdPerson = LoadObject<UAnimSequence>(nullptr, TEXT("/Game/Assets/Character/Animation/Launchers/A_TP_CH_GL_01_Lowered_Pose_Grip.A_TP_CH_GL_01_Lowered_Pose_Grip"));
     
-    GGL01GripSettingsMap.Add(EGripName::Grip01, Grip01Entry);
+    GGL01GripSettingsMap.Add(EWeaponIconName::Grip_01, Grip01Entry);
 
     // Bipod-01
     FGripSettingsEntry Bipod01Entry;
-    Bipod01Entry.Name = EGripName::Bipod01;
+    Bipod01Entry.Name = EWeaponIconName::Bipod_01;
     
     // Idle Poses - All set to None
     Bipod01Entry.IdlePoses.SequenceBaseFirstPerson = nullptr;
@@ -42,11 +43,11 @@ static void InitGL01GripSettingsMap()
     Bipod01Entry.HolsteredPoses.SequenceBaseFirstPerson = nullptr;
     Bipod01Entry.HolsteredPoses.SequenceBaseThirdPerson = nullptr;
     
-    GGL01GripSettingsMap.Add(EGripName::Bipod01, Bipod01Entry);
+    GGL01GripSettingsMap.Add(EWeaponIconName::Bipod_01, Bipod01Entry);
 
     // Bipod-02
     FGripSettingsEntry Bipod02Entry;
-    Bipod02Entry.Name = EGripName::Bipod02;
+    Bipod02Entry.Name = EWeaponIconName::Bipod_02;
     
     // Idle Poses - All set to None
     Bipod02Entry.IdlePoses.SequenceBaseFirstPerson = nullptr;
@@ -60,10 +61,10 @@ static void InitGL01GripSettingsMap()
     Bipod02Entry.HolsteredPoses.SequenceBaseFirstPerson = nullptr;
     Bipod02Entry.HolsteredPoses.SequenceBaseThirdPerson = nullptr;
     
-    GGL01GripSettingsMap.Add(EGripName::Bipod02, Bipod02Entry);
+    GGL01GripSettingsMap.Add(EWeaponIconName::Bipod_02, Bipod02Entry);
 }
 
-FGripSettingsEntry UGL01GripSettingsLibrary::GetGL01GripSettingsByName(EGripName GripName)
+FGripSettingsEntry UGL01GripSettingsLibrary::GetGL01GripSettingsByName(EWeaponIconName GripName)
 {
     InitGL01GripSettingsMap();
     if (GGL01GripSettingsMap.Contains(GripName))

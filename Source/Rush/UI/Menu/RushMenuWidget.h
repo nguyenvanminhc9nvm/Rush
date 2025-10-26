@@ -2,7 +2,6 @@
 
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
-#include "Rush/Weapon/Struct/FPreset.h"
 #include "RushMenuWidget.generated.h"
 
 class UWeaponIconData;

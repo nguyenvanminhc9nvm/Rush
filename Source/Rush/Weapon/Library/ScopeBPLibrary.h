@@ -1,7 +1,6 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Rush/Weapon/Enum/EScopeName.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "Rush/Weapon/Struct/FScopeEntry.h"
 #include "ScopeBPLibrary.generated.h"
@@ -13,8 +12,8 @@ class RUSH_API UScopeBPLibrary : public UBlueprintFunctionLibrary
 
 public:
     UFUNCTION(BlueprintPure, Category="Scope")
-    static FScopeEntry GetScopeByName(EScopeName ScopeName);
+    static FScopeEntry GetScopeByName(EWeaponIconName ScopeName);
 
     UFUNCTION(BlueprintPure, Category="Scope")
-    static TSubclassOf<AActor> GetScopeActorByName(EScopeName ScopeName);
+    static TSubclassOf<AActor> GetScopeActorByName(EWeaponIconName ScopeName);
 };

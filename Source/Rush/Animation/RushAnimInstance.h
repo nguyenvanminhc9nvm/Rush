@@ -1,6 +1,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Rush/Weapon/Struct/FScopeSettingsEntry.h"
 #include "RushAnimInstance.generated.h"
 
 UENUM(BlueprintType)
@@ -20,4 +21,7 @@ public:
 	URushAnimInstance();
 
 	virtual void NativeUpdateAnimation(float DeltaSeconds) override;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FScopeSettingsEntry ScopeSettingsEntry;
 };

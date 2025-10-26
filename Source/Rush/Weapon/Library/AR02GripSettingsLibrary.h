@@ -2,7 +2,7 @@
 
 #include "CoreMinimal.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
-#include "Rush/Weapon/Enum/EGripName.h"
+
 #include "Rush/Weapon/Struct/FGripSettingsEntry.h"
 #include "AR02GripSettingsLibrary.generated.h"
 
@@ -13,7 +13,7 @@ class RUSH_API UAR02GripSettingsLibrary : public UBlueprintFunctionLibrary
 
 public:
     UFUNCTION(BlueprintPure, Category="AR02 Grip Settings")
-    static FGripSettingsEntry GetAR02GripSettingsByName(EGripName GripName);
+    static FGripSettingsEntry GetAR02GripSettingsByName(EWeaponIconName GripName);
 
     UFUNCTION(BlueprintPure, Category="AR02 Grip Settings")
     static TArray<FGripSettingsEntry> GetAllAR02GripSettings();

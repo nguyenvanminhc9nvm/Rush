@@ -1,9 +1,14 @@
 ﻿#pragma once
 
 #include "CoreMinimal.h"
+#include "FGripEntry.h"
 #include "FGripSettingsEntry.h"
+#include "FLaserEntry.h"
 #include "FLaserSettingsEntry.h"
+#include "FLasersightSettingsEntry.h"
+#include "FMuzzleEntry.h"
 #include "FMuzzleSettingsEntry.h"
+#include "FScopeEntry.h"
 #include "FScopeSettingsEntry.h"
 #include "FWeaponAnimationSettings.h"
 #include "FWeaponIcon.h"
@@ -18,6 +23,7 @@
 #include "Rush/Weapon/Enum/EWeaponName.h"
 #include "FWeaponInformationEntry.generated.h"
 
+struct FGripEntry;
 struct FWeaponAnimationSettings;
 enum EWeaponIconName : uint8;
 enum EAbilityName : uint8;
@@ -39,18 +45,48 @@ struct FWeaponInformationEntry
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TSubclassOf<UUserWidget> WidgetClassCrosshair;
 
+	// Scope
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TArray<FScopeSettingsEntry> RowHandleScopeSettings;
+	FScopeEntry ScopeEntry;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TArray<FLaserSettingsEntry> RowHandleLaserSettings;
+	FWeaponIcon ScopeIcon;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TArray<FMuzzleSettingsEntry> RowHandleMuzzleSettings;
+	FScopeSettingsEntry ScopeSettingsEntry;
+
+	// Laser
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FLaserEntry LaserEntry;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TArray<FGripSettingsEntry> RowHandleGripSettings;
+	FLaserSettingsEntry LaserSettingsEntry;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FWeaponIcon LaserIcon;
+
+	UPROPERTY(EditAnywhere,	 BlueprintReadWrite)
+	FLasersightSettingsEntry LasersightSettingsEntry;
+
+	// Muzzle
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FMuzzleEntry MuzzleEntry;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FMuzzleSettingsEntry MuzzleSettingsEntry;
+
+	// Grip
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FGripEntry GripEntry;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FGripSettingsEntry GripSettingEntry;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FWeaponIcon GripIcon;
+
+
+	// Other Settings
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FWeaponAnimationSettings WeaponAnimationSettings;
 

@@ -26,5 +26,6 @@ enum EWeaponIconName : uint8
 	Lasersight                              UMETA(DisplayName = "Lasersight"),
 	Magazine                                UMETA(DisplayName = "Magazine"),
 	Scope_Default                           UMETA(DisplayName = "Scope-Default"),
-	Scope_Launcher_Grenade_01               UMETA(DisplayName = "Scope-Launcher-Grenade-01")
+	Scope_Launcher_Grenade_01               UMETA(DisplayName = "Scope-Launcher-Grenade-01"),
+	NoneHidden 								    UMETA(DisplayName = "None")
 };

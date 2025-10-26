@@ -1,7 +1,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Rush/Weapon/Enum/EGripName.h"
+
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "Rush/Weapon/Struct/FGripSettingsEntry.h"
 #include "SMG03GripSettingsLibrary.generated.h"
@@ -13,7 +13,7 @@ class RUSH_API USMG03GripSettingsLibrary : public UBlueprintFunctionLibrary
 
 public:
     UFUNCTION(BlueprintPure, Category="SMG03 Grip Settings")
-    static FGripSettingsEntry GetSMG03GripSettingsByName(EGripName GripName);
+    static FGripSettingsEntry GetSMG03GripSettingsByName(EWeaponIconName GripName);
 
     UFUNCTION(BlueprintCallable, Category="SMG03 Grip Settings")
     static TArray<FGripSettingsEntry> GetAllSMG03GripSettings();

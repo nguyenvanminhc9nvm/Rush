@@ -2,8 +2,9 @@
 
 #include "CoreMinimal.h"
 #include "Engine/Engine.h"
-#include "Rush/Weapon/Enum/EGripName.h"
 #include "FGripSettingsEntry.generated.h"
+
+enum EWeaponIconName : uint8;
 
 USTRUCT(BlueprintType)
 struct RUSH_API FAnimationSequences
@@ -23,7 +24,7 @@ struct RUSH_API FGripSettingsEntry
     GENERATED_BODY()
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Grip Settings")
-    TEnumAsByte<EGripName> Name;
+    TEnumAsByte<EWeaponIconName> Name;
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Grip Settings")
     FAnimationSequences IdlePoses;

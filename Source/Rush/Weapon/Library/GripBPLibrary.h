@@ -1,7 +1,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Rush/Weapon/Enum/EGripName.h"
+
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "Rush/Weapon/Struct/FGripEntry.h"
 #include "GripBPLibrary.generated.h"
@@ -13,8 +13,8 @@ class RUSH_API UGripBPLibrary : public UBlueprintFunctionLibrary
 
 public:
     UFUNCTION(BlueprintPure, Category="Grip")
-    static FGripEntry GetGripByName(EGripName GripName);
+    static FGripEntry GetGripByName(EWeaponIconName GripName);
 
     UFUNCTION(BlueprintPure, Category="Grip")
-    static UStaticMesh* GetGripMeshByName(EGripName GripName);
+    static UStaticMesh* GetGripMeshByName(EWeaponIconName GripName);
 };

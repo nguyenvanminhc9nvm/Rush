@@ -2,8 +2,9 @@
 
 #include "CoreMinimal.h"
 #include "Engine/Engine.h"
-#include "Rush/Weapon/Enum/EScopeName.h"
 #include "FScopeSettingsEntry.generated.h"
+
+enum EWeaponIconName : uint8;
 
 USTRUCT(BlueprintType)
 struct RUSH_API FSpringInterpolation
@@ -69,7 +70,7 @@ struct RUSH_API FScopeSettingsEntry
     GENERATED_BODY()
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Scope Settings")
-    TEnumAsByte<EScopeName> Name;
+    TEnumAsByte<EWeaponIconName> Name;
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Scope Settings")
     bool bRenderTargetRequired;

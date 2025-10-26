@@ -2,7 +2,8 @@
 
 #include "CoreMinimal.h"
 #include "Engine/Engine.h"
-#include "Rush/Weapon/Enum/EFragmentLaserName.h"
+
+#include "Rush/Weapon/Enum/EWeaponIconName.h"
 #include "FLaserSettingsEntry.generated.h"
 
 USTRUCT(BlueprintType)
@@ -11,7 +12,7 @@ struct RUSH_API FLaserSettingsEntry
     GENERATED_BODY()
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Laser Settings")
-    TEnumAsByte<EFragmentLaserName> Name;
+    TEnumAsByte<EWeaponIconName> Name;
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Laser Settings")
     bool bOffWhileAiming;
