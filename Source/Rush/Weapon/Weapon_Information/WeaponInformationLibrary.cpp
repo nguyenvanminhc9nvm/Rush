@@ -159,8 +159,9 @@ static void InitWeaponInformation()
 	AssaultRifle01.LasersightSettingsEntry = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Venomous);
 
 	// muzzle
-	AssaultRifle01.MuzzleEntry = UMuzzleBPLibrary::GetMuzzleByName(Muzzle_Silencer03);
+	AssaultRifle01.MuzzleEntry = UMuzzleBPLibrary::GetMuzzleByName(EWeaponIconName::NoneHidden);
 	AssaultRifle01.MuzzleSettingsEntry = UAR01MuzzleSettingsLibrary::GetMuzzleSettingsByName(AssaultRifle01.MuzzleEntry.Name);
+	AssaultRifle01.MuzzleIcon = UAR01WeaponIconSettingsLibrary::GetWeaponIconByName(AssaultRifle01.MuzzleEntry.Name);
 
 	// grip
 	AssaultRifle01.GripEntry = UGripBPLibrary::GetGripByName(EWeaponIconName::NoneHidden);
@@ -195,8 +196,9 @@ static void InitWeaponInformation()
 	AssaultRifle02.LasersightSettingsEntry = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Venomous);
 
 	// Muzzle
-	AssaultRifle02.MuzzleEntry = UMuzzleBPLibrary::GetMuzzleByName(Muzzle_Silencer02);
+	AssaultRifle02.MuzzleEntry = UMuzzleBPLibrary::GetMuzzleByName(EWeaponIconName::NoneHidden);
 	AssaultRifle02.MuzzleSettingsEntry = UAR02MuzzleSettingsLibrary::GetAR02MuzzleSettingsByName(AssaultRifle02.MuzzleEntry.Name);
+	AssaultRifle02.MuzzleIcon = UAR02WeaponIconSettingsLibrary::GetWeaponIconByName(AssaultRifle02.MuzzleEntry.Name);
 
 	// Grip
 	AssaultRifle02.GripEntry = UGripBPLibrary::GetGripByName(EWeaponIconName::NoneHidden);
@@ -228,8 +230,9 @@ static void InitWeaponInformation()
 	AssaultRifle03.LaserSettingsEntry = ULaserSettingsLibrary::GetLaserSettingsByName(AssaultRifle03.LaserEntry.Name);
 	AssaultRifle03.LaserIcon = UAR03WeaponIconSettingsLibrary::GetWeaponIconByName(AssaultRifle03.LaserEntry.Name);
 	AssaultRifle03.LasersightSettingsEntry = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Venomous);
-	AssaultRifle03.MuzzleEntry = UMuzzleBPLibrary::GetMuzzleByName(Muzzle_Silencer03);
+	AssaultRifle03.MuzzleEntry = UMuzzleBPLibrary::GetMuzzleByName(EWeaponIconName::NoneHidden);
 	AssaultRifle03.MuzzleSettingsEntry = UAR03MuzzleSettingsLibrary::GetAR03MuzzleSettingsByName(AssaultRifle03.MuzzleEntry.Name);
+	AssaultRifle03.MuzzleIcon = UAR03WeaponIconSettingsLibrary::GetWeaponIconByName(AssaultRifle03.MuzzleEntry.Name);
 	AssaultRifle03.GripEntry = UGripBPLibrary::GetGripByName(EWeaponIconName::NoneHidden);
 	AssaultRifle03.GripSettingEntry = UAR03GripSettingsLibrary::GetAR03GripSettingsByName(AssaultRifle03.GripEntry.Name);
 	AssaultRifle03.GripIcon = UAR03WeaponIconSettingsLibrary::GetWeaponIconByName(AssaultRifle03.GripEntry.Name);
@@ -257,8 +260,9 @@ static void InitWeaponInformation()
 	Handgun01.LaserSettingsEntry = ULaserSettingsLibrary::GetLaserSettingsByName(Handgun01.LaserEntry.Name);
 	Handgun01.LaserIcon = UHandgun01WeaponIconSettingsLibrary::GetWeaponIconByName(Handgun01.LaserEntry.Name);
 	Handgun01.LasersightSettingsEntry = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Venomous);
-	Handgun01.MuzzleEntry = UMuzzleBPLibrary::GetMuzzleByName(Muzzle_Silencer01);
+	Handgun01.MuzzleEntry = UMuzzleBPLibrary::GetMuzzleByName(EWeaponIconName::NoneHidden);
 	Handgun01.MuzzleSettingsEntry = UHandgun01MuzzleSettingsLibrary::GetHandgun01MuzzleSettingsByName(Handgun01.MuzzleEntry.Name);
+	Handgun01.MuzzleIcon = UHandgun01WeaponIconSettingsLibrary::GetWeaponIconByName(Handgun01.MuzzleEntry.Name);
 	Handgun01.GripEntry = UGripBPLibrary::GetGripByName(EWeaponIconName::NoneHidden);
 	Handgun01.GripSettingEntry = UHandgun01GripSettingsLibrary::GetHandgun01GripSettingsByName(Handgun01.GripEntry.Name);
 	Handgun01.GripIcon = UHandgun01WeaponIconSettingsLibrary::GetWeaponIconByName(Handgun01.GripEntry.Name);
@@ -286,8 +290,9 @@ static void InitWeaponInformation()
 	Handgun02.LaserSettingsEntry = ULaserSettingsLibrary::GetLaserSettingsByName(Handgun02.LaserEntry.Name);
 	Handgun02.LaserIcon = UHandgun02WeaponIconSettingsLibrary::GetWeaponIconByName(Handgun02.LaserEntry.Name);
 	Handgun02.LasersightSettingsEntry = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Venomous);
-	Handgun02.MuzzleEntry = UMuzzleBPLibrary::GetMuzzleByName(Muzzle_Silencer02);
+	Handgun02.MuzzleEntry = UMuzzleBPLibrary::GetMuzzleByName(EWeaponIconName::NoneHidden);
 	Handgun02.MuzzleSettingsEntry = UHandgun02MuzzleSettingsLibrary::GetHandgun02MuzzleSettingsByName(Handgun02.MuzzleEntry.Name);
+	Handgun02.MuzzleIcon = UHandgun02WeaponIconSettingsLibrary::GetWeaponIconByName(Handgun02.MuzzleEntry.Name);
 	Handgun02.GripEntry = UGripBPLibrary::GetGripByName(EWeaponIconName::NoneHidden);
 	Handgun02.GripSettingEntry = UHandgun02GripSettingsLibrary::GetHandgun02GripSettingsByName(Handgun02.GripEntry.Name);
 	Handgun02.GripIcon = UHandgun02WeaponIconSettingsLibrary::GetWeaponIconByName(Handgun02.GripEntry.Name);
@@ -315,8 +320,9 @@ static void InitWeaponInformation()
 	Handgun03.LaserSettingsEntry = ULaserSettingsLibrary::GetLaserSettingsByName(Handgun03.LaserEntry.Name);
 	Handgun03.LaserIcon = UHandgun03WeaponIconSettingsLibrary::GetWeaponIconByName(Handgun03.LaserEntry.Name);
 	Handgun03.LasersightSettingsEntry = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Venomous);
-	Handgun03.MuzzleEntry = UMuzzleBPLibrary::GetMuzzleByName(Muzzle_Silencer03);
+	Handgun03.MuzzleEntry = UMuzzleBPLibrary::GetMuzzleByName(EWeaponIconName::NoneHidden);
 	Handgun03.MuzzleSettingsEntry = UHandgun03MuzzleSettingsLibrary::GetHandgun03MuzzleSettingsByName(Handgun03.MuzzleEntry.Name);
+	Handgun03.MuzzleIcon = UHandgun03WeaponIconSettingsLibrary::GetWeaponIconByName(Handgun03.MuzzleEntry.Name);
 	Handgun03.GripEntry = UGripBPLibrary::GetGripByName(EWeaponIconName::NoneHidden);
 	Handgun03.GripSettingEntry = UHandgun03GripSettingsLibrary::GetHandgun03GripSettingsByName(Handgun03.GripEntry.Name);
 	Handgun03.GripIcon = UHandgun03WeaponIconSettingsLibrary::GetWeaponIconByName(Handgun03.GripEntry.Name);
@@ -344,8 +350,9 @@ static void InitWeaponInformation()
 	Handgun04.LaserSettingsEntry = ULaserSettingsLibrary::GetLaserSettingsByName(Handgun04.LaserEntry.Name);
 	Handgun04.LaserIcon = UHandgun04WeaponIconSettingsLibrary::GetWeaponIconByName(Handgun04.LaserEntry.Name);
 	Handgun04.LasersightSettingsEntry = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Venomous);
-	Handgun04.MuzzleEntry = UMuzzleBPLibrary::GetMuzzleByName(Muzzle_Silencer01);
+	Handgun04.MuzzleEntry = UMuzzleBPLibrary::GetMuzzleByName(EWeaponIconName::NoneHidden);
 	Handgun04.MuzzleSettingsEntry = UHandgun04MuzzleSettingsLibrary::GetHandgun04MuzzleSettingsByName(Handgun04.MuzzleEntry.Name);
+	Handgun04.MuzzleIcon = UHandgun04WeaponIconSettingsLibrary::GetWeaponIconByName(Handgun04.MuzzleEntry.Name);
 	Handgun04.GripEntry = UGripBPLibrary::GetGripByName(EWeaponIconName::NoneHidden);
 	Handgun04.GripSettingEntry = UHandgun04GripSettingsLibrary::GetHandgun04GripSettingsByName(Handgun04.GripEntry.Name);
 	Handgun04.GripIcon = UHandgun04WeaponIconSettingsLibrary::GetWeaponIconByName(Handgun04.GripEntry.Name);
@@ -373,8 +380,9 @@ static void InitWeaponInformation()
 	RocketLauncher01.LaserSettingsEntry = ULaserSettingsLibrary::GetLaserSettingsByName(RocketLauncher01.LaserEntry.Name);
 	RocketLauncher01.LaserIcon = URL01WeaponIconSettingsLibrary::GetWeaponIconByName(RocketLauncher01.LaserEntry.Name);
 	RocketLauncher01.LasersightSettingsEntry = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Venomous);
-	RocketLauncher01.MuzzleEntry = UMuzzleBPLibrary::GetMuzzleByName(Muzzle_Hidden);
+	RocketLauncher01.MuzzleEntry = UMuzzleBPLibrary::GetMuzzleByName(EWeaponIconName::NoneHidden);
 	RocketLauncher01.MuzzleSettingsEntry = URL01MuzzleSettingsLibrary::GetRL01MuzzleSettingsByName(RocketLauncher01.MuzzleEntry.Name);
+	RocketLauncher01.MuzzleIcon = URL01WeaponIconSettingsLibrary::GetWeaponIconByName(RocketLauncher01.MuzzleEntry.Name);
 	RocketLauncher01.GripEntry = UGripBPLibrary::GetGripByName(EWeaponIconName::NoneHidden);
 	RocketLauncher01.GripSettingEntry = URL01GripSettingsLibrary::GetRL01GripSettingsByName(RocketLauncher01.GripEntry.Name);
 	RocketLauncher01.GripIcon = URL01WeaponIconSettingsLibrary::GetWeaponIconByName(RocketLauncher01.GripEntry.Name);
@@ -402,8 +410,9 @@ static void InitWeaponInformation()
 	GrenadeLauncher01.LaserSettingsEntry = ULaserSettingsLibrary::GetLaserSettingsByName(GrenadeLauncher01.LaserEntry.Name);
 	GrenadeLauncher01.LaserIcon = UGL01WeaponIconSettingsLibrary::GetWeaponIconByName(GrenadeLauncher01.LaserEntry.Name);
 	GrenadeLauncher01.LasersightSettingsEntry = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Venomous);
-	GrenadeLauncher01.MuzzleEntry = UMuzzleBPLibrary::GetMuzzleByName(Muzzle_Hidden);
+	GrenadeLauncher01.MuzzleEntry = UMuzzleBPLibrary::GetMuzzleByName(EWeaponIconName::NoneHidden);
 	GrenadeLauncher01.MuzzleSettingsEntry = UGL01MuzzleSettingsLibrary::GetGL01MuzzleSettingsByName(GrenadeLauncher01.MuzzleEntry.Name);
+	GrenadeLauncher01.MuzzleIcon = UGL01WeaponIconSettingsLibrary::GetWeaponIconByName(GrenadeLauncher01.MuzzleEntry.Name);
 	GrenadeLauncher01.GripEntry = UGripBPLibrary::GetGripByName(EWeaponIconName::NoneHidden);
 	GrenadeLauncher01.GripSettingEntry = UGL01GripSettingsLibrary::GetGL01GripSettingsByName(GrenadeLauncher01.GripEntry.Name);
 	GrenadeLauncher01.GripIcon = UGL01WeaponIconSettingsLibrary::GetWeaponIconByName(GrenadeLauncher01.GripEntry.Name);
@@ -431,8 +440,9 @@ static void InitWeaponInformation()
 	Shotgun01.LaserSettingsEntry = ULaserSettingsLibrary::GetLaserSettingsByName(Shotgun01.LaserEntry.Name);
 	Shotgun01.LaserIcon = UShotgun01WeaponIconSettingsLibrary::GetWeaponIconByName(Shotgun01.LaserEntry.Name);
 	Shotgun01.LasersightSettingsEntry = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Venomous);
-	Shotgun01.MuzzleEntry = UMuzzleBPLibrary::GetMuzzleByName(Muzzle_Silencer01);
+	Shotgun01.MuzzleEntry = UMuzzleBPLibrary::GetMuzzleByName(EWeaponIconName::NoneHidden);
 	Shotgun01.MuzzleSettingsEntry = UShotgun01MuzzleSettingsLibrary::GetShotgun01MuzzleSettingsByName(Shotgun01.MuzzleEntry.Name);
+	Shotgun01.MuzzleIcon = UShotgun01WeaponIconSettingsLibrary::GetWeaponIconByName(Shotgun01.MuzzleEntry.Name);
 	Shotgun01.GripEntry = UGripBPLibrary::GetGripByName(EWeaponIconName::NoneHidden);
 	Shotgun01.GripSettingEntry = UShotgun01GripSettingsLibrary::GetShotgun01GripSettingsByName(Shotgun01.GripEntry.Name);
 	Shotgun01.GripIcon = UShotgun01WeaponIconSettingsLibrary::GetWeaponIconByName(Shotgun01.GripEntry.Name);
@@ -460,8 +470,9 @@ static void InitWeaponInformation()
 	SMG01.LaserSettingsEntry = ULaserSettingsLibrary::GetLaserSettingsByName(SMG01.LaserEntry.Name);
 	SMG01.LaserIcon = USMG01WeaponIconSettingsLibrary::GetWeaponIconByName(SMG01.LaserEntry.Name);
 	SMG01.LasersightSettingsEntry = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Venomous);
-	SMG01.MuzzleEntry = UMuzzleBPLibrary::GetMuzzleByName(Muzzle_Silencer01);
+	SMG01.MuzzleEntry = UMuzzleBPLibrary::GetMuzzleByName(EWeaponIconName::NoneHidden);
 	SMG01.MuzzleSettingsEntry = USMG01MuzzleSettingsLibrary::GetSMG01MuzzleSettingsByName(SMG01.MuzzleEntry.Name);
+	SMG01.MuzzleIcon = USMG01WeaponIconSettingsLibrary::GetWeaponIconByName(SMG01.MuzzleEntry.Name);
 	SMG01.GripEntry = UGripBPLibrary::GetGripByName(EWeaponIconName::NoneHidden);
 	SMG01.GripSettingEntry = USMG01GripSettingsLibrary::GetSMG01GripSettingsByName(SMG01.GripEntry.Name);
 	SMG01.GripIcon = USMG01WeaponIconSettingsLibrary::GetWeaponIconByName(SMG01.GripEntry.Name);
@@ -489,8 +500,9 @@ static void InitWeaponInformation()
 	SMG02.LaserSettingsEntry = ULaserSettingsLibrary::GetLaserSettingsByName(SMG02.LaserEntry.Name);
 	SMG02.LaserIcon = USMG02WeaponIconSettingsLibrary::GetWeaponIconByName(SMG02.LaserEntry.Name);
 	SMG02.LasersightSettingsEntry = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Venomous);
-	SMG02.MuzzleEntry = UMuzzleBPLibrary::GetMuzzleByName(Muzzle_Silencer02);
+	SMG02.MuzzleEntry = UMuzzleBPLibrary::GetMuzzleByName(EWeaponIconName::NoneHidden);
 	SMG02.MuzzleSettingsEntry = USMG02MuzzleSettingsLibrary::GetSMG02MuzzleSettingsByName(SMG02.MuzzleEntry.Name);
+	SMG02.MuzzleIcon = USMG02WeaponIconSettingsLibrary::GetWeaponIconByName(SMG02.MuzzleEntry.Name);
 	SMG02.GripEntry = UGripBPLibrary::GetGripByName(EWeaponIconName::NoneHidden);
 	SMG02.GripSettingEntry = USMG02GripSettingsLibrary::GetSMG02GripSettingsByName(SMG02.GripEntry.Name);
 	SMG02.GripIcon = USMG02WeaponIconSettingsLibrary::GetWeaponIconByName(SMG02.GripEntry.Name);
@@ -518,8 +530,9 @@ static void InitWeaponInformation()
 	SMG03.LaserSettingsEntry = ULaserSettingsLibrary::GetLaserSettingsByName(SMG03.LaserEntry.Name);
 	SMG03.LaserIcon = USMG03WeaponIconSettingsLibrary::GetWeaponIconByName(SMG03.LaserEntry.Name);
 	SMG03.LasersightSettingsEntry = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Venomous);
-	SMG03.MuzzleEntry = UMuzzleBPLibrary::GetMuzzleByName(Muzzle_Silencer03);
+	SMG03.MuzzleEntry = UMuzzleBPLibrary::GetMuzzleByName(EWeaponIconName::NoneHidden);
 	SMG03.MuzzleSettingsEntry = USMG03MuzzleSettingsLibrary::GetSMG03MuzzleSettingsByName(SMG03.MuzzleEntry.Name);
+	SMG03.MuzzleIcon = USMG03WeaponIconSettingsLibrary::GetWeaponIconByName(SMG03.MuzzleEntry.Name);
 	SMG03.GripEntry = UGripBPLibrary::GetGripByName(EWeaponIconName::NoneHidden);
 	SMG03.GripSettingEntry = USMG03GripSettingsLibrary::GetSMG03GripSettingsByName(SMG03.GripEntry.Name);
 	SMG03.GripIcon = USMG03WeaponIconSettingsLibrary::GetWeaponIconByName(SMG03.GripEntry.Name);
@@ -547,8 +560,9 @@ static void InitWeaponInformation()
 	SMG04.LaserSettingsEntry = ULaserSettingsLibrary::GetLaserSettingsByName(SMG04.LaserEntry.Name);
 	SMG04.LaserIcon = USMG04WeaponIconSettingsLibrary::GetWeaponIconByName(SMG04.LaserEntry.Name);
 	SMG04.LasersightSettingsEntry = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Venomous);
-	SMG04.MuzzleEntry = UMuzzleBPLibrary::GetMuzzleByName(Muzzle_Silencer01);
+	SMG04.MuzzleEntry = UMuzzleBPLibrary::GetMuzzleByName(EWeaponIconName::NoneHidden);
 	SMG04.MuzzleSettingsEntry = USMG04MuzzleSettingsLibrary::GetSMG04MuzzleSettingsByName(SMG04.MuzzleEntry.Name);
+	SMG04.MuzzleIcon = USMG04WeaponIconSettingsLibrary::GetWeaponIconByName(SMG04.MuzzleEntry.Name);
 	SMG04.GripEntry = UGripBPLibrary::GetGripByName(EWeaponIconName::NoneHidden);
 	SMG04.GripSettingEntry = USMG04GripSettingsLibrary::GetSMG04GripSettingsByName(SMG04.GripEntry.Name);
 	SMG04.GripIcon = USMG04WeaponIconSettingsLibrary::GetWeaponIconByName(SMG04.GripEntry.Name);
@@ -576,8 +590,9 @@ static void InitWeaponInformation()
 	SMG05.LaserSettingsEntry = ULaserSettingsLibrary::GetLaserSettingsByName(SMG05.LaserEntry.Name);
 	SMG05.LaserIcon = USMG05WeaponIconSettingsLibrary::GetWeaponIconByName(SMG05.LaserEntry.Name);
 	SMG05.LasersightSettingsEntry = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Venomous);
-	SMG05.MuzzleEntry = UMuzzleBPLibrary::GetMuzzleByName(Muzzle_Silencer02);
+	SMG05.MuzzleEntry = UMuzzleBPLibrary::GetMuzzleByName(EWeaponIconName::NoneHidden);
 	SMG05.MuzzleSettingsEntry = USMG05MuzzleSettingsLibrary::GetSMG05MuzzleSettingsByName(SMG05.MuzzleEntry.Name);
+	SMG05.MuzzleIcon = USMG05WeaponIconSettingsLibrary::GetWeaponIconByName(SMG05.MuzzleEntry.Name);
 	SMG05.GripEntry = UGripBPLibrary::GetGripByName(EWeaponIconName::NoneHidden);
 	SMG05.GripSettingEntry = USMG05GripSettingsLibrary::GetSMG05GripSettingsByName(SMG05.GripEntry.Name);
 	SMG05.GripIcon = USMG05WeaponIconSettingsLibrary::GetWeaponIconByName(SMG05.GripEntry.Name);
@@ -605,8 +620,9 @@ static void InitWeaponInformation()
 	Sniper01.LaserSettingsEntry = ULaserSettingsLibrary::GetLaserSettingsByName(Sniper01.LaserEntry.Name);
 	Sniper01.LaserIcon = USniper01WeaponIconSettingsLibrary::GetWeaponIconByName(Sniper01.LaserEntry.Name);
 	Sniper01.LasersightSettingsEntry = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Venomous);
-	Sniper01.MuzzleEntry = UMuzzleBPLibrary::GetMuzzleByName(Muzzle_Silencer01);
+	Sniper01.MuzzleEntry = UMuzzleBPLibrary::GetMuzzleByName(EWeaponIconName::NoneHidden);
 	Sniper01.MuzzleSettingsEntry = USniper01MuzzleSettingsLibrary::GetSniper01MuzzleSettingsByName(Sniper01.MuzzleEntry.Name);
+	Sniper01.MuzzleIcon = USniper01WeaponIconSettingsLibrary::GetWeaponIconByName(Sniper01.MuzzleEntry.Name);
 	Sniper01.GripEntry = UGripBPLibrary::GetGripByName(EWeaponIconName::NoneHidden);
 	Sniper01.GripSettingEntry = USniper01GripSettingsLibrary::GetSniper01GripSettingsByName(Sniper01.GripEntry.Name);
 	Sniper01.GripIcon = USniper01WeaponIconSettingsLibrary::GetWeaponIconByName(Sniper01.GripEntry.Name);
@@ -634,8 +650,9 @@ static void InitWeaponInformation()
 	Sniper02.LaserSettingsEntry = ULaserSettingsLibrary::GetLaserSettingsByName(Sniper02.LaserEntry.Name);
 	Sniper02.LaserIcon = USniper02WeaponIconSettingsLibrary::GetWeaponIconByName(Sniper02.LaserEntry.Name);
 	Sniper02.LasersightSettingsEntry = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Venomous);
-	Sniper02.MuzzleEntry = UMuzzleBPLibrary::GetMuzzleByName(Muzzle_Silencer02);
+	Sniper02.MuzzleEntry = UMuzzleBPLibrary::GetMuzzleByName(EWeaponIconName::NoneHidden);
 	Sniper02.MuzzleSettingsEntry = USniper02MuzzleSettingsLibrary::GetSniper02MuzzleSettingsByName(Sniper02.MuzzleEntry.Name);
+	Sniper02.MuzzleIcon = USniper02WeaponIconSettingsLibrary::GetWeaponIconByName(Sniper02.MuzzleEntry.Name);
 	Sniper02.GripEntry = UGripBPLibrary::GetGripByName(EWeaponIconName::NoneHidden);
 	Sniper02.GripSettingEntry = USniper02GripSettingsLibrary::GetSniper02GripSettingsByName(Sniper02.GripEntry.Name);
 	Sniper02.GripIcon = USniper02WeaponIconSettingsLibrary::GetWeaponIconByName(Sniper02.GripEntry.Name);
@@ -663,8 +680,9 @@ static void InitWeaponInformation()
 	Sniper03.LaserSettingsEntry = ULaserSettingsLibrary::GetLaserSettingsByName(Sniper03.LaserEntry.Name);
 	Sniper03.LaserIcon = USniper03WeaponIconSettingsLibrary::GetWeaponIconByName(Sniper03.LaserEntry.Name);
 	Sniper03.LasersightSettingsEntry = ULasersightSettingsBPLibrary::GetLasersightSettingsByName(ELasersightSettingsName::Laser_Venomous);
-	Sniper03.MuzzleEntry = UMuzzleBPLibrary::GetMuzzleByName(Muzzle_Silencer03);
+	Sniper03.MuzzleEntry = UMuzzleBPLibrary::GetMuzzleByName(EWeaponIconName::NoneHidden);
 	Sniper03.MuzzleSettingsEntry = USniper03MuzzleSettingsLibrary::GetSniper03MuzzleSettingsByName(Sniper03.MuzzleEntry.Name);
+	Sniper03.MuzzleIcon = USniper03WeaponIconSettingsLibrary::GetWeaponIconByName(Sniper03.MuzzleEntry.Name);
 	Sniper03.GripEntry = UGripBPLibrary::GetGripByName(EWeaponIconName::NoneHidden);
 	Sniper03.GripSettingEntry = USniper03GripSettingsLibrary::GetSniper03GripSettingsByName(Sniper03.GripEntry.Name);
 	Sniper03.GripIcon = USniper03WeaponIconSettingsLibrary::GetWeaponIconByName(Sniper03.GripEntry.Name);
@@ -707,7 +725,7 @@ FWeaponInformationEntry UWeaponInformationLibrary::GetWeaponInformationByPropert
 	const EWeaponName WeaponName,
 	const EWeaponIconName ScopeName,
 	const EWeaponIconName LaserName,
-	const EMuzzleName MuzzleName,
+	const EWeaponIconName MuzzleName,
 	const EWeaponIconName GripName
 )
 {
@@ -735,6 +753,7 @@ FWeaponInformationEntry UWeaponInformationLibrary::GetWeaponInformationByPropert
 	
 	WeaponInfo.MuzzleEntry = UMuzzleBPLibrary::GetMuzzleByName(MuzzleName);
 	WeaponInfo.MuzzleSettingsEntry = GetMuzzleSettingsForWeapon(WeaponName, WeaponInfo.MuzzleEntry.Name);
+	WeaponInfo.MuzzleIcon = GetMuzzleIconForWeapon(WeaponName, WeaponInfo.MuzzleEntry.Name);
 	
 	WeaponInfo.GripEntry = UGripBPLibrary::GetGripByName(GripName);
 	WeaponInfo.GripSettingEntry = GetGripSettingsForWeapon(WeaponName, WeaponInfo.GripEntry.Name);
@@ -847,7 +866,7 @@ FWeaponIcon UWeaponInformationLibrary::GetGripIconForWeapon(EWeaponName WeaponNa
 	}
 }
 
-FMuzzleSettingsEntry UWeaponInformationLibrary::GetMuzzleSettingsForWeapon(EWeaponName WeaponName, EMuzzleName MuzzleName)
+FMuzzleSettingsEntry UWeaponInformationLibrary::GetMuzzleSettingsForWeapon(EWeaponName WeaponName, EWeaponIconName MuzzleName)
 {
 	switch (WeaponName)
 	{
@@ -870,5 +889,31 @@ FMuzzleSettingsEntry UWeaponInformationLibrary::GetMuzzleSettingsForWeapon(EWeap
 	case EWeaponName::Sniper_02: return USniper02MuzzleSettingsLibrary::GetSniper02MuzzleSettingsByName(MuzzleName);
 	case EWeaponName::Sniper_03: return USniper03MuzzleSettingsLibrary::GetSniper03MuzzleSettingsByName(MuzzleName);
 	default: return FMuzzleSettingsEntry();
+	}
+}
+
+FWeaponIcon UWeaponInformationLibrary::GetMuzzleIconForWeapon(EWeaponName WeaponName, EWeaponIconName MuzzleName)
+{
+	switch (WeaponName)
+	{
+	case EWeaponName::Assault_Rifle_01: return UAR01WeaponIconSettingsLibrary::GetWeaponIconByName(MuzzleName);
+	case EWeaponName::Assault_Rifle_02: return UAR02WeaponIconSettingsLibrary::GetWeaponIconByName(MuzzleName);
+	case EWeaponName::Assault_Rifle_03: return UAR03WeaponIconSettingsLibrary::GetWeaponIconByName(MuzzleName);
+	case EWeaponName::Handgun_01: return UHandgun01WeaponIconSettingsLibrary::GetWeaponIconByName(MuzzleName);
+	case EWeaponName::Handgun_02: return UHandgun02WeaponIconSettingsLibrary::GetWeaponIconByName(MuzzleName);
+	case EWeaponName::Handgun_03: return UHandgun03WeaponIconSettingsLibrary::GetWeaponIconByName(MuzzleName);
+	case EWeaponName::Handgun_04: return UHandgun04WeaponIconSettingsLibrary::GetWeaponIconByName(MuzzleName);
+	case EWeaponName::Rocket_Launcher_01: return URL01WeaponIconSettingsLibrary::GetWeaponIconByName(MuzzleName);
+	case EWeaponName::Grenade_Launcher_01: return UGL01WeaponIconSettingsLibrary::GetWeaponIconByName(MuzzleName);
+	case EWeaponName::Shotgun_01: return UShotgun01WeaponIconSettingsLibrary::GetWeaponIconByName(MuzzleName);
+	case EWeaponName::SMG_01: return USMG01WeaponIconSettingsLibrary::GetWeaponIconByName(MuzzleName);
+	case EWeaponName::SMG_02: return USMG02WeaponIconSettingsLibrary::GetWeaponIconByName(MuzzleName);
+	case EWeaponName::SMG_03: return USMG03WeaponIconSettingsLibrary::GetWeaponIconByName(MuzzleName);
+	case EWeaponName::SMG_04: return USMG04WeaponIconSettingsLibrary::GetWeaponIconByName(MuzzleName);
+	case EWeaponName::SMG_05: return USMG05WeaponIconSettingsLibrary::GetWeaponIconByName(MuzzleName);
+	case EWeaponName::Sniper_01: return USniper01WeaponIconSettingsLibrary::GetWeaponIconByName(MuzzleName);
+	case EWeaponName::Sniper_02: return USniper02WeaponIconSettingsLibrary::GetWeaponIconByName(MuzzleName);
+	case EWeaponName::Sniper_03: return USniper03WeaponIconSettingsLibrary::GetWeaponIconByName(MuzzleName);
+	default: return FWeaponIcon();
 	}
 }

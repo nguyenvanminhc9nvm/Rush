@@ -75,6 +75,9 @@ struct FWeaponInformationEntry
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FMuzzleSettingsEntry MuzzleSettingsEntry;
 
+	UPROPERTY(EditAnywhere,	 BlueprintReadWrite)
+	FWeaponIcon MuzzleIcon;
+
 	// Grip
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FGripEntry GripEntry;

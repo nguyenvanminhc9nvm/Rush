@@ -2,7 +2,8 @@
 
 #include "CoreMinimal.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
-#include "Rush/Weapon/Enum/EMuzzleName.h"
+
+#include "Rush/Weapon/Enum/EWeaponIconName.h"
 #include "Rush/Weapon/Struct/FMuzzleSettingsEntry.h"
 #include "AR01MuzzleSettingsLibrary.generated.h"
 
@@ -13,7 +14,7 @@ class RUSH_API UAR01MuzzleSettingsLibrary : public UBlueprintFunctionLibrary
 
 public:
     UFUNCTION(BlueprintPure, Category="Muzzle Settings")
-    static FMuzzleSettingsEntry GetMuzzleSettingsByName(EMuzzleName MuzzleName);
+    static FMuzzleSettingsEntry GetMuzzleSettingsByName(EWeaponIconName MuzzleName);
 
     UFUNCTION(BlueprintCallable, Category="Muzzle Settings")
     static TArray<FMuzzleSettingsEntry> GetAllMuzzleSettings();

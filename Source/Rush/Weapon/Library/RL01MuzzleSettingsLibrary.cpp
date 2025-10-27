@@ -1,9 +1,10 @@
 #include "RL01MuzzleSettingsLibrary.h"
 #include "Engine/Engine.h"
 #include "Particles/ParticleSystem.h"
+#include "Rush/Weapon/Enum/EWeaponIconName.h"
 #include "Sound/SoundCue.h"
 
-static TMap<EMuzzleName, FMuzzleSettingsEntry> GRL01MuzzleSettingsMap;
+static TMap<EWeaponIconName, FMuzzleSettingsEntry> GRL01MuzzleSettingsMap;
 
 static void InitRL01MuzzleSettingsMap()
 {
@@ -11,7 +12,7 @@ static void InitRL01MuzzleSettingsMap()
 
     // Hidden
     FMuzzleSettingsEntry HiddenEntry;
-    HiddenEntry.Name = EMuzzleName::Muzzle_Hidden;
+    HiddenEntry.Name = EWeaponIconName::NoneHidden;
     HiddenEntry.FireParticles = LoadObject<UParticleSystem>(nullptr, TEXT("/Game/Blueprint/Effects/Particles/PS_Muzzle_Flash_Launcher.PS_Muzzle_Flash_Launcher"));
     HiddenEntry.FireSoundCue = LoadObject<USoundCue>(nullptr, TEXT("/Game/Assets/Audio/Cues/Weapons/SC_WEP_RL_01_Fire.SC_WEP_RL_01_Fire"));
     HiddenEntry.bOverheatEnabled = false;
@@ -21,11 +22,11 @@ static void InitRL01MuzzleSettingsMap()
     HiddenEntry.FlashLightDuration = 0.05f;
     HiddenEntry.FlashLightRelativeLocation = FVector(15.0f, 75.0f, 0.0f); // Different values for rocket launcher
     
-    GRL01MuzzleSettingsMap.Add(EMuzzleName::Muzzle_Hidden, HiddenEntry);
+    GRL01MuzzleSettingsMap.Add(EWeaponIconName::NoneHidden, HiddenEntry);
 
     // Silencer-01
     FMuzzleSettingsEntry Silencer01Entry;
-    Silencer01Entry.Name = EMuzzleName::Muzzle_Silencer01;
+    Silencer01Entry.Name = EWeaponIconName::Silencer_01;
     Silencer01Entry.FireParticles = LoadObject<UParticleSystem>(nullptr, TEXT("/Game/Blueprint/Effects/Particles/PS_Muzzle_Flash_Launcher.PS_Muzzle_Flash_Launcher"));
     Silencer01Entry.FireSoundCue = LoadObject<USoundCue>(nullptr, TEXT("/Game/Assets/Audio/Cues/Weapons/SC_WEP_RL_01_Fire_Suppressed_01.SC_WEP_RL_01_Fire_Suppressed_01"));
     Silencer01Entry.bOverheatEnabled = true;
@@ -35,11 +36,11 @@ static void InitRL01MuzzleSettingsMap()
     Silencer01Entry.FlashLightDuration = 0.05f;
     Silencer01Entry.FlashLightRelativeLocation = FVector(0.0f, 0.0f, 0.0f);
     
-    GRL01MuzzleSettingsMap.Add(EMuzzleName::Muzzle_Silencer01, Silencer01Entry);
+    GRL01MuzzleSettingsMap.Add(EWeaponIconName::Silencer_01, Silencer01Entry);
 
     // Silencer-02
     FMuzzleSettingsEntry Silencer02Entry;
-    Silencer02Entry.Name = EMuzzleName::Muzzle_Silencer02;
+    Silencer02Entry.Name = EWeaponIconName::Silencer_02;
     Silencer02Entry.FireParticles = LoadObject<UParticleSystem>(nullptr, TEXT("/Game/Blueprint/Effects/Particles/PS_Muzzle_Flash_Launcher.PS_Muzzle_Flash_Launcher"));
     Silencer02Entry.FireSoundCue = LoadObject<USoundCue>(nullptr, TEXT("/Game/Assets/Audio/Cues/Weapons/SC_WEP_RL_01_Fire_Suppressed_02.SC_WEP_RL_01_Fire_Suppressed_02"));
     Silencer02Entry.bOverheatEnabled = true;
@@ -49,11 +50,11 @@ static void InitRL01MuzzleSettingsMap()
     Silencer02Entry.FlashLightDuration = 0.05f;
     Silencer02Entry.FlashLightRelativeLocation = FVector(0.0f, 0.0f, 0.0f);
     
-    GRL01MuzzleSettingsMap.Add(EMuzzleName::Muzzle_Silencer02, Silencer02Entry);
+    GRL01MuzzleSettingsMap.Add(EWeaponIconName::Silencer_02, Silencer02Entry);
 
     // Silencer-03
     FMuzzleSettingsEntry Silencer03Entry;
-    Silencer03Entry.Name = EMuzzleName::Muzzle_Silencer03;
+    Silencer03Entry.Name = EWeaponIconName::Silencer_03;
     Silencer03Entry.FireParticles = LoadObject<UParticleSystem>(nullptr, TEXT("/Game/Blueprint/Effects/Particles/PS_Muzzle_Flash_Launcher.PS_Muzzle_Flash_Launcher"));
     Silencer03Entry.FireSoundCue = LoadObject<USoundCue>(nullptr, TEXT("/Game/Assets/Audio/Cues/Weapons/SC_WEP_RL_01_Fire_Suppressed_03.SC_WEP_RL_01_Fire_Suppressed_03"));
     Silencer03Entry.bOverheatEnabled = true;
@@ -63,10 +64,10 @@ static void InitRL01MuzzleSettingsMap()
     Silencer03Entry.FlashLightDuration = 0.05f;
     Silencer03Entry.FlashLightRelativeLocation = FVector(0.0f, 0.0f, 0.0f);
     
-    GRL01MuzzleSettingsMap.Add(EMuzzleName::Muzzle_Silencer03, Silencer03Entry);
+    GRL01MuzzleSettingsMap.Add(EWeaponIconName::Silencer_03, Silencer03Entry);
 }
 
-FMuzzleSettingsEntry URL01MuzzleSettingsLibrary::GetRL01MuzzleSettingsByName(EMuzzleName MuzzleName)
+FMuzzleSettingsEntry URL01MuzzleSettingsLibrary::GetRL01MuzzleSettingsByName(EWeaponIconName MuzzleName)
 {
     InitRL01MuzzleSettingsMap();
     if (GRL01MuzzleSettingsMap.Contains(MuzzleName))

@@ -2,8 +2,9 @@
 
 #include "CoreMinimal.h"
 #include "Engine/Engine.h"
-#include "Rush/Weapon/Enum/EMuzzleName.h"
 #include "FMuzzleSettingsEntry.generated.h"
+
+enum EWeaponIconName: uint8;
 
 USTRUCT(BlueprintType)
 struct RUSH_API FMuzzleSettingsEntry
@@ -11,7 +12,7 @@ struct RUSH_API FMuzzleSettingsEntry
     GENERATED_BODY()
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Muzzle Settings")
-    TEnumAsByte<EMuzzleName> Name;
+    TEnumAsByte<EWeaponIconName> Name;
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Muzzle Settings")
     TSoftObjectPtr<UParticleSystem> FireParticles;

@@ -3,7 +3,7 @@
 #include "CoreMinimal.h"
 #include "FMuzzleEntry.generated.h"
 
-enum EMuzzleName : uint8;
+enum EWeaponIconName : uint8;
 
 USTRUCT(BlueprintType)
 struct RUSH_API FMuzzleEntry
@@ -11,7 +11,7 @@ struct RUSH_API FMuzzleEntry
     GENERATED_BODY()
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Muzzle")
-    TEnumAsByte<EMuzzleName> Name;
+    TEnumAsByte<EWeaponIconName> Name;
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Muzzle")
     TSubclassOf<AActor> FragmentActor;   // BlueprintGeneratedClass sẽ load thành TSubclassOf<AActor>

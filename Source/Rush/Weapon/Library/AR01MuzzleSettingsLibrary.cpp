@@ -3,7 +3,7 @@
 #include "Particles/ParticleSystem.h"
 #include "Sound/SoundCue.h"
 
-static TMap<EMuzzleName, FMuzzleSettingsEntry> GMuzzleSettingsMap;
+static TMap<EWeaponIconName, FMuzzleSettingsEntry> GMuzzleSettingsMap;
 
 static void InitMuzzleSettingsMap()
 {
@@ -11,7 +11,7 @@ static void InitMuzzleSettingsMap()
 
     // Hidden
     FMuzzleSettingsEntry HiddenEntry;
-    HiddenEntry.Name = EMuzzleName::Muzzle_Hidden;
+    HiddenEntry.Name = EWeaponIconName::NoneHidden;
     HiddenEntry.FireParticles = LoadObject<UParticleSystem>(nullptr, TEXT("/Game/Blueprint/Effects/Particles/PS_Muzzle_Flash.PS_Muzzle_Flash"));
     HiddenEntry.FireSoundCue = LoadObject<USoundCue>(nullptr, TEXT("/Game/Assets/Audio/Cues/Weapons/SC_WEP_AR_01_Fire.SC_WEP_AR_01_Fire"));
     HiddenEntry.bOverheatEnabled = false;
@@ -21,11 +21,11 @@ static void InitMuzzleSettingsMap()
     HiddenEntry.FlashLightDuration = 0.035f;
     HiddenEntry.FlashLightRelativeLocation = FVector(8.0f, 100.0f, -5.0f);
     
-    GMuzzleSettingsMap.Add(EMuzzleName::Muzzle_Hidden, HiddenEntry);
+    GMuzzleSettingsMap.Add(EWeaponIconName::NoneHidden, HiddenEntry);
 
     // Silencer-01
     FMuzzleSettingsEntry Silencer01Entry;
-    Silencer01Entry.Name = EMuzzleName::Muzzle_Silencer01;
+    Silencer01Entry.Name = EWeaponIconName::Silencer_01;
     Silencer01Entry.FireParticles = LoadObject<UParticleSystem>(nullptr, TEXT("/Game/Blueprint/Effects/Particles/PS_Muzzle_Flash_Silencer.PS_Muzzle_Flash_Silencer"));
     Silencer01Entry.FireSoundCue = LoadObject<USoundCue>(nullptr, TEXT("/Game/Assets/Audio/Cues/Weapons/SC_WEP_AR_01_Fire_Suppressed_01.SC_WEP_AR_01_Fire_Suppressed_01"));
     Silencer01Entry.bOverheatEnabled = true;
@@ -35,11 +35,11 @@ static void InitMuzzleSettingsMap()
     Silencer01Entry.FlashLightDuration = 0.05f;
     Silencer01Entry.FlashLightRelativeLocation = FVector::ZeroVector;
     
-    GMuzzleSettingsMap.Add(EMuzzleName::Muzzle_Silencer01, Silencer01Entry);
+    GMuzzleSettingsMap.Add(EWeaponIconName::Silencer_01, Silencer01Entry);
 
     // Silencer-02
     FMuzzleSettingsEntry Silencer02Entry;
-    Silencer02Entry.Name = EMuzzleName::Muzzle_Silencer02;
+    Silencer02Entry.Name = EWeaponIconName::Silencer_02;
     Silencer02Entry.FireParticles = LoadObject<UParticleSystem>(nullptr, TEXT("/Game/Blueprint/Effects/Particles/PS_Muzzle_Flash_Silencer.PS_Muzzle_Flash_Silencer"));
     Silencer02Entry.FireSoundCue = LoadObject<USoundCue>(nullptr, TEXT("/Game/Assets/Audio/Cues/Weapons/SC_WEP_AR_01_Fire_Suppressed_02.SC_WEP_AR_01_Fire_Suppressed_02"));
     Silencer02Entry.bOverheatEnabled = true;
@@ -49,11 +49,11 @@ static void InitMuzzleSettingsMap()
     Silencer02Entry.FlashLightDuration = 0.05f;
     Silencer02Entry.FlashLightRelativeLocation = FVector::ZeroVector;
     
-    GMuzzleSettingsMap.Add(EMuzzleName::Muzzle_Silencer02, Silencer02Entry);
+    GMuzzleSettingsMap.Add(EWeaponIconName::Silencer_02, Silencer02Entry);
 
     // Silencer-03
     FMuzzleSettingsEntry Silencer03Entry;
-    Silencer03Entry.Name = EMuzzleName::Muzzle_Silencer03;
+    Silencer03Entry.Name = EWeaponIconName::Silencer_03;
     Silencer03Entry.FireParticles = LoadObject<UParticleSystem>(nullptr, TEXT("/Game/Blueprint/Effects/Particles/PS_Muzzle_Flash_Silencer.PS_Muzzle_Flash_Silencer"));
     Silencer03Entry.FireSoundCue = LoadObject<USoundCue>(nullptr, TEXT("/Game/Assets/Audio/Cues/Weapons/SC_WEP_AR_01_Fire_Suppressed_03.SC_WEP_AR_01_Fire_Suppressed_03"));
     Silencer03Entry.bOverheatEnabled = true;
@@ -63,10 +63,10 @@ static void InitMuzzleSettingsMap()
     Silencer03Entry.FlashLightDuration = 0.05f;
     Silencer03Entry.FlashLightRelativeLocation = FVector::ZeroVector;
     
-    GMuzzleSettingsMap.Add(EMuzzleName::Muzzle_Silencer03, Silencer03Entry);
+    GMuzzleSettingsMap.Add(EWeaponIconName::Silencer_03, Silencer03Entry);
 }
 
-FMuzzleSettingsEntry UAR01MuzzleSettingsLibrary::GetMuzzleSettingsByName(EMuzzleName MuzzleName)
+FMuzzleSettingsEntry UAR01MuzzleSettingsLibrary::GetMuzzleSettingsByName(EWeaponIconName MuzzleName)
 {
     InitMuzzleSettingsMap();
     if (GMuzzleSettingsMap.Contains(MuzzleName))

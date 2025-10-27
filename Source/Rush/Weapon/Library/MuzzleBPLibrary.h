@@ -1,8 +1,9 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Rush/Weapon/Enum/EMuzzleName.h"
+
 #include "Kismet/BlueprintFunctionLibrary.h"
+#include "Rush/Weapon/Enum/EWeaponIconName.h"
 #include "Rush/Weapon/Struct/FMuzzleEntry.h"
 #include "MuzzleBPLibrary.generated.h"
 
@@ -13,8 +14,8 @@ class RUSH_API UMuzzleBPLibrary : public UBlueprintFunctionLibrary
 
 public:
     UFUNCTION(BlueprintPure, Category="Muzzle")
-    static FMuzzleEntry GetMuzzleByName(EMuzzleName MuzzleName);
+    static FMuzzleEntry GetMuzzleByName(EWeaponIconName MuzzleName);
 
     UFUNCTION(BlueprintPure, Category="Muzzle")
-    static TSubclassOf<AActor> GetMuzzleActorByName(EMuzzleName MuzzleName);
+    static TSubclassOf<AActor> GetMuzzleActorByName(EWeaponIconName MuzzleName);
 };

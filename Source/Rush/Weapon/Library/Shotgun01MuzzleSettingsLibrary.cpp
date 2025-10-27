@@ -1,9 +1,10 @@
 #include "Shotgun01MuzzleSettingsLibrary.h"
 #include "Engine/Engine.h"
 #include "Particles/ParticleSystem.h"
+#include "Rush/Weapon/Enum/EWeaponIconName.h"
 #include "Sound/SoundCue.h"
 
-static TMap<EMuzzleName, FMuzzleSettingsEntry> GShotgun01MuzzleSettingsMap;
+static TMap<EWeaponIconName, FMuzzleSettingsEntry> GShotgun01MuzzleSettingsMap;
 
 static void InitShotgun01MuzzleSettingsMap()
 {
@@ -11,7 +12,7 @@ static void InitShotgun01MuzzleSettingsMap()
 
     // Hidden
     FMuzzleSettingsEntry HiddenEntry;
-    HiddenEntry.Name = EMuzzleName::Muzzle_Hidden;
+    HiddenEntry.Name = EWeaponIconName::NoneHidden;
     HiddenEntry.FireParticles = LoadObject<UParticleSystem>(nullptr, TEXT("/Game/Blueprint/Effects/Particles/PS_Muzzle_Flash_Shotgun.PS_Muzzle_Flash_Shotgun"));
     HiddenEntry.FireSoundCue = LoadObject<USoundCue>(nullptr, TEXT("/Game/Assets/Audio/Cues/Weapons/SC_WEP_Shotgun_01_Fire.SC_WEP_Shotgun_01_Fire"));
     HiddenEntry.bOverheatEnabled = false;
@@ -21,11 +22,11 @@ static void InitShotgun01MuzzleSettingsMap()
     HiddenEntry.FlashLightDuration = 0.05f;
     HiddenEntry.FlashLightRelativeLocation = FVector(8.0f, 75.0f, 0.0f); // Shotgun specific positioning
     
-    GShotgun01MuzzleSettingsMap.Add(EMuzzleName::Muzzle_Hidden, HiddenEntry);
+    GShotgun01MuzzleSettingsMap.Add(EWeaponIconName::NoneHidden, HiddenEntry);
 
     // Silencer-01
     FMuzzleSettingsEntry Silencer01Entry;
-    Silencer01Entry.Name = EMuzzleName::Muzzle_Silencer01;
+    Silencer01Entry.Name = EWeaponIconName::Silencer_01;
     Silencer01Entry.FireParticles = LoadObject<UParticleSystem>(nullptr, TEXT("/Game/Blueprint/Effects/Particles/PS_Muzzle_Flash_Shotgun.PS_Muzzle_Flash_Shotgun"));
     Silencer01Entry.FireSoundCue = LoadObject<USoundCue>(nullptr, TEXT("/Game/Assets/Audio/Cues/Weapons/SC_WEP_Shotgun_01_Fire_Suppressed_01.SC_WEP_Shotgun_01_Fire_Suppressed_01"));
     Silencer01Entry.bOverheatEnabled = true;
@@ -35,11 +36,11 @@ static void InitShotgun01MuzzleSettingsMap()
     Silencer01Entry.FlashLightDuration = 0.05f;
     Silencer01Entry.FlashLightRelativeLocation = FVector(0.0f, 0.0f, 0.0f);
     
-    GShotgun01MuzzleSettingsMap.Add(EMuzzleName::Muzzle_Silencer01, Silencer01Entry);
+    GShotgun01MuzzleSettingsMap.Add(EWeaponIconName::Silencer_01, Silencer01Entry);
 
     // Silencer-02
     FMuzzleSettingsEntry Silencer02Entry;
-    Silencer02Entry.Name = EMuzzleName::Muzzle_Silencer02;
+    Silencer02Entry.Name = EWeaponIconName::Silencer_02;
     Silencer02Entry.FireParticles = LoadObject<UParticleSystem>(nullptr, TEXT("/Game/Blueprint/Effects/Particles/PS_Muzzle_Flash_Shotgun.PS_Muzzle_Flash_Shotgun"));
     Silencer02Entry.FireSoundCue = LoadObject<USoundCue>(nullptr, TEXT("/Game/Assets/Audio/Cues/Weapons/SC_WEP_Shotgun_01_Fire_Suppressed_02.SC_WEP_Shotgun_01_Fire_Suppressed_02"));
     Silencer02Entry.bOverheatEnabled = true;
@@ -49,11 +50,11 @@ static void InitShotgun01MuzzleSettingsMap()
     Silencer02Entry.FlashLightDuration = 0.05f;
     Silencer02Entry.FlashLightRelativeLocation = FVector(0.0f, 0.0f, 0.0f);
     
-    GShotgun01MuzzleSettingsMap.Add(EMuzzleName::Muzzle_Silencer02, Silencer02Entry);
+    GShotgun01MuzzleSettingsMap.Add(EWeaponIconName::Silencer_02, Silencer02Entry);
 
     // Silencer-03
     FMuzzleSettingsEntry Silencer03Entry;
-    Silencer03Entry.Name = EMuzzleName::Muzzle_Silencer03;
+    Silencer03Entry.Name = EWeaponIconName::Silencer_03;
     Silencer03Entry.FireParticles = LoadObject<UParticleSystem>(nullptr, TEXT("/Game/Blueprint/Effects/Particles/PS_Muzzle_Flash_Shotgun.PS_Muzzle_Flash_Shotgun"));
     Silencer03Entry.FireSoundCue = LoadObject<USoundCue>(nullptr, TEXT("/Game/Assets/Audio/Cues/Weapons/SC_WEP_Shotgun_01_Fire_Suppressed_03.SC_WEP_Shotgun_01_Fire_Suppressed_03"));
     Silencer03Entry.bOverheatEnabled = true;
@@ -63,10 +64,10 @@ static void InitShotgun01MuzzleSettingsMap()
     Silencer03Entry.FlashLightDuration = 0.05f;
     Silencer03Entry.FlashLightRelativeLocation = FVector(0.0f, 0.0f, 0.0f);
     
-    GShotgun01MuzzleSettingsMap.Add(EMuzzleName::Muzzle_Silencer03, Silencer03Entry);
+    GShotgun01MuzzleSettingsMap.Add(EWeaponIconName::Silencer_03, Silencer03Entry);
 }
 
-FMuzzleSettingsEntry UShotgun01MuzzleSettingsLibrary::GetShotgun01MuzzleSettingsByName(EMuzzleName MuzzleName)
+FMuzzleSettingsEntry UShotgun01MuzzleSettingsLibrary::GetShotgun01MuzzleSettingsByName(EWeaponIconName MuzzleName)
 {
     InitShotgun01MuzzleSettingsMap();
     if (GShotgun01MuzzleSettingsMap.Contains(MuzzleName))

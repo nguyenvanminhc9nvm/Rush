@@ -1,7 +1,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Rush/Weapon/Enum/EMuzzleName.h"
+
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "Rush/Weapon/Struct/FMuzzleSettingsEntry.h"
 #include "Sniper01MuzzleSettingsLibrary.generated.h"
@@ -13,7 +13,7 @@ class RUSH_API USniper01MuzzleSettingsLibrary : public UBlueprintFunctionLibrary
 
 public:
     UFUNCTION(BlueprintPure, Category="Sniper01 Muzzle Settings")
-    static FMuzzleSettingsEntry GetSniper01MuzzleSettingsByName(EMuzzleName MuzzleName);
+    static FMuzzleSettingsEntry GetSniper01MuzzleSettingsByName(EWeaponIconName MuzzleName);
 
     UFUNCTION(BlueprintCallable, Category="Sniper01 Muzzle Settings")
     static TArray<FMuzzleSettingsEntry> GetAllSniper01MuzzleSettings();

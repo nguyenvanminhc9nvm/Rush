@@ -68,7 +68,7 @@ public:
 	TEnumAsByte<EWeaponIconName> ScopeEquipped = EWeaponIconName::NoneHidden;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TEnumAsByte<EMuzzleName> MuzzleEquipped = EMuzzleName::Muzzle_Hidden;
+	TEnumAsByte<EWeaponIconName> MuzzleEquipped = EWeaponIconName::NoneHidden;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TEnumAsByte<EWeaponIconName> GripEquipped = EWeaponIconName::NoneHidden;
