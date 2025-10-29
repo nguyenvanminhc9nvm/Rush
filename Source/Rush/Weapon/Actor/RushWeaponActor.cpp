@@ -1,5 +1,24 @@
 ﻿#include "RushWeaponActor.h"
 
+#include "Rush/Weapon/Enum/EWeaponMontageName.h"
+#include "Rush/Weapon/Library/AR01MontageSettingsLibrary.h"
+#include "Rush/Weapon/Library/AR02MontageSettingsLibrary.h"
+#include "Rush/Weapon/Library/AR03MontageSettingsLibrary.h"
+#include "Rush/Weapon/Library/GL01MontageSettingsLibrary.h"
+#include "Rush/Weapon/Library/Handgun01MontageSettingsLibrary.h"
+#include "Rush/Weapon/Library/Handgun02MontageSettingsLibrary.h"
+#include "Rush/Weapon/Library/Handgun03MontageSettingsLibrary.h"
+#include "Rush/Weapon/Library/Handgun04MontageSettingsLibrary.h"
+#include "Rush/Weapon/Library/RL01MontageSettingsLibrary.h"
+#include "Rush/Weapon/Library/Shotgun01MontageSettingsLibrary.h"
+#include "Rush/Weapon/Library/SMG01MontageSettingsLibrary.h"
+#include "Rush/Weapon/Library/SMG02MontageSettingsLibrary.h"
+#include "Rush/Weapon/Library/SMG03MontageSettingsLibrary.h"
+#include "Rush/Weapon/Library/SMG04MontageSettingsLibrary.h"
+#include "Rush/Weapon/Library/SMG05MontageSettingsLibrary.h"
+#include "Rush/Weapon/Library/Sniper01MontageSettingsLibrary.h"
+#include "Rush/Weapon/Library/Sniper02MontageSettingsLibrary.h"
+#include "Rush/Weapon/Library/Sniper03MontageSettingsLibrary.h"
 #include "Rush/Weapon/Weapon_Information/WeaponInformationLibrary.h"
 
 ARushWeaponActor::ARushWeaponActor(const FObjectInitializer& ObjectInitializer): Super(ObjectInitializer)
@@ -54,5 +73,112 @@ void ARushWeaponActor::BeginPlay()
 
 FWeaponInformationEntry ARushWeaponActor::GetWeaponInformationEntry()
 {
-	return UWeaponInformationLibrary::GetWeaponInformationByProperties(WeaponEquipped, ScopeEquipped, LaserEquipped, MuzzleEquipped, GripEquipped);
+	return UWeaponInformationLibrary::GetWeaponInformationByProperties(WeaponEquipped, ScopeEquipped, LaserEquipped, MuzzleEquipped, GripEquipped, SkinEquipped);
 }
+
+FWeaponMontageSettings ARushWeaponActor::GetWeaponMontageByName(EWeaponMontageName MontageName)
+{
+	FWeaponMontageSettings MontageSettings = FWeaponMontageSettings();
+	switch (WeaponEquipped)
+	{
+	case Assault_Rifle_01:
+	case Assault_Rifle_01_Evil:
+	case Assault_Rifle_01_Tactical:
+	case Assault_Rifle_01_Elite:
+		MontageSettings = UAR01MontageSettingsLibrary::GetAR01MontageSettingsByName(MontageName);
+		break;
+	case Assault_Rifle_02:
+	case Assault_Rifle_02_01:
+	case Assault_Rifle_02_Elite:
+	case Assault_Rifle_02_Evil:
+	case Assault_Rifle_02_Forest:
+	case Assault_Rifle_02_Skulls:
+		MontageSettings = UAR02MontageSettingsLibrary::GetAR02MontageSettingsByName(MontageName);
+		break;
+	case Assault_Rifle_03:
+	case Assault_Rifle_03_Elite:
+	case Assault_Rifle_03_SciFi:
+	case Assault_Rifle_03_Tactical:
+		MontageSettings = UAR03MontageSettingsLibrary::GetAR03MontageSettingsByName(MontageName);
+		break;
+	case Grenade_Launcher_01:
+	case Grenade_Launcher_01_AntiTank:
+	case Grenade_Launcher_01_Citrus:
+	case Grenade_Launcher_01_Tactical:
+		MontageSettings = UGL01MontageSettingsLibrary::GetGL01MontageSettingsByName(MontageName);
+		break;
+	case Handgun_01:
+	case Handgun_01_Neon:
+	case Handgun_01_Tactical:
+		MontageSettings = UHandgun01MontageSettingsLibrary::GetHandgun01MontageSettingsByName(MontageName);
+		break;
+	case Handgun_02:
+	case Handgun_02_Stealth:
+	case Handgun_02_Tactical:
+		MontageSettings = UHandgun02MontageSettingsLibrary::GetHandgun02MontageSettingsByName(MontageName);
+		break;
+	case Handgun_03:
+	case Handgun_03_Skulls:
+	case Handgun_03_Tactical:
+		MontageSettings = UHandgun03MontageSettingsLibrary::GetHandgun03MontageSettingsByName(MontageName);
+		break;
+	case Handgun_04:
+	case Handgun_04_Tactical:
+	case Handgun_04_Venomous:
+		MontageSettings = UHandgun04MontageSettingsLibrary::GetHandgun04MontageSettingsByName(MontageName);
+		break;
+	case Rocket_Launcher_01:
+	case Rocket_Launcher_01_Homing:
+		MontageSettings = URL01MontageSettingsLibrary::GetRL01MontageSettingsByName(MontageName);
+		break;
+	case Shotgun_01:
+	case Shotgun_01_Tactical:
+	case Shotgun_01_Tech:
+		MontageSettings = UShotgun01MontageSettingsLibrary::GetShotgun01MontageSettingsByName(MontageName);
+		break;
+	case SMG_01:
+	case SMG_01_Citrus:
+	case SMG_01_Tactical:
+		MontageSettings = USMG01MontageSettingsLibrary::GetSMG01MontageSettingsByName(MontageName);
+		break;
+	case SMG_02:
+	case SMG_02_Citrus:
+	case SMG_02_Tactical:
+		MontageSettings = USMG02MontageSettingsLibrary::GetSMG02MontageSettingsByName(MontageName);
+		break;
+	case SMG_03:
+	case SMG_03_Tactical:
+	case SMG_03_Evil:
+		MontageSettings = USMG03MontageSettingsLibrary::GetSMG03MontageSettingsByName(MontageName);
+		break;
+	case SMG_04:
+	case SMG_04_Tactical:
+	case SMG_04_Modern:
+		MontageSettings = USMG04MontageSettingsLibrary::GetSMG04MontageSettingsByName(MontageName);
+		break;
+	case SMG_05:
+	case SMG_05_Armored:
+	case SMG_05_Tactical:
+		MontageSettings = USMG05MontageSettingsLibrary::GetSMG05MontageSettingsByName(MontageName);
+		break;
+	case Sniper_01:
+	case Sniper_01_Hitman:
+	case Sniper_01_Tactical:
+		MontageSettings = USniper01MontageSettingsLibrary::GetSniper01MontageSettingsByName(MontageName);
+		break;
+	case Sniper_02:
+	case Sniper_02_Breach:
+	case Sniper_02_Tactical:
+		MontageSettings = USniper02MontageSettingsLibrary::GetSniper02MontageSettingsByName(MontageName);
+		break;
+	case Sniper_03:
+	case Sniper_03_Tactical:
+	case Sniper_03_Heavy:
+		MontageSettings = USniper03MontageSettingsLibrary::GetSniper03MontageSettingsByName(MontageName);
+		break;
+	default: ;
+	}
+
+	return MontageSettings;
+}
+

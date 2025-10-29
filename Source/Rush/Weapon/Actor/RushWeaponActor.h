@@ -3,7 +3,9 @@
 #include "CoreMinimal.h"
 #include "Components/PointLightComponent.h"
 #include "Components/TimelineComponent.h"
+#include "Rush/Weapon/Enum/EWeaponMontageName.h"
 #include "Rush/Weapon/Enum/EWeaponName.h"
+#include "Rush/Weapon/Enum/EWeaponSkinName.h"
 #include "Rush/Weapon/Struct/FScopeEntry.h"
 #include "Rush/Weapon/Struct/FWeaponInformationEntry.h"
 #include "RushWeaponActor.generated.h"
@@ -77,6 +79,12 @@ public:
 	TEnumAsByte<EWeaponIconName> LaserEquipped = EWeaponIconName::NoneHidden;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TEnumAsByte<EWeaponSkinName> SkinEquipped = EWeaponSkinName::DefaultAssaultRifle01;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TEnumAsByte<EWeaponMontageName> PreviousMontageName = EWeaponMontageName::Weapon_Montage_None;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FWeaponInformationEntry WeaponInformationEntry;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -87,5 +95,8 @@ public:
 public:
 	UFUNCTION(BlueprintCallable)
 	FWeaponInformationEntry GetWeaponInformationEntry();
+	
+	UFUNCTION(BlueprintCallable)
+	FWeaponMontageSettings GetWeaponMontageByName(EWeaponMontageName MontageName);
 	
 };

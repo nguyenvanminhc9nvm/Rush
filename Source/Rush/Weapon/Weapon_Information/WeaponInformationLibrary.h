@@ -18,7 +18,7 @@ public:
 	static TArray<FWeaponInformationEntry> GetAllWeaponInformationEntries();
 
 	UFUNCTION(BlueprintCallable, Category = "Weapon Information Settings")
-	static FWeaponInformationEntry GetWeaponInformationByProperties(EWeaponName WeaponName, EWeaponIconName ScopeName, EWeaponIconName LaserName, EWeaponIconName MuzzleName, EWeaponIconName GripName);
+	static FWeaponInformationEntry GetWeaponInformationByProperties(EWeaponName WeaponName, EWeaponIconName ScopeName, EWeaponIconName LaserName, EWeaponIconName MuzzleName, EWeaponIconName GripName, EWeaponSkinName SkinName);
 
 	UFUNCTION()
 	static FWeaponIcon GetScopeIconForWeapon(EWeaponName WeaponName, EWeaponIconName ScopeName);

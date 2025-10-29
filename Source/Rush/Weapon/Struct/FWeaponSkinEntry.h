@@ -18,25 +18,25 @@ struct FWeaponSkinEntry
     TEnumAsByte<EWeaponSkinName> Name;
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Weapon Skin")
-    TMap<FString, UMaterialInterface*> MaterialMapBody;
+    TMap<FName, UMaterialInstance*> MaterialMapBody;
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Weapon Skin")
-    TMap<FString, UMaterialInterface*> MaterialMapIronsights;
+    TMap<FName, UMaterialInstance*> MaterialMapIronsights;
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Weapon Skin")
-    TMap<FString, UMaterialInterface*> MaterialMapMagazine;
+    TMap<FName, UMaterialInstance*> MaterialMapMagazine;
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Weapon Skin")
-    TMap<FString, UMaterialInterface*> MaterialMapMuzzle;
+    TMap<FName, UMaterialInstance*> MaterialMapMuzzle;
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Weapon Skin")
-    TMap<FString, UMaterialInterface*> MaterialMapScope;
+    TMap<FName, UMaterialInstance*> MaterialMapScope;
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Weapon Skin")
-    TMap<FString, UMaterialInterface*> MaterialMapLaser;
+    TMap<FName, UMaterialInstance*> MaterialMapLaser;
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Weapon Skin")
-    TMap<FString, UMaterialInterface*> MaterialMapGrip;
+    TMap<FName, UMaterialInstance*> MaterialMapGrip;
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Weapon Skin")
     FLasersightSettingsEntry RowHandleLaserSightSetting;

@@ -12,7 +12,8 @@ enum EWeaponMontageName : uint8
     Weapon_Reload_Empty            UMETA(DisplayName = "Reload-Empty"),
     Weapon_Inspect                 UMETA(DisplayName = "Inspect"),
     Weapon_Holster                 UMETA(DisplayName = "Holster"),
-    Weapon_Unholster               UMETA(DisplayName = "Unholster")
+    Weapon_Unholster               UMETA(DisplayName = "Unholster"),
+    Weapon_Montage_None               UMETA(DisplayName = "Weapon_None")
 };
 
 

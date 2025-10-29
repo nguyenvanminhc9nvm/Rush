@@ -136,6 +136,7 @@
 #include "Rush/Weapon/Library/WeaponAnimationSettingsLibrary.h"
 #include "Rush/Weapon/Library/WeaponMovementSettingsLibrary.h"
 #include "Rush/Weapon/Library/WeaponSettingsLibrary.h"
+#include "Rush/Weapon/Library/WeaponSkinBPLibrary.h"
 
 static TMap<EWeaponName, FWeaponInformationEntry> GWeaponInformationMap;
 
@@ -167,6 +168,9 @@ static void InitWeaponInformation()
 	AssaultRifle01.GripEntry = UGripBPLibrary::GetGripByName(EWeaponIconName::NoneHidden);
 	AssaultRifle01.GripSettingEntry = UAR01GripSettingsLibrary::GetGripSettingsByName(AssaultRifle01.GripEntry.Name);
 	AssaultRifle01.GripIcon = UAR01WeaponIconSettingsLibrary::GetWeaponIconByName(AssaultRifle01.GripEntry.Name);
+
+	// Skin
+	AssaultRifle01.SkinEntry = UWeaponSkinBPLibrary::GetWeaponSkinByName(EWeaponSkinName::DefaultAssaultRifle01);
 
 	// other settings
 	AssaultRifle01.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::Assault_Rifle_01);
@@ -205,6 +209,9 @@ static void InitWeaponInformation()
 	AssaultRifle02.GripSettingEntry = UAR02GripSettingsLibrary::GetAR02GripSettingsByName(AssaultRifle02.GripEntry.Name);
 	AssaultRifle02.GripIcon = UAR02WeaponIconSettingsLibrary::GetWeaponIconByName(AssaultRifle02.GripEntry.Name);
 
+	// Skin
+	AssaultRifle02.SkinEntry = UWeaponSkinBPLibrary::GetWeaponSkinByName(EWeaponSkinName::DefaultAssaultRifle02);
+
 	// Other Settings
 	AssaultRifle02.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::Assault_Rifle_02);
 	AssaultRifle02.CharacterPoseSettings = UCharacterAR02PoseSettingsLibrary::GetAllCharacterAR02PoseSettings();
@@ -236,6 +243,10 @@ static void InitWeaponInformation()
 	AssaultRifle03.GripEntry = UGripBPLibrary::GetGripByName(EWeaponIconName::NoneHidden);
 	AssaultRifle03.GripSettingEntry = UAR03GripSettingsLibrary::GetAR03GripSettingsByName(AssaultRifle03.GripEntry.Name);
 	AssaultRifle03.GripIcon = UAR03WeaponIconSettingsLibrary::GetWeaponIconByName(AssaultRifle03.GripEntry.Name);
+
+	// Skin
+	AssaultRifle03.SkinEntry = UWeaponSkinBPLibrary::GetWeaponSkinByName(EWeaponSkinName::DefaultAssaultRifle03);
+
 	AssaultRifle03.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::Assault_Rifle_03);
 	AssaultRifle03.CharacterPoseSettings = UCharacterAR03PoseSettingsLibrary::GetAllCharacterAR03PoseSettings();
 	AssaultRifle03.CharacterMontageSettings = UCharacterAR03MontageSettingsLibrary::GetAllCharacterAR03MontageSettings();
@@ -266,6 +277,10 @@ static void InitWeaponInformation()
 	Handgun01.GripEntry = UGripBPLibrary::GetGripByName(EWeaponIconName::NoneHidden);
 	Handgun01.GripSettingEntry = UHandgun01GripSettingsLibrary::GetHandgun01GripSettingsByName(Handgun01.GripEntry.Name);
 	Handgun01.GripIcon = UHandgun01WeaponIconSettingsLibrary::GetWeaponIconByName(Handgun01.GripEntry.Name);
+
+	// Skin
+	Handgun01.SkinEntry = UWeaponSkinBPLibrary::GetWeaponSkinByName(EWeaponSkinName::DefaultHandgun01);
+
 	Handgun01.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::Handgun_01);
 	Handgun01.CharacterPoseSettings = UCharacterHandgun01PoseSettingsLibrary::GetAllCharacterHandgun01PoseSettings();
 	Handgun01.CharacterMontageSettings = UCharacterHandgun01MontageSettingsLibrary::GetAllCharacterHandgun01MontageSettings();
@@ -296,6 +311,10 @@ static void InitWeaponInformation()
 	Handgun02.GripEntry = UGripBPLibrary::GetGripByName(EWeaponIconName::NoneHidden);
 	Handgun02.GripSettingEntry = UHandgun02GripSettingsLibrary::GetHandgun02GripSettingsByName(Handgun02.GripEntry.Name);
 	Handgun02.GripIcon = UHandgun02WeaponIconSettingsLibrary::GetWeaponIconByName(Handgun02.GripEntry.Name);
+
+	// Skin
+	Handgun02.SkinEntry = UWeaponSkinBPLibrary::GetWeaponSkinByName(EWeaponSkinName::DefaultHandgun02);
+
 	Handgun02.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::Handgun_02);
 	Handgun02.CharacterPoseSettings = UCharacterHandgun02PoseSettingsLibrary::GetAllCharacterHandgun02PoseSettings();
 	Handgun02.CharacterMontageSettings = UCharacterHandgun02MontageSettingsLibrary::GetAllCharacterHandgun02MontageSettings();
@@ -326,6 +345,10 @@ static void InitWeaponInformation()
 	Handgun03.GripEntry = UGripBPLibrary::GetGripByName(EWeaponIconName::NoneHidden);
 	Handgun03.GripSettingEntry = UHandgun03GripSettingsLibrary::GetHandgun03GripSettingsByName(Handgun03.GripEntry.Name);
 	Handgun03.GripIcon = UHandgun03WeaponIconSettingsLibrary::GetWeaponIconByName(Handgun03.GripEntry.Name);
+
+	// Skin
+	Handgun03.SkinEntry = UWeaponSkinBPLibrary::GetWeaponSkinByName(EWeaponSkinName::DefaultHandgun03);
+
 	Handgun03.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::Handgun_03);
 	Handgun03.CharacterPoseSettings = UCharacterHandgun03PoseSettingsLibrary::GetAllCharacterHandgun03PoseSettings();
 	Handgun03.CharacterMontageSettings = UCharacterHandgun03MontageSettingsLibrary::GetAllCharacterHandgun03MontageSettings();
@@ -356,6 +379,10 @@ static void InitWeaponInformation()
 	Handgun04.GripEntry = UGripBPLibrary::GetGripByName(EWeaponIconName::NoneHidden);
 	Handgun04.GripSettingEntry = UHandgun04GripSettingsLibrary::GetHandgun04GripSettingsByName(Handgun04.GripEntry.Name);
 	Handgun04.GripIcon = UHandgun04WeaponIconSettingsLibrary::GetWeaponIconByName(Handgun04.GripEntry.Name);
+
+	// Skin
+	Handgun04.SkinEntry = UWeaponSkinBPLibrary::GetWeaponSkinByName(EWeaponSkinName::DefaultHandgun04);
+
 	Handgun04.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::Handgun_04);
 	Handgun04.CharacterPoseSettings = UCharacterHandgun04PoseSettingsLibrary::GetAllCharacterHandgun04PoseSettings();
 	Handgun04.CharacterMontageSettings = UCharacterHandgun04MontageSettingsLibrary::GetAllCharacterHandgun04MontageSettings();
@@ -386,6 +413,10 @@ static void InitWeaponInformation()
 	RocketLauncher01.GripEntry = UGripBPLibrary::GetGripByName(EWeaponIconName::NoneHidden);
 	RocketLauncher01.GripSettingEntry = URL01GripSettingsLibrary::GetRL01GripSettingsByName(RocketLauncher01.GripEntry.Name);
 	RocketLauncher01.GripIcon = URL01WeaponIconSettingsLibrary::GetWeaponIconByName(RocketLauncher01.GripEntry.Name);
+
+	// Skin
+	RocketLauncher01.SkinEntry = UWeaponSkinBPLibrary::GetWeaponSkinByName(EWeaponSkinName::DefaultLauncherRocket01);
+
 	RocketLauncher01.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::Rocket_Launcher_01);
 	RocketLauncher01.CharacterPoseSettings = UCharacterRocketLauncher01PoseSettingsLibrary::GetAllCharacterRocketLauncher01PoseSettings();
 	RocketLauncher01.CharacterMontageSettings = UCharacterRocketLauncher01MontageSettingsLibrary::GetAllCharacterRocketLauncher01MontageSettings();
@@ -416,6 +447,10 @@ static void InitWeaponInformation()
 	GrenadeLauncher01.GripEntry = UGripBPLibrary::GetGripByName(EWeaponIconName::NoneHidden);
 	GrenadeLauncher01.GripSettingEntry = UGL01GripSettingsLibrary::GetGL01GripSettingsByName(GrenadeLauncher01.GripEntry.Name);
 	GrenadeLauncher01.GripIcon = UGL01WeaponIconSettingsLibrary::GetWeaponIconByName(GrenadeLauncher01.GripEntry.Name);
+
+	// Skin
+	GrenadeLauncher01.SkinEntry = UWeaponSkinBPLibrary::GetWeaponSkinByName(EWeaponSkinName::DefaultLauncherGrenade01);
+
 	GrenadeLauncher01.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::Grenade_Launcher_01);
 	GrenadeLauncher01.CharacterPoseSettings = UCharacterGL01PoseSettingsLibrary::GetAllCharacterGL01PoseSettings();
 	GrenadeLauncher01.CharacterMontageSettings = UCharacterGL01MontageSettingsLibrary::GetAllCharacterGL01MontageSettings();
@@ -476,6 +511,10 @@ static void InitWeaponInformation()
 	SMG01.GripEntry = UGripBPLibrary::GetGripByName(EWeaponIconName::NoneHidden);
 	SMG01.GripSettingEntry = USMG01GripSettingsLibrary::GetSMG01GripSettingsByName(SMG01.GripEntry.Name);
 	SMG01.GripIcon = USMG01WeaponIconSettingsLibrary::GetWeaponIconByName(SMG01.GripEntry.Name);
+
+	// Skin
+	SMG01.SkinEntry = UWeaponSkinBPLibrary::GetWeaponSkinByName(EWeaponSkinName::DefaultSMG01);
+
 	SMG01.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::SMG_01);
 	SMG01.CharacterPoseSettings = UCharacterSMG01PoseSettingsLibrary::GetAllCharacterSMG01PoseSettings();
 	SMG01.CharacterMontageSettings = UCharacterSMG01MontageSettingsLibrary::GetAllCharacterSMG01MontageSettings();
@@ -506,6 +545,10 @@ static void InitWeaponInformation()
 	SMG02.GripEntry = UGripBPLibrary::GetGripByName(EWeaponIconName::NoneHidden);
 	SMG02.GripSettingEntry = USMG02GripSettingsLibrary::GetSMG02GripSettingsByName(SMG02.GripEntry.Name);
 	SMG02.GripIcon = USMG02WeaponIconSettingsLibrary::GetWeaponIconByName(SMG02.GripEntry.Name);
+
+	// Skin
+	SMG02.SkinEntry = UWeaponSkinBPLibrary::GetWeaponSkinByName(EWeaponSkinName::DefaultSMG02);
+
 	SMG02.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::SMG_02);
 	SMG02.CharacterPoseSettings = UCharacterSMG02PoseSettingsLibrary::GetAllCharacterSMG02PoseSettings();
 	SMG02.CharacterMontageSettings = UCharacterSMG02MontageSettingsLibrary::GetAllCharacterSMG02MontageSettings();
@@ -536,6 +579,10 @@ static void InitWeaponInformation()
 	SMG03.GripEntry = UGripBPLibrary::GetGripByName(EWeaponIconName::NoneHidden);
 	SMG03.GripSettingEntry = USMG03GripSettingsLibrary::GetSMG03GripSettingsByName(SMG03.GripEntry.Name);
 	SMG03.GripIcon = USMG03WeaponIconSettingsLibrary::GetWeaponIconByName(SMG03.GripEntry.Name);
+
+	// Skin
+	SMG03.SkinEntry = UWeaponSkinBPLibrary::GetWeaponSkinByName(EWeaponSkinName::DefaultSMG03);
+
 	SMG03.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::SMG_03);
 	SMG03.CharacterPoseSettings = UCharacterSMG03PoseSettingsLibrary::GetAllCharacterSMG03PoseSettings();
 	SMG03.CharacterMontageSettings = UCharacterSMG03MontageSettingsLibrary::GetAllCharacterSMG03MontageSettings();
@@ -566,6 +613,10 @@ static void InitWeaponInformation()
 	SMG04.GripEntry = UGripBPLibrary::GetGripByName(EWeaponIconName::NoneHidden);
 	SMG04.GripSettingEntry = USMG04GripSettingsLibrary::GetSMG04GripSettingsByName(SMG04.GripEntry.Name);
 	SMG04.GripIcon = USMG04WeaponIconSettingsLibrary::GetWeaponIconByName(SMG04.GripEntry.Name);
+
+	// Skin
+	SMG04.SkinEntry = UWeaponSkinBPLibrary::GetWeaponSkinByName(EWeaponSkinName::DefaultSMG04);
+
 	SMG04.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::SMG_04);
 	SMG04.CharacterPoseSettings = UCharacterSMG04PoseSettingsLibrary::GetAllCharacterSMG04PoseSettings();
 	SMG04.CharacterMontageSettings = UCharacterSMG04MontageSettingsLibrary::GetAllCharacterSMG04MontageSettings();
@@ -656,6 +707,10 @@ static void InitWeaponInformation()
 	Sniper02.GripEntry = UGripBPLibrary::GetGripByName(EWeaponIconName::NoneHidden);
 	Sniper02.GripSettingEntry = USniper02GripSettingsLibrary::GetSniper02GripSettingsByName(Sniper02.GripEntry.Name);
 	Sniper02.GripIcon = USniper02WeaponIconSettingsLibrary::GetWeaponIconByName(Sniper02.GripEntry.Name);
+
+	// Skin
+	Sniper02.SkinEntry = UWeaponSkinBPLibrary::GetWeaponSkinByName(EWeaponSkinName::DefaultSniper02);
+
 	Sniper02.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::Sniper_02);
 	Sniper02.CharacterPoseSettings = UCharacterSniper02PoseSettingsLibrary::GetAllCharacterSniper02PoseSettings();
 	Sniper02.CharacterMontageSettings = UCharacterSniper02MontageSettingsLibrary::GetAllCharacterSniper02MontageSettings();
@@ -686,6 +741,10 @@ static void InitWeaponInformation()
 	Sniper03.GripEntry = UGripBPLibrary::GetGripByName(EWeaponIconName::NoneHidden);
 	Sniper03.GripSettingEntry = USniper03GripSettingsLibrary::GetSniper03GripSettingsByName(Sniper03.GripEntry.Name);
 	Sniper03.GripIcon = USniper03WeaponIconSettingsLibrary::GetWeaponIconByName(Sniper03.GripEntry.Name);
+
+	// Skin
+	Sniper03.SkinEntry = UWeaponSkinBPLibrary::GetWeaponSkinByName(EWeaponSkinName::DefaultSniper03);
+
 	Sniper03.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::Sniper_03);
 	Sniper03.CharacterPoseSettings = UCharacterSniper03PoseSettingsLibrary::GetAllCharacterSniper03PoseSettings();
 	Sniper03.CharacterMontageSettings = UCharacterSniper03MontageSettingsLibrary::GetAllCharacterSniper03MontageSettings();
@@ -726,7 +785,8 @@ FWeaponInformationEntry UWeaponInformationLibrary::GetWeaponInformationByPropert
 	const EWeaponIconName ScopeName,
 	const EWeaponIconName LaserName,
 	const EWeaponIconName MuzzleName,
-	const EWeaponIconName GripName
+	const EWeaponIconName GripName,
+	const EWeaponSkinName SkinName
 )
 {
 	InitWeaponInformation();
@@ -758,6 +818,8 @@ FWeaponInformationEntry UWeaponInformationLibrary::GetWeaponInformationByPropert
 	WeaponInfo.GripEntry = UGripBPLibrary::GetGripByName(GripName);
 	WeaponInfo.GripSettingEntry = GetGripSettingsForWeapon(WeaponName, WeaponInfo.GripEntry.Name);
 	WeaponInfo.GripIcon = GetGripIconForWeapon(WeaponName, WeaponInfo.GripEntry.Name);
+
+	WeaponInfo.SkinEntry = UWeaponSkinBPLibrary::GetWeaponSkinByName(SkinName);
 	
 	return WeaponInfo;
 }

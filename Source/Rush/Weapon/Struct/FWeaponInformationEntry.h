@@ -15,6 +15,7 @@
 #include "FWeaponMontageSettings.h"
 #include "FWeaponMovementSettings.h"
 #include "FWeaponSettings.h"
+#include "FWeaponSkinEntry.h"
 #include "FWeaponSound.h"
 #include "Rush/Ability/Struct/FAbilities.h"
 #include "Rush/Character/Struct/FCharacterMontageSettings.h"
@@ -88,6 +89,9 @@ struct FWeaponInformationEntry
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FWeaponIcon GripIcon;
 
+	// Skins
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FWeaponSkinEntry SkinEntry;
 
 	// Other Settings
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
