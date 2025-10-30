@@ -1,7 +1,7 @@
 #include "AR03MontageSettingsLibrary.h"
 #include "Engine/Engine.h"
 
-static TMap<EWeaponMontageName, FWeaponMontageSettings> GAR03MontageSettingsMap;
+static TMap<ECharacterMontageName, FWeaponMontageSettings> GAR03MontageSettingsMap;
 
 static void InitAR03MontageSettingsMap()
 {
@@ -27,52 +27,52 @@ static void InitAR03MontageSettingsMap()
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Weapon/ARs/Animation/Montage/AM_WEP_AR_03_Fire.AM_WEP_AR_03_Fire'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Weapon/ARs/Animation/Montage/AM_WEP_AR_03_Fire.AM_WEP_AR_03_Fire'")
     );
-    GAR03MontageSettingsMap.Add(EWeaponMontageName::Weapon_Fire, FireSettings);
+    GAR03MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Fire, FireSettings);
 
     // Fire-Empty
     FWeaponMontageSettings FireEmptySettings = CreateMontageSettings(
         TEXT("None"),
         TEXT("None")
     );
-    GAR03MontageSettingsMap.Add(EWeaponMontageName::Weapon_Fire_Empty, FireEmptySettings);
+    GAR03MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Fire_Empty, FireEmptySettings);
 
     // Reload
     FWeaponMontageSettings ReloadSettings = CreateMontageSettings(
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Weapon/ARs/Animation/Montage/AM_FP_WEP_AR_03_Reload.AM_FP_WEP_AR_03_Reload'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Weapon/ARs/Animation/Montage/AM_TP_WEP_AR_03_Reload.AM_TP_WEP_AR_03_Reload'")
     );
-    GAR03MontageSettingsMap.Add(EWeaponMontageName::Weapon_Reload, ReloadSettings);
+    GAR03MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Reload, ReloadSettings);
 
     // Reload-Empty
     FWeaponMontageSettings ReloadEmptySettings = CreateMontageSettings(
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Weapon/ARs/Animation/Montage/AM_FP_WEP_AR_03_Reload_Empty.AM_FP_WEP_AR_03_Reload_Empty'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Weapon/ARs/Animation/Montage/AM_TP_WEP_AR_03_Reload_Empty.AM_TP_WEP_AR_03_Reload_Empty'")
     );
-    GAR03MontageSettingsMap.Add(EWeaponMontageName::Weapon_Reload_Empty, ReloadEmptySettings);
+    GAR03MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Reload_Empty, ReloadEmptySettings);
 
     // Inspect
     FWeaponMontageSettings InspectSettings = CreateMontageSettings(
         TEXT("None"),
         TEXT("None")
     );
-    GAR03MontageSettingsMap.Add(EWeaponMontageName::Weapon_Inspect, InspectSettings);
+    GAR03MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Inspect, InspectSettings);
 
     // Holster
     FWeaponMontageSettings HolsterSettings = CreateMontageSettings(
         TEXT("None"),
         TEXT("None")
     );
-    GAR03MontageSettingsMap.Add(EWeaponMontageName::Weapon_Holster, HolsterSettings);
+    GAR03MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Holster, HolsterSettings);
 
     // Unholster
     FWeaponMontageSettings UnholsterSettings = CreateMontageSettings(
         TEXT("None"),
         TEXT("None")
     );
-    GAR03MontageSettingsMap.Add(EWeaponMontageName::Weapon_Unholster, UnholsterSettings);
+    GAR03MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Unholster, UnholsterSettings);
 }
 
-FWeaponMontageSettings UAR03MontageSettingsLibrary::GetAR03MontageSettingsByName(EWeaponMontageName MontageName)
+FWeaponMontageSettings UAR03MontageSettingsLibrary::GetAR03MontageSettingsByName(ECharacterMontageName MontageName)
 {
     InitAR03MontageSettingsMap();
     if (GAR03MontageSettingsMap.Contains(MontageName))

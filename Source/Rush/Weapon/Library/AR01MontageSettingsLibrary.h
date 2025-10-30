@@ -2,7 +2,7 @@
 
 #include "CoreMinimal.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
-#include "Rush/Weapon/Enum/EWeaponMontageName.h"
+#include "Rush/Character/Enum/ECharacterMontageName.h"
 #include "Rush/Weapon/Struct/FWeaponMontageSettings.h"
 #include "AR01MontageSettingsLibrary.generated.h"
 
@@ -13,7 +13,7 @@ class RUSH_API UAR01MontageSettingsLibrary : public UBlueprintFunctionLibrary
 
 public:
     UFUNCTION(BlueprintPure, Category="AR 01 Montage Settings")
-    static FWeaponMontageSettings GetAR01MontageSettingsByName(EWeaponMontageName MontageName);
+    static FWeaponMontageSettings GetAR01MontageSettingsByName(ECharacterMontageName MontageName);
 
     UFUNCTION(BlueprintPure, Category="AR 01 Montage Settings")
     static TArray<FWeaponMontageSettings> GetAllAR01MontageSettings();

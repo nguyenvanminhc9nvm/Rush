@@ -1,8 +1,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Rush/Weapon/Enum/EWeaponMontageName.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
+#include "Rush/Character/Enum/ECharacterMontageName.h"
 #include "Rush/Weapon/Struct/FWeaponMontageSettings.h"
 #include "Handgun02MontageSettingsLibrary.generated.h"
 
@@ -13,7 +13,7 @@ class RUSH_API UHandgun02MontageSettingsLibrary : public UBlueprintFunctionLibra
 
 public:
     UFUNCTION(BlueprintPure, Category="Handgun 02 Montage Settings")
-    static FWeaponMontageSettings GetHandgun02MontageSettingsByName(EWeaponMontageName MontageName);
+    static FWeaponMontageSettings GetHandgun02MontageSettingsByName(ECharacterMontageName MontageName);
 
     UFUNCTION(BlueprintCallable, Category="Handgun 02 Montage Settings")
     static TArray<FWeaponMontageSettings> GetAllHandgun02MontageSettings();

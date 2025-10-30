@@ -1,7 +1,8 @@
 #include "Handgun03MontageSettingsLibrary.h"
 #include "Engine/Engine.h"
+#include "Rush/Character/Enum/ECharacterMontageName.h"
 
-static TMap<EWeaponMontageName, FWeaponMontageSettings> GHandgun03MontageSettingsMap;
+static TMap<ECharacterMontageName, FWeaponMontageSettings> GHandgun03MontageSettingsMap;
 
 static void InitHandgun03MontageSettingsMap()
 {
@@ -27,52 +28,52 @@ static void InitHandgun03MontageSettingsMap()
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Weapon/Handguns/Animation/Montage/AM_FP_WEP_Handgun_03_Fire.AM_FP_WEP_Handgun_03_Fire'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Weapon/Handguns/Animation/Montage/AM_TP_WEP_Handgun_03_Fire.AM_TP_WEP_Handgun_03_Fire'")
     );
-    GHandgun03MontageSettingsMap.Add(EWeaponMontageName::Weapon_Fire, FireSettings);
+    GHandgun03MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Fire, FireSettings);
 
     // Fire-Empty
     FWeaponMontageSettings FireEmptySettings = CreateMontageSettings(
         TEXT("None"),
         TEXT("None")
     );
-    GHandgun03MontageSettingsMap.Add(EWeaponMontageName::Weapon_Fire_Empty, FireEmptySettings);
+    GHandgun03MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Fire_Empty, FireEmptySettings);
 
     // Reload
     FWeaponMontageSettings ReloadSettings = CreateMontageSettings(
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Weapon/Handguns/Animation/Montage/AM_FP_WEP_Handgun_03_Reload.AM_FP_WEP_Handgun_03_Reload'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Weapon/Handguns/Animation/Montage/AM_TP_WEP_Handgun_03_Reload.AM_TP_WEP_Handgun_03_Reload'")
     );
-    GHandgun03MontageSettingsMap.Add(EWeaponMontageName::Weapon_Reload, ReloadSettings);
+    GHandgun03MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Reload, ReloadSettings);
 
     // Reload-Empty
     FWeaponMontageSettings ReloadEmptySettings = CreateMontageSettings(
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Weapon/Handguns/Animation/Montage/AM_FP_WEP_Handgun_03_Reload_Empty.AM_FP_WEP_Handgun_03_Reload_Empty'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Weapon/Handguns/Animation/Montage/AM_TP_WEP_Handgun_03_Reload_Empty.AM_TP_WEP_Handgun_03_Reload_Empty'")
     );
-    GHandgun03MontageSettingsMap.Add(EWeaponMontageName::Weapon_Reload_Empty, ReloadEmptySettings);
+    GHandgun03MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Reload_Empty, ReloadEmptySettings);
 
     // Inspect
     FWeaponMontageSettings InspectSettings = CreateMontageSettings(
         TEXT("None"),
         TEXT("None")
     );
-    GHandgun03MontageSettingsMap.Add(EWeaponMontageName::Weapon_Inspect, InspectSettings);
+    GHandgun03MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Inspect, InspectSettings);
 
     // Holster
     FWeaponMontageSettings HolsterSettings = CreateMontageSettings(
         TEXT("None"),
         TEXT("None")
     );
-    GHandgun03MontageSettingsMap.Add(EWeaponMontageName::Weapon_Holster, HolsterSettings);
+    GHandgun03MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Holster, HolsterSettings);
 
     // Unholster
     FWeaponMontageSettings UnholsterSettings = CreateMontageSettings(
         TEXT("None"),
         TEXT("None")
     );
-    GHandgun03MontageSettingsMap.Add(EWeaponMontageName::Weapon_Unholster, UnholsterSettings);
+    GHandgun03MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Unholster, UnholsterSettings);
 }
 
-FWeaponMontageSettings UHandgun03MontageSettingsLibrary::GetHandgun03MontageSettingsByName(EWeaponMontageName MontageName)
+FWeaponMontageSettings UHandgun03MontageSettingsLibrary::GetHandgun03MontageSettingsByName(ECharacterMontageName MontageName)
 {
     InitHandgun03MontageSettingsMap();
     if (GHandgun03MontageSettingsMap.Contains(MontageName))

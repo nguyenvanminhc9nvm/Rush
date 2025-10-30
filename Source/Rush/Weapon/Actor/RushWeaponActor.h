@@ -3,6 +3,7 @@
 #include "CoreMinimal.h"
 #include "Components/PointLightComponent.h"
 #include "Components/TimelineComponent.h"
+#include "Rush/Character/Enum/ECharacterMontageName.h"
 #include "Rush/Weapon/Enum/EWeaponMontageName.h"
 #include "Rush/Weapon/Enum/EWeaponName.h"
 #include "Rush/Weapon/Enum/EWeaponSkinName.h"
@@ -82,7 +83,7 @@ public:
 	TEnumAsByte<EWeaponSkinName> SkinEquipped = EWeaponSkinName::DefaultAssaultRifle01;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TEnumAsByte<EWeaponMontageName> PreviousMontageName = EWeaponMontageName::Weapon_Montage_None;
+	TEnumAsByte<ECharacterMontageName> PreviousMontageName = ECharacterMontageName::Character_Montage_None;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FWeaponInformationEntry WeaponInformationEntry;
@@ -97,6 +98,9 @@ public:
 	FWeaponInformationEntry GetWeaponInformationEntry();
 	
 	UFUNCTION(BlueprintCallable)
-	FWeaponMontageSettings GetWeaponMontageByName(EWeaponMontageName MontageName);
+	FWeaponMontageSettings GetWeaponMontageByName();
+
+	UFUNCTION(BlueprintCallable)
+	FWeaponSound GetWeaponSoundByName();
 	
 };

@@ -26,5 +26,6 @@ enum ECharacterMontageName : uint8
 	Character_Montage_Knife_Attack            UMETA(DisplayName = "Knife-Attack"),
 	Character_Montage_Knife_Attack_Additive   UMETA(DisplayName = "Knife-Attack-Additive"),
 	Character_Montage_Attack_01               UMETA(DisplayName = "Attack-01"),
-	Character_Montage_Attack_02               UMETA(DisplayName = "Attack-02")
+	Character_Montage_Attack_02               UMETA(DisplayName = "Attack-02"),
+	Character_Montage_None               UMETA(DisplayName = "None"),
 };

@@ -1,7 +1,8 @@
 #include "RL01MontageSettingsLibrary.h"
 #include "Engine/Engine.h"
+#include "Rush/Character/Enum/ECharacterMontageName.h"
 
-static TMap<EWeaponMontageName, FWeaponMontageSettings> GRL01MontageSettingsMap;
+static TMap<ECharacterMontageName, FWeaponMontageSettings> GRL01MontageSettingsMap;
 
 static void InitRL01MontageSettingsMap()
 {
@@ -27,52 +28,52 @@ static void InitRL01MontageSettingsMap()
         TEXT("None"),
         TEXT("None")
     );
-    GRL01MontageSettingsMap.Add(EWeaponMontageName::Weapon_Fire, FireSettings);
+    GRL01MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Fire, FireSettings);
 
     // Fire-Empty
     FWeaponMontageSettings FireEmptySettings = CreateMontageSettings(
         TEXT("None"),
         TEXT("None")
     );
-    GRL01MontageSettingsMap.Add(EWeaponMontageName::Weapon_Fire_Empty, FireEmptySettings);
+    GRL01MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Fire_Empty, FireEmptySettings);
 
     // Reload
     FWeaponMontageSettings ReloadSettings = CreateMontageSettings(
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Weapon/Launchers/Animation/Montage/AM_FP_WEP_RL_01_Reload.AM_FP_WEP_RL_01_Reload'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Weapon/Launchers/Animation/Montage/AM_TP_WEP_RL_01_Reload.AM_TP_WEP_RL_01_Reload'")
     );
-    GRL01MontageSettingsMap.Add(EWeaponMontageName::Weapon_Reload, ReloadSettings);
+    GRL01MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Reload, ReloadSettings);
 
     // Reload-Empty
     FWeaponMontageSettings ReloadEmptySettings = CreateMontageSettings(
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Weapon/Launchers/Animation/Montage/AM_FP_WEP_RL_01_Reload.AM_FP_WEP_RL_01_Reload'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Weapon/Launchers/Animation/Montage/AM_TP_WEP_RL_01_Reload.AM_TP_WEP_RL_01_Reload'")
     );
-    GRL01MontageSettingsMap.Add(EWeaponMontageName::Weapon_Reload_Empty, ReloadEmptySettings);
+    GRL01MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Reload_Empty, ReloadEmptySettings);
 
     // Inspect
     FWeaponMontageSettings InspectSettings = CreateMontageSettings(
         TEXT("None"),
         TEXT("None")
     );
-    GRL01MontageSettingsMap.Add(EWeaponMontageName::Weapon_Inspect, InspectSettings);
+    GRL01MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Inspect, InspectSettings);
 
     // Holster
     FWeaponMontageSettings HolsterSettings = CreateMontageSettings(
         TEXT("None"),
         TEXT("None")
     );
-    GRL01MontageSettingsMap.Add(EWeaponMontageName::Weapon_Holster, HolsterSettings);
+    GRL01MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Holster, HolsterSettings);
 
     // Unholster
     FWeaponMontageSettings UnholsterSettings = CreateMontageSettings(
         TEXT("None"),
         TEXT("None")
     );
-    GRL01MontageSettingsMap.Add(EWeaponMontageName::Weapon_Unholster, UnholsterSettings);
+    GRL01MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Unholster, UnholsterSettings);
 }
 
-FWeaponMontageSettings URL01MontageSettingsLibrary::GetRL01MontageSettingsByName(EWeaponMontageName MontageName)
+FWeaponMontageSettings URL01MontageSettingsLibrary::GetRL01MontageSettingsByName(ECharacterMontageName MontageName)
 {
     InitRL01MontageSettingsMap();
     if (GRL01MontageSettingsMap.Contains(MontageName))

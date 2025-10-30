@@ -1,7 +1,8 @@
 #include "Sniper01MontageSettingsLibrary.h"
 #include "Engine/Engine.h"
+#include "Rush/Character/Enum/ECharacterMontageName.h"
 
-static TMap<EWeaponMontageName, FWeaponMontageSettings> GSniper01MontageSettingsMap;
+static TMap<ECharacterMontageName, FWeaponMontageSettings> GSniper01MontageSettingsMap;
 
 static void InitSniper01MontageSettingsMap()
 {
@@ -27,52 +28,52 @@ static void InitSniper01MontageSettingsMap()
         TEXT("None"),
         TEXT("None")
     );
-    GSniper01MontageSettingsMap.Add(EWeaponMontageName::Weapon_Fire, FireSettings);
+    GSniper01MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Fire, FireSettings);
 
     // Fire-Empty
     FWeaponMontageSettings FireEmptySettings = CreateMontageSettings(
         TEXT("None"),
         TEXT("None")
     );
-    GSniper01MontageSettingsMap.Add(EWeaponMontageName::Weapon_Fire_Empty, FireEmptySettings);
+    GSniper01MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Fire_Empty, FireEmptySettings);
 
     // Reload (using Reload-Open as the main reload)
     FWeaponMontageSettings ReloadSettings = CreateMontageSettings(
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Weapon/Snipers/Animation/Montage/AM_FP_WEP_Sniper_01_Reload_Open.AM_FP_WEP_Sniper_01_Reload_Open'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Weapon/Snipers/Animation/Montage/AM_TP_WEP_Sniper_01_Reload_Open.AM_TP_WEP_Sniper_01_Reload_Open'")
     );
-    GSniper01MontageSettingsMap.Add(EWeaponMontageName::Weapon_Reload, ReloadSettings);
+    GSniper01MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Reload, ReloadSettings);
 
     // Reload-Empty (using Reload-Open as the main reload)
     FWeaponMontageSettings ReloadEmptySettings = CreateMontageSettings(
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Weapon/Snipers/Animation/Montage/AM_FP_WEP_Sniper_01_Reload_Open.AM_FP_WEP_Sniper_01_Reload_Open'"),
         TEXT("/Script/Engine.AnimMontage'/Game/Assets/Weapon/Snipers/Animation/Montage/AM_TP_WEP_Sniper_01_Reload_Open.AM_TP_WEP_Sniper_01_Reload_Open'")
     );
-    GSniper01MontageSettingsMap.Add(EWeaponMontageName::Weapon_Reload_Empty, ReloadEmptySettings);
+    GSniper01MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Reload_Empty, ReloadEmptySettings);
 
     // Inspect
     FWeaponMontageSettings InspectSettings = CreateMontageSettings(
         TEXT("None"),
         TEXT("None")
     );
-    GSniper01MontageSettingsMap.Add(EWeaponMontageName::Weapon_Inspect, InspectSettings);
+    GSniper01MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Inspect, InspectSettings);
 
     // Holster
     FWeaponMontageSettings HolsterSettings = CreateMontageSettings(
         TEXT("None"),
         TEXT("None")
     );
-    GSniper01MontageSettingsMap.Add(EWeaponMontageName::Weapon_Holster, HolsterSettings);
+    GSniper01MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Holster, HolsterSettings);
 
     // Unholster
     FWeaponMontageSettings UnholsterSettings = CreateMontageSettings(
         TEXT("None"),
         TEXT("None")
     );
-    GSniper01MontageSettingsMap.Add(EWeaponMontageName::Weapon_Unholster, UnholsterSettings);
+    GSniper01MontageSettingsMap.Add(ECharacterMontageName::Character_Montage_Unholster, UnholsterSettings);
 }
 
-FWeaponMontageSettings USniper01MontageSettingsLibrary::GetSniper01MontageSettingsByName(EWeaponMontageName MontageName)
+FWeaponMontageSettings USniper01MontageSettingsLibrary::GetSniper01MontageSettingsByName(ECharacterMontageName MontageName)
 {
     InitSniper01MontageSettingsMap();
     if (GSniper01MontageSettingsMap.Contains(MontageName))
