@@ -15,9 +15,5 @@ public:
     UFUNCTION(BlueprintPure, Category="Weapon Animation Settings")
     static FWeaponAnimationSettings GetWeaponAnimationSettingsByName(EWeaponName WeaponName);
 
-    UFUNCTION(BlueprintPure, Category="Weapon Animation Settings")
-    static TArray<TEnumAsByte<EWeaponName>> GetAllSupportedWeaponNames();
 
-    UFUNCTION(BlueprintPure, Category="Weapon Animation Settings")
-    static bool IsWeaponSupported(EWeaponName WeaponName);
 };

@@ -25,36 +25,20 @@ void URushMenuItemWidget::NativeOnListItemObjectSet(UObject* ListItemObject)
 	if (WeaponData)
 	{
 		CurrentWeaponData = WeaponData;
-		
-		for (const auto& Icon : CurrentWeaponData->WeaponInfoEntry.WeaponIconSettings)
-		{
-			if (Icon.Name == EWeaponIconName::Body && BodyImage)
-			{
-				BodyImage->SetBrushFromTexture(Icon.Texture.LoadSynchronous());
-			}
-			if (Icon.Name == EWeaponIconName::Magazine && MagazineImage)
-			{
-				MagazineImage->SetBrushFromTexture(Icon.Texture.LoadSynchronous());
-			}
-			if (Icon.Name == EWeaponIconName::Scope_Default && IronsightsImage)
-			{
-				IronsightsImage->SetBrushFromTexture(Icon.Texture.LoadSynchronous());
-			}
-			if (Icon.Name == EWeaponIconName::Scope_01 && ScopeImage)
-			{
-				ScopeImage->SetBrushFromTexture(Icon.Texture.LoadSynchronous());
-			}
-			if (Icon.Name == EWeaponIconName::Silencer_01 && MuzzleImage)
-			{
-				MuzzleImage->SetBrushFromTexture(Icon.Texture.LoadSynchronous());
-			}
-			if (Icon.Name == EWeaponIconName::Grip_01 && GripImage)
-			{
-				GripImage->SetBrushFromTexture(Icon.Texture.LoadSynchronous());
-			}
-			// set text weapon enum by get umeta
-			ButtonText->SetText(FText::FromString(UEnum::GetValueAsString(CurrentWeaponData->WeaponInfoEntry.Name)));
-		}
+
+		BodyImage->SetBrushFromTexture(CurrentWeaponData->WeaponInfoEntry.BodyIcon.Texture.Get());
+
+		MagazineImage->SetBrushFromTexture(CurrentWeaponData->WeaponInfoEntry.MagazineEntry.Texture);
+
+		IronsightsImage->SetBrushFromTexture(CurrentWeaponData->WeaponInfoEntry.IronsightEntry.Icon);
+
+		ScopeImage->SetBrushFromTexture(CurrentWeaponData->WeaponInfoEntry.ScopeIcon.Texture.Get());
+
+		MuzzleImage->SetBrushFromTexture(CurrentWeaponData->WeaponInfoEntry.MuzzleIcon.Texture.Get());
+
+		GripImage->SetBrushFromTexture(CurrentWeaponData->WeaponInfoEntry.GripIcon.Texture.Get());
+
+		ButtonText->SetText(FText::FromString(UEnum::GetValueAsString(CurrentWeaponData->WeaponInfoEntry.Name)));
 	}
 }
 

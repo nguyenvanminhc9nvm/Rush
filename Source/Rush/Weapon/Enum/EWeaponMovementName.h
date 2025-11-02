@@ -15,5 +15,6 @@ enum EWeaponMovementName : uint8
 	Shotgun_Movement                          UMETA(DisplayName = "Shotgun Movement"),
 	SMG_Movement                              UMETA(DisplayName = "SMG Movement"),
 	Sniper_Movement                           UMETA(DisplayName = "Sniper Movement"),
-	Sniper_Heavy_Movement                     UMETA(DisplayName = "Sniper Heavy Movement")
+	Sniper_Heavy_Movement                     UMETA(DisplayName = "Sniper Heavy Movement"),
+	None_Movement							   UMETA(DisplayName = "None Movement")
 };

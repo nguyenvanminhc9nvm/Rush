@@ -17,7 +17,6 @@
 
 struct FGripSettingsEntry;
 struct FWeaponSound;
-struct FWeaponIronSightEntry;
 struct FLaserSettingsEntry;
 struct FCharacterMontageSettings;
 struct FCharacterPoseSettings;

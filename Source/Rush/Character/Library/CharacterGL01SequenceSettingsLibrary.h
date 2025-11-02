@@ -1,8 +1,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Rush/Character/Enum/ECharacterSequenceName.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
+#include "Rush/Character/Enum/ECharacterPoseName.h"
 #include "Rush/Character/Struct/FCharacterSequenceSettings.h"
 #include "CharacterGL01SequenceSettingsLibrary.generated.h"
 
@@ -13,6 +13,6 @@ class RUSH_API UCharacterGL01SequenceSettingsLibrary : public UBlueprintFunction
 
 public:
     UFUNCTION(BlueprintPure, Category="Character GL01 Sequence Settings")
-    static FCharacterSequenceSettings GetCharacterGL01SequenceSettingsByName(ECharacterSequenceName SequenceName);
+    static FCharacterSequenceSettings GetCharacterGL01SequenceSettingsByName(ECharacterPoseName SequenceName);
 
 };

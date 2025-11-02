@@ -3,10 +3,13 @@
 #include "CoreMinimal.h"
 #include "Components/PointLightComponent.h"
 #include "Components/TimelineComponent.h"
+#include "Rush/Ability/Enum/EAbilityName.h"
 #include "Rush/Character/Enum/ECharacterMontageName.h"
+#include "Rush/Character/Enum/ECharacterPoseName.h"
 #include "Rush/Weapon/Enum/EWeaponMontageName.h"
 #include "Rush/Weapon/Enum/EWeaponName.h"
 #include "Rush/Weapon/Enum/EWeaponSkinName.h"
+#include "Rush/Weapon/Library/WeaponPhysicalSettingsLibrary.h"
 #include "Rush/Weapon/Struct/FScopeEntry.h"
 #include "Rush/Weapon/Struct/FWeaponInformationEntry.h"
 #include "RushWeaponActor.generated.h"
@@ -84,6 +87,15 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TEnumAsByte<ECharacterMontageName> PreviousMontageName = ECharacterMontageName::Character_Montage_None;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TEnumAsByte<EFlashlightSettingsName> FlashlightName = EFlashlightSettingsName::Flashlight_Normal;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TEnumAsByte<ECharacterMontageName> WeaponSoundSetting = ECharacterMontageName::Character_Montage_None;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TEnumAsByte<EAbilityName> AbilityName = EAbilityName::None_Abilities;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FWeaponInformationEntry WeaponInformationEntry;

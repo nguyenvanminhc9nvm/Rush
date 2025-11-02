@@ -8,9 +8,9 @@ static void InitWeaponSettingsMap()
     if (GWeaponSettingsMap.Num() > 0) return;
 
     // Helper function to create recoil interpolation
-    auto CreateRecoilInterpolation = [](float Stiffness, float CriticalDampingFactor, float Mass) -> FRecoilInterpolation
+    auto CreateRecoilInterpolation = [](float Stiffness, float CriticalDampingFactor, float Mass) -> FRecoilInterpolationVector
     {
-        FRecoilInterpolation Interpolation;
+        FRecoilInterpolationVector Interpolation;
         Interpolation.Stiffness = Stiffness;
         Interpolation.CriticalDampingFactor = CriticalDampingFactor;
         Interpolation.Mass = Mass;
@@ -19,7 +19,7 @@ static void InitWeaponSettingsMap()
 
     // Helper function to create recoil state
     auto CreateRecoilState = [&](const FString& LocationCurvePath, const FString& RotationCurvePath, 
-                                 const FRecoilInterpolation& LocationInterp, const FRecoilInterpolation& RotationInterp,
+                                 const FRecoilInterpolationVector& LocationInterp, const FRecoilInterpolationVector& RotationInterp,
                                  float LocationMultiplier, float RotationMultiplier) -> FRecoilState
     {
         FRecoilState State;

@@ -1,7 +1,7 @@
 #include "CharacterShotgun01SequenceSettingsLibrary.h"
 #include "Engine/Engine.h"
 
-static TMap<ECharacterSequenceName, FCharacterSequenceSettings> GCharacterShotgun01SequenceSettingsMap;
+static TMap<ECharacterPoseName, FCharacterSequenceSettings> GCharacterShotgun01SequenceSettingsMap;
 
 static void InitCharacterShotgun01SequenceSettingsMap()
 {
@@ -27,66 +27,66 @@ static void InitCharacterShotgun01SequenceSettingsMap()
         TEXT("/Script/Engine.AnimSequence'/Game/Assets/Character/Animation/_Common/A_FP_PCH_Idle.A_FP_PCH_Idle'"),
         TEXT("None")
     );
-    GCharacterShotgun01SequenceSettingsMap.Add(ECharacterSequenceName::Standing_Breathing, StandingBreathingSettings);
+    GCharacterShotgun01SequenceSettingsMap.Add(ECharacterPoseName::Standing_Breathing, StandingBreathingSettings);
 
     // Aiming-Walking
     FCharacterSequenceSettings AimingWalkingSettings = CreateSequenceSettings(
         TEXT("/Script/Engine.AnimSequence'/Game/Assets/Character/Animation/_Common/A_FP_PCH_Aim_Walk_F.A_FP_PCH_Aim_Walk_F'"),
         TEXT("None")
     );
-    GCharacterShotgun01SequenceSettingsMap.Add(ECharacterSequenceName::Aiming_Walking, AimingWalkingSettings);
+    GCharacterShotgun01SequenceSettingsMap.Add(ECharacterPoseName::Aiming_Walking, AimingWalkingSettings);
 
     // Aiming-Breathing
     FCharacterSequenceSettings AimingBreathingSettings = CreateSequenceSettings(
         TEXT("/Script/Engine.AnimSequence'/Game/Assets/Character/Animation/_Common/A_FP_PCH_Aim_Idle.A_FP_PCH_Aim_Idle'"),
         TEXT("None")
     );
-    GCharacterShotgun01SequenceSettingsMap.Add(ECharacterSequenceName::Aiming_Breathing, AimingBreathingSettings);
+    GCharacterShotgun01SequenceSettingsMap.Add(ECharacterPoseName::Aiming_Breathing, AimingBreathingSettings);
 
     // Turning
     FCharacterSequenceSettings TurningSettings = CreateSequenceSettings(
         TEXT("/Script/Engine.AnimSequence'/Game/Assets/Character/Animation/_Common/A_FP_PCH_Walk_F.A_FP_PCH_Walk_F'"),
         TEXT("None")
     );
-    GCharacterShotgun01SequenceSettingsMap.Add(ECharacterSequenceName::Turning, TurningSettings);
+    GCharacterShotgun01SequenceSettingsMap.Add(ECharacterPoseName::Turning, TurningSettings);
 
     // Jog
     FCharacterSequenceSettings JogSettings = CreateSequenceSettings(
         TEXT("/Script/Engine.AnimSequence'/Game/Assets/Character/Animation/Shotguns/A_FP_PCH_Shotgun_01_Run.A_FP_PCH_Shotgun_01_Run'"),
         TEXT("/Script/Engine.AnimSequence'/Game/Assets/Character/Animation/Shotguns/A_TP_CH_Shotgun_01_Jog_F.A_TP_CH_Shotgun_01_Jog_F'")
     );
-    GCharacterShotgun01SequenceSettingsMap.Add(ECharacterSequenceName::Jog, JogSettings);
+    GCharacterShotgun01SequenceSettingsMap.Add(ECharacterPoseName::Jog, JogSettings);
 
     // Sprint
     FCharacterSequenceSettings SprintSettings = CreateSequenceSettings(
         TEXT("/Script/Engine.AnimSequence'/Game/Assets/Character/Animation/Shotguns/A_FP_PCH_Shotgun_01_Run.A_FP_PCH_Shotgun_01_Run'"),
         TEXT("/Script/Engine.AnimSequence'/Game/Assets/Character/Animation/Shotguns/A_TP_CH_Shotgun_01_Sprint_F.A_TP_CH_Shotgun_01_Sprint_F'")
     );
-    GCharacterShotgun01SequenceSettingsMap.Add(ECharacterSequenceName::Sprint, SprintSettings);
+    GCharacterShotgun01SequenceSettingsMap.Add(ECharacterPoseName::Sprint, SprintSettings);
 
     // Sprint-Impulse
     FCharacterSequenceSettings SprintImpulseSettings = CreateSequenceSettings(
         TEXT("/Script/Engine.AnimSequence'/Game/Assets/Character/Animation/Shotguns/A_FP_PCH_Shotgun_01_Run.A_FP_PCH_Shotgun_01_Run'"),
         TEXT("/Script/Engine.AnimSequence'/Game/Assets/Character/Animation/Shotguns/A_TP_CH_Shotgun_01_Sprint_Impulse_F.A_TP_CH_Shotgun_01_Sprint_Impulse_F'")
     );
-    GCharacterShotgun01SequenceSettingsMap.Add(ECharacterSequenceName::Sprint_Impulse, SprintImpulseSettings);
+    GCharacterShotgun01SequenceSettingsMap.Add(ECharacterPoseName::Sprint_Impulse, SprintImpulseSettings);
 
     // Sprint-Tactical
     FCharacterSequenceSettings SprintTacticalSettings = CreateSequenceSettings(
         TEXT("/Script/Engine.AnimSequence'/Game/Assets/Character/Animation/Shotguns/A_FP_PCH_Shotgun_01_Sprint_Tactical_F_Loop.A_FP_PCH_Shotgun_01_Sprint_Tactical_F_Loop'"),
         TEXT("/Script/Engine.AnimSequence'/Game/Assets/Character/Animation/Shotguns/A_FP_PCH_Shotgun_01_Sprint_Tactical_F_Loop.A_FP_PCH_Shotgun_01_Sprint_Tactical_F_Loop'")
     );
-    GCharacterShotgun01SequenceSettingsMap.Add(ECharacterSequenceName::Sprint_Tactical, SprintTacticalSettings);
+    GCharacterShotgun01SequenceSettingsMap.Add(ECharacterPoseName::Sprint_Tactical, SprintTacticalSettings);
 
     // Crouching-Walking
     FCharacterSequenceSettings CrouchingWalkingSettings = CreateSequenceSettings(
         TEXT("/Script/Engine.AnimSequence'/Game/Assets/Character/Animation/_Common/A_FP_PCH_Walk_Crouch.A_FP_PCH_Walk_Crouch'"),
         TEXT("/Script/Engine.AnimSequence'/Game/Assets/Character/Animation/_Common/A_FP_PCH_Walk_Crouch.A_FP_PCH_Walk_Crouch'")
     );
-    GCharacterShotgun01SequenceSettingsMap.Add(ECharacterSequenceName::Crouching_Walking, CrouchingWalkingSettings);
+    GCharacterShotgun01SequenceSettingsMap.Add(ECharacterPoseName::Crouching_Walking, CrouchingWalkingSettings);
 }
 
-FCharacterSequenceSettings UCharacterShotgun01SequenceSettingsLibrary::GetCharacterShotgun01SequenceSettingsByName(ECharacterSequenceName SequenceName)
+FCharacterSequenceSettings UCharacterShotgun01SequenceSettingsLibrary::GetCharacterShotgun01SequenceSettingsByName(ECharacterPoseName SequenceName)
 {
     InitCharacterShotgun01SequenceSettingsMap();
     if (GCharacterShotgun01SequenceSettingsMap.Contains(SequenceName))

@@ -88,7 +88,17 @@ void ARushWeaponActor::BeginPlay()
 
 FWeaponInformationEntry ARushWeaponActor::GetWeaponInformationEntry()
 {
-	return UWeaponInformationLibrary::GetWeaponInformationByProperties(WeaponEquipped, ScopeEquipped, LaserEquipped, MuzzleEquipped, GripEquipped, SkinEquipped);
+	return UWeaponInformationLibrary::GetWeaponInformationByProperties(
+		WeaponEquipped,
+		ScopeEquipped,
+		LaserEquipped,
+	    MuzzleEquipped,
+	    GripEquipped,
+	    SkinEquipped,
+	    FlashlightName,
+	    WeaponSoundSetting,
+	    AbilityName
+	);
 }
 
 FWeaponMontageSettings ARushWeaponActor::GetWeaponMontageByName()

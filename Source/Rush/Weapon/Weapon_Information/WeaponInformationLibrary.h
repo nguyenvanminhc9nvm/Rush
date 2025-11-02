@@ -18,7 +18,17 @@ public:
 	static TArray<FWeaponInformationEntry> GetAllWeaponInformationEntries();
 
 	UFUNCTION(BlueprintCallable, Category = "Weapon Information Settings")
-	static FWeaponInformationEntry GetWeaponInformationByProperties(EWeaponName WeaponName, EWeaponIconName ScopeName, EWeaponIconName LaserName, EWeaponIconName MuzzleName, EWeaponIconName GripName, EWeaponSkinName SkinName);
+	static FWeaponInformationEntry GetWeaponInformationByProperties(
+		EWeaponName WeaponName,
+		EWeaponIconName ScopeName,
+		EWeaponIconName LaserName,
+		EWeaponIconName MuzzleName,
+		EWeaponIconName GripName,
+		EWeaponSkinName SkinName,
+		EFlashlightSettingsName FlashlightName,
+		ECharacterMontageName WeaponSoundSetting,
+		EAbilityName AbilityName
+		);
 
 	UFUNCTION()
 	static FWeaponIcon GetScopeIconForWeapon(EWeaponName WeaponName, EWeaponIconName ScopeName);
@@ -37,4 +47,28 @@ public:
 
 	UFUNCTION()
 	static FWeaponIcon GetMuzzleIconForWeapon(EWeaponName WeaponName, EWeaponIconName MuzzleName);
+
+	UFUNCTION()
+	static FWeaponMontageSettings GetWeaponMontageSettingsForWeapon(EWeaponName WeaponName, ECharacterMontageName MontageName);
+
+	UFUNCTION()
+	static FCharacterPoseSettings GetCharacterPoseSettingsForWeapon(EWeaponName WeaponName, ECharacterPoseName PoseName);
+
+	UFUNCTION()
+	static FCharacterMontageSettings GetCharacterMontageSettingsForWeapon(EWeaponName WeaponName, ECharacterMontageName MontageName);
+
+	UFUNCTION()
+	static FWeaponSound GetWeaponSoundSettingsForWeapon(EWeaponName WeaponName, ECharacterMontageName SoundName);
+
+	UFUNCTION()
+	static FWeaponPhysicalSettingsEntry GetWeaponPhysicalSettingsEntryForWeapon();
+
+	UFUNCTION()
+	static FCharacterWeaponMontageSettingsEntry GetCharacterMontageSettingsEntryForWeapon(EWeaponName WeaponName);
+
+	UFUNCTION()
+	static FCharacterWeaponPoseSettings GetCharacterWeaponPoseSettingsForWeapon(EWeaponName WeaponName);
+
+	UFUNCTION()
+	static FWeaponMontageSettingsEntry GetWeaponMontageSettingsEntryForWeapon(EWeaponName WeaponName);
 };

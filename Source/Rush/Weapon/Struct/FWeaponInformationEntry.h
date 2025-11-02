@@ -6,12 +6,14 @@
 #include "FLaserEntry.h"
 #include "FLaserSettingsEntry.h"
 #include "FLasersightSettingsEntry.h"
+#include "FMagazineEntry.h"
 #include "FMuzzleEntry.h"
 #include "FMuzzleSettingsEntry.h"
 #include "FScopeEntry.h"
 #include "FScopeSettingsEntry.h"
 #include "FWeaponAnimationSettings.h"
 #include "FWeaponIcon.h"
+#include "FWeaponIronsightEntry.h"
 #include "FWeaponMontageSettings.h"
 #include "FWeaponMovementSettings.h"
 #include "FWeaponSettings.h"
@@ -22,6 +24,7 @@
 #include "Rush/Character/Struct/FCharacterPoseSettings.h"
 #include "Rush/Weapon/Enum/EWeaponMovementName.h"
 #include "Rush/Weapon/Enum/EWeaponName.h"
+#include "Rush/Weapon/Interface/IWeaponInterface.h"
 #include "FWeaponInformationEntry.generated.h"
 
 struct FGripEntry;
@@ -89,25 +92,48 @@ struct FWeaponInformationEntry
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FWeaponIcon GripIcon;
 
+	// Magazine
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FMagazineEntry MagazineEntry;
+
 	// Skins
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FWeaponSkinEntry SkinEntry;
 
-	// Other Settings
+	// Body Icon
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FWeaponIcon BodyIcon;
+
+	// Ironsign
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FWeaponIronsightEntry IronsightEntry;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FWeaponIronsightSetting IronsightSettingsEntry;
+
+	// Flashlight
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FFlashlightSettingsEntry FlashlightSettingsEntry;
+
+	// Weapon Settings
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FWeaponSettings WeaponSettings;
+	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FWeaponAnimationSettings WeaponAnimationSettings;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TArray<FCharacterPoseSettings> CharacterPoseSettings;
+	FWeaponPhysicalSettingsEntry WeaponPhysicalSettingsEntry;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TArray<FCharacterMontageSettings> CharacterMontageSettings;
+	FCharacterWeaponMontageSettingsEntry CharacterMontageSettingsEntry;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TArray<FWeaponMontageSettings> WeaponMontage;
+	FWeaponMontageSettingsEntry WeaponMontageSettingsEntry;
 
+	// Character Poses
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FWeaponSettings WeaponSettings;
+	FCharacterWeaponPoseSettings CharacterWeaponPoseSettings;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FAbilities CharacterAbilitySetting;
@@ -115,9 +141,7 @@ struct FWeaponInformationEntry
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FWeaponMovementSettings WeaponMovementSettings;
 
+	// Sound
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TArray<FWeaponIcon> WeaponIconSettings;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TArray<FWeaponSound> WeaponSoundSettings;
+	FWeaponSound WeaponSoundSettings;
 };

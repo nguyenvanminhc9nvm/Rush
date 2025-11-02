@@ -55,6 +55,36 @@ struct RUSH_API FWeaponPhysicalSettings
     }
 };
 
+USTRUCT(Blueprintable)
+struct FWeaponPhysicalSettingsEntry
+{
+    GENERATED_BODY()
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    FWeaponPhysicalSettings PhysicalSettingsHidden;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    FWeaponPhysicalSettings PhysicalSettingsIcon;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    FWeaponPhysicalSettings PhysicalSettingsStatic;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    FWeaponPhysicalSettings PhysicalSettingsPhysics;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    FWeaponPhysicalSettings PhysicalSettingsPhysicsAttached;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    FWeaponPhysicalSettings PhysicalSettingsViewmodel;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    FWeaponPhysicalSettings PhysicalSettingsViewmodelThirdPerson;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    FWeaponPhysicalSettings PhysicalSettingsStaticShadow;
+};
+
 UCLASS()
 class RUSH_API UWeaponPhysicalSettingsLibrary : public UBlueprintFunctionLibrary
 {

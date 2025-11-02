@@ -11,5 +11,6 @@ enum EAbilityName: uint8
 	Sniper_Abilities               UMETA(DisplayName = "Sniper"),
 	Shotgun_Abilities              UMETA(DisplayName = "Shotgun"),
 	Rocket_Launcher_Abilities      UMETA(DisplayName = "Rocket-Launcher"),
-	Grenade_Launcher_Abilities     UMETA(DisplayName = "Grenade-Launcher")
+	Grenade_Launcher_Abilities     UMETA(DisplayName = "Grenade-Launcher"),
+	None_Abilities     UMETA(DisplayName = "None_Abilities")
 };

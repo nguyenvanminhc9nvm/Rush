@@ -12,11 +12,12 @@ enum class EWeaponFireMode : uint8
     Semi        UMETA(DisplayName = "Semi"),
     Automatic   UMETA(DisplayName = "Automatic"),
     BurstHold   UMETA(DisplayName = "Burst Hold"),
-    Burst       UMETA(DisplayName = "Burst")
+    Burst       UMETA(DisplayName = "Burst"),
+    Safe        UMETA(DisplayName = "Safe")
 };
 
 USTRUCT(BlueprintType)
-struct RUSH_API FRecoilInterpolation
+struct RUSH_API FRecoilInterpolationVector
 {
     GENERATED_BODY()
 
@@ -29,7 +30,7 @@ struct RUSH_API FRecoilInterpolation
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Recoil Interpolation")
     float Mass = 0.006f;
 
-    FRecoilInterpolation()
+    FRecoilInterpolationVector()
     {
         // Initialize with default values
     }
@@ -44,7 +45,7 @@ struct RUSH_API FRecoilState
     UCurveVector* LocationCurve = nullptr;
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Recoil State")
-    FRecoilInterpolation LocationInterpolation;
+    FRecoilInterpolationVector LocationInterpolation;
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Recoil State")
     float LocationMultiplier = 1.0f;
@@ -53,7 +54,7 @@ struct RUSH_API FRecoilState
     UCurveVector* RotationCurve = nullptr;
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Recoil State")
-    FRecoilInterpolation RotationInterpolation;
+    FRecoilInterpolationVector RotationInterpolation;
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Recoil State")
     float RotationMultiplier = 1.0f;

@@ -54,6 +54,7 @@
 #include "Rush/Weapon/Library/AR03MuzzleSettingsLibrary.h"
 #include "Rush/Weapon/Library/AR03WeaponIconSettingsLibrary.h"
 #include "Rush/Weapon/Library/AR03WeaponSoundSettingsLibrary.h"
+#include "Rush/Weapon/Library/FlashlightSettingsBPLibrary.h"
 #include "Rush/Weapon/Library/Handgun01GripSettingsLibrary.h"
 #include "Rush/Weapon/Library/Handgun01MontageSettingsLibrary.h"
 #include "Rush/Weapon/Library/Handgun01MuzzleSettingsLibrary.h"
@@ -82,6 +83,7 @@
 #include "Rush/Weapon/Library/GL01WeaponIconSettingsLibrary.h"
 #include "Rush/Weapon/Library/GL01WeaponSoundSettingsLibrary.h"
 #include "Rush/Weapon/Library/GripBPLibrary.h"
+#include "Rush/Weapon/Library/IronsightSettingsLibrary.h"
 #include "Rush/Weapon/Library/LaserBPLibrary.h"
 #include "Rush/Weapon/Library/Shotgun01GripSettingsLibrary.h"
 #include "Rush/Weapon/Library/Shotgun01MontageSettingsLibrary.h"
@@ -130,13 +132,16 @@
 #include "Rush/Weapon/Library/Sniper03WeaponSoundSettingsLibrary.h"
 #include "Rush/Weapon/Library/LaserSettingsLibrary.h"
 #include "Rush/Weapon/Library/LasersightSettingsBPLibrary.h"
+#include "Rush/Weapon/Library/MagazineSettingsLibrary.h"
 #include "Rush/Weapon/Library/MuzzleBPLibrary.h"
 #include "Rush/Weapon/Library/ScopeBPLibrary.h"
 #include "Rush/Weapon/Library/ScopeSettingsLibrary.h"
 #include "Rush/Weapon/Library/WeaponAnimationSettingsLibrary.h"
+#include "Rush/Weapon/Library/WeaponIronsightLibrary.h"
 #include "Rush/Weapon/Library/WeaponMovementSettingsLibrary.h"
 #include "Rush/Weapon/Library/WeaponSettingsLibrary.h"
 #include "Rush/Weapon/Library/WeaponSkinBPLibrary.h"
+#include "Rush/Weapon/Library/WeaponPhysicalSettingsLibrary.h"
 
 static TMap<EWeaponName, FWeaponInformationEntry> GWeaponInformationMap;
 
@@ -172,16 +177,34 @@ static void InitWeaponInformation()
 	// Skin
 	AssaultRifle01.SkinEntry = UWeaponSkinBPLibrary::GetWeaponSkinByName(EWeaponSkinName::DefaultAssaultRifle01);
 
-	// other settings
-	AssaultRifle01.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::Assault_Rifle_01);
-	AssaultRifle01.CharacterPoseSettings = UCharacterAR01PoseSettingsLibrary::GetAllCharacterAR01PoseSettings();
-	AssaultRifle01.CharacterMontageSettings = UCharacterAR01MontageSettingsLibrary::GetAllCharacterAR01MontageSettings();
-	AssaultRifle01.WeaponMontage = UAR01MontageSettingsLibrary::GetAllAR01MontageSettings();
+	// Magazine
+	AssaultRifle01.MagazineEntry = UMagazineSettingsLibrary::GetMagazineSettingsByWeaponName(EWeaponName::Assault_Rifle_01);
+	
+	// Body Icon
+	AssaultRifle01.BodyIcon = UAR01WeaponIconSettingsLibrary::GetWeaponIconByName(EWeaponIconName::Body);
+
+	// Ironsight
+	AssaultRifle01.IronsightEntry = UWeaponIronsightLibrary::GetIronsightEntryByWeaponName(EWeaponName::Assault_Rifle_01);
+	AssaultRifle01.IronsightSettingsEntry = UIronsightSettingsLibrary::GetIronsightSettingByWeaponName(EWeaponName::Assault_Rifle_01);
+
+	// Flashlight
+	AssaultRifle01.FlashlightSettingsEntry = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+
+	// Weapon Settings
 	AssaultRifle01.WeaponSettings = UWeaponSettingsLibrary::GetWeaponSettingsByName(Assault_Rifle_01);
-	AssaultRifle01.CharacterAbilitySetting = UAbilitiesSettingsLibrary::GetAbilitiesByName(EAbilityName::Assault_Rifle_Abilities);
+	AssaultRifle01.WeaponPhysicalSettingsEntry = UWeaponInformationLibrary::GetWeaponPhysicalSettingsEntryForWeapon();
+		
+	AssaultRifle01.WeaponMontageSettingsEntry = UWeaponInformationLibrary::GetWeaponMontageSettingsEntryForWeapon(EWeaponName::Assault_Rifle_01);
+	AssaultRifle01.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::Assault_Rifle_01);
 	AssaultRifle01.WeaponMovementSettings = UWeaponMovementSettingsLibrary::GetWeaponMovementSettingsByName(EWeaponMovementName::Assault_Rifle_Movement);
-	AssaultRifle01.WeaponIconSettings = UAR01WeaponIconSettingsLibrary::GetAllAR01WeaponIcons();
-	AssaultRifle01.WeaponSoundSettings = UAR01WeaponSoundSettingsLibrary::GetAllAR01WeaponSounds();
+
+	// Character Pose
+	AssaultRifle01.CharacterWeaponPoseSettings = UWeaponInformationLibrary::GetCharacterWeaponPoseSettingsForWeapon(EWeaponName::Assault_Rifle_01);
+	AssaultRifle01.CharacterAbilitySetting = UAbilitiesSettingsLibrary::GetAbilitiesByName(EAbilityName::Assault_Rifle_Abilities);
+	AssaultRifle01.CharacterMontageSettingsEntry = UWeaponInformationLibrary::GetCharacterMontageSettingsEntryForWeapon(EWeaponName::Assault_Rifle_01);
+
+	// Sound
+	AssaultRifle01.WeaponSoundSettings = UAR01WeaponSoundSettingsLibrary::GetWeaponSoundByName(ECharacterMontageName::Character_Montage_None);
 	
 	GWeaponInformationMap.Add(EWeaponName::Assault_Rifle_01, AssaultRifle01);
 
@@ -212,16 +235,30 @@ static void InitWeaponInformation()
 	// Skin
 	AssaultRifle02.SkinEntry = UWeaponSkinBPLibrary::GetWeaponSkinByName(EWeaponSkinName::DefaultAssaultRifle02);
 
-	// Other Settings
-	AssaultRifle02.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::Assault_Rifle_02);
-	AssaultRifle02.CharacterPoseSettings = UCharacterAR02PoseSettingsLibrary::GetAllCharacterAR02PoseSettings();
-	AssaultRifle02.CharacterMontageSettings = UCharacterAR02MontageSettingsLibrary::GetAllCharacterAR02MontageSettings();
-	AssaultRifle02.WeaponMontage = UAR02MontageSettingsLibrary::GetAllAR02MontageSettings();
+	// Magazine
+	AssaultRifle02.MagazineEntry = UMagazineSettingsLibrary::GetMagazineSettingsByWeaponName(EWeaponName::Assault_Rifle_02);
+
+	// Ironsight
+	AssaultRifle02.IronsightEntry = UWeaponIronsightLibrary::GetIronsightEntryByWeaponName(EWeaponName::Assault_Rifle_02);
+	AssaultRifle02.IronsightSettingsEntry = UIronsightSettingsLibrary::GetIronsightSettingByWeaponName(EWeaponName::Assault_Rifle_02);
+
+	// Flashlight
+	AssaultRifle02.FlashlightSettingsEntry = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+
+	// Weapon Settings
 	AssaultRifle02.WeaponSettings = UWeaponSettingsLibrary::GetWeaponSettingsByName(Assault_Rifle_02);
-	AssaultRifle02.CharacterAbilitySetting = UAbilitiesSettingsLibrary::GetAbilitiesByName(EAbilityName::Assault_Rifle_Abilities);
+	AssaultRifle02.WeaponPhysicalSettingsEntry = UWeaponInformationLibrary::GetWeaponPhysicalSettingsEntryForWeapon();
+	AssaultRifle02.WeaponMontageSettingsEntry = UWeaponInformationLibrary::GetWeaponMontageSettingsEntryForWeapon(EWeaponName::Assault_Rifle_02);
+	AssaultRifle02.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::Assault_Rifle_02);
 	AssaultRifle02.WeaponMovementSettings = UWeaponMovementSettingsLibrary::GetWeaponMovementSettingsByName(EWeaponMovementName::Assault_Rifle_Movement);
-	AssaultRifle02.WeaponIconSettings = UAR02WeaponIconSettingsLibrary::GetAllAR02WeaponIcons();
-	AssaultRifle02.WeaponSoundSettings = UAR02WeaponSoundSettingsLibrary::GetAllAR02WeaponSounds();
+
+	// Character Pose
+	AssaultRifle02.CharacterWeaponPoseSettings = UWeaponInformationLibrary::GetCharacterWeaponPoseSettingsForWeapon(EWeaponName::Assault_Rifle_02);
+	AssaultRifle02.CharacterAbilitySetting = UAbilitiesSettingsLibrary::GetAbilitiesByName(EAbilityName::Assault_Rifle_Abilities);
+	AssaultRifle02.CharacterMontageSettingsEntry = UWeaponInformationLibrary::GetCharacterMontageSettingsEntryForWeapon(EWeaponName::Assault_Rifle_02);
+
+	// Sound
+	AssaultRifle02.WeaponSoundSettings = UAR02WeaponSoundSettingsLibrary::GetWeaponSoundByName(ECharacterMontageName::Character_Montage_None);
 	
 	GWeaponInformationMap.Add(EWeaponName::Assault_Rifle_02, AssaultRifle02);
 
@@ -247,15 +284,31 @@ static void InitWeaponInformation()
 	// Skin
 	AssaultRifle03.SkinEntry = UWeaponSkinBPLibrary::GetWeaponSkinByName(EWeaponSkinName::DefaultAssaultRifle03);
 
-	AssaultRifle03.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::Assault_Rifle_03);
-	AssaultRifle03.CharacterPoseSettings = UCharacterAR03PoseSettingsLibrary::GetAllCharacterAR03PoseSettings();
-	AssaultRifle03.CharacterMontageSettings = UCharacterAR03MontageSettingsLibrary::GetAllCharacterAR03MontageSettings();
-	AssaultRifle03.WeaponMontage = UAR03MontageSettingsLibrary::GetAllAR03MontageSettings();
+	// Magazine
+	AssaultRifle03.MagazineEntry = UMagazineSettingsLibrary::GetMagazineSettingsByWeaponName(EWeaponName::Assault_Rifle_03);
+
+	// Ironsight
+	AssaultRifle03.IronsightEntry = UWeaponIronsightLibrary::GetIronsightEntryByWeaponName(EWeaponName::Assault_Rifle_03);
+	AssaultRifle03.IronsightSettingsEntry = UIronsightSettingsLibrary::GetIronsightSettingByWeaponName(EWeaponName::Assault_Rifle_03);
+
+	// Flashlight
+	AssaultRifle03.FlashlightSettingsEntry = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+
+	// Weapon Settings
 	AssaultRifle03.WeaponSettings = UWeaponSettingsLibrary::GetWeaponSettingsByName(Assault_Rifle_03);
-	AssaultRifle03.CharacterAbilitySetting = UAbilitiesSettingsLibrary::GetAbilitiesByName(EAbilityName::Assault_Rifle_Abilities);
+	AssaultRifle03.WeaponPhysicalSettingsEntry = UWeaponInformationLibrary::GetWeaponPhysicalSettingsEntryForWeapon();
+	AssaultRifle03.WeaponMontageSettingsEntry = UWeaponInformationLibrary::GetWeaponMontageSettingsEntryForWeapon(EWeaponName::Assault_Rifle_03);
+	AssaultRifle03.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::Assault_Rifle_03);
 	AssaultRifle03.WeaponMovementSettings = UWeaponMovementSettingsLibrary::GetWeaponMovementSettingsByName(EWeaponMovementName::Assault_Rifle_Movement);
-	AssaultRifle03.WeaponIconSettings = UAR03WeaponIconSettingsLibrary::GetAllAR03WeaponIcons();
-	AssaultRifle03.WeaponSoundSettings = UAR03WeaponSoundSettingsLibrary::GetAllAR03WeaponSounds();
+	AssaultRifle03.BodyIcon = UAR03WeaponIconSettingsLibrary::GetWeaponIconByName(EWeaponIconName::Body);
+
+	// Character Pose
+	AssaultRifle03.CharacterWeaponPoseSettings = UWeaponInformationLibrary::GetCharacterWeaponPoseSettingsForWeapon(EWeaponName::Assault_Rifle_03);
+	AssaultRifle03.CharacterAbilitySetting = UAbilitiesSettingsLibrary::GetAbilitiesByName(EAbilityName::Assault_Rifle_Abilities);
+	AssaultRifle03.CharacterMontageSettingsEntry = UWeaponInformationLibrary::GetCharacterMontageSettingsEntryForWeapon(EWeaponName::Assault_Rifle_03);
+
+	// Sound
+	AssaultRifle03.WeaponSoundSettings = UAR03WeaponSoundSettingsLibrary::GetWeaponSoundByName(ECharacterMontageName::Character_Montage_None);
 	
 	GWeaponInformationMap.Add(EWeaponName::Assault_Rifle_03, AssaultRifle03);
 
@@ -281,15 +334,31 @@ static void InitWeaponInformation()
 	// Skin
 	Handgun01.SkinEntry = UWeaponSkinBPLibrary::GetWeaponSkinByName(EWeaponSkinName::DefaultHandgun01);
 
-	Handgun01.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::Handgun_01);
-	Handgun01.CharacterPoseSettings = UCharacterHandgun01PoseSettingsLibrary::GetAllCharacterHandgun01PoseSettings();
-	Handgun01.CharacterMontageSettings = UCharacterHandgun01MontageSettingsLibrary::GetAllCharacterHandgun01MontageSettings();
-	Handgun01.WeaponMontage = UHandgun01MontageSettingsLibrary::GetAllHandgun01MontageSettings();
+	// Magazine
+	Handgun01.MagazineEntry = UMagazineSettingsLibrary::GetMagazineSettingsByWeaponName(EWeaponName::Handgun_01);
+
+	// Ironsight
+	Handgun01.IronsightEntry = UWeaponIronsightLibrary::GetIronsightEntryByWeaponName(EWeaponName::Handgun_01);
+	Handgun01.IronsightSettingsEntry = UIronsightSettingsLibrary::GetIronsightSettingByWeaponName(EWeaponName::Handgun_01);
+
+	// Flashlight
+	Handgun01.FlashlightSettingsEntry = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+
+	// Weapon Settings
 	Handgun01.WeaponSettings = UWeaponSettingsLibrary::GetWeaponSettingsByName(Handgun_01);
-	Handgun01.CharacterAbilitySetting = UAbilitiesSettingsLibrary::GetAbilitiesByName(EAbilityName::Handgun_Abilities);
+	Handgun01.WeaponPhysicalSettingsEntry = UWeaponInformationLibrary::GetWeaponPhysicalSettingsEntryForWeapon();
+	Handgun01.WeaponMontageSettingsEntry = UWeaponInformationLibrary::GetWeaponMontageSettingsEntryForWeapon(EWeaponName::Handgun_01);
+	Handgun01.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::Handgun_01);
 	Handgun01.WeaponMovementSettings = UWeaponMovementSettingsLibrary::GetWeaponMovementSettingsByName(EWeaponMovementName::Handgun_Movement);
-	Handgun01.WeaponIconSettings = UHandgun01WeaponIconSettingsLibrary::GetAllHandgun01WeaponIcons();
-	Handgun01.WeaponSoundSettings = UHandgunWeaponSoundSettingsLibrary::GetAllHandgunWeaponSounds();
+	Handgun01.BodyIcon = UHandgun01WeaponIconSettingsLibrary::GetWeaponIconByName(EWeaponIconName::Body);
+
+	// Character Pose
+	Handgun01.CharacterWeaponPoseSettings = UWeaponInformationLibrary::GetCharacterWeaponPoseSettingsForWeapon(EWeaponName::Handgun_01);
+	Handgun01.CharacterAbilitySetting = UAbilitiesSettingsLibrary::GetAbilitiesByName(EAbilityName::Handgun_Abilities);
+	Handgun01.CharacterMontageSettingsEntry = UWeaponInformationLibrary::GetCharacterMontageSettingsEntryForWeapon(EWeaponName::Handgun_01);
+
+	// Sound
+	Handgun01.WeaponSoundSettings = UHandgunWeaponSoundSettingsLibrary::GetWeaponSoundByName(ECharacterMontageName::Character_Montage_None);
 	
 	GWeaponInformationMap.Add(EWeaponName::Handgun_01, Handgun01);
 
@@ -315,15 +384,31 @@ static void InitWeaponInformation()
 	// Skin
 	Handgun02.SkinEntry = UWeaponSkinBPLibrary::GetWeaponSkinByName(EWeaponSkinName::DefaultHandgun02);
 
-	Handgun02.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::Handgun_02);
-	Handgun02.CharacterPoseSettings = UCharacterHandgun02PoseSettingsLibrary::GetAllCharacterHandgun02PoseSettings();
-	Handgun02.CharacterMontageSettings = UCharacterHandgun02MontageSettingsLibrary::GetAllCharacterHandgun02MontageSettings();
-	Handgun02.WeaponMontage = UHandgun02MontageSettingsLibrary::GetAllHandgun02MontageSettings();
+	// Magazine
+	Handgun02.MagazineEntry = UMagazineSettingsLibrary::GetMagazineSettingsByWeaponName(EWeaponName::Handgun_02);
+
+	// Ironsight
+	Handgun02.IronsightEntry = UWeaponIronsightLibrary::GetIronsightEntryByWeaponName(EWeaponName::Handgun_02);
+	Handgun02.IronsightSettingsEntry = UIronsightSettingsLibrary::GetIronsightSettingByWeaponName(EWeaponName::Handgun_02);
+
+	// Flashlight
+	Handgun02.FlashlightSettingsEntry = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+
+	// Weapon Settings
 	Handgun02.WeaponSettings = UWeaponSettingsLibrary::GetWeaponSettingsByName(Handgun_02);
-	Handgun02.CharacterAbilitySetting = UAbilitiesSettingsLibrary::GetAbilitiesByName(EAbilityName::Handgun_Abilities);
+	Handgun02.WeaponPhysicalSettingsEntry = UWeaponInformationLibrary::GetWeaponPhysicalSettingsEntryForWeapon();
+	Handgun02.WeaponMontageSettingsEntry = UWeaponInformationLibrary::GetWeaponMontageSettingsEntryForWeapon(EWeaponName::Handgun_02);
+	Handgun02.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::Handgun_02);
 	Handgun02.WeaponMovementSettings = UWeaponMovementSettingsLibrary::GetWeaponMovementSettingsByName(EWeaponMovementName::Handgun_Movement);
-	Handgun02.WeaponIconSettings = UHandgun02WeaponIconSettingsLibrary::GetAllHandgun02WeaponIcons();
-	Handgun02.WeaponSoundSettings = UHandgunWeaponSoundSettingsLibrary::GetAllHandgunWeaponSounds();
+	Handgun02.BodyIcon = UHandgun02WeaponIconSettingsLibrary::GetWeaponIconByName(EWeaponIconName::Body);
+
+	// Character Pose
+	Handgun02.CharacterWeaponPoseSettings = UWeaponInformationLibrary::GetCharacterWeaponPoseSettingsForWeapon(EWeaponName::Handgun_02);
+	Handgun02.CharacterAbilitySetting = UAbilitiesSettingsLibrary::GetAbilitiesByName(EAbilityName::Handgun_Abilities);
+	Handgun02.CharacterMontageSettingsEntry = UWeaponInformationLibrary::GetCharacterMontageSettingsEntryForWeapon(EWeaponName::Handgun_02);
+
+	// Sound
+	Handgun02.WeaponSoundSettings = UHandgunWeaponSoundSettingsLibrary::GetWeaponSoundByName(ECharacterMontageName::Character_Montage_None);
 	
 	GWeaponInformationMap.Add(EWeaponName::Handgun_02, Handgun02);
 
@@ -349,15 +434,31 @@ static void InitWeaponInformation()
 	// Skin
 	Handgun03.SkinEntry = UWeaponSkinBPLibrary::GetWeaponSkinByName(EWeaponSkinName::DefaultHandgun03);
 
-	Handgun03.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::Handgun_03);
-	Handgun03.CharacterPoseSettings = UCharacterHandgun03PoseSettingsLibrary::GetAllCharacterHandgun03PoseSettings();
-	Handgun03.CharacterMontageSettings = UCharacterHandgun03MontageSettingsLibrary::GetAllCharacterHandgun03MontageSettings();
-	Handgun03.WeaponMontage = UHandgun03MontageSettingsLibrary::GetAllHandgun03MontageSettings();
+	// Magazine
+	Handgun03.MagazineEntry = UMagazineSettingsLibrary::GetMagazineSettingsByWeaponName(EWeaponName::Handgun_03);
+
+	// Ironsight
+	Handgun03.IronsightEntry = UWeaponIronsightLibrary::GetIronsightEntryByWeaponName(EWeaponName::Handgun_03);
+	Handgun03.IronsightSettingsEntry = UIronsightSettingsLibrary::GetIronsightSettingByWeaponName(EWeaponName::Handgun_03);
+
+	// Flashlight
+	Handgun03.FlashlightSettingsEntry = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+
+	// Weapon Settings
 	Handgun03.WeaponSettings = UWeaponSettingsLibrary::GetWeaponSettingsByName(Handgun_03);
-	Handgun03.CharacterAbilitySetting = UAbilitiesSettingsLibrary::GetAbilitiesByName(EAbilityName::Handgun_Abilities);
+	Handgun03.WeaponPhysicalSettingsEntry = UWeaponInformationLibrary::GetWeaponPhysicalSettingsEntryForWeapon();
+	Handgun03.WeaponMontageSettingsEntry = UWeaponInformationLibrary::GetWeaponMontageSettingsEntryForWeapon(EWeaponName::Handgun_03);
+	Handgun03.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::Handgun_03);
 	Handgun03.WeaponMovementSettings = UWeaponMovementSettingsLibrary::GetWeaponMovementSettingsByName(EWeaponMovementName::Handgun_Movement);
-	Handgun03.WeaponIconSettings = UHandgun03WeaponIconSettingsLibrary::GetAllHandgun03WeaponIcons();
-	Handgun03.WeaponSoundSettings = UHandgunWeaponSoundSettingsLibrary::GetAllHandgunWeaponSounds();
+	Handgun03.BodyIcon = UHandgun03WeaponIconSettingsLibrary::GetWeaponIconByName(EWeaponIconName::Body);
+
+	// Character Pose
+	Handgun03.CharacterWeaponPoseSettings = UWeaponInformationLibrary::GetCharacterWeaponPoseSettingsForWeapon(EWeaponName::Handgun_03);
+	Handgun03.CharacterAbilitySetting = UAbilitiesSettingsLibrary::GetAbilitiesByName(EAbilityName::Handgun_Abilities);
+	Handgun03.CharacterMontageSettingsEntry = UWeaponInformationLibrary::GetCharacterMontageSettingsEntryForWeapon(EWeaponName::Handgun_03);
+
+	// Sound
+	Handgun03.WeaponSoundSettings = UHandgunWeaponSoundSettingsLibrary::GetWeaponSoundByName(ECharacterMontageName::Character_Montage_None);
 	
 	GWeaponInformationMap.Add(EWeaponName::Handgun_03, Handgun03);
 
@@ -383,15 +484,31 @@ static void InitWeaponInformation()
 	// Skin
 	Handgun04.SkinEntry = UWeaponSkinBPLibrary::GetWeaponSkinByName(EWeaponSkinName::DefaultHandgun04);
 
-	Handgun04.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::Handgun_04);
-	Handgun04.CharacterPoseSettings = UCharacterHandgun04PoseSettingsLibrary::GetAllCharacterHandgun04PoseSettings();
-	Handgun04.CharacterMontageSettings = UCharacterHandgun04MontageSettingsLibrary::GetAllCharacterHandgun04MontageSettings();
-	Handgun04.WeaponMontage = UHandgun04MontageSettingsLibrary::GetAllHandgun04MontageSettings();
+	// Magazine
+	Handgun04.MagazineEntry = UMagazineSettingsLibrary::GetMagazineSettingsByWeaponName(EWeaponName::Handgun_04);
+
+	// Ironsight
+	Handgun04.IronsightEntry = UWeaponIronsightLibrary::GetIronsightEntryByWeaponName(EWeaponName::Handgun_04);
+	Handgun04.IronsightSettingsEntry = UIronsightSettingsLibrary::GetIronsightSettingByWeaponName(EWeaponName::Handgun_04);
+
+	// Flashlight
+	Handgun04.FlashlightSettingsEntry = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+
+	// Weapon Settings
 	Handgun04.WeaponSettings = UWeaponSettingsLibrary::GetWeaponSettingsByName(Handgun_04);
-	Handgun04.CharacterAbilitySetting = UAbilitiesSettingsLibrary::GetAbilitiesByName(EAbilityName::Handgun_Abilities);
+	Handgun04.WeaponPhysicalSettingsEntry = UWeaponInformationLibrary::GetWeaponPhysicalSettingsEntryForWeapon();
+	Handgun04.WeaponMontageSettingsEntry = UWeaponInformationLibrary::GetWeaponMontageSettingsEntryForWeapon(EWeaponName::Handgun_04);
+	Handgun04.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::Handgun_04);
 	Handgun04.WeaponMovementSettings = UWeaponMovementSettingsLibrary::GetWeaponMovementSettingsByName(EWeaponMovementName::Handgun_Movement);
-	Handgun04.WeaponIconSettings = UHandgun04WeaponIconSettingsLibrary::GetAllHandgun04WeaponIcons();
-	Handgun04.WeaponSoundSettings = UHandgunWeaponSoundSettingsLibrary::GetAllHandgunWeaponSounds();
+	Handgun04.BodyIcon = UHandgun04WeaponIconSettingsLibrary::GetWeaponIconByName(EWeaponIconName::Body);
+
+	// Character Pose
+	Handgun04.CharacterWeaponPoseSettings = UWeaponInformationLibrary::GetCharacterWeaponPoseSettingsForWeapon(EWeaponName::Handgun_04);
+	Handgun04.CharacterAbilitySetting = UAbilitiesSettingsLibrary::GetAbilitiesByName(EAbilityName::Handgun_Abilities);
+	Handgun04.CharacterMontageSettingsEntry = UWeaponInformationLibrary::GetCharacterMontageSettingsEntryForWeapon(EWeaponName::Handgun_04);
+
+	// Sound
+	Handgun04.WeaponSoundSettings = UHandgunWeaponSoundSettingsLibrary::GetWeaponSoundByName(ECharacterMontageName::Character_Montage_None);
 	
 	GWeaponInformationMap.Add(EWeaponName::Handgun_04, Handgun04);
 
@@ -417,15 +534,31 @@ static void InitWeaponInformation()
 	// Skin
 	RocketLauncher01.SkinEntry = UWeaponSkinBPLibrary::GetWeaponSkinByName(EWeaponSkinName::DefaultLauncherRocket01);
 
-	RocketLauncher01.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::Rocket_Launcher_01);
-	RocketLauncher01.CharacterPoseSettings = UCharacterRocketLauncher01PoseSettingsLibrary::GetAllCharacterRocketLauncher01PoseSettings();
-	RocketLauncher01.CharacterMontageSettings = UCharacterRocketLauncher01MontageSettingsLibrary::GetAllCharacterRocketLauncher01MontageSettings();
-	RocketLauncher01.WeaponMontage = URL01MontageSettingsLibrary::GetAllRL01MontageSettings();
+	// Magazine
+	RocketLauncher01.MagazineEntry = UMagazineSettingsLibrary::GetMagazineSettingsByWeaponName(EWeaponName::Rocket_Launcher_01);
+
+	// Ironsight
+	RocketLauncher01.IronsightEntry = UWeaponIronsightLibrary::GetIronsightEntryByWeaponName(EWeaponName::Rocket_Launcher_01);
+	RocketLauncher01.IronsightSettingsEntry = UIronsightSettingsLibrary::GetIronsightSettingByWeaponName(EWeaponName::Rocket_Launcher_01);
+
+	// Flashlight
+	RocketLauncher01.FlashlightSettingsEntry = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+
+	// Weapon Settings
 	RocketLauncher01.WeaponSettings = UWeaponSettingsLibrary::GetWeaponSettingsByName(Rocket_Launcher_01);
-	RocketLauncher01.CharacterAbilitySetting = UAbilitiesSettingsLibrary::GetAbilitiesByName(EAbilityName::Rocket_Launcher_Abilities);
+	RocketLauncher01.WeaponPhysicalSettingsEntry = UWeaponInformationLibrary::GetWeaponPhysicalSettingsEntryForWeapon();
+	RocketLauncher01.WeaponMontageSettingsEntry = UWeaponInformationLibrary::GetWeaponMontageSettingsEntryForWeapon(EWeaponName::Rocket_Launcher_01);
+	RocketLauncher01.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::Rocket_Launcher_01);
 	RocketLauncher01.WeaponMovementSettings = UWeaponMovementSettingsLibrary::GetWeaponMovementSettingsByName(EWeaponMovementName::Launcher_Heavy_Movement);
-	RocketLauncher01.WeaponIconSettings = URL01WeaponIconSettingsLibrary::GetAllRL01WeaponIcons();
-	RocketLauncher01.WeaponSoundSettings = URL01WeaponSoundSettingsLibrary::GetAllRL01WeaponSounds();
+	RocketLauncher01.BodyIcon = URL01WeaponIconSettingsLibrary::GetWeaponIconByName(EWeaponIconName::Body);
+
+	// Character Pose
+	RocketLauncher01.CharacterWeaponPoseSettings = UWeaponInformationLibrary::GetCharacterWeaponPoseSettingsForWeapon(EWeaponName::Rocket_Launcher_01);
+	RocketLauncher01.CharacterAbilitySetting = UAbilitiesSettingsLibrary::GetAbilitiesByName(EAbilityName::Rocket_Launcher_Abilities);
+	RocketLauncher01.CharacterMontageSettingsEntry = UWeaponInformationLibrary::GetCharacterMontageSettingsEntryForWeapon(EWeaponName::Rocket_Launcher_01);
+
+	// Sound
+	RocketLauncher01.WeaponSoundSettings = URL01WeaponSoundSettingsLibrary::GetWeaponSoundByName(ECharacterMontageName::Character_Montage_None);
 	
 	GWeaponInformationMap.Add(EWeaponName::Rocket_Launcher_01, RocketLauncher01);
 
@@ -451,15 +584,31 @@ static void InitWeaponInformation()
 	// Skin
 	GrenadeLauncher01.SkinEntry = UWeaponSkinBPLibrary::GetWeaponSkinByName(EWeaponSkinName::DefaultLauncherGrenade01);
 
-	GrenadeLauncher01.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::Grenade_Launcher_01);
-	GrenadeLauncher01.CharacterPoseSettings = UCharacterGL01PoseSettingsLibrary::GetAllCharacterGL01PoseSettings();
-	GrenadeLauncher01.CharacterMontageSettings = UCharacterGL01MontageSettingsLibrary::GetAllCharacterGL01MontageSettings();
-	GrenadeLauncher01.WeaponMontage = UGL01MontageSettingsLibrary::GetAllGL01MontageSettings();
+	// Magazine
+	GrenadeLauncher01.MagazineEntry = UMagazineSettingsLibrary::GetMagazineSettingsByWeaponName(EWeaponName::Grenade_Launcher_01);
+
+	// Ironsight
+	GrenadeLauncher01.IronsightEntry = UWeaponIronsightLibrary::GetIronsightEntryByWeaponName(EWeaponName::Grenade_Launcher_01);
+	GrenadeLauncher01.IronsightSettingsEntry = UIronsightSettingsLibrary::GetIronsightSettingByWeaponName(EWeaponName::Grenade_Launcher_01);
+
+	// Flashlight
+	GrenadeLauncher01.FlashlightSettingsEntry = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+
+	// Weapon Settings
 	GrenadeLauncher01.WeaponSettings = UWeaponSettingsLibrary::GetWeaponSettingsByName(Grenade_Launcher_01);
-	GrenadeLauncher01.CharacterAbilitySetting = UAbilitiesSettingsLibrary::GetAbilitiesByName(EAbilityName::Grenade_Launcher_Abilities);
+	GrenadeLauncher01.WeaponPhysicalSettingsEntry = UWeaponInformationLibrary::GetWeaponPhysicalSettingsEntryForWeapon();
+	GrenadeLauncher01.WeaponMontageSettingsEntry = UWeaponInformationLibrary::GetWeaponMontageSettingsEntryForWeapon(EWeaponName::Grenade_Launcher_01);
+	GrenadeLauncher01.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::Grenade_Launcher_01);
 	GrenadeLauncher01.WeaponMovementSettings = UWeaponMovementSettingsLibrary::GetWeaponMovementSettingsByName(EWeaponMovementName::Launcher_Movement);
-	GrenadeLauncher01.WeaponIconSettings = UGL01WeaponIconSettingsLibrary::GetAllGL01WeaponIcons();
-	GrenadeLauncher01.WeaponSoundSettings = UGL01WeaponSoundSettingsLibrary::GetAllGL01WeaponSounds();
+	GrenadeLauncher01.BodyIcon = UGL01WeaponIconSettingsLibrary::GetWeaponIconByName(EWeaponIconName::Body);
+
+	// Character Pose
+	GrenadeLauncher01.CharacterWeaponPoseSettings = UWeaponInformationLibrary::GetCharacterWeaponPoseSettingsForWeapon(EWeaponName::Grenade_Launcher_01);
+	GrenadeLauncher01.CharacterAbilitySetting = UAbilitiesSettingsLibrary::GetAbilitiesByName(EAbilityName::Grenade_Launcher_Abilities);
+	GrenadeLauncher01.CharacterMontageSettingsEntry = UWeaponInformationLibrary::GetCharacterMontageSettingsEntryForWeapon(EWeaponName::Grenade_Launcher_01);
+
+	// Sound
+	GrenadeLauncher01.WeaponSoundSettings = UGL01WeaponSoundSettingsLibrary::GetWeaponSoundByName(ECharacterMontageName::Character_Montage_None);
 	
 	GWeaponInformationMap.Add(EWeaponName::Grenade_Launcher_01, GrenadeLauncher01);
 
@@ -481,15 +630,32 @@ static void InitWeaponInformation()
 	Shotgun01.GripEntry = UGripBPLibrary::GetGripByName(EWeaponIconName::NoneHidden);
 	Shotgun01.GripSettingEntry = UShotgun01GripSettingsLibrary::GetShotgun01GripSettingsByName(Shotgun01.GripEntry.Name);
 	Shotgun01.GripIcon = UShotgun01WeaponIconSettingsLibrary::GetWeaponIconByName(Shotgun01.GripEntry.Name);
-	Shotgun01.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::Shotgun_01);
-	Shotgun01.CharacterPoseSettings = UCharacterShotgun01PoseSettingsLibrary::GetAllCharacterShotgun01PoseSettings();
-	Shotgun01.CharacterMontageSettings = UCharacterShotgun01MontageSettingsLibrary::GetAllCharacterShotgun01MontageSettings();
-	Shotgun01.WeaponMontage = UShotgun01MontageSettingsLibrary::GetAllShotgun01MontageSettings();
+
+	// Magazine
+	Shotgun01.MagazineEntry = UMagazineSettingsLibrary::GetMagazineSettingsByWeaponName(EWeaponName::Shotgun_01);
+
+	// Ironsight
+	Shotgun01.IronsightEntry = UWeaponIronsightLibrary::GetIronsightEntryByWeaponName(EWeaponName::Shotgun_01);
+	Shotgun01.IronsightSettingsEntry = UIronsightSettingsLibrary::GetIronsightSettingByWeaponName(EWeaponName::Shotgun_01);
+
+	// Flashlight
+	Shotgun01.FlashlightSettingsEntry = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+
+	// Weapon Settings
 	Shotgun01.WeaponSettings = UWeaponSettingsLibrary::GetWeaponSettingsByName(Shotgun_01);
-	Shotgun01.CharacterAbilitySetting = UAbilitiesSettingsLibrary::GetAbilitiesByName(EAbilityName::Shotgun_Abilities);
+	Shotgun01.WeaponPhysicalSettingsEntry = UWeaponInformationLibrary::GetWeaponPhysicalSettingsEntryForWeapon();
+	Shotgun01.WeaponMontageSettingsEntry = UWeaponInformationLibrary::GetWeaponMontageSettingsEntryForWeapon(EWeaponName::Shotgun_01);
+	Shotgun01.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::Shotgun_01);
 	Shotgun01.WeaponMovementSettings = UWeaponMovementSettingsLibrary::GetWeaponMovementSettingsByName(EWeaponMovementName::Shotgun_Movement);
-	Shotgun01.WeaponIconSettings = UShotgun01WeaponIconSettingsLibrary::GetAllShotgun01WeaponIcons();
-	Shotgun01.WeaponSoundSettings = UShotgun01WeaponSoundSettingsLibrary::GetAllShotgun01WeaponSounds();
+	Shotgun01.BodyIcon = UShotgun01WeaponIconSettingsLibrary::GetWeaponIconByName(EWeaponIconName::Body);
+
+	// Character Pose
+	Shotgun01.CharacterWeaponPoseSettings = UWeaponInformationLibrary::GetCharacterWeaponPoseSettingsForWeapon(EWeaponName::Shotgun_01);
+	Shotgun01.CharacterAbilitySetting = UAbilitiesSettingsLibrary::GetAbilitiesByName(EAbilityName::Shotgun_Abilities);
+	Shotgun01.CharacterMontageSettingsEntry = UWeaponInformationLibrary::GetCharacterMontageSettingsEntryForWeapon(EWeaponName::Shotgun_01);
+
+	// Sound
+	Shotgun01.WeaponSoundSettings = UShotgun01WeaponSoundSettingsLibrary::GetWeaponSoundByName(ECharacterMontageName::Character_Montage_None);
 	
 	GWeaponInformationMap.Add(EWeaponName::Shotgun_01, Shotgun01);
 
@@ -515,15 +681,31 @@ static void InitWeaponInformation()
 	// Skin
 	SMG01.SkinEntry = UWeaponSkinBPLibrary::GetWeaponSkinByName(EWeaponSkinName::DefaultSMG01);
 
-	SMG01.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::SMG_01);
-	SMG01.CharacterPoseSettings = UCharacterSMG01PoseSettingsLibrary::GetAllCharacterSMG01PoseSettings();
-	SMG01.CharacterMontageSettings = UCharacterSMG01MontageSettingsLibrary::GetAllCharacterSMG01MontageSettings();
-	SMG01.WeaponMontage = USMG01MontageSettingsLibrary::GetAllSMG01MontageSettings();
+	// Magazine
+	SMG01.MagazineEntry = UMagazineSettingsLibrary::GetMagazineSettingsByWeaponName(EWeaponName::SMG_01);
+
+	// Ironsight
+	SMG01.IronsightEntry = UWeaponIronsightLibrary::GetIronsightEntryByWeaponName(EWeaponName::SMG_01);
+	SMG01.IronsightSettingsEntry = UIronsightSettingsLibrary::GetIronsightSettingByWeaponName(EWeaponName::SMG_01);
+
+	// Flashlight
+	SMG01.FlashlightSettingsEntry = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+
+	// Weapon Settings
 	SMG01.WeaponSettings = UWeaponSettingsLibrary::GetWeaponSettingsByName(SMG_01);
-	SMG01.CharacterAbilitySetting = UAbilitiesSettingsLibrary::GetAbilitiesByName(EAbilityName::SMG_Abilities);
+	SMG01.WeaponPhysicalSettingsEntry = UWeaponInformationLibrary::GetWeaponPhysicalSettingsEntryForWeapon();
+	SMG01.WeaponMontageSettingsEntry = UWeaponInformationLibrary::GetWeaponMontageSettingsEntryForWeapon(EWeaponName::SMG_01);
+	SMG01.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::SMG_01);
 	SMG01.WeaponMovementSettings = UWeaponMovementSettingsLibrary::GetWeaponMovementSettingsByName(EWeaponMovementName::SMG_Movement);
-	SMG01.WeaponIconSettings = USMG01WeaponIconSettingsLibrary::GetAllSMG01WeaponIcons();
-	SMG01.WeaponSoundSettings = USMG01WeaponSoundSettingsLibrary::GetAllSMG01WeaponSounds();
+	SMG01.BodyIcon = USMG01WeaponIconSettingsLibrary::GetWeaponIconByName(EWeaponIconName::Body);
+
+	// Character Pose
+	SMG01.CharacterWeaponPoseSettings = UWeaponInformationLibrary::GetCharacterWeaponPoseSettingsForWeapon(EWeaponName::SMG_01);
+	SMG01.CharacterAbilitySetting = UAbilitiesSettingsLibrary::GetAbilitiesByName(EAbilityName::SMG_Abilities);
+	SMG01.CharacterMontageSettingsEntry = UWeaponInformationLibrary::GetCharacterMontageSettingsEntryForWeapon(EWeaponName::SMG_01);
+
+	// Sound
+	SMG01.WeaponSoundSettings = USMG01WeaponSoundSettingsLibrary::GetWeaponSoundByName(ECharacterMontageName::Character_Montage_None);
 	
 	GWeaponInformationMap.Add(EWeaponName::SMG_01, SMG01);
 
@@ -549,15 +731,31 @@ static void InitWeaponInformation()
 	// Skin
 	SMG02.SkinEntry = UWeaponSkinBPLibrary::GetWeaponSkinByName(EWeaponSkinName::DefaultSMG02);
 
-	SMG02.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::SMG_02);
-	SMG02.CharacterPoseSettings = UCharacterSMG02PoseSettingsLibrary::GetAllCharacterSMG02PoseSettings();
-	SMG02.CharacterMontageSettings = UCharacterSMG02MontageSettingsLibrary::GetAllCharacterSMG02MontageSettings();
-	SMG02.WeaponMontage = USMG02MontageSettingsLibrary::GetAllSMG02MontageSettings();
+	// Magazine
+	SMG02.MagazineEntry = UMagazineSettingsLibrary::GetMagazineSettingsByWeaponName(EWeaponName::SMG_02);
+
+	// Ironsight
+	SMG02.IronsightEntry = UWeaponIronsightLibrary::GetIronsightEntryByWeaponName(EWeaponName::SMG_02);
+	SMG02.IronsightSettingsEntry = UIronsightSettingsLibrary::GetIronsightSettingByWeaponName(EWeaponName::SMG_02);
+
+	// Flashlight
+	SMG02.FlashlightSettingsEntry = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+
+	// Weapon Settings
 	SMG02.WeaponSettings = UWeaponSettingsLibrary::GetWeaponSettingsByName(SMG_02);
-	SMG02.CharacterAbilitySetting = UAbilitiesSettingsLibrary::GetAbilitiesByName(EAbilityName::SMG_Abilities);
+	SMG02.WeaponPhysicalSettingsEntry = UWeaponInformationLibrary::GetWeaponPhysicalSettingsEntryForWeapon();
+	SMG02.WeaponMontageSettingsEntry = UWeaponInformationLibrary::GetWeaponMontageSettingsEntryForWeapon(EWeaponName::SMG_02);
+	SMG02.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::SMG_02);
 	SMG02.WeaponMovementSettings = UWeaponMovementSettingsLibrary::GetWeaponMovementSettingsByName(EWeaponMovementName::SMG_Movement);
-	SMG02.WeaponIconSettings = USMG02WeaponIconSettingsLibrary::GetAllSMG02WeaponIcons();
-	SMG02.WeaponSoundSettings = USMG02WeaponSoundSettingsLibrary::GetAllSMG02WeaponSounds();
+	SMG02.BodyIcon = USMG02WeaponIconSettingsLibrary::GetWeaponIconByName(EWeaponIconName::Body);
+
+	// Character Pose
+	SMG02.CharacterWeaponPoseSettings = UWeaponInformationLibrary::GetCharacterWeaponPoseSettingsForWeapon(EWeaponName::SMG_02);
+	SMG02.CharacterAbilitySetting = UAbilitiesSettingsLibrary::GetAbilitiesByName(EAbilityName::SMG_Abilities);
+	SMG02.CharacterMontageSettingsEntry = UWeaponInformationLibrary::GetCharacterMontageSettingsEntryForWeapon(EWeaponName::SMG_02);
+
+	// Sound
+	SMG02.WeaponSoundSettings = USMG02WeaponSoundSettingsLibrary::GetWeaponSoundByName(ECharacterMontageName::Character_Montage_None);
 	
 	GWeaponInformationMap.Add(EWeaponName::SMG_02, SMG02);
 
@@ -583,15 +781,31 @@ static void InitWeaponInformation()
 	// Skin
 	SMG03.SkinEntry = UWeaponSkinBPLibrary::GetWeaponSkinByName(EWeaponSkinName::DefaultSMG03);
 
-	SMG03.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::SMG_03);
-	SMG03.CharacterPoseSettings = UCharacterSMG03PoseSettingsLibrary::GetAllCharacterSMG03PoseSettings();
-	SMG03.CharacterMontageSettings = UCharacterSMG03MontageSettingsLibrary::GetAllCharacterSMG03MontageSettings();
-	SMG03.WeaponMontage = USMG03MontageSettingsLibrary::GetAllSMG03MontageSettings();
+	// Magazine
+	SMG03.MagazineEntry = UMagazineSettingsLibrary::GetMagazineSettingsByWeaponName(EWeaponName::SMG_03);
+
+	// Ironsight
+	SMG03.IronsightEntry = UWeaponIronsightLibrary::GetIronsightEntryByWeaponName(EWeaponName::SMG_03);
+	SMG03.IronsightSettingsEntry = UIronsightSettingsLibrary::GetIronsightSettingByWeaponName(EWeaponName::SMG_03);
+
+	// Flashlight
+	SMG03.FlashlightSettingsEntry = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+
+	// Weapon Settings
 	SMG03.WeaponSettings = UWeaponSettingsLibrary::GetWeaponSettingsByName(SMG_03);
-	SMG03.CharacterAbilitySetting = UAbilitiesSettingsLibrary::GetAbilitiesByName(EAbilityName::SMG_Abilities);
+	SMG03.WeaponPhysicalSettingsEntry = UWeaponInformationLibrary::GetWeaponPhysicalSettingsEntryForWeapon();
+	SMG03.WeaponMontageSettingsEntry = UWeaponInformationLibrary::GetWeaponMontageSettingsEntryForWeapon(EWeaponName::SMG_03);
+	SMG03.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::SMG_03);
 	SMG03.WeaponMovementSettings = UWeaponMovementSettingsLibrary::GetWeaponMovementSettingsByName(EWeaponMovementName::SMG_Movement);
-	SMG03.WeaponIconSettings = USMG03WeaponIconSettingsLibrary::GetAllSMG03WeaponIcons();
-	SMG03.WeaponSoundSettings = USMG03WeaponSoundSettingsLibrary::GetAllSMG03WeaponSounds();
+	SMG03.BodyIcon = USMG03WeaponIconSettingsLibrary::GetWeaponIconByName(EWeaponIconName::Body);
+
+	// Character Pose
+	SMG03.CharacterWeaponPoseSettings = UWeaponInformationLibrary::GetCharacterWeaponPoseSettingsForWeapon(EWeaponName::SMG_03);
+	SMG03.CharacterAbilitySetting = UAbilitiesSettingsLibrary::GetAbilitiesByName(EAbilityName::SMG_Abilities);
+	SMG03.CharacterMontageSettingsEntry = UWeaponInformationLibrary::GetCharacterMontageSettingsEntryForWeapon(EWeaponName::SMG_03);
+
+	// Sound
+	SMG03.WeaponSoundSettings = USMG03WeaponSoundSettingsLibrary::GetWeaponSoundByName(ECharacterMontageName::Character_Montage_None);
 	
 	GWeaponInformationMap.Add(EWeaponName::SMG_03, SMG03);
 
@@ -617,15 +831,31 @@ static void InitWeaponInformation()
 	// Skin
 	SMG04.SkinEntry = UWeaponSkinBPLibrary::GetWeaponSkinByName(EWeaponSkinName::DefaultSMG04);
 
-	SMG04.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::SMG_04);
-	SMG04.CharacterPoseSettings = UCharacterSMG04PoseSettingsLibrary::GetAllCharacterSMG04PoseSettings();
-	SMG04.CharacterMontageSettings = UCharacterSMG04MontageSettingsLibrary::GetAllCharacterSMG04MontageSettings();
-	SMG04.WeaponMontage = USMG04MontageSettingsLibrary::GetAllSMG04MontageSettings();
+	// Magazine
+	SMG04.MagazineEntry = UMagazineSettingsLibrary::GetMagazineSettingsByWeaponName(EWeaponName::SMG_04);
+
+	// Ironsight
+	SMG04.IronsightEntry = UWeaponIronsightLibrary::GetIronsightEntryByWeaponName(EWeaponName::SMG_04);
+	SMG04.IronsightSettingsEntry = UIronsightSettingsLibrary::GetIronsightSettingByWeaponName(EWeaponName::SMG_04);
+
+	// Flashlight
+	SMG04.FlashlightSettingsEntry = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+
+	// Weapon Settings
 	SMG04.WeaponSettings = UWeaponSettingsLibrary::GetWeaponSettingsByName(SMG_04);
-	SMG04.CharacterAbilitySetting = UAbilitiesSettingsLibrary::GetAbilitiesByName(EAbilityName::SMG_Abilities);
+	SMG04.WeaponPhysicalSettingsEntry = UWeaponInformationLibrary::GetWeaponPhysicalSettingsEntryForWeapon();
+	SMG04.WeaponMontageSettingsEntry = UWeaponInformationLibrary::GetWeaponMontageSettingsEntryForWeapon(EWeaponName::SMG_04);
+	SMG04.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::SMG_04);
 	SMG04.WeaponMovementSettings = UWeaponMovementSettingsLibrary::GetWeaponMovementSettingsByName(EWeaponMovementName::SMG_Movement);
-	SMG04.WeaponIconSettings = USMG04WeaponIconSettingsLibrary::GetAllSMG04WeaponIcons();
-	SMG04.WeaponSoundSettings = USMG04WeaponSoundSettingsLibrary::GetAllSMG04WeaponSounds();
+	SMG04.BodyIcon = USMG04WeaponIconSettingsLibrary::GetWeaponIconByName(EWeaponIconName::Body);
+
+	// Character Pose
+	SMG04.CharacterWeaponPoseSettings = UWeaponInformationLibrary::GetCharacterWeaponPoseSettingsForWeapon(EWeaponName::SMG_04);
+	SMG04.CharacterAbilitySetting = UAbilitiesSettingsLibrary::GetAbilitiesByName(EAbilityName::SMG_Abilities);
+	SMG04.CharacterMontageSettingsEntry = UWeaponInformationLibrary::GetCharacterMontageSettingsEntryForWeapon(EWeaponName::SMG_04);
+
+	// Sound
+	SMG04.WeaponSoundSettings = USMG04WeaponSoundSettingsLibrary::GetWeaponSoundByName(ECharacterMontageName::Character_Montage_None);
 	
 	GWeaponInformationMap.Add(EWeaponName::SMG_04, SMG04);
 
@@ -647,15 +877,32 @@ static void InitWeaponInformation()
 	SMG05.GripEntry = UGripBPLibrary::GetGripByName(EWeaponIconName::NoneHidden);
 	SMG05.GripSettingEntry = USMG05GripSettingsLibrary::GetSMG05GripSettingsByName(SMG05.GripEntry.Name);
 	SMG05.GripIcon = USMG05WeaponIconSettingsLibrary::GetWeaponIconByName(SMG05.GripEntry.Name);
-	SMG05.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::SMG_05);
-	SMG05.CharacterPoseSettings = UCharacterSMG05PoseSettingsLibrary::GetAllCharacterSMG05PoseSettings();
-	SMG05.CharacterMontageSettings = UCharacterSMG05MontageSettingsLibrary::GetAllCharacterSMG05MontageSettings();
-	SMG05.WeaponMontage = USMG05MontageSettingsLibrary::GetAllSMG05MontageSettings();
+
+	// Magazine
+	SMG05.MagazineEntry = UMagazineSettingsLibrary::GetMagazineSettingsByWeaponName(EWeaponName::SMG_05);
+
+	// Ironsight
+	SMG05.IronsightEntry = UWeaponIronsightLibrary::GetIronsightEntryByWeaponName(EWeaponName::SMG_05);
+	SMG05.IronsightSettingsEntry = UIronsightSettingsLibrary::GetIronsightSettingByWeaponName(EWeaponName::SMG_05);
+
+	// Flashlight
+	SMG05.FlashlightSettingsEntry = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+
+	// Weapon Settings
 	SMG05.WeaponSettings = UWeaponSettingsLibrary::GetWeaponSettingsByName(SMG_05);
-	SMG05.CharacterAbilitySetting = UAbilitiesSettingsLibrary::GetAbilitiesByName(EAbilityName::SMG_Abilities);
+	SMG05.WeaponPhysicalSettingsEntry = UWeaponInformationLibrary::GetWeaponPhysicalSettingsEntryForWeapon();
+	SMG05.WeaponMontageSettingsEntry = UWeaponInformationLibrary::GetWeaponMontageSettingsEntryForWeapon(EWeaponName::SMG_05);
+	SMG05.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::SMG_05);
 	SMG05.WeaponMovementSettings = UWeaponMovementSettingsLibrary::GetWeaponMovementSettingsByName(EWeaponMovementName::SMG_Movement);
-	SMG05.WeaponIconSettings = USMG05WeaponIconSettingsLibrary::GetAllSMG05WeaponIcons();
-	SMG05.WeaponSoundSettings = USMG05WeaponSoundSettingsLibrary::GetAllSMG05WeaponSounds();
+	SMG05.BodyIcon = USMG05WeaponIconSettingsLibrary::GetWeaponIconByName(EWeaponIconName::Body);
+
+	// Character Pose
+	SMG05.CharacterWeaponPoseSettings = UWeaponInformationLibrary::GetCharacterWeaponPoseSettingsForWeapon(EWeaponName::SMG_05);
+	SMG05.CharacterAbilitySetting = UAbilitiesSettingsLibrary::GetAbilitiesByName(EAbilityName::SMG_Abilities);
+	SMG05.CharacterMontageSettingsEntry = UWeaponInformationLibrary::GetCharacterMontageSettingsEntryForWeapon(EWeaponName::SMG_05);
+
+	// Sound
+	SMG05.WeaponSoundSettings = USMG05WeaponSoundSettingsLibrary::GetWeaponSoundByName(ECharacterMontageName::Character_Montage_None);
 	
 	GWeaponInformationMap.Add(EWeaponName::SMG_05, SMG05);
 
@@ -677,15 +924,32 @@ static void InitWeaponInformation()
 	Sniper01.GripEntry = UGripBPLibrary::GetGripByName(EWeaponIconName::NoneHidden);
 	Sniper01.GripSettingEntry = USniper01GripSettingsLibrary::GetSniper01GripSettingsByName(Sniper01.GripEntry.Name);
 	Sniper01.GripIcon = USniper01WeaponIconSettingsLibrary::GetWeaponIconByName(Sniper01.GripEntry.Name);
-	Sniper01.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::Sniper_01);
-	Sniper01.CharacterPoseSettings = UCharacterSniper01PoseSettingsLibrary::GetAllCharacterSniper01PoseSettings();
-	Sniper01.CharacterMontageSettings = UCharacterSniper01MontageSettingsLibrary::GetAllCharacterSniper01MontageSettings();
-	Sniper01.WeaponMontage = USniper01MontageSettingsLibrary::GetAllSniper01MontageSettings();
+
+	// Magazine
+	Sniper01.MagazineEntry = UMagazineSettingsLibrary::GetMagazineSettingsByWeaponName(EWeaponName::Sniper_01);
+
+	// Ironsight
+	Sniper01.IronsightEntry = UWeaponIronsightLibrary::GetIronsightEntryByWeaponName(EWeaponName::Sniper_01);
+	Sniper01.IronsightSettingsEntry = UIronsightSettingsLibrary::GetIronsightSettingByWeaponName(EWeaponName::Sniper_01);
+
+	// Flashlight
+	Sniper01.FlashlightSettingsEntry = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+
+	// Weapon Settings
 	Sniper01.WeaponSettings = UWeaponSettingsLibrary::GetWeaponSettingsByName(Sniper_01);
-	Sniper01.CharacterAbilitySetting = UAbilitiesSettingsLibrary::GetAbilitiesByName(EAbilityName::Sniper_Abilities);
+	Sniper01.WeaponPhysicalSettingsEntry = UWeaponInformationLibrary::GetWeaponPhysicalSettingsEntryForWeapon();
+	Sniper01.WeaponMontageSettingsEntry = UWeaponInformationLibrary::GetWeaponMontageSettingsEntryForWeapon(EWeaponName::Sniper_01);
+	Sniper01.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::Sniper_01);
 	Sniper01.WeaponMovementSettings = UWeaponMovementSettingsLibrary::GetWeaponMovementSettingsByName(EWeaponMovementName::Sniper_Movement);
-	Sniper01.WeaponIconSettings = USniper01WeaponIconSettingsLibrary::GetAllSniper01WeaponIcons();
-	Sniper01.WeaponSoundSettings = USniper01WeaponSoundSettingsLibrary::GetAllSniper01WeaponSounds();
+	Sniper01.BodyIcon = USniper01WeaponIconSettingsLibrary::GetWeaponIconByName(EWeaponIconName::Body);
+
+	// Character Pose
+	Sniper01.CharacterWeaponPoseSettings = UWeaponInformationLibrary::GetCharacterWeaponPoseSettingsForWeapon(EWeaponName::Sniper_01);
+	Sniper01.CharacterAbilitySetting = UAbilitiesSettingsLibrary::GetAbilitiesByName(EAbilityName::Sniper_Abilities);
+	Sniper01.CharacterMontageSettingsEntry = UWeaponInformationLibrary::GetCharacterMontageSettingsEntryForWeapon(EWeaponName::Sniper_01);
+
+	// Sound
+	Sniper01.WeaponSoundSettings = USniper01WeaponSoundSettingsLibrary::GetWeaponSoundByName(ECharacterMontageName::Character_Montage_None);
 	
 	GWeaponInformationMap.Add(EWeaponName::Sniper_01, Sniper01);
 
@@ -711,15 +975,31 @@ static void InitWeaponInformation()
 	// Skin
 	Sniper02.SkinEntry = UWeaponSkinBPLibrary::GetWeaponSkinByName(EWeaponSkinName::DefaultSniper02);
 
-	Sniper02.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::Sniper_02);
-	Sniper02.CharacterPoseSettings = UCharacterSniper02PoseSettingsLibrary::GetAllCharacterSniper02PoseSettings();
-	Sniper02.CharacterMontageSettings = UCharacterSniper02MontageSettingsLibrary::GetAllCharacterSniper02MontageSettings();
-	Sniper02.WeaponMontage = USniper02MontageSettingsLibrary::GetAllSniper02MontageSettings();
+	// Magazine
+	Sniper02.MagazineEntry = UMagazineSettingsLibrary::GetMagazineSettingsByWeaponName(EWeaponName::Sniper_02);
+
+	// Ironsight
+	Sniper02.IronsightEntry = UWeaponIronsightLibrary::GetIronsightEntryByWeaponName(EWeaponName::Sniper_02);
+	Sniper02.IronsightSettingsEntry = UIronsightSettingsLibrary::GetIronsightSettingByWeaponName(EWeaponName::Sniper_02);
+
+	// Flashlight
+	Sniper02.FlashlightSettingsEntry = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+
+	// Weapon Settings
 	Sniper02.WeaponSettings = UWeaponSettingsLibrary::GetWeaponSettingsByName(Sniper_02);
-	Sniper02.CharacterAbilitySetting = UAbilitiesSettingsLibrary::GetAbilitiesByName(EAbilityName::Sniper_Abilities);
+	Sniper02.WeaponPhysicalSettingsEntry = UWeaponInformationLibrary::GetWeaponPhysicalSettingsEntryForWeapon();
+	Sniper02.WeaponMontageSettingsEntry = UWeaponInformationLibrary::GetWeaponMontageSettingsEntryForWeapon(EWeaponName::Sniper_02);
+	Sniper02.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::Sniper_02);
 	Sniper02.WeaponMovementSettings = UWeaponMovementSettingsLibrary::GetWeaponMovementSettingsByName(EWeaponMovementName::Sniper_Movement);
-	Sniper02.WeaponIconSettings = USniper02WeaponIconSettingsLibrary::GetAllSniper02WeaponIcons();
-	Sniper02.WeaponSoundSettings = USniper02WeaponSoundSettingsLibrary::GetAllSniper02WeaponSounds();
+	Sniper02.BodyIcon = USniper02WeaponIconSettingsLibrary::GetWeaponIconByName(EWeaponIconName::Body);
+
+	// Character Pose
+	Sniper02.CharacterWeaponPoseSettings = UWeaponInformationLibrary::GetCharacterWeaponPoseSettingsForWeapon(EWeaponName::Sniper_02);
+	Sniper02.CharacterAbilitySetting = UAbilitiesSettingsLibrary::GetAbilitiesByName(EAbilityName::Sniper_Abilities);
+	Sniper02.CharacterMontageSettingsEntry = UWeaponInformationLibrary::GetCharacterMontageSettingsEntryForWeapon(EWeaponName::Sniper_02);
+
+	// Sound
+	Sniper02.WeaponSoundSettings = USniper02WeaponSoundSettingsLibrary::GetWeaponSoundByName(ECharacterMontageName::Character_Montage_None);
 	
 	GWeaponInformationMap.Add(EWeaponName::Sniper_02, Sniper02);
 
@@ -745,15 +1025,31 @@ static void InitWeaponInformation()
 	// Skin
 	Sniper03.SkinEntry = UWeaponSkinBPLibrary::GetWeaponSkinByName(EWeaponSkinName::DefaultSniper03);
 
-	Sniper03.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::Sniper_03);
-	Sniper03.CharacterPoseSettings = UCharacterSniper03PoseSettingsLibrary::GetAllCharacterSniper03PoseSettings();
-	Sniper03.CharacterMontageSettings = UCharacterSniper03MontageSettingsLibrary::GetAllCharacterSniper03MontageSettings();
-	Sniper03.WeaponMontage = USniper03MontageSettingsLibrary::GetAllSniper03MontageSettings();
+	// Magazine
+	Sniper03.MagazineEntry = UMagazineSettingsLibrary::GetMagazineSettingsByWeaponName(EWeaponName::Sniper_03);
+
+	// Ironsight
+	Sniper03.IronsightEntry = UWeaponIronsightLibrary::GetIronsightEntryByWeaponName(EWeaponName::Sniper_03);
+	Sniper03.IronsightSettingsEntry = UIronsightSettingsLibrary::GetIronsightSettingByWeaponName(EWeaponName::Sniper_03);
+
+	// Flashlight
+	Sniper03.FlashlightSettingsEntry = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(EFlashlightSettingsName::Flashlight_Normal);
+
+	// Weapon Settings
 	Sniper03.WeaponSettings = UWeaponSettingsLibrary::GetWeaponSettingsByName(Sniper_03);
-	Sniper03.CharacterAbilitySetting = UAbilitiesSettingsLibrary::GetAbilitiesByName(EAbilityName::Sniper_Abilities);
+	Sniper03.WeaponPhysicalSettingsEntry = UWeaponInformationLibrary::GetWeaponPhysicalSettingsEntryForWeapon();
+	Sniper03.WeaponMontageSettingsEntry = UWeaponInformationLibrary::GetWeaponMontageSettingsEntryForWeapon(EWeaponName::Sniper_03);
+	Sniper03.WeaponAnimationSettings = UWeaponAnimationSettingsLibrary::GetWeaponAnimationSettingsByName(EWeaponName::Sniper_03);
 	Sniper03.WeaponMovementSettings = UWeaponMovementSettingsLibrary::GetWeaponMovementSettingsByName(EWeaponMovementName::Sniper_Movement);
-	Sniper03.WeaponIconSettings = USniper03WeaponIconSettingsLibrary::GetAllSniper03WeaponIcons();
-	Sniper03.WeaponSoundSettings = USniper03WeaponSoundSettingsLibrary::GetAllSniper03WeaponSounds();
+	Sniper03.BodyIcon = USniper03WeaponIconSettingsLibrary::GetWeaponIconByName(EWeaponIconName::Body);
+
+	// Character Pose
+	Sniper03.CharacterWeaponPoseSettings = UWeaponInformationLibrary::GetCharacterWeaponPoseSettingsForWeapon(EWeaponName::Sniper_03);
+	Sniper03.CharacterAbilitySetting = UAbilitiesSettingsLibrary::GetAbilitiesByName(EAbilityName::Sniper_Abilities);
+	Sniper03.CharacterMontageSettingsEntry = UWeaponInformationLibrary::GetCharacterMontageSettingsEntryForWeapon(EWeaponName::Sniper_03);
+
+	// Sound
+	Sniper03.WeaponSoundSettings = USniper03WeaponSoundSettingsLibrary::GetWeaponSoundByName(ECharacterMontageName::Character_Montage_None);
 	
 	GWeaponInformationMap.Add(EWeaponName::Sniper_03, Sniper03);
 	
@@ -781,12 +1077,10 @@ TArray<FWeaponInformationEntry> UWeaponInformationLibrary::GetAllWeaponInformati
 }
 
 FWeaponInformationEntry UWeaponInformationLibrary::GetWeaponInformationByProperties(
-	const EWeaponName WeaponName,
-	const EWeaponIconName ScopeName,
-	const EWeaponIconName LaserName,
-	const EWeaponIconName MuzzleName,
-	const EWeaponIconName GripName,
-	const EWeaponSkinName SkinName
+EWeaponName WeaponName,
+	EWeaponIconName ScopeName, EWeaponIconName LaserName, EWeaponIconName MuzzleName, EWeaponIconName GripName,
+	EWeaponSkinName SkinName, EFlashlightSettingsName FlashlightName,
+	ECharacterMontageName WeaponSoundSetting, EAbilityName AbilityName
 )
 {
 	InitWeaponInformation();
@@ -820,6 +1114,10 @@ FWeaponInformationEntry UWeaponInformationLibrary::GetWeaponInformationByPropert
 	WeaponInfo.GripIcon = GetGripIconForWeapon(WeaponName, WeaponInfo.GripEntry.Name);
 
 	WeaponInfo.SkinEntry = UWeaponSkinBPLibrary::GetWeaponSkinByName(SkinName);
+	WeaponInfo.CharacterAbilitySetting = UAbilitiesSettingsLibrary::GetAbilitiesByName(AbilityName);
+	WeaponInfo.WeaponSoundSettings = GetWeaponSoundSettingsForWeapon(WeaponName, WeaponSoundSetting);
+	
+	WeaponInfo.FlashlightSettingsEntry = UFlashlightSettingsBPLibrary::GetFlashlightSettingsByName(FlashlightName);
 	
 	return WeaponInfo;
 }
@@ -977,5 +1275,329 @@ FWeaponIcon UWeaponInformationLibrary::GetMuzzleIconForWeapon(EWeaponName Weapon
 	case EWeaponName::Sniper_02: return USniper02WeaponIconSettingsLibrary::GetWeaponIconByName(MuzzleName);
 	case EWeaponName::Sniper_03: return USniper03WeaponIconSettingsLibrary::GetWeaponIconByName(MuzzleName);
 	default: return FWeaponIcon();
+	}
+}
+
+FWeaponMontageSettings UWeaponInformationLibrary::GetWeaponMontageSettingsForWeapon(EWeaponName WeaponName, ECharacterMontageName MontageName)
+{
+	switch (WeaponName)
+	{
+	case EWeaponName::Assault_Rifle_01: return UAR01MontageSettingsLibrary::GetAR01MontageSettingsByName(MontageName);
+	case EWeaponName::Assault_Rifle_02: return UAR02MontageSettingsLibrary::GetAR02MontageSettingsByName(MontageName);
+	case EWeaponName::Assault_Rifle_03: return UAR03MontageSettingsLibrary::GetAR03MontageSettingsByName(MontageName);
+	case EWeaponName::Handgun_01: return UHandgun01MontageSettingsLibrary::GetHandgun01MontageSettingsByName(MontageName);
+	case EWeaponName::Handgun_02: return UHandgun02MontageSettingsLibrary::GetHandgun02MontageSettingsByName(MontageName);
+	case EWeaponName::Handgun_03: return UHandgun03MontageSettingsLibrary::GetHandgun03MontageSettingsByName(MontageName);
+	case EWeaponName::Handgun_04: return UHandgun04MontageSettingsLibrary::GetHandgun04MontageSettingsByName(MontageName);
+	case EWeaponName::Rocket_Launcher_01: return URL01MontageSettingsLibrary::GetRL01MontageSettingsByName(MontageName);
+	case EWeaponName::Grenade_Launcher_01: return UGL01MontageSettingsLibrary::GetGL01MontageSettingsByName(MontageName);
+	case EWeaponName::Shotgun_01: return UShotgun01MontageSettingsLibrary::GetShotgun01MontageSettingsByName(MontageName);
+	case EWeaponName::SMG_01: return USMG01MontageSettingsLibrary::GetSMG01MontageSettingsByName(MontageName);
+	case EWeaponName::SMG_02: return USMG02MontageSettingsLibrary::GetSMG02MontageSettingsByName(MontageName);
+	case EWeaponName::SMG_03: return USMG03MontageSettingsLibrary::GetSMG03MontageSettingsByName(MontageName);
+	case EWeaponName::SMG_04: return USMG04MontageSettingsLibrary::GetSMG04MontageSettingsByName(MontageName);
+	case EWeaponName::SMG_05: return USMG05MontageSettingsLibrary::GetSMG05MontageSettingsByName(MontageName);
+	case EWeaponName::Sniper_01: return USniper01MontageSettingsLibrary::GetSniper01MontageSettingsByName(MontageName);
+	case EWeaponName::Sniper_02: return USniper02MontageSettingsLibrary::GetSniper02MontageSettingsByName(MontageName);
+	case EWeaponName::Sniper_03: return USniper03MontageSettingsLibrary::GetSniper03MontageSettingsByName(MontageName);
+	default: return FWeaponMontageSettings();
+	}
+}
+
+FCharacterPoseSettings UWeaponInformationLibrary::GetCharacterPoseSettingsForWeapon(EWeaponName WeaponName, ECharacterPoseName PoseName)
+{
+	switch (WeaponName)
+	{
+	case EWeaponName::Assault_Rifle_01: return UCharacterAR01PoseSettingsLibrary::GetCharacterAR01PoseSettingsByName(PoseName);
+	case EWeaponName::Assault_Rifle_02: return UCharacterAR02PoseSettingsLibrary::GetCharacterAR02PoseSettingsByName(PoseName);
+	case EWeaponName::Assault_Rifle_03: return UCharacterAR03PoseSettingsLibrary::GetCharacterAR03PoseSettingsByName(PoseName);
+	case EWeaponName::Handgun_01: return UCharacterHandgun01PoseSettingsLibrary::GetCharacterHandgun01PoseSettingsByName(PoseName);
+	case EWeaponName::Handgun_02: return UCharacterHandgun02PoseSettingsLibrary::GetCharacterHandgun02PoseSettingsByName(PoseName);
+	case EWeaponName::Handgun_03: return UCharacterHandgun03PoseSettingsLibrary::GetCharacterHandgun03PoseSettingsByName(PoseName);
+	case EWeaponName::Handgun_04: return UCharacterHandgun04PoseSettingsLibrary::GetCharacterHandgun04PoseSettingsByName(PoseName);
+	case EWeaponName::Rocket_Launcher_01: return UCharacterRocketLauncher01PoseSettingsLibrary::GetCharacterRocketLauncher01PoseSettingsByName(PoseName);
+	case EWeaponName::Grenade_Launcher_01: return UCharacterGL01PoseSettingsLibrary::GetCharacterGL01PoseSettingsByName(PoseName);
+	case EWeaponName::Shotgun_01: return UCharacterShotgun01PoseSettingsLibrary::GetCharacterShotgun01PoseSettingsByName(PoseName);
+	case EWeaponName::SMG_01: return UCharacterSMG01PoseSettingsLibrary::GetCharacterSMG01PoseSettingsByName(PoseName);
+	case EWeaponName::SMG_02: return UCharacterSMG02PoseSettingsLibrary::GetCharacterSMG02PoseSettingsByName(PoseName);
+	case EWeaponName::SMG_03: return UCharacterSMG03PoseSettingsLibrary::GetCharacterSMG03PoseSettingsByName(PoseName);
+	case EWeaponName::SMG_04: return UCharacterSMG04PoseSettingsLibrary::GetCharacterSMG04PoseSettingsByName(PoseName);
+	case EWeaponName::SMG_05: return UCharacterSMG05PoseSettingsLibrary::GetCharacterSMG05PoseSettingsByName(PoseName);
+	case EWeaponName::Sniper_01: return UCharacterSniper01PoseSettingsLibrary::GetCharacterSniper01PoseSettingsByName(PoseName);
+	case EWeaponName::Sniper_02: return UCharacterSniper02PoseSettingsLibrary::GetCharacterSniper02PoseSettingsByName(PoseName);
+	case EWeaponName::Sniper_03: return UCharacterSniper03PoseSettingsLibrary::GetCharacterSniper03PoseSettingsByName(PoseName);
+	default: return FCharacterPoseSettings();
+	}
+}
+
+FCharacterMontageSettings UWeaponInformationLibrary::GetCharacterMontageSettingsForWeapon(EWeaponName WeaponName, ECharacterMontageName MontageName)
+{
+	switch (WeaponName)
+	{
+	case EWeaponName::Assault_Rifle_01: return UCharacterAR01MontageSettingsLibrary::GetCharacterAR01MontageSettingsByName(MontageName);
+	case EWeaponName::Assault_Rifle_02: return UCharacterAR02MontageSettingsLibrary::GetCharacterAR02MontageSettingsByName(MontageName);
+	case EWeaponName::Assault_Rifle_03: return UCharacterAR03MontageSettingsLibrary::GetCharacterAR03MontageSettingsByName(MontageName);
+	case EWeaponName::Handgun_01: return UCharacterHandgun01MontageSettingsLibrary::GetCharacterHandgun01MontageSettingsByName(MontageName);
+	case EWeaponName::Handgun_02: return UCharacterHandgun02MontageSettingsLibrary::GetCharacterHandgun02MontageSettingsByName(MontageName);
+	case EWeaponName::Handgun_03: return UCharacterHandgun03MontageSettingsLibrary::GetCharacterHandgun03MontageSettingsByName(MontageName);
+	case EWeaponName::Handgun_04: return UCharacterHandgun04MontageSettingsLibrary::GetCharacterHandgun04MontageSettingsByName(MontageName);
+	case EWeaponName::Rocket_Launcher_01: return UCharacterRocketLauncher01MontageSettingsLibrary::GetCharacterRocketLauncher01MontageSettingsByName(MontageName);
+	case EWeaponName::Grenade_Launcher_01: return UCharacterGL01MontageSettingsLibrary::GetCharacterGL01MontageSettingsByName(MontageName);
+	case EWeaponName::Shotgun_01: return UCharacterShotgun01MontageSettingsLibrary::GetCharacterShotgun01MontageSettingsByName(MontageName);
+	case EWeaponName::SMG_01: return UCharacterSMG01MontageSettingsLibrary::GetCharacterSMG01MontageSettingsByName(MontageName);
+	case EWeaponName::SMG_02: return UCharacterSMG02MontageSettingsLibrary::GetCharacterSMG02MontageSettingsByName(MontageName);
+	case EWeaponName::SMG_03: return UCharacterSMG03MontageSettingsLibrary::GetCharacterSMG03MontageSettingsByName(MontageName);
+	case EWeaponName::SMG_04: return UCharacterSMG04MontageSettingsLibrary::GetCharacterSMG04MontageSettingsByName(MontageName);
+	case EWeaponName::SMG_05: return UCharacterSMG05MontageSettingsLibrary::GetCharacterSMG05MontageSettingsByName(MontageName);
+	case EWeaponName::Sniper_01: return UCharacterSniper01MontageSettingsLibrary::GetCharacterSniper01MontageSettingsByName(MontageName);
+	case EWeaponName::Sniper_02: return UCharacterSniper02MontageSettingsLibrary::GetCharacterSniper02MontageSettingsByName(MontageName);
+	case EWeaponName::Sniper_03: return UCharacterSniper03MontageSettingsLibrary::GetCharacterSniper03MontageSettingsByName(MontageName);
+	default: return FCharacterMontageSettings();
+	}
+}
+
+FWeaponSound UWeaponInformationLibrary::GetWeaponSoundSettingsForWeapon(EWeaponName WeaponName, ECharacterMontageName SoundName)
+{
+	switch (WeaponName)
+	{
+	case EWeaponName::Assault_Rifle_01: return UAR01WeaponSoundSettingsLibrary::GetWeaponSoundByName(SoundName);
+	case EWeaponName::Assault_Rifle_02: return UAR02WeaponSoundSettingsLibrary::GetWeaponSoundByName(SoundName);
+	case EWeaponName::Assault_Rifle_03: return UAR03WeaponSoundSettingsLibrary::GetWeaponSoundByName(SoundName);
+	case EWeaponName::Handgun_01: return UHandgunWeaponSoundSettingsLibrary::GetWeaponSoundByName(SoundName);
+	case EWeaponName::Handgun_02: return UHandgunWeaponSoundSettingsLibrary::GetWeaponSoundByName(SoundName);
+	case EWeaponName::Handgun_03: return UHandgunWeaponSoundSettingsLibrary::GetWeaponSoundByName(SoundName);
+	case EWeaponName::Handgun_04: return UHandgunWeaponSoundSettingsLibrary::GetWeaponSoundByName(SoundName);
+	case EWeaponName::Rocket_Launcher_01: return URL01WeaponSoundSettingsLibrary::GetWeaponSoundByName(SoundName);
+	case EWeaponName::Grenade_Launcher_01: return UGL01WeaponSoundSettingsLibrary::GetWeaponSoundByName(SoundName);
+	case EWeaponName::Shotgun_01: return UShotgun01WeaponSoundSettingsLibrary::GetWeaponSoundByName(SoundName);
+	case EWeaponName::SMG_01: return USMG01WeaponSoundSettingsLibrary::GetWeaponSoundByName(SoundName);
+	case EWeaponName::SMG_02: return USMG02WeaponSoundSettingsLibrary::GetWeaponSoundByName(SoundName);
+	case EWeaponName::SMG_03: return USMG03WeaponSoundSettingsLibrary::GetWeaponSoundByName(SoundName);
+	case EWeaponName::SMG_04: return USMG04WeaponSoundSettingsLibrary::GetWeaponSoundByName(SoundName);
+	case EWeaponName::SMG_05: return USMG05WeaponSoundSettingsLibrary::GetWeaponSoundByName(SoundName);
+	case EWeaponName::Sniper_01: return USniper01WeaponSoundSettingsLibrary::GetWeaponSoundByName(SoundName);
+	case EWeaponName::Sniper_02: return USniper02WeaponSoundSettingsLibrary::GetWeaponSoundByName(SoundName);
+	case EWeaponName::Sniper_03: return USniper03WeaponSoundSettingsLibrary::GetWeaponSoundByName(SoundName);
+	default: return FWeaponSound();
+	}
+}
+
+FWeaponPhysicalSettingsEntry UWeaponInformationLibrary::GetWeaponPhysicalSettingsEntryForWeapon()
+{
+	return FWeaponPhysicalSettingsEntry(
+	UWeaponPhysicalSettingsLibrary::GetPhysicalSettingsByName(EWeaponPhysicalState::Hidden),
+	UWeaponPhysicalSettingsLibrary::GetPhysicalSettingsByName(EWeaponPhysicalState::Icon),
+	UWeaponPhysicalSettingsLibrary::GetPhysicalSettingsByName(EWeaponPhysicalState::Static),
+	UWeaponPhysicalSettingsLibrary::GetPhysicalSettingsByName(EWeaponPhysicalState::Physics),
+	UWeaponPhysicalSettingsLibrary::GetPhysicalSettingsByName(EWeaponPhysicalState::Physics_Attached),
+	UWeaponPhysicalSettingsLibrary::GetPhysicalSettingsByName(EWeaponPhysicalState::Viewmodel),
+	UWeaponPhysicalSettingsLibrary::GetPhysicalSettingsByName(EWeaponPhysicalState::Viewmodel_Third_Person),
+	UWeaponPhysicalSettingsLibrary::GetPhysicalSettingsByName(EWeaponPhysicalState::Static_Shadow)
+	);
+}
+
+// Helper chung cho Character Weapon Montage Settings Entry
+static FCharacterWeaponMontageSettingsEntry CreateCharacterMontageSettingsEntry(const TFunction<FCharacterMontageSettings(ECharacterMontageName)>& Get)
+{
+	return FCharacterWeaponMontageSettingsEntry(
+		Get(ECharacterMontageName::Character_Montage_Jump),
+		Get(ECharacterMontageName::Character_Montage_Fire),
+		Get(ECharacterMontageName::Character_Montage_Fire_Empty),
+		Get(ECharacterMontageName::Character_Montage_Reload),
+		Get(ECharacterMontageName::Character_Montage_Reload_Empty),
+		Get(ECharacterMontageName::Character_Montage_Reload_Bolt),
+		Get(ECharacterMontageName::Character_Montage_Reload_Open),
+		Get(ECharacterMontageName::Character_Montage_Reload_Insert),
+		Get(ECharacterMontageName::Character_Montage_Reload_Close),
+		Get(ECharacterMontageName::Character_Montage_Inspect),
+		Get(ECharacterMontageName::Character_Montage_Inspect_Smooth),
+		Get(ECharacterMontageName::Character_Montage_Holster),
+		Get(ECharacterMontageName::Character_Montage_Holster_Smooth),
+		Get(ECharacterMontageName::Character_Montage_Unholster),
+		Get(ECharacterMontageName::Character_Montage_Unholster_Smooth),
+		Get(ECharacterMontageName::Character_Montage_Throw_Grenade),
+		Get(ECharacterMontageName::Character_Montage_Throw_Grenade_Additive),
+		Get(ECharacterMontageName::Character_Montage_Knife_Attack),
+		Get(ECharacterMontageName::Character_Montage_Knife_Attack_Additive),
+		Get(ECharacterMontageName::Character_Montage_Attack_01),
+		Get(ECharacterMontageName::Character_Montage_Attack_02),
+		Get(ECharacterMontageName::Character_Montage_None)
+	);
+}
+
+FCharacterWeaponMontageSettingsEntry UWeaponInformationLibrary::GetCharacterMontageSettingsEntryForWeapon(EWeaponName WeaponName)
+{
+	switch (WeaponName)
+	{
+	case EWeaponName::Assault_Rifle_01:
+		return CreateCharacterMontageSettingsEntry([](ECharacterMontageName Name) { return UCharacterAR01MontageSettingsLibrary::GetCharacterAR01MontageSettingsByName(Name); });
+	case EWeaponName::Assault_Rifle_02:
+		return CreateCharacterMontageSettingsEntry([](ECharacterMontageName Name) { return UCharacterAR02MontageSettingsLibrary::GetCharacterAR02MontageSettingsByName(Name); });
+	case EWeaponName::Assault_Rifle_03:
+		return CreateCharacterMontageSettingsEntry([](ECharacterMontageName Name) { return UCharacterAR03MontageSettingsLibrary::GetCharacterAR03MontageSettingsByName(Name); });
+	case EWeaponName::Handgun_01:
+		return CreateCharacterMontageSettingsEntry([](ECharacterMontageName Name) { return UCharacterHandgun01MontageSettingsLibrary::GetCharacterHandgun01MontageSettingsByName(Name); });
+	case EWeaponName::Handgun_02:
+		return CreateCharacterMontageSettingsEntry([](ECharacterMontageName Name) { return UCharacterHandgun02MontageSettingsLibrary::GetCharacterHandgun02MontageSettingsByName(Name); });
+	case EWeaponName::Handgun_03:
+		return CreateCharacterMontageSettingsEntry([](ECharacterMontageName Name) { return UCharacterHandgun03MontageSettingsLibrary::GetCharacterHandgun03MontageSettingsByName(Name); });
+	case EWeaponName::Handgun_04:
+		return CreateCharacterMontageSettingsEntry([](ECharacterMontageName Name) { return UCharacterHandgun04MontageSettingsLibrary::GetCharacterHandgun04MontageSettingsByName(Name); });
+	case EWeaponName::Rocket_Launcher_01:
+		return CreateCharacterMontageSettingsEntry([](ECharacterMontageName Name) { return UCharacterRocketLauncher01MontageSettingsLibrary::GetCharacterRocketLauncher01MontageSettingsByName(Name); });
+	case EWeaponName::Grenade_Launcher_01:
+		return CreateCharacterMontageSettingsEntry([](ECharacterMontageName Name) { return UCharacterGL01MontageSettingsLibrary::GetCharacterGL01MontageSettingsByName(Name); });
+	case EWeaponName::Shotgun_01:
+		return CreateCharacterMontageSettingsEntry([](ECharacterMontageName Name) { return UCharacterShotgun01MontageSettingsLibrary::GetCharacterShotgun01MontageSettingsByName(Name); });
+	case EWeaponName::SMG_01:
+		return CreateCharacterMontageSettingsEntry([](ECharacterMontageName Name) { return UCharacterSMG01MontageSettingsLibrary::GetCharacterSMG01MontageSettingsByName(Name); });
+	case EWeaponName::SMG_02:
+		return CreateCharacterMontageSettingsEntry([](ECharacterMontageName Name) { return UCharacterSMG02MontageSettingsLibrary::GetCharacterSMG02MontageSettingsByName(Name); });
+	case EWeaponName::SMG_03:
+		return CreateCharacterMontageSettingsEntry([](ECharacterMontageName Name) { return UCharacterSMG03MontageSettingsLibrary::GetCharacterSMG03MontageSettingsByName(Name); });
+	case EWeaponName::SMG_04:
+		return CreateCharacterMontageSettingsEntry([](ECharacterMontageName Name) { return UCharacterSMG04MontageSettingsLibrary::GetCharacterSMG04MontageSettingsByName(Name); });
+	case EWeaponName::SMG_05:
+		return CreateCharacterMontageSettingsEntry([](ECharacterMontageName Name) { return UCharacterSMG05MontageSettingsLibrary::GetCharacterSMG05MontageSettingsByName(Name); });
+	case EWeaponName::Sniper_01:
+		return CreateCharacterMontageSettingsEntry([](ECharacterMontageName Name) { return UCharacterSniper01MontageSettingsLibrary::GetCharacterSniper01MontageSettingsByName(Name); });
+	case EWeaponName::Sniper_02:
+		return CreateCharacterMontageSettingsEntry([](ECharacterMontageName Name) { return UCharacterSniper02MontageSettingsLibrary::GetCharacterSniper02MontageSettingsByName(Name); });
+	case EWeaponName::Sniper_03:
+		return CreateCharacterMontageSettingsEntry([](ECharacterMontageName Name) { return UCharacterSniper03MontageSettingsLibrary::GetCharacterSniper03MontageSettingsByName(Name); });
+	default: return FCharacterWeaponMontageSettingsEntry();
+	}
+}
+
+// Helper chung cho Weapon Montage Settings Entry
+static FWeaponMontageSettingsEntry CreateWeaponMontageSettingsEntry(const TFunction<FWeaponMontageSettings(ECharacterMontageName)>& Get)
+{
+	return FWeaponMontageSettingsEntry(
+		Get(ECharacterMontageName::Character_Montage_Jump),
+		Get(ECharacterMontageName::Character_Montage_Fire),
+		Get(ECharacterMontageName::Character_Montage_Fire_Empty),
+		Get(ECharacterMontageName::Character_Montage_Reload),
+		Get(ECharacterMontageName::Character_Montage_Reload_Empty),
+		Get(ECharacterMontageName::Character_Montage_Reload_Bolt),
+		Get(ECharacterMontageName::Character_Montage_Reload_Open),
+		Get(ECharacterMontageName::Character_Montage_Reload_Insert),
+		Get(ECharacterMontageName::Character_Montage_Reload_Close),
+		Get(ECharacterMontageName::Character_Montage_Inspect),
+		Get(ECharacterMontageName::Character_Montage_Inspect_Smooth),
+		Get(ECharacterMontageName::Character_Montage_Holster),
+		Get(ECharacterMontageName::Character_Montage_Holster_Smooth),
+		Get(ECharacterMontageName::Character_Montage_Unholster),
+		Get(ECharacterMontageName::Character_Montage_Unholster_Smooth),
+		Get(ECharacterMontageName::Character_Montage_Throw_Grenade),
+		Get(ECharacterMontageName::Character_Montage_Throw_Grenade_Additive),
+		Get(ECharacterMontageName::Character_Montage_Knife_Attack),
+		Get(ECharacterMontageName::Character_Montage_Knife_Attack_Additive),
+		Get(ECharacterMontageName::Character_Montage_Attack_01),
+		Get(ECharacterMontageName::Character_Montage_Attack_02),
+		Get(ECharacterMontageName::Character_Montage_None)
+	);
+}
+
+// Helper chung cho Character Weapon Pose Settings
+static FCharacterWeaponPoseSettings CreatePoseSettings(const TFunction<FCharacterPoseSettings(ECharacterPoseName)>& Get)
+{
+	return FCharacterWeaponPoseSettings(
+		Get(ECharacterPoseName::Idle),
+		Get(ECharacterPoseName::Idle_Walking),
+		Get(ECharacterPoseName::Idle_Crouch),
+		Get(ECharacterPoseName::Aim),
+		Get(ECharacterPoseName::Aim_Walking),
+		Get(ECharacterPoseName::Aim_Crouch),
+		Get(ECharacterPoseName::Ready),
+		Get(ECharacterPoseName::Ready_Walking),
+		Get(ECharacterPoseName::Ready_Crouch)
+	);
+}
+
+FCharacterWeaponPoseSettings UWeaponInformationLibrary::GetCharacterWeaponPoseSettingsForWeapon(EWeaponName WeaponName)
+{
+	switch (WeaponName)
+	{
+	case EWeaponName::Assault_Rifle_01:
+		return CreatePoseSettings([](ECharacterPoseName Name) { return UCharacterAR01PoseSettingsLibrary::GetCharacterAR01PoseSettingsByName(Name); });
+	case EWeaponName::Assault_Rifle_02:
+		return CreatePoseSettings([](ECharacterPoseName Name) { return UCharacterAR02PoseSettingsLibrary::GetCharacterAR02PoseSettingsByName(Name); });
+	case EWeaponName::Assault_Rifle_03:
+		return CreatePoseSettings([](ECharacterPoseName Name) { return UCharacterAR03PoseSettingsLibrary::GetCharacterAR03PoseSettingsByName(Name); });
+	case EWeaponName::Handgun_01:
+		return CreatePoseSettings([](ECharacterPoseName Name) { return UCharacterHandgun01PoseSettingsLibrary::GetCharacterHandgun01PoseSettingsByName(Name); });
+	case EWeaponName::Handgun_02:
+		return CreatePoseSettings([](ECharacterPoseName Name) { return UCharacterHandgun02PoseSettingsLibrary::GetCharacterHandgun02PoseSettingsByName(Name); });
+	case EWeaponName::Handgun_03:
+		return CreatePoseSettings([](ECharacterPoseName Name) { return UCharacterHandgun03PoseSettingsLibrary::GetCharacterHandgun03PoseSettingsByName(Name); });
+	case EWeaponName::Handgun_04:
+		return CreatePoseSettings([](ECharacterPoseName Name) { return UCharacterHandgun04PoseSettingsLibrary::GetCharacterHandgun04PoseSettingsByName(Name); });
+	case EWeaponName::Rocket_Launcher_01:
+		return CreatePoseSettings([](ECharacterPoseName Name) { return UCharacterRocketLauncher01PoseSettingsLibrary::GetCharacterRocketLauncher01PoseSettingsByName(Name); });
+	case EWeaponName::Grenade_Launcher_01:
+		return CreatePoseSettings([](ECharacterPoseName Name) { return UCharacterGL01PoseSettingsLibrary::GetCharacterGL01PoseSettingsByName(Name); });
+	case EWeaponName::Shotgun_01:
+		return CreatePoseSettings([](ECharacterPoseName Name) { return UCharacterShotgun01PoseSettingsLibrary::GetCharacterShotgun01PoseSettingsByName(Name); });
+	case EWeaponName::SMG_01:
+		return CreatePoseSettings([](ECharacterPoseName Name) { return UCharacterSMG01PoseSettingsLibrary::GetCharacterSMG01PoseSettingsByName(Name); });
+	case EWeaponName::SMG_02:
+		return CreatePoseSettings([](ECharacterPoseName Name) { return UCharacterSMG02PoseSettingsLibrary::GetCharacterSMG02PoseSettingsByName(Name); });
+	case EWeaponName::SMG_03:
+		return CreatePoseSettings([](ECharacterPoseName Name) { return UCharacterSMG03PoseSettingsLibrary::GetCharacterSMG03PoseSettingsByName(Name); });
+	case EWeaponName::SMG_04:
+		return CreatePoseSettings([](ECharacterPoseName Name) { return UCharacterSMG04PoseSettingsLibrary::GetCharacterSMG04PoseSettingsByName(Name); });
+	case EWeaponName::SMG_05:
+		return CreatePoseSettings([](ECharacterPoseName Name) { return UCharacterSMG05PoseSettingsLibrary::GetCharacterSMG05PoseSettingsByName(Name); });
+	case EWeaponName::Sniper_01:
+		return CreatePoseSettings([](ECharacterPoseName Name) { return UCharacterSniper01PoseSettingsLibrary::GetCharacterSniper01PoseSettingsByName(Name); });
+	case EWeaponName::Sniper_02:
+		return CreatePoseSettings([](ECharacterPoseName Name) { return UCharacterSniper02PoseSettingsLibrary::GetCharacterSniper02PoseSettingsByName(Name); });
+	case EWeaponName::Sniper_03:
+		return CreatePoseSettings([](ECharacterPoseName Name) { return UCharacterSniper03PoseSettingsLibrary::GetCharacterSniper03PoseSettingsByName(Name); });
+	default: return FCharacterWeaponPoseSettings();
+	}
+}
+
+FWeaponMontageSettingsEntry UWeaponInformationLibrary::GetWeaponMontageSettingsEntryForWeapon(EWeaponName WeaponName)
+{
+	switch (WeaponName)
+	{
+	case EWeaponName::Assault_Rifle_01:
+		return CreateWeaponMontageSettingsEntry([](ECharacterMontageName Name) { return UAR01MontageSettingsLibrary::GetAR01MontageSettingsByName(Name); });
+	case EWeaponName::Assault_Rifle_02:
+		return CreateWeaponMontageSettingsEntry([](ECharacterMontageName Name) { return UAR02MontageSettingsLibrary::GetAR02MontageSettingsByName(Name); });
+	case EWeaponName::Assault_Rifle_03:
+		return CreateWeaponMontageSettingsEntry([](ECharacterMontageName Name) { return UAR03MontageSettingsLibrary::GetAR03MontageSettingsByName(Name); });
+	case EWeaponName::Handgun_01:
+		return CreateWeaponMontageSettingsEntry([](ECharacterMontageName Name) { return UHandgun01MontageSettingsLibrary::GetHandgun01MontageSettingsByName(Name); });
+	case EWeaponName::Handgun_02:
+		return CreateWeaponMontageSettingsEntry([](ECharacterMontageName Name) { return UHandgun02MontageSettingsLibrary::GetHandgun02MontageSettingsByName(Name); });
+	case EWeaponName::Handgun_03:
+		return CreateWeaponMontageSettingsEntry([](ECharacterMontageName Name) { return UHandgun03MontageSettingsLibrary::GetHandgun03MontageSettingsByName(Name); });
+	case EWeaponName::Handgun_04:
+		return CreateWeaponMontageSettingsEntry([](ECharacterMontageName Name) { return UHandgun04MontageSettingsLibrary::GetHandgun04MontageSettingsByName(Name); });
+	case EWeaponName::Rocket_Launcher_01:
+		return CreateWeaponMontageSettingsEntry([](ECharacterMontageName Name) { return URL01MontageSettingsLibrary::GetRL01MontageSettingsByName(Name); });
+	case EWeaponName::Grenade_Launcher_01:
+		return CreateWeaponMontageSettingsEntry([](ECharacterMontageName Name) { return UGL01MontageSettingsLibrary::GetGL01MontageSettingsByName(Name); });
+	case EWeaponName::Shotgun_01:
+		return CreateWeaponMontageSettingsEntry([](ECharacterMontageName Name) { return UShotgun01MontageSettingsLibrary::GetShotgun01MontageSettingsByName(Name); });
+	case EWeaponName::SMG_01:
+		return CreateWeaponMontageSettingsEntry([](ECharacterMontageName Name) { return USMG01MontageSettingsLibrary::GetSMG01MontageSettingsByName(Name); });
+	case EWeaponName::SMG_02:
+		return CreateWeaponMontageSettingsEntry([](ECharacterMontageName Name) { return USMG02MontageSettingsLibrary::GetSMG02MontageSettingsByName(Name); });
+	case EWeaponName::SMG_03:
+		return CreateWeaponMontageSettingsEntry([](ECharacterMontageName Name) { return USMG03MontageSettingsLibrary::GetSMG03MontageSettingsByName(Name); });
+	case EWeaponName::SMG_04:
+		return CreateWeaponMontageSettingsEntry([](ECharacterMontageName Name) { return USMG04MontageSettingsLibrary::GetSMG04MontageSettingsByName(Name); });
+	case EWeaponName::SMG_05:
+		return CreateWeaponMontageSettingsEntry([](ECharacterMontageName Name) { return USMG05MontageSettingsLibrary::GetSMG05MontageSettingsByName(Name); });
+	case EWeaponName::Sniper_01:
+		return CreateWeaponMontageSettingsEntry([](ECharacterMontageName Name) { return USniper01MontageSettingsLibrary::GetSniper01MontageSettingsByName(Name); });
+	case EWeaponName::Sniper_02:
+		return CreateWeaponMontageSettingsEntry([](ECharacterMontageName Name) { return USniper02MontageSettingsLibrary::GetSniper02MontageSettingsByName(Name); });
+	case EWeaponName::Sniper_03:
+		return CreateWeaponMontageSettingsEntry([](ECharacterMontageName Name) { return USniper03MontageSettingsLibrary::GetSniper03MontageSettingsByName(Name); });
+	default: return FWeaponMontageSettingsEntry();
 	}
 }

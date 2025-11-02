@@ -1,9 +1,65 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "FWeaponSettings.h"
+#include "FScopeSettingsEntry.h"
+#include "Rush/Character/Struct/FCharacterBlendspaceSettings.h"
+#include "Rush/Character/Struct/FCharacterSequenceSettings.h"
 #include "FWeaponAnimationSettings.generated.h"
 
 enum EWeaponName : uint8;
+
+USTRUCT(Blueprintable, BlueprintType)
+struct FBlendSettings
+{
+    GENERATED_BODY()
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    float BlendIn = 0.0f;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    float BlendOut = 0.0f;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    float TimedValue = 0.0f;
+};
+
+USTRUCT(Blueprintable)
+struct FLoweredSettings
+{
+    GENERATED_BODY()
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    FBlendSettings SettingsBlend;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    FTransform AdditionalOffset;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    bool bRemoveStandingOffset;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    bool bRunningAnimationUsed;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    float RunningAnimationExplicitTime;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    bool bRunningAnimationOffsetUsed;
+};
+
+USTRUCT(Blueprintable)
+struct FLeanSettings
+{
+    GENERATED_BODY()
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    TSoftObjectPtr<UCurveVector> CurveLocation;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    TSoftObjectPtr<UCurveVector> CurveRotation;
+};
+
 
 USTRUCT(BlueprintType)
 struct RUSH_API FWeaponAnimationSettings
@@ -14,169 +70,120 @@ struct RUSH_API FWeaponAnimationSettings
     TEnumAsByte<EWeaponName> Name;
 
     // Running Blend Settings
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Running Blend")
-    float BlendIn = 0.4f;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Running Blend")
-    float BlendOut = 0.3f;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Running Blend")
-    float TimedValue = 0.25f;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    FBlendSettings BlendSettings;
 
     // Play Rate Settings
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Play Rate")
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
     float PlayRateBreathing = 1.0f;
 
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Play Rate")
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
     float PlayRateWalking = 1.0f;
 
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Play Rate")
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
     float PlayRateRunning = 1.0f;
 
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Play Rate")
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
     float PlayRateTurning = 1.0f;
 
     // Lag Movement Interp Speed
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Lag")
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
     float LagMovementInterpSpeed = 10.0f;
 
     // Look Offset Multiplier Location
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Look Offset")
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
     FVector LookOffsetMultiplierLocation = FVector(-0.1f, 0.0f, 0.1f);
 
     // Look Offset Multiplier Rotation
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Look Offset")
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
     FVector LookOffsetMultiplierRotation = FVector(0.0f, -0.7f, 0.0f);
 
     // Standing Offset
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Standing Offset")
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
     FTransform StandingOffset = FTransform::Identity;
 
     // Standing Lag Movement Location
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Standing Lag")
-    FVector StandingLagMovementLocationHorizontal = FVector(2.0f, 0.0f, 0.0f);
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Standing Lag")
-    FVector StandingLagMovementLocationVertical = FVector(0.0f, -1.75f, 0.0f);
-
-    // Standing Lag Movement Rotation
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Standing Lag")
-    FVector StandingLagMovementRotationHorizontal = FVector(0.0f, 0.0f, 1.0f);
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Standing Lag")
-    FVector StandingLagMovementRotationVertical = FVector(1.2f, 0.0f, -0.5f);
-
-    // Standing Lag Look Location
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Standing Lag")
-    FVector StandingLagLookLocationHorizontal = FVector(3.0f, 0.0f, 0.0f);
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Standing Lag")
-    FVector StandingLagLookLocationVertical = FVector(0.0f, 0.0f, 1.0f);
-
-    // Standing Lag Look Rotation
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Standing Lag")
-    FVector StandingLagLookRotationHorizontal = FVector(0.0f, 3.0f, 0.25f);
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Standing Lag")
-    FVector StandingLagLookRotationVertical = FVector(0.25f, 0.0f, 0.0f);
-
-    // Spring Interpolation
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Spring Interpolation")
-    float SpringStiffness = 0.8f;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Spring Interpolation")
-    float SpringCriticalDampingFactor = 0.5f;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Spring Interpolation")
-    float SpringMass = 0.01f;
-
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    FLagValues StandingLag;
+    
     // Override TP Standing Lag
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "TP Standing Lag")
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
     bool bOverrideTPStandingLag = false;
 
     // TP Standing Lag Location
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "TP Standing Lag")
-    FVector TPStandingLagMovementLocationHorizontal = FVector::ZeroVector;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "TP Standing Lag")
-    FVector TPStandingLagMovementLocationVertical = FVector::ZeroVector;
-
-    // TP Standing Lag Rotation
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "TP Standing Lag")
-    FVector TPStandingLagMovementRotationHorizontal = FVector::ZeroVector;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "TP Standing Lag")
-    FVector TPStandingLagMovementRotationVertical = FVector::ZeroVector;
-
-    // TP Standing Lag Look Location
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "TP Standing Lag")
-    FVector TPStandingLagLookLocationHorizontal = FVector::ZeroVector;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "TP Standing Lag")
-    FVector TPStandingLagLookLocationVertical = FVector::ZeroVector;
-
-    // TP Standing Lag Look Rotation
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "TP Standing Lag")
-    FVector TPStandingLagLookRotationHorizontal = FVector::ZeroVector;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "TP Standing Lag")
-    FVector TPStandingLagLookRotationVertical = FVector::ZeroVector;
-
-    // TP Spring Interpolation
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "TP Spring Interpolation")
-    float TPSpringStiffness = 0.4f;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "TP Spring Interpolation")
-    float TPSpringCriticalDampingFactor = 0.5f;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "TP Spring Interpolation")
-    float TPSpringMass = 0.006f;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    FLagValues TPStandingLag;
 
     // Standing Lag Location Controller Multiplier
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Standing Lag")
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
     float StandingLagLocationControllerMultiplier = 1.0f;
 
     // Aiming Offset
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Aiming Offset")
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
     FTransform AimingOffset = FTransform::Identity;
 
     // Aiming Lag Movement Location
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Aiming Lag")
-    FVector AimingLagMovementLocationHorizontal = FVector(0.1f, 0.0f, 0.0f);
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    FLagValues AimingLag;
 
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Aiming Lag")
-    FVector AimingLagMovementLocationVertical = FVector::ZeroVector;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    FTransform RunningOffset = FTransform::Identity;
 
-    // Aiming Lag Movement Rotation
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Aiming Lag")
-    FVector AimingLagMovementRotationHorizontal = FVector(0.0f, 0.1f, 0.0f);
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    FTransform CrouchingOffset = FTransform::Identity;
 
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Aiming Lag")
-    FVector AimingLagMovementRotationVertical = FVector::ZeroVector;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    FTransform MontageOffset = FTransform::Identity;
 
-    // Aiming Lag Look Location
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Aiming Lag")
-    FVector AimingLagLookLocationHorizontal = FVector(0.3f, 0.0f, 0.0f);
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    FLoweredSettings LoweredSettings;
 
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Aiming Lag")
-    FVector AimingLagLookLocationVertical = FVector(0.0f, 0.0f, 0.15f);
+    // Character Sequence Settings
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    FCharacterSequenceSettings CharacterSequenceSettingsStandingBreathing;
 
-    // Aiming Lag Look Rotation
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Aiming Lag")
-    FVector AimingLagLookRotationHorizontal = FVector(0.0f, 1.3f, 0.3f);
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    FCharacterSequenceSettings CharacterSequenceSettingsAimingWalking;
 
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Aiming Lag")
-    FVector AimingLagLookRotationVertical = FVector::ZeroVector;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    FCharacterSequenceSettings CharacterSequenceSettingsAimingBreathing;
 
-    // Aiming Spring Interpolation
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Aiming Spring Interpolation")
-    float AimingSpringStiffness = 0.9f;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    FCharacterSequenceSettings CharacterSequenceSettingsTurning;
 
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Aiming Spring Interpolation")
-    float AimingSpringCriticalDampingFactor = 0.5f;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    FCharacterSequenceSettings CharacterSequenceSettingsJog;
 
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Aiming Spring Interpolation")
-    float AimingSpringMass = 0.009f;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    FCharacterSequenceSettings CharacterSequenceSettingsSprint;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    FCharacterSequenceSettings CharacterSequenceSettingsSprintImpulse;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    FCharacterSequenceSettings CharacterSequenceSettingsSprintTactical;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    FCharacterSequenceSettings CharacterSequenceSettingsCrouchingWalking;
+
+    // Character Blendspace Settings
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    FCharacterBlendspaceSettings CharacterBlendspaceSettingsLeaning;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    FCharacterBlendspaceSettings CharacterBlendspaceSettingsWalking;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    FCharacterBlendspaceSettings CharacterBlendspaceSettingsAiming;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    FLeanSettings LeanSettings;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    FBlendSettings AimingSyncTime;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    FTransform TacticalSprintOffset;
 
     FWeaponAnimationSettings()
     {

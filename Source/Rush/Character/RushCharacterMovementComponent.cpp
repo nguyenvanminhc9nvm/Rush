@@ -8,7 +8,7 @@ URushCharacterMovementComponent::URushCharacterMovementComponent(const FObjectIn
 	BrakingFriction = 1.0f;
 	BrakingFrictionFactor = 1.0f;
 	bUseSeparateBrakingFriction = true;
-	CrouchedHalfHeight = 54.0f;
+	SetCrouchedHalfHeight(54.0f);
 	Mass = 400.0f;
 	MaxStepHeight = 25.0f;
 	MinAnalogWalkSpeed = 150.0f;
